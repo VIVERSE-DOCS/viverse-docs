@@ -16,7 +16,7 @@ The VIVERSE scene settings interface is used to control several settings for you
 
 ## Polygon Streaming
 
-The Polygon Streaming settings control how all assets embedded with VIVERSE's [Polygon Streaming](https://www.viverse.com/polygon-streaming) service are rendered in your world. For details on these settings, please consult this documentation: [Polygon Streaming Project Settings](https://app.gitbook.com/s/Y3WbwobASVOf4RiqnLEI/integrations-and-plugins/polygon-streaming-playcanvas-sdk/polygon-streaming-project-settings "mention")
+The Polygon Streaming settings control how all assets embedded with VIVERSE's [Polygon Streaming](https://www.viverse.com/polygon-streaming) service are rendered in your world. For details on these settings, please consult this documentation: [Polygon Streaming Project Settings](https://app.gitbook.com/s/Y3WbwobASVOf4RiqnLEI/integrations-and-plugins/polygon-streaming-playcanvas-sdk/plugin-usage/option-1-browser-extension/polygon-streaming-project-settings "mention")
 
 ## Quest Config
 
