@@ -10,7 +10,7 @@ description: >-
 
 We created a PlayCanvas sample project that contains examples of how to utilize the PlayCanvas Extension. Download the project and import it into a PlayCanvas account. Publish the project to VIVERSE and enter Preview mode to test out the functionality. The pages listed under API Reference are the functionality that the sample project is demoing.
 
-<table><thead><tr><th width="295">Project Name</th><th width="121">Download</th><th>Version</th></tr></thead><tbody><tr><td>Pet_Rescue_Sample_Scenes_1.0</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/VIVERSE_PlayCanvas_Sample_1.2_2025_2_18-20_30_18%201.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.2</strong>  </p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr></tbody></table>
+<table><thead><tr><th width="295">Project Name</th><th width="121">Download</th><th>Version</th></tr></thead><tbody><tr><td>VIVERSE_PlayCanvas_Sample_1.2</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/VIVERSE_PlayCanvas_Sample_1.2_2025_2_18-20_30_18%201.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.2</strong>  </p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr></tbody></table>
 
 This project is separated into different stations. Each station has **Tags** added to help identify the VIVERSE functionality the station is demonstrating.
 
