@@ -124,7 +124,7 @@ Confirm the extension is enabled on the Extensions tab.
 
 ## PlayCanvas Extension Download
 
-#### [Download the latest extension version](https://htc-directus-dev-usw2-pc-ui-ext.s3.amazonaws.com/viverse-world/production-sso/3.44/3.44.12_viverse-world_production-sso_4cd812f.zip)
+#### [Download the latest extension version](https://htc-directus-dev-usw2-pc-ui-ext.s3.amazonaws.com/viverse-world/production-sso/3.45/3.45.0_viverse-world_production-sso_67c0a75.zip)
 
 #### Change Log
 
