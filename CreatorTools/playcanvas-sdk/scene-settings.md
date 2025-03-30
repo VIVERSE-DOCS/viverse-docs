@@ -20,7 +20,7 @@ The Polygon Streaming settings control how all assets embedded with VIVERSE's [P
 
 ## Quest Config
 
-The Quest Config settings allow you to create and add steps to Quests in your world. For details on these settings, please consult this documentation: [quests.md](api-reference/quests.md "mention")
+The Quest Config settings allow you to create and add steps to Quests in your world. For details on these settings, please consult this documentation: [quests.md](no-code-tools/quests.md "mention")
 
 ## Post Effect
 
