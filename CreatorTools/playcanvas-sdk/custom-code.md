@@ -81,7 +81,7 @@ import { CameraService } from './@viverse/create-sdk.mjs'
  * the base class for all PlayCanvas scripts. Learn more about writing scripts in the
  * {@link https://developer.playcanvas.com/user-manual/scripting/ | scripting guide}.
  */
-export class Localplayermanager extends Script {
+export class CameraServiceManager extends Script {
     /**
      * Called when the script is about to run for the first time.
      */
