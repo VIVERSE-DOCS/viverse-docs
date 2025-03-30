@@ -40,6 +40,7 @@
   * [Networked](playcanvas-sdk/no-code-tools/networked.md)
   * [Seat](playcanvas-sdk/no-code-tools/seat.md)
   * [Post Effect](playcanvas-sdk/no-code-tools/post-effect.md)
+* [Custom Code](playcanvas-sdk/custom-code.md)
 * [Tutorials](playcanvas-sdk/tutorials/README.md)
   * [Create Your First PlayCanvas Project](playcanvas-sdk/tutorials/create-your-first-playcanvas-project.md)
   * [Create Your First Quest](playcanvas-sdk/tutorials/create-your-first-quest.md)
