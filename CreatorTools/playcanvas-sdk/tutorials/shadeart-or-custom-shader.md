@@ -29,7 +29,7 @@ You may use the Shaders, Models, Materials, cube Maps, Seamless Textures and Equ
 3. [EquiProjectionUVDistort](shadeart-or-custom-shader.md#equiprojectionuvdistort) (Projection Shader for seamless textures).
 4. [Water Shader](shadeart-or-custom-shader.md#water-shader) (Amplify Water)
 
-{% file src="../../.gitbook/assets/Untitled.mov" %}
+{% embed url="https://1140075852-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2Fn9wTC8qa8qOKVTTirmlV%2FUntitled.mp4?alt=media&token=9ff76f93-c871-4f42-8633-b5ee9398d172" %}
 
 ### Important Notes
 
