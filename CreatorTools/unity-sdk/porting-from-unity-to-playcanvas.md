@@ -242,9 +242,9 @@ Download:
 
 {% file src="../.gitbook/assets/PlayCanvasSceneCreator_v1.0.10.zip" %}
 
-Please refer to [Unity Export tool](https://app.gitbook.com/o/SnIK7SeXTWk0ghDScPhF/s/d69no6CEQxke8g3u7ZrP/) for usage instructions of the PlayCanvasSceneCreator.unitypackage.
+Please refer to [Unity Export tool](porting-from-unity-to-playcanvas.md#install-unity-export-tool) for usage instructions of the PlayCanvasSceneCreator.unitypackage.
 
-Please refer to [Install Unity2PlayCanvas Browser Extension](porting-from-unity-to-playcanvas.md#unity-export-tool) for instructions on how to use the files under the 'Extension' folder.
+Please refer to [Install Unity2PlayCanvas Browser Extension](porting-from-unity-to-playcanvas.md#install-unity2playcanvas-browser-extension) for instructions on how to use the files under the 'Extension' folder.
 
 We provide a document for querying currently supported components and properties, please see ‘/Document/API/index.html’.
 
