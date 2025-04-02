@@ -47,6 +47,9 @@ export class LocalPlayerManager extends Script
     initialize() {
         this.playerService  = new PlayerService();
         
+        //attach playerService for global access
+        this.app.playerServiceManager = this;
+        
         //FOR ALL CUSTOMIZABLE PROPS AND METHODS, see: https://viveportsoftware.github.io/pc-lib/interfaces/ILocalPlayer.html
         
         //enable flight
