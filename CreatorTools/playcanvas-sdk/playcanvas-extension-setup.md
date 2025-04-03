@@ -122,6 +122,52 @@ Confirm the extension is enabled on the Extensions tab.
 {% endstep %}
 {% endstepper %}
 
+## "Factory Reset" the VIVERSE Extension
+
+At times, issues in the installation process can produce persistent bugs that are only fixed by fully resetting the VIVERSE extension.
+
+{% stepper %}
+{% step %}
+### Sign in & out of VIVERSE
+
+Sign out of your account on viverse.com and then sign back in. **MAKE SURE** you are using the same email account as the one associated with your PlayCanvas account.
+{% endstep %}
+
+{% step %}
+### Delete VIVERSE entities from PlayCanvas project
+
+Go back to your PlayCanvas project and delete:\
+a. The Extension Entity from your scene hierarchy\
+b. The @viverse folder from your project assets\
+c. The extension-image folder from your project assets\
+d. The extension-script folder from your project assets
+{% endstep %}
+
+{% step %}
+### Clear storage
+
+Open the [developer tools](https://elfsight.com/blog/how-to-work-with-developer-console/) in Google Chrome, go to "Application", select "Storage" in the left hand toolbar and click the "Delete Site Data" button.
+{% endstep %}
+
+{% step %}
+### Refresh&#x20;
+
+Refresh your PlayCanvas project with the VIVERSE extension enabled
+{% endstep %}
+
+{% step %}
+### Sign in to PlayCanvas
+
+Sign in to PlayCanvas when prompted. **MAKE SURE** you are using the same email accoutn as the one associated with your VIVERSE account.
+{% endstep %}
+
+{% step %}
+### Sign in to VIVERSE sso
+
+Sign in to VIVERSE from within your PlayCanvas project using the VIVERSE Scene Settings
+{% endstep %}
+{% endstepper %}
+
 ## PlayCanvas Extension Download
 
 #### [Download the latest extension version](https://htc-directus-dev-usw2-pc-ui-ext.s3.amazonaws.com/viverse-world/production-sso/3.45/3.45.0_viverse-world_production-sso_67c0a75.zip)
