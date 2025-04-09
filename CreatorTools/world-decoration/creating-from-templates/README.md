@@ -10,15 +10,15 @@ Templates are starter projects that are pre-built in PlayCanvas. They are availa
 
 
 
-| Title                                                                                                                                    | Image                                                                   | Game Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------ |
-| <ol><li><a href="https://docs.viverse.com/world-decoration/creating-from-templates/pet-rescue-template-project">Pet Rescue</a></li></ol> | <img src="../../.gitbook/assets/image.png" alt="" data-size="original"> | Hidden object game |
+| Title                                                                                                                                    | Image                                                                       | Game Type          |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------ |
+| <ol><li><a href="https://docs.viverse.com/world-decoration/creating-from-templates/pet-rescue-template-project">Pet Rescue</a></li></ol> | <img src="../../.gitbook/assets/image (7).png" alt="" data-size="original"> | Hidden object game |
 
 <details>
 
 <summary>Pet Rescue Concepts Explored</summary>
 
-* Random Waypoints - script used to  randomize location of objects
+* Random Waypoints - script used to randomize location of objects
 * Quest System - creating a quest system that tracks progression when user completes tasks
 * Mouse Selection - adding functionality for allowing users to select objects with mouse
 * Countdown - creating a 2D user interface used to display numbers counting down prior to game start
