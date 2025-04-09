@@ -6,6 +6,8 @@ description: >-
 
 # Introduction to MJS
 
+***
+
 Modular JavaScript is an evolved form of JavaScript in which related functionality is kept in a single file or module and that functionality is exposed when required using import and export functionality. Here's a comparison breakdown between CommonJS (NodeJS) and MJS.
 
 ## CommonJS (NodeJS) example
