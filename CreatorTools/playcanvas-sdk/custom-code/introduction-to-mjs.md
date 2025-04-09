@@ -157,7 +157,9 @@ Breakpoints can also be set manually by clicking on the line code number in the 
 
 <figure><img src="../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
 
-## MJS with custom properties and methods example
+## MJS file with custom properties and methods example
+
+GameManager.mjs
 
 ````javascript
 import { Script } from 'playcanvas';
