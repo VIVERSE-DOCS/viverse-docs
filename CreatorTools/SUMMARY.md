@@ -17,7 +17,6 @@
 ## PlayCanvas SDK
 
 * [PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
-* [Setting Up Your PlayCanvas Project for VIVERSE](playcanvas-sdk/setting-up-your-playcanvas-project-for-viverse.md)
 * [Publishing to VIVERSE](playcanvas-sdk/publishing-to-viverse.md)
 * [Scene Settings](playcanvas-sdk/scene-settings.md)
 * [No Code Tools](playcanvas-sdk/no-code-tools/README.md)
