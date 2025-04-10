@@ -9,15 +9,6 @@ description: >-
 ***
 
 {% hint style="info" %}
-Pre-Upload Configurations:&#x20;
-
-* [Set spawn points](../setting-up-your-playcanvas-project-for-viverse.md#spawn-point)
-* [Configure 3D models](../setting-up-your-playcanvas-project-for-viverse.md#collider)
-* [Adjust floor and wall settings](../setting-up-your-playcanvas-project-for-viverse.md#setup-the-floor-plan-for-your-avatar-to-walk-and-stand-on)
-* [Remove any existing cameras or character controllers ](../setting-up-your-playcanvas-project-for-viverse.md#spawn-point)
-{% endhint %}
-
-{% hint style="info" %}
 Please follow the provided designer guideline [here](../../optimization.md#id-3d-asset-guide) to meet performance and feasibility specifications. This guide will help ensure your scene is optimized for the VIVERSE platform.&#x20;
 {% endhint %}
 
