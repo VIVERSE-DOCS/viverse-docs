@@ -180,4 +180,4 @@ We created a Playcanvas [sample project](https://playcanvas.com/editor/scene/198
 
 ## Next Steps
 
-Now that you have successfully set up your PlayCanvas account and installed the VIVERSE PlayCanvas extension, see the first steps of creating a project [here](setting-up-your-playcanvas-project-for-viverse.md).
+Now that you have successfully set up your PlayCanvas account and installed the VIVERSE PlayCanvas extension, see the first steps of creating a project [here](tutorials/create-your-first-playcanvas-project.md).
