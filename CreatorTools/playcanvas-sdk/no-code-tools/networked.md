@@ -32,7 +32,7 @@ By adding the Anim component, an entity's animation state will be networked acro
 
 In this video, we have created an arena with a floor, four walls and a ball. The networking module has been added to the ball. After publishing and creating the world in VIVERSE, multiple players can join in the environment. The location of the ball is tracked across all player sessions.
 
-[https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2FKL50EvJr5Dc0Wn9PPi6b%2F2025-04-11%2013-07-02%20(online-video-cutter.com).mp4?alt=media\&token=ed09eca1-891d-4cd2-9a85-7287d27c430b](https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2FKL50EvJr5Dc0Wn9PPi6b%2F2025-04-11%2013-07-02%20\(online-video-cutter.com\).mp4?alt=media\&token=ed09eca1-891d-4cd2-9a85-7287d27c430b)
+{% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2FxbEue0WzcXozheoJtWwi%2F2025-04-11%2013-07-02%20(online-video-cutter.com).mp4?alt=media&token=b0d3e416-7d21-4694-8610-a2b01b3951df" %}
 
 To create the arena and ball in the video, you can follow the [Create Your First PlayCanvas Project](../tutorials/create-your-first-playcanvas-project.md) tutorial. The instructions below can be used to add Networking functionality to the ball or any other entity of your choosing.
 
