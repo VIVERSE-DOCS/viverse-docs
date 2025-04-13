@@ -45,6 +45,7 @@
 * [Examples](playcanvas-sdk/tutorials/README.md)
   * [Create Your First PlayCanvas Project](playcanvas-sdk/tutorials/create-your-first-playcanvas-project.md)
   * [SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader.md)
+  * [WITHIN | A Generative Audiovisual Maze](playcanvas-sdk/tutorials/within-or-a-generative-audiovisual-maze.md)
   * [Create Your First Quest](playcanvas-sdk/tutorials/create-your-first-quest.md)
 * [Overview](playcanvas-sdk/overview.md)
 
