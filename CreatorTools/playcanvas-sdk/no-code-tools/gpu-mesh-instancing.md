@@ -12,7 +12,9 @@ description: >-
 
 {% embed url="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2F0sGbGGScrHUR7WdP8uJk%2F2025-04-15%2013-31-18.mp4?alt=media&token=f70862fe-9a06-4473-9e46-6687403d8831" %}
 
-In this example, a 3D model of grass is created in Blender and then exported into PlayCanvas where it's used for GPU Mesh Instancing.
+In this example, a 3D model of grass is created in Blender and then exported into PlayCanvas where it's used for GPU Mesh Instancing. You can download the Grass\_Grp.glb file below for testing. The model has already been exported from Blender and is ready for importing into PlayCanvas.
+
+{% file src="../../.gitbook/assets/Grass_Grp.glb" %}
 
 {% stepper %}
 {% step %}
