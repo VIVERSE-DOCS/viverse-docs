@@ -39,6 +39,7 @@
   * [Networked](playcanvas-sdk/no-code-tools/networked.md)
   * [Seat](playcanvas-sdk/no-code-tools/seat.md)
   * [Post Effect](playcanvas-sdk/no-code-tools/post-effect.md)
+  * [GPU Mesh Instancing](playcanvas-sdk/no-code-tools/gpu-mesh-instancing.md)
 * [Custom Code](playcanvas-sdk/custom-code/README.md)
   * [Connecting No-Code Events to Custom Scripts](playcanvas-sdk/custom-code/connecting-no-code-events-to-custom-scripts.md)
   * [Introduction to MJS](playcanvas-sdk/custom-code/introduction-to-mjs.md)
