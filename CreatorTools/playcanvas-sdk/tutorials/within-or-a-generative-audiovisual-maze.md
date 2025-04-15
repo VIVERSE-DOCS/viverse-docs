@@ -75,7 +75,7 @@ It continues until all cells have been visited and linked at least once.
     * Decrease the count of unvisited cells.
 * Move to the neighbor and repeat.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.26.25 AM.png" alt=""><figcaption><p>Fig 2.1-2.3. Variations on Aldous-Broder algorithm</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.26.25 AM.png" alt="" width="563"><figcaption><p>Fig 2.1-2.3. Variations on Aldous-Broder algorithm</p></figcaption></figure>
 
 <div><figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.26.57 AM.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.26.50 AM.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -88,7 +88,7 @@ A fast, simple algorithm that connects each cell to either its north or east nei
   * Randomly choose one of them (if any).
   * Link the current cell to that neighbor.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.28.32 AM.png" alt=""><figcaption><p>Fig 3.1-3.3 Binary tree algorithm variations</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.28.32 AM.png" alt="" width="563"><figcaption><p>Fig 3.1-3.3 Binary tree algorithm variations</p></figcaption></figure>
 
 <div><figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.28.44 AM.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.28.38 AM.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -122,7 +122,7 @@ When an arch is added:
 * The `hasArch` property is set to true on both cells.
 * The `requestArchPlacement()`method is called to handle the visual placement.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.42.10 AM.png" alt=""><figcaption><p>Fig 4. Aldous-Broder algorithm variation with arch placement</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.42.10 AM.png" alt="" width="563"><figcaption><p>Fig 4. Aldous-Broder algorithm variation with arch placement</p></figcaption></figure>
 
 ### 6. Full Code: Maze Generation
 
@@ -464,7 +464,7 @@ GridBuilder.prototype.createArch = function (x, y, z, rotation) {
 
 Floor generation is a crucial step to visually support the grid-based structure of the maze. Each grid cell receives a tile, with randomized textures (materials) and colliders for physics interaction. This process enhances visual diversity and ensures correct player interaction with the environment.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.56.27 AM.png" alt=""><figcaption><p>Fig 7. Variations on floor tiles</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.56.27 AM.png" alt="" width="563"><figcaption><p>Fig 7. Variations on floor tiles</p></figcaption></figure>
 
 ### 2. Role in Maze Structure
 
@@ -580,7 +580,7 @@ Once the maze has been generated, the system identifies all explorable cells—t
 
 Each object is set up to detect collisions using trigger events. When a player or other entity enters the trigger volume, the `onCollectibleCollected` function is called, which can be customized to handle logic like scoring, sound playback, or activating new elements (e.g., music layers).
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 10.03.13 AM.png" alt=""><figcaption><p>Fig 8. Variation with object spawning</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 10.03.13 AM.png" alt="" width="563"><figcaption><p>Fig 8. Variation with object spawning</p></figcaption></figure>
 
 ### 5. Full Code: Object Spawning
 
