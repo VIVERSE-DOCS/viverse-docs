@@ -655,19 +655,23 @@ GridBuilder.prototype.spawnObjects = function () {
 
 This project integrates a dynamic, generative music system using Tone.js. It responds to player interaction by progressively layering musical elements based on collectibles. The soundscape evolves with gameplay, making it immersive and reactive.
 
-### 2. Loading Tone.js and Starting Music
+### 2. Library Acquisition and Inclusion
+
+Tone.js was used to implement the generative music system in the project. It provides a powerful audio framework built on top of the Web Audio API, enabling real-time synthesis, sequencing, and audio effects. The Tone.js library was downloaded from the official CDN: [https://unpkg.com/tone@14.8.39/build/Tone.js](https://unpkg.com/tone@14.8.39/build/Tone.js) This file was then uploaded to the PlayCanvas project as a script asset and dynamically loaded at runtime to ensure compatibility and modular loading.
+
+### 3. Loading Tone.js and Starting Music
 
 Tone.js is loaded dynamically using `loadToneJS`, and music begins with `startMusic`. The system ensures audio starts only after user interaction to comply with browser audio policies. Upon starting, `initMusic` initializes the audio routing and begins the ambient drone.
 
-### 3. Mixer Initialization
+### 4. Mixer Initialization
 
 `initMixer` sets up mixer channels using `Tone.Gain`, `Tone.Panner`, and a global `Tone.Reverb`. Each instrument group (ambient, drums, lead, bass, etc.) has its own channel for balancing and spatialization.
 
-### 4. Layer Activation via Collectibles
+### 5. Layer Activation via Collectibles
 
 `addNewMusicLayer` activates new music layers based on the name of the collectible object. This makes each collectible not just a visual or scoring element, but a contribution to the evolving musical composition.
 
-### 5. Instrument Descriptions
+### 6. Instrument Descriptions
 
 #### Ambient Drone
 
@@ -701,7 +705,7 @@ Sine wave synth producing short blips, spatialized with random panning and delay
 
 A generative ambient element wind using filtered noise. It features bandpass filtering to evoke wind-blown electronic signals, enhancing the immersive and mysterious atmosphere of the maze.
 
-### 6. Full Code: Tone.js Audio Generation
+### 7. Full Code: Tone.js Audio Generation
 
 <details>
 
