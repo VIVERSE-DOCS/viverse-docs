@@ -34,6 +34,6 @@ When media are added to your world, you can access and update their properties t
 
 ## Adding Collaborators
 
-You can add five additional VIVERSE accounts as co-owners of your world. By promoting these users, you are giving them full control over Edit Mode, moderation tools, and world settings for your world. Co-owners can be removed and will not be able to delete the world on your behalf. Co-owners can be added outside of Edit Mode but going to the hamburger settings button in the top-right of your world, selecting the "Permissions" tab, and adding Co-Owners by their user id or display name.
+You can add five additional VIVERSE accounts as co-owners of your world. By promoting these users, you are giving them full control over Edit Mode, moderation tools, and world settings for your world. Co-owners can be removed and will not be able to delete the world on your behalf. Co-owners can be added outside of Edit Mode by going to the hamburger settings button in the top-right of your world, selecting the "Permissions" tab, and adding Co-Owners by their user id or display name.
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-29 at 4.32.41 PM.png" alt="" width="375"><figcaption><p>Adding Co-owners through world permissions.</p></figcaption></figure>
