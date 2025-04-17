@@ -38,6 +38,18 @@ B. Expand **Scene Graph** and place checkmark by **GPU Instances**.
 {% endstep %}
 
 {% step %}
+### Confirm exported model is configured correctly
+
+A. Visit the site [https://modelviewer.dev/editor/](https://modelviewer.dev/editor/)
+
+B. Drag the 3d model file into the browser and click on the **magnifying glass** icon to view the data.
+
+C. Confirm the **EXT\_mesh\_gpu\_instancing** extension was added. If **EXT\_mesh\_gpu\_instancing** is not visible, then the model was not configured properly in the 3D modeling application. Retry steps 1-2.
+
+<figure><img src="../../.gitbook/assets/image (653).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 ### Import the model into PlayCanvas
 
 A. Add the model to PlayCanvas by dragging the **Grass\_grp.glb** file to the **Assets** window. The model will unpackage itself, producing multiple files.
