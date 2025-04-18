@@ -58,3 +58,9 @@
 ## Unreal Engine SDK
 
 * [Page 2](unreal-engine-sdk/page-2.md)
+
+## JAVASCRIPT SDK
+
+* [NPM Module Setup](javascript-sdk/npm-module-setup.md)
+* [Publishing from JS](javascript-sdk/publishing-from-js.md)
+* [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
