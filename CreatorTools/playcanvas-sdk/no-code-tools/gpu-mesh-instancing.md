@@ -34,7 +34,7 @@ A. Export the model as a **GLTF** **(.glft/.glb)** file. Give the file the same 
 
 B. Expand **Scene Graph** and place checkmark by **GPU Instances**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -58,7 +58,7 @@ B. Drag the **Grass\_grp Template** file to the **Hierarchy**.
 
 C. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -68,7 +68,7 @@ A. In the VIVERSE extension, select the **GPUMeshInstancing** plugin for the **S
 
 B. Add the **Grass\_Grp.glb Container** to the **GLB container asset id** field.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}

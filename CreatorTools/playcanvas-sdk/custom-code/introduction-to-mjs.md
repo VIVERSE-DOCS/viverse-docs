@@ -159,13 +159,13 @@ When testing your project in PlayCanvas Launch mode, the Chrome Dev Tools can al
 
 
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="368"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="368"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Select Inspect
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -199,7 +199,7 @@ Keyboard shortcut for DevTools window
 {% endtab %}
 
 {% tab title="Mac" %}
-<div align="left"><figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt="" width="443"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt="" width="443"><figcaption></figcaption></figure></div>
 {% endtab %}
 {% endtabs %}
 
