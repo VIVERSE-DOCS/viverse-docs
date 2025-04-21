@@ -160,7 +160,7 @@ Built-in non-mesh type collisions can also be used for models with simple shapes
 {% step %}
 ### Configure Model Settings
 
-If the model is a static object in the scene, select Static for the Render component. If the models share the same material and mesh, use Batch Group to reduce the number of draw calls. \*See the [Batching](https://developer.playcanvas.com/en/user-manual/optimization/batching/) topic in the PlayCanvas User Manual for details.
+If the model is a static object in the scene, select Static for the Render component. If the models share the same material and mesh, use Batch Group to reduce the number of draw calls. \*See the [Batching](https://developer.playcanvas.com/user-manual/graphics/advanced-rendering/batching/ topic in the PlayCanvas User Manual for details.
 
 <figure><img src=".gitbook/assets/image (363).png" alt="" width="375"><figcaption></figcaption></figure>
 
