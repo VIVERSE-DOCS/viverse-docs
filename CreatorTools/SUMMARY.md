@@ -62,5 +62,5 @@
 ## JAVASCRIPT SDK
 
 * [NPM Module Setup](javascript-sdk/npm-module-setup.md)
-* [Publishing from JS](javascript-sdk/publishing-from-js.md)
+* [Publishing from JavaScript](javascript-sdk/publishing-from-javascript.md)
 * [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
