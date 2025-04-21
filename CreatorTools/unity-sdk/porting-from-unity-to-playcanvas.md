@@ -128,7 +128,7 @@ The browser extension will be added to the **All Extensions** list with remove a
 {% endstep %}
 {% endstepper %}
 
-**Method 2 for installing the Unity2PlayCanvas browser extension using Tampermoneky installation method.**
+**Method 2 for installing the Unity2PlayCanvas browser extension using Tampermonkey installation method.**
 
 {% stepper %}
 {% step %}

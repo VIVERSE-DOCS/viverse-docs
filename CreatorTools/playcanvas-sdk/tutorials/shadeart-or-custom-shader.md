@@ -111,7 +111,7 @@ Upload an e. map into your project.
 Assign the e. map to the shader script.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.\
+Make sure to uncheck the Mipmaps in the texture settings.\
 You do not need to generate a Play Canvas cube map, simply link your Equirectangular Map to the shader.
 {% endstep %}
 {% endstepper %}
@@ -183,7 +183,7 @@ Upload an e. map into your project.
 Assign the e. map to the shader script in section : Equirectangular Map.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.\
+Make sure to uncheck the Mipmaps in the texture settings.\
 You do not need to generate a Play Canvas cube map, simply link your Equirectangular Map to the shader.
 {% endstep %}
 
@@ -207,10 +207,10 @@ Upload a Noise Map to your project and assign it to the shader script. This map 
 ### Factors
 
 {% tabs %}
-{% tab title="Noise Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Noise Tiling Factor" %}
+Chose your preferred distortion tiling.
 
-The noise map tilling will not effect the equirectangular tilling.
+The noise map tiling will not effect the equirectangular tiling.
 {% endtab %}
 
 {% tab title="Noise Movement Speed" %}
@@ -293,7 +293,7 @@ The images presented in our shared project and in the ShaderArt gallery in VIVER
 Apply the texture to the shader script in the Additive Map section.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.
+Make sure to uncheck the Mipmaps in the texture settings.
 {% endstep %}
 
 {% step %}
@@ -301,22 +301,22 @@ Make sure to uncheck the Mitmaps in the texture settings.
 
 This map will effect the distortion effect.
 
-In the examples seen in our shared project and in the ShadeArt galley in VIVERSE, the Distortion Map is the same texture used as an Additive Map with our without a photoshop effect (blur and B\&W filters). See distortion maps examples in: ScenesAssets > Textures\_Tillable.
+In the examples seen in our shared project and in the ShadeArt gallery in VIVERSE, the Distortion Map is the same texture used as an Additive Map with our without a photoshop effect (blur and B\&W filters). See distortion maps examples in: ScenesAssets > TexturesTilable.
 
 Apply the Distortion Map to the shader script in the section: Distortion Map.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.
+Make sure to uncheck the Mipmaps in the texture settings.
 {% endstep %}
 {% endstepper %}
 
 ### Factors
 
 {% tabs %}
-{% tab title="Noise Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Noise Tiling Factor" %}
+Chose your preferred distortion tiling.
 
-The noise map tilling will not effect the equirectangular tilling, yet it will react to the mesh UV mapping.
+The noise map tiling will not effect the equirectangular tiling, yet it will react to the mesh UV mapping.
 {% endtab %}
 
 {% tab title="Noise Movement Speed" %}
@@ -346,7 +346,7 @@ For a simple water surface use a circle shaped plane with Project From View (fit
 
 You may use the circle-plane model-template from our shared project (see: ScenesAssets > Models ? Common > CirclePlane1x1m128).The sphere size is 1 m. x 1 m. in diameter. Scale it to any size that will fit to your environment.
 
-Scaling the mesh up or down will effect the normal map tilling.
+Scaling the mesh up or down will effect the normal map tiling.
 
 Place the model Template in the Hierarchy.
 {% endstep %}
@@ -390,8 +390,8 @@ Apply the Normal Map to the shader script in the section: Normal Map.
 ### Factors
 
 {% tabs %}
-{% tab title="Normal Map Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Normal Map Tiling Factor" %}
+Chose your preferred distortion tiling.
 {% endtab %}
 
 {% tab title="Normal Map Strength" %}

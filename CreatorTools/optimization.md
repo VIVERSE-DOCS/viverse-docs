@@ -9,17 +9,17 @@ description: >-
 
 ***
 
-Playanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them are powered by HTML5. The platform is entirely cloud-based, thus no install are further  required- you are able to access your work on any device from a supported web browser.
+PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them are powered by HTML5. The platform is entirely cloud-based, thus no further installs are required - you are able to access your work on any device from a supported web browser.
 
 {% hint style="info" %}
-We strongly recommend taking a look at the PlayCanvas User Manual before getting started so you’ll have an idea about how to use PlayCanvas when you decide to jump in and start making games. [Playcanvas Manual](https://developer.playcanvas.com/user-manual/)
+We strongly recommend taking a look at the PlayCanvas User Manual before getting started so you’ll have an idea about how to use PlayCanvas when you decide to jump in and start making games. [PlayCanvas Manual](https://developer.playcanvas.com/user-manual/)
 {% endhint %}
 
 VIVERSE Create uses PlayCanvas editor to create all the virtual worlds and environments you see in VIVERSE Create. This guide describes how to create a project and configure settings so you can start constructing your first scene.
 
 <figure><img src=".gitbook/assets/image (346).png" alt="" width="375"><figcaption></figcaption></figure>
 
-### **Creating A Playcanvas Project**
+### **Creating A PlayCanvas Project**
 
 {% stepper %}
 {% step %}
@@ -71,7 +71,7 @@ PlayCanvas uses the PBR with advanced shading to make sure rendering is as reali
 {% step %}
 ### Texture
 
-High texture counts can overload the GPU. Try and keep the texture resolution at a reasonable size. Image resolution can’t be higher than 2048x2048, for the best texture quality, use JPGs, PNGs, or TGAs. Try storing RMA textures in different channels to reduce texture count (for example, RGB: R – Ambient Occlusion; G – Roughness; B – Metallic).
+High texture counts can overload the GPU. Try to keep the texture resolution at a reasonable size. Image resolution can’t be higher than 2048x2048, for the best texture quality, use JPGs, PNGs, or TGAs. Try storing RMA textures in different channels to reduce texture count (for example, RGB: R – Ambient Occlusion; G – Roughness; B – Metallic).
 {% endstep %}
 
 {% step %}
@@ -186,7 +186,7 @@ Click the image to open the properties panel, then select BASIS in the compressi
 {% step %}
 ### Configure Lighting Settings
 
-Add a directional light for characters and dynamic objects, and then in the light properties window, select Static and Cast Shadows. If you bake lightmaps in Playcanvas, remember to disable all baked light, except directional light. If you don’t disable baked light, the scene may crash.
+Add a directional light for characters and dynamic objects, and then in the light properties window, select Static and Cast Shadows. If you bake lightmaps in PlayCanvas, remember to disable all baked light, except directional light. If you don’t disable baked light, the scene may crash.
 
 <figure><img src=".gitbook/assets/image (367).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}

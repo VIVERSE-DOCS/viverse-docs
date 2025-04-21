@@ -790,7 +790,7 @@ E. Change to Color to **FFFFFF**.
 {% step %}
 ### Add the **Close-Btn.mjs** script to the project
 
-A. Drag the **Clsoe-Btn.mjs** script to the **Assets** window.
+A. Drag the **Close-Btn.mjs** script to the **Assets** window.
 
 B. Select the **Close-Btn.mjs** script and click the **Parse** button.
 
