@@ -27,25 +27,11 @@ When you publish content to VIVERSE, the command-line tool automatically creates
 
 {% stepper %}
 {% step %}
-### Install the VIVERSE (CLI) command-line tool
 
-A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter.
-
-B. Confirm that the command line tool is installed based on screen feedback.
-
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### Login to VIVERSE platform
-
-A. Open a command prompt and type: **viverse-cli auth login**, then click Enter.
-
-B. Enter VIVERSE **email** and **password**.
-
-C. Confirm login was successful.
-
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+###
 {% endstep %}
 
 {% step %}

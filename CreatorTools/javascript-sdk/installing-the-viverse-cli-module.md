@@ -1,5 +1,8 @@
 ---
-description: The document provides a guide for setting up the NPM module.
+description: >-
+  This document provides a guide for setting up the VIVERSE CLI Module which is
+  a command-line tool for the VIVERSE platform, providing simple yet powerful
+  functionality to manage VIVERSE accounts.
 ---
 
 # Installing the VIVERSE CLI Module
@@ -15,6 +18,57 @@ description: The document provides a guide for setting up the NPM module.
   * Can you do API calls from within your project on VIVERSE?
 
 ***
+
+## Pre-Requisites
+
+* Node.js v22 or later installed
+
+
+
+## Installing the VIVERSE CLI in your account
+
+{% stepper %}
+{% step %}
+### Install the tool using command prompt
+
+A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter.
+
+B. Confirm that the command line tool is installed based on screen feedback.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+
+
+## Signing into VIVERSE with VIVERSE CLI
+
+{% stepper %}
+{% step %}
+### Login to VIVERSE platform
+
+A. Open a command prompt and type: **viverse-cli auth login**, then click Enter.
+
+B. Enter VIVERSE **email** and **password**.
+
+C. Confirm login was successful.
+
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+## VIVERSE CLI usage
+
+<table><thead><tr><th width="294">Process</th><th>Command</th></tr></thead><tbody><tr><td>Login to VIVERSE platform</td><td><code>viverse-cli auth login</code></td></tr><tr><td>Non-interactive login for CI/CD integration</td><td><code>viverse-cli auth login -e &#x3C;email> -p &#x3C;password></code></td></tr><tr><td>For CI/CD environments, it's recommended to use environment variables</td><td><code>viverse-cli auth login -e $VVS_EMAIL -p $VVS_PASSWORD</code></td></tr><tr><td>Check authentication status</td><td><code>viverse-cli auth status</code></td></tr><tr><td>Logout</td><td><code>viverse-cli auth logout</code></td></tr><tr><td>Publish content</td><td><code>viverse-cli publish &#x3C;path></code></td></tr><tr><td>View application list</td><td><code>viverse-cli app list</code></td></tr></tbody></table>
+
+
+
+## Compatibility with VIVERSE
+
+1. Do you need to use vite.js or can you use another library for building your project?
+   1.
+2. Do you need to use three.js or can you use other packages?
+3. Can you do API calls from within your project on VIVERSE?
 
 {% stepper %}
 {% step %}
