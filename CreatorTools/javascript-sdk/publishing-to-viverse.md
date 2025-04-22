@@ -15,9 +15,21 @@ description: This document provides a guide for publishing JavaScript projects t
 
 ***
 
-{% hint style="info" %}
-Pre-requisite: Before installing the VIVERSE (CLI) command-line tool, Node.js needs to be installed. Instructions can be found [here](installing-the-viverse-cli-module.md).
-{% endhint %}
+## Pre-Requisites
+
+* VIVERSE CLI module must be installed. Instructions can be found [here](installing-the-viverse-cli-module.md).
+
+
+
+## Manifest.json
+
+
+
+## Publishing to VIVERSE
+
+
+
+## Troubleshooting
 
 {% hint style="warning" %}
 When you publish content to VIVERSE, the command-line tool automatically creates a .viverse-cli/manifest.json file in the target path. This file contains essential metadata about the content, including its deployment ID and URL. If you need to update the same content later, make sure to preserve this folder. The manifest file is critical for tracking content versions and ensuring proper updates rather than creating new content each time.
