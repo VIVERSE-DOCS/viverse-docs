@@ -65,10 +65,31 @@ C. Confirm login was successful.
 
 ## Compatibility with VIVERSE
 
-1. Do you need to use vite.js or can you use another library for building your project?
-   1.
-2. Do you need to use three.js or can you use other packages?
-3. Can you do API calls from within your project on VIVERSE?
+<details>
+
+<summary>Do you need to use vite.js or can you use another library for building your project?</summary>
+
+
+
+</details>
+
+<details>
+
+<summary>Do you need to use three.js or can you use other packages?</summary>
+
+No, VIVERSE CLI can be used with other WebGL frameworks.
+
+</details>
+
+<details>
+
+<summary>Can you do API calls from within your project on VIVERSE?</summary>
+
+
+
+</details>
+
+
 
 {% stepper %}
 {% step %}
