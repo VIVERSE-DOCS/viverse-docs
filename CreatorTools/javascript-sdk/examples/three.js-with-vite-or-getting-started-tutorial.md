@@ -9,17 +9,27 @@
 
 ***
 
-### Install Node.js
+## Installing Node.js
+
+{% stepper %}
+{% step %}
+### Download Node.js
 
 A. Download the latest version of **Node.js (LTS)** from http [https://nodejs.org/en](https://nodejs.org/en).
 
-<figure><img src="../../.gitbook/assets/image (654).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (669).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
 
-B. Use the defaults during the installation, but place a checkmark\
-in the **Automatically install the necessary tools** checkbox.
+{% step %}
+### Automatically install the necessary tools
 
-<figure><img src="../../.gitbook/assets/image (655).png" alt="" width="304"><figcaption></figcaption></figure>
+A. Use the defaults during the installation, but place a checkmark\
+in the **Automatically install the necessary tools** checkbox
 
+<figure><img src="../../.gitbook/assets/image (670).png" alt="" width="304"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 ### Confirm Node.js is installed
 
 A. Open a command prompt and type: **node**, then click Enter.
@@ -27,8 +37,169 @@ A. Open a command prompt and type: **node**, then click Enter.
 B. Confirm that Node.js is installed when the following message prints in command prompt: **Welcome to Node.js v##.##.##**.
 
 <figure><img src="../../.gitbook/assets/image (656).png" alt="" width="373"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
 
-### Install Three.js
+
+
+## Installing Three.js and making an example project
+
+This guide is a walkthrough for creating an example Three.js project
+
+{% stepper %}
+{% step %}
+### Create project folder
+
+A. Create a new folder that will contain the project.
+
+<figure><img src="../../.gitbook/assets/image (671).png" alt="" width="334"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Create the index.html
+
+A. Create the index.html page inside the project folder. This can be done by creating a text file, pasting the code and saving it as a .HTML page or using an IDE, such as Visual Studio Code.
+
+**index.html**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+```
+
+<figure><img src="../../.gitbook/assets/image (673).png" alt="" width="371"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Create the main.js
+
+A. Create the **main.js** page inside the project folder. This can be done by creating a text file, pasting the code and saving it as an **.JS** file or using an IDE, such as Visual Studio Code.
+
+<figure><img src="../../.gitbook/assets/image (674).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+## Install Three.js framework
+
+A. Three.js needs to be installed in the project folder. Open command prompt and change directories to your Three.js project.
+
+B. Type: **npm install --save three**.
+
+<figure><img src="../../.gitbook/assets/image (675).png" alt="" width="375"><figcaption></figcaption></figure>
+
+C. Confirm **node\_modules** folder and **package.json** have been added to the directory.
+
+<figure><img src="../../.gitbook/assets/image (676).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Confirm Three.js framework is installed
+
+A. Confirm **node\_modules** folder and **package.json** have been added to the directory.
+
+<figure><img src="../../.gitbook/assets/image (678).png" alt="" width="375"><figcaption></figcaption></figure>
+
+B. Confirm the **three** folder folder and **.package-lock.json** have been added to the **node\_modules** directory.
+
+<figure><img src="../../.gitbook/assets/image (679).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+
+
+## Installing Vite and using it to build your project
+
+{% stepper %}
+{% step %}
+### Install the build tool Vite
+
+A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: **npm install --save-dev vite**.
+
+<figure><img src="../../.gitbook/assets/image (680).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Confirm Vite has been installed
+
+A. Confirm **Vite** has been installed by checking for additional folders in the **node\_modules** folder.
+
+<figure><img src="../../.gitbook/assets/image (681).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Add the Vite build settings
+
+A. Add the Vite build settings to **package.json**.
+
+<figure><img src="../../.gitbook/assets/image (682).png" alt="" width="287"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Add the vite.config.js file
+
+A. Add the **vite.config.js** file to the root of the project.
+
+<figure><img src="../../.gitbook/assets/image (683).png" alt="" width="369"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Create a development build of the Three.js project
+
+A. To create a development build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite**.
+
+<figure><img src="../../.gitbook/assets/image (685).png" alt="" width="369"><figcaption></figcaption></figure>
+
+B. Confirm the development build of the Three.js project was built successfully when Vite provides a **localhost URL** to test.
+
+<figure><img src="../../.gitbook/assets/image (686).png" alt="" width="320"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Test development build
+
+A. To test a development build of the Three.js project, open the browser and navigate to the URL that printed in the previous step. In this example, the URL is [http://localhost:5173](http://localhost:5173). Confirm the app works as expected.
+
+<figure><img src="../../.gitbook/assets/image (687).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+## Installing the VIVERSE CLI
+
+{% stepper %}
+{% step %}
+### Install the VIVERSE (CLI) command-line tool
+
+A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
+
+* **Windows** : In windows, packages are installed in %APPDATA%\npm\node\_modules .
+* **macOS and Linux** : In mac or Linux packages are typically installed in /usr/local/lib/node\_modules or a user-specific directory like \~/.npm-global.
+
+B. Confirm that the command line tool is installed based on screen feedback.
+
+<figure><img src="../../.gitbook/assets/image (688).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+
+
+## Logging in with the VIVERSE CLI
+
+
+
+## Publishing from VIVERSE
+
+
 
 A. Three.js needs to be installed in the Three.js project folder, if it has not been installed already. Open command prompt and change directories to your Three.js project.
 

@@ -31,7 +31,10 @@ description: >-
 {% step %}
 ### Install the tool using command prompt
 
-A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter.
+A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
+
+* **Windows** : In windows, packages are installed in %APPDATA%\npm\node\_modules .
+* **macOS and Linux** : In mac or Linux packages are typically installed in /usr/local/lib/node\_modules or a user-specific directory like \~/.npm-global.
 
 B. Confirm that the command line tool is installed based on screen feedback.
 
