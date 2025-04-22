@@ -54,7 +54,7 @@ B. Change the dropdown to **Transform** in the **Select a module and add** field
 
 C. Confirm the **enabled** checkbox is checked.
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -62,7 +62,7 @@ C. Confirm the **enabled** checkbox is checked.
 
 A. To test the project, publish to VIVERSE and create the world.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -70,6 +70,6 @@ A. To test the project, publish to VIVERSE and create the world.
 
 A. Share the world link with another player and have them join the environment. We the other player interacts with the ball, you should be able to see the ball movement in your session. When you move the ball, the other player should be able to see the ball movement in their session.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
