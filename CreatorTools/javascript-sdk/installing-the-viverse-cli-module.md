@@ -2,7 +2,17 @@
 description: The document provides a guide for setting up the NPM module.
 ---
 
-# NPM Module Setup
+# Installing the VIVERSE CLI Module
+
+* General description of what is this page
+* Prerequisites for using the VIVERSE CLI (node v22)
+* Installing the VIVERSE CLI in your account
+* Signing in with auth
+* A description of usage and how to learn more
+* Compatibility with VIVERSE
+  * Do you need to use vite.js or can you use another library for building your project?
+  * Do you need to use three.js or can you use other packages?
+  * Can you do API calls from within your project on VIVERSE?
 
 ***
 

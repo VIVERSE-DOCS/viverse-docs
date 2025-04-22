@@ -17,6 +17,8 @@ layout:
 
 # PlayCanvas Extension Setup
 
+***
+
 ## Pre-Requisites
 
 * A VIVERSE Account

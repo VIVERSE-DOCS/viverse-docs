@@ -2,12 +2,21 @@
 description: This document provides a guide for publishing JavaScript projects to VIVERSE
 ---
 
-# Publishing from JavaScript
+# Publishing to VIVERSE
+
+* Prequisites: You must have installed the VIVERSE CLI Module (link back to previous page if they haven't)
+* Description of the manifest.json
+* Publishing to VIVERSE
+  * Publishing from the command line
+  * What are the success messages when publishing has completed
+  * Finding your published world on VIVERSE.com & adjusting world settings
+* Troubleshooting
+  * Using relative vs. absolute paths
 
 ***
 
 {% hint style="info" %}
-Pre-requisite: Before installing the VIVERSE (CLI) command-line tool, Node.js needs to be installed. Instructions can be found [here](npm-module-setup.md).
+Pre-requisite: Before installing the VIVERSE (CLI) command-line tool, Node.js needs to be installed. Instructions can be found [here](installing-the-viverse-cli-module.md).
 {% endhint %}
 
 {% hint style="warning" %}

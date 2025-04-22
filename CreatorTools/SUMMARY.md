@@ -61,6 +61,8 @@
 
 ## JAVASCRIPT SDK
 
-* [NPM Module Setup](javascript-sdk/npm-module-setup.md)
-* [Publishing from JavaScript](javascript-sdk/publishing-from-javascript.md)
+* [Installing the VIVERSE CLI Module](javascript-sdk/installing-the-viverse-cli-module.md)
+* [Publishing to VIVERSE](javascript-sdk/publishing-to-viverse.md)
+* [Examples](javascript-sdk/examples/README.md)
+  * [Three.js with Vite | Getting Started Tutorial](javascript-sdk/examples/three.js-with-vite-or-getting-started-tutorial.md)
 * [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
