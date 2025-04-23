@@ -17,13 +17,13 @@ VIVERSE includes a robust series of tools for artists and developers to build en
 
 ## Tools for Publishing to VIVERSE
 
-VIVERSE is a multiplayer webXR platform where creators can showcase their work to the VIVERSE user-base. Our goal is to help you publish from from the platform that works best for you and leverage your chosen tools. Whether you are hosting a meetup, creating an engaging narrative, or building a full length multiplayer game, there are several options for you to publish your work on VIVERSE.
+VIVERSE is a multiplayer webXR platform where creators can showcase their work to the VIVERSE user-base. Our goal is to help you publish from the platform that works best for you and leverage your chosen tools. Whether you are hosting a meetup, creating an engaging narrative, or building a full length multiplayer game, there are several options for you to publish your work on VIVERSE.
 
 <table><thead><tr><th>Platform</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>In-World Decoration</td><td>Add 3D elements and media directly in VIVERSE. World decoration is great for meetup hosts and beginners looking to customize their first world from a wide range of template environments.</td><td><a href="broken-reference">See here</a></td></tr><tr><td>PlayCanvas</td><td>PlayCanvas is an open source game engine with a web-based editor that we support as a VIVERSE runtime. Using our extension of the PlayCanvas editor, you can access its fully featured game engine while developing in an environment designed with web-optimization in mind.</td><td><a href="broken-reference">See here</a></td></tr><tr><td>Unity Exporter</td><td>Currently, developers can export their Unity projects using our plugin and easily port to PlayCanvas for publishing to VIVERSE. In the future, we plan to adapt this plugin to allow for publishing directly from Unity.</td><td><a href="broken-reference">See here</a></td></tr><tr><td>JS / WebGL</td><td>Develop in the WebGL/WebGPU/WebXR language of your choosing and publish directly to VIVERSE.</td><td><span data-gb-custom-inline data-tag="emoji" data-code="2757">❗</span>Coming soon</td></tr></tbody></table>
 
 Don't see your platform? Join our [Community Discord Server](https://discord.gg/viversecreators) and let us know how you would like to be able to publish to VIVERSE.
 
-## Standalone Developer Tools&#x20;
+## Standalone Developer Tools
 
 Along with our platform integrations that allow you to publish to VIVERSE, we also have a number of standalone developer tools that can be utilized in experiences hosted on _and_ off of VIVERSE. These tools help creators get the most out of their 3D experience and make the difficult parts of online development easier.
 

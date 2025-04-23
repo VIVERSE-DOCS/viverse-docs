@@ -1,7 +1,7 @@
 ---
 description: >-
   This page details important information for any creators looking to publish to
-  their VIVERSE account, regardless of the platform their are using.
+  their VIVERSE account, regardless of the platform they are using.
 ---
 
 # Publishing with Your VIVERSE Account
@@ -20,7 +20,7 @@ Currently, Worlds can only be associated with, owned and managed by one VIVERSE 
 
 When publishing to VIVERSE, creations will be given a **single-player Scene URL** and a **multi-player World URL.**&#x20;
 
-The Scene URL, such as https://create.vivsere.com/scenes/1234567, is designed as a preview for creators to quickly iterate on their project's visuals and mechanics without worrying about networked gameplay. The Scene URL can be shared and accessed by anyone with access to the URL, however you will not be able to see or hear other networked avatars.
+The Scene URL, such as https://create.viverse.com/scenes/1234567, is designed as a preview for creators to quickly iterate on their project's visuals and mechanics without worrying about networked gameplay. The Scene URL can be shared and accessed by anyone with access to the URL, however you will not be able to see or hear other networked avatars.
 
 The World URL, such as https://create.viverse.com/aBCdEfG, is the fully published, multiplayer environment that may be made discoverable by other VIVERSE users on the world discovery page. The World URL's accessibility is determined by the World's settings. Here you will be able to see and hear other networked avatars who have access to the World URL
 

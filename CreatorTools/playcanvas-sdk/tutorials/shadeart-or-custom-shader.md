@@ -84,7 +84,7 @@ No matter how the camera (User) moves, the skybox doesn’t change in size nor r
 
 Import a sphere with inverted normals/faces into your Play Canvas project. We recommend using the sphere model-template from our shared project (see: ScenesAssets > Models > Common > ProjSphere1x1\_64x32\_Inv).
 
-The sphere size is 1 m. x 1 m. in diameter. Scale it to 100 m. or any other size that will fit to your environment. Scaling the mesh up or down will not effect the skybox image resolution.
+The sphere size is 1 m. x 1 m. in diameter. Scale it to 100 m. or any other size that will fit to your environment. Scaling the mesh up or down will not affect the skybox image resolution.
 
 Place the sphere in the Hierarchy.
 {% endstep %}
@@ -111,7 +111,7 @@ Upload an e. map into your project.
 Assign the e. map to the shader script.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.\
+Make sure to uncheck the Mipmaps in the texture settings.\
 You do not need to generate a Play Canvas cube map, simply link your Equirectangular Map to the shader.
 {% endstep %}
 {% endstepper %}
@@ -120,7 +120,7 @@ You do not need to generate a Play Canvas cube map, simply link your Equirectang
 
 {% tabs %}
 {% tab title="Rotation" %}
-If you wish to rotate the skybox image (the equirectangular map) remember, rotating the mesh itself will not effect the image rotation.
+If you wish to rotate the skybox image (the equirectangular map) remember, rotating the mesh itself will not affect the image rotation.
 
 In order to rotate the image, use the Rotation parameters in the script settings.
 
@@ -156,7 +156,7 @@ Import a sphere with inverted normals/faces into your Play Canvas project.
 
 We recommend using the sphere model-template from our shared project (see: ScenesAssets > Models ? Common > ProjSphere1x1\_64x32\_Inv).
 
-The sphere size is 1 m. x 1 m. in diameter. Scale it to 100 m. or any other size that will fit to your environment. Scaling the mesh up or down will not effect the skybox image resolution.
+The sphere size is 1 m. x 1 m. in diameter. Scale it to 100 m. or any other size that will fit to your environment. Scaling the mesh up or down will not affect the skybox image resolution.
 
 Place the sphere in the Hierarchy.
 {% endstep %}
@@ -183,7 +183,7 @@ Upload an e. map into your project.
 Assign the e. map to the shader script in section : Equirectangular Map.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.\
+Make sure to uncheck the Mipmaps in the texture settings.\
 You do not need to generate a Play Canvas cube map, simply link your Equirectangular Map to the shader.
 {% endstep %}
 
@@ -200,25 +200,25 @@ Assign the Map in the in section : Equirectangular Map Stars.
 {% step %}
 ### Assigning the Distortion Map (Noise Map)
 
-Upload a Noise Map to your project and assign it to the shader script. This map will effect the distortion effect. You may use any Noise Map and check the result in game.
+Upload a Noise Map to your project and assign it to the shader script. This map will affect the distortion effect. You may use any Noise Map and check the result in game.
 {% endstep %}
 {% endstepper %}
 
 ### Factors
 
 {% tabs %}
-{% tab title="Noise Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Noise Tiling Factor" %}
+Chose your preferred distortion tiling.
 
-The noise map tilling will not effect the equirectangular tilling.
+The noise map tiling will not affect the equirectangular tiling.
 {% endtab %}
 
 {% tab title="Noise Movement Speed" %}
-This factor will effect the speed of the distortion created by the Noise Map.
+This factor will affect the speed of the distortion created by the Noise Map.
 {% endtab %}
 
 {% tab title="Rotation" %}
-If you wish to rotate the skybox image (the equirectangular map) remember, rotating the mesh itself will not effect the image rotation.
+If you wish to rotate the skybox image (the equirectangular map) remember, rotating the mesh itself will not affect the image rotation.
 
 In order to rotate the image, use the Rotation parameters in the script settings.
 
@@ -232,7 +232,7 @@ The skybox Rotation parameters : 0.25 rotates the image by 2048 pixels (90) d., 
 {% endtab %}
 
 {% tab title="Distortion Strength" %}
-This factor will effect the intensity of the distortion effect.
+This factor will affect the intensity of the distortion effect.
 {% endtab %}
 {% endtabs %}
 
@@ -293,34 +293,34 @@ The images presented in our shared project and in the ShaderArt gallery in VIVER
 Apply the texture to the shader script in the Additive Map section.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.
+Make sure to uncheck the Mipmaps in the texture settings.
 {% endstep %}
 
 {% step %}
 ### Assigning the distortion map (noise map)
 
-This map will effect the distortion effect.
+This map will affect the distortion effect.
 
-In the examples seen in our shared project and in the ShadeArt galley in VIVERSE, the Distortion Map is the same texture used as an Additive Map with our without a photoshop effect (blur and B\&W filters). See distortion maps examples in: ScenesAssets > Textures\_Tillable.
+In the examples seen in our shared project and in the ShadeArt gallery in VIVERSE, the Distortion Map is the same texture used as an Additive Map with our without a photoshop effect (blur and B\&W filters). See distortion maps examples in: ScenesAssets > TexturesTilable.
 
 Apply the Distortion Map to the shader script in the section: Distortion Map.
 
 Notes :\
-Make sure to uncheck the Mitmaps in the texture settings.
+Make sure to uncheck the Mipmaps in the texture settings.
 {% endstep %}
 {% endstepper %}
 
 ### Factors
 
 {% tabs %}
-{% tab title="Noise Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Noise Tiling Factor" %}
+Chose your preferred distortion tiling.
 
-The noise map tilling will not effect the equirectangular tilling, yet it will react to the mesh UV mapping.
+The noise map tiling will not affect the equirectangular tiling, yet it will react to the mesh UV mapping.
 {% endtab %}
 
 {% tab title="Noise Movement Speed" %}
-This factor will effect the speed of the distortion created by the Distortion Map. It may be set to positive or negative values (for example: 0.05 or -0.05).
+This factor will affect the speed of the distortion created by the Distortion Map. It may be set to positive or negative values (for example: 0.05 or -0.05).
 {% endtab %}
 {% endtabs %}
 
@@ -346,7 +346,7 @@ For a simple water surface use a circle shaped plane with Project From View (fit
 
 You may use the circle-plane model-template from our shared project (see: ScenesAssets > Models ? Common > CirclePlane1x1m128).The sphere size is 1 m. x 1 m. in diameter. Scale it to any size that will fit to your environment.
 
-Scaling the mesh up or down will effect the normal map tilling.
+Scaling the mesh up or down will affect the normal map tiling.
 
 Place the model Template in the Hierarchy.
 {% endstep %}
@@ -390,12 +390,12 @@ Apply the Normal Map to the shader script in the section: Normal Map.
 ### Factors
 
 {% tabs %}
-{% tab title="Normal Map Tilling Factor" %}
-Chose your preferred distortion tilling.
+{% tab title="Normal Map Tiling Factor" %}
+Chose your preferred distortion tiling.
 {% endtab %}
 
 {% tab title="Normal Map Strength" %}
-This factor will effect the intensity of the distortion effect.
+This factor will affect the intensity of the distortion effect.
 {% endtab %}
 
 {% tab title="Base Colour" %}
@@ -403,7 +403,7 @@ The Base Colour serves as a colour filter. Complete Black will make the water lo
 {% endtab %}
 
 {% tab title="Speed" %}
-This factor will effect the speed of the distortion effect created by the Normal Map.
+This factor will affect the speed of the distortion effect created by the Normal Map.
 {% endtab %}
 
 {% tab title="Reflectivity" %}
