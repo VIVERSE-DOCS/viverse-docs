@@ -10,9 +10,9 @@ Templates are starter projects that are pre-built in PlayCanvas. They are availa
 
 
 
-| Title                                                                                                                                    | Image                                                                       | Game Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------ |
-| <ol><li><a href="https://docs.viverse.com/world-decoration/creating-from-templates/pet-rescue-template-project">Pet Rescue</a></li></ol> | <img src="../../.gitbook/assets/image (7).png" alt="" data-size="original"> | Hidden object game |
+| Title                                                                                                                                    | Image                                                                           | Game Type          |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------ |
+| <ol><li><a href="https://docs.viverse.com/world-decoration/creating-from-templates/pet-rescue-template-project">Pet Rescue</a></li></ol> | <img src="../../.gitbook/assets/image (7) (1).png" alt="" data-size="original"> | Hidden object game |
 
 <details>
 

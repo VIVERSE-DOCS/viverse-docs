@@ -148,8 +148,6 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Installing Vite and using it to build your project
 
 {% stepper %}
@@ -157,6 +155,8 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 ### Install the build tool Vite
 
 A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: **npm install --save-dev vite**.
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -229,7 +229,7 @@ B. Confirm the development build of the Three.js project was built successfully 
 {% step %}
 ### Test development build
 
-A. To test a development build of the Three.js project, open the browser and navigate to the URL that printed in the previous step. In this example, the URL is [http://localhost:5173](http://localhost:5173). Confirm the app works as expected.
+A. To test a development build of the Three.js project, open the browser and navigate to the URL that was printed in the previous step. In this example, the URL is [http://localhost:5173](http://localhost:5173). Confirm the app works as expected.
 
 <figure><img src="../../.gitbook/assets/image (687).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -239,11 +239,11 @@ A. To test a development build of the Three.js project, open the browser and nav
 
 A. To create a production build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite build**.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 B. Confirm the production build of the Three.js project was built successfully by confirming the **dist** folder was created and populated.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -257,7 +257,7 @@ B. Confirm the production build of the Three.js project was built successfully b
 
 A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
 
-* **Windows** : In windows, packages are installed in %APPDATA%\npm\node\_modules .
+* **Windows** : In windows, packages are installed in %APPDATA%\npm\node\_modules.
 * **macOS and Linux** : In mac or Linux packages are typically installed in /usr/local/lib/node\_modules or a user-specific directory like \~/.npm-global.
 
 B. Confirm that the command line tool is installed based on screen feedback.
@@ -280,7 +280,7 @@ B. Enter VIVERSE **email** and **password**.
 
 C. Confirm login was successful.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -296,7 +296,7 @@ A. To publish content to VIVERSE type the following command with the project pat
 
 B. Confirm the content was published successfully.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -304,7 +304,7 @@ B. Confirm the content was published successfully.
 
 A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL** that is printed in the **Publish Details**.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 

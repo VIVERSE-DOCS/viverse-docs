@@ -53,7 +53,7 @@ A. To publish content to VIVERSE type the following command with the project pat
 
 B. Confirm the content was published successfully.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -61,7 +61,7 @@ B. Confirm the content was published successfully.
 
 A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL**.
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -79,7 +79,7 @@ A. Type the following command inside a command prompt: **viverse-cli auth status
 
 B. Confirm the status authentication status.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -97,7 +97,7 @@ A. Type the following command inside command prompt: **viverse-cli app list**, t
 
 B. Confirm the list of published applications is printed.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -115,6 +115,6 @@ A. Type the following command inside command prompt: **viverse-cli auth logout**
 
 B. Confirm the logout was successful.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

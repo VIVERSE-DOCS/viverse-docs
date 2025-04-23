@@ -38,7 +38,7 @@ A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click En
 
 B. Confirm that the command line tool is installed based on screen feedback.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -56,7 +56,7 @@ B. Enter VIVERSE **email** and **password**.
 
 C. Confirm login was successful.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
