@@ -23,6 +23,24 @@ description: This document provides a guide for publishing JavaScript projects t
 
 ## Manifest.json
 
+{% hint style="warning" %}
+**Important:** When you publish content, the CLI automatically creates a `.viverse-cli/manifest.json` file in your target path. This file contains essential metadata about your content, including its deployment ID and URL.
+
+If you need to update the same content later (especially in CI/CD pipelines), **make sure to preserve this folder**. The manifest file is critical for tracking content versions and ensuring proper updates rather than creating new content each time.
+{% endhint %}
+
+**manifest.json**
+
+```json
+{
+  "name": "my-three-project",
+  "description": "Test Viverse-cli project",
+  "id": "##########",
+  "accountId": "########-####-####-####-############",
+  "deploymentUrl": "https://create.viverse.com/SEzTaQg"
+}
+```
+
 
 
 ## Publishing to VIVERSE
@@ -32,7 +50,7 @@ description: This document provides a guide for publishing JavaScript projects t
 ## Troubleshooting
 
 {% hint style="warning" %}
-When you publish content to VIVERSE, the command-line tool automatically creates a .viverse-cli/manifest.json file in the target path. This file contains essential metadata about the content, including its deployment ID and URL. If you need to update the same content later, make sure to preserve this folder. The manifest file is critical for tracking content versions and ensuring proper updates rather than creating new content each time.
+
 {% endhint %}
 
 ## Publishing content to VIVERSE
