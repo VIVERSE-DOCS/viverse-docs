@@ -43,7 +43,7 @@ If you need to update the same content later (especially in CI/CD pipelines), **
 
 
 
-## Publishing to VIVERSE
+## Publishing content to VIVERSE
 
 {% stepper %}
 {% step %}
@@ -71,15 +71,13 @@ C. Confirm the content was published successfully.
 {% endstep %}
 
 {% step %}
-### Re-publishing
+### Re-publishing content
 
 A. To re-publish content to VIVERSE when a project is already published, type the following command with the project path to the project's production build folder: **viverse-cli publish \<path>**, then click Enter.
 
 B. Confirm the manifest file is updated.
 
 C. Confirm the content was published successfully.
-
-
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
 

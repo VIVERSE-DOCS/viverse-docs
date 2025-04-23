@@ -292,11 +292,25 @@ C. Confirm login was successful.
 {% step %}
 ### Publish content
 
-A. To publish content to VIVERSE type the following command with the project path to the project's production build folder, which is under the dist/ folder: **viverse-cli publish \<path>**, then click Enter.
+A. To publish content to VIVERSE type the following command with the project path to the project's production build folder: **viverse-cli publish \<path>**, then click Enter.
 
-B. Confirm the content was published successfully.
+B. Enter an **Application title** and **Application description**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+C. Confirm the content was published successfully.
+
+<figure><img src="../../.gitbook/assets/image (693).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Re-publishing content
+
+A. To re-publish content to VIVERSE when a project is already published, type the following command with the project path to the project's production build folder: **viverse-cli publish \<path>**, then click Enter.
+
+B. Confirm the manifest file is updated.
+
+C. Confirm the content was published successfully.
+
+<figure><img src="../../.gitbook/assets/image (694).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
