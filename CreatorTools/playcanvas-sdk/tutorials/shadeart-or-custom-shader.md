@@ -80,7 +80,7 @@ No matter how the camera (User) moves, the skybox doesn’t change in size nor r
 
 {% stepper %}
 {% step %}
-### The skybox mesh
+#### The skybox mesh
 
 Import a sphere with inverted normals/faces into your Play Canvas project. We recommend using the sphere model-template from our shared project (see: ScenesAssets > Models > Common > ProjSphere1x1\_64x32\_Inv).
 
@@ -90,19 +90,19 @@ Place the sphere in the Hierarchy.
 {% endstep %}
 
 {% step %}
-### Assigning the shader to the mesh
+#### Assigning the shader to the mesh
 
 Assign the script "equiprojection.js" (see: ScenesAssets > Shaders > 01\_Equirpojection > Scripts) to the sphere Template Instance (parent).
 {% endstep %}
 
 {% step %}
-### Assigning the shader components to the shader script
+#### Assigning the shader components to the shader script
 
 Assign the Vertex and Fragment shaders (euiprojection\_fs / equiprojection\_vs) to the Script (see: ScenesAssets > Shaders > 01\_Equiprojection > Shaders).
 {% endstep %}
 
 {% step %}
-### Assigning an Equirectangular Map to the shader script
+#### Assigning an Equirectangular Map to the shader script
 
 The Equirectangular Map is an image with a ratio of 2x1. A 4K image size is 4096x2048 pixels, while 8K is 8192x4096 pixels. In our sample project we use 8K images.
 
@@ -150,7 +150,7 @@ You may review the shader in our ShadeArt gallery in VIVERSE (see: skybox Super 
 
 {% stepper %}
 {% step %}
-### The skybox mesh
+#### The skybox mesh
 
 Import a sphere with inverted normals/faces into your Play Canvas project.
 
@@ -162,19 +162,19 @@ Place the sphere in the Hierarchy.
 {% endstep %}
 
 {% step %}
-### Assigning the shader to the mesh
+#### Assigning the shader to the mesh
 
 Assign the script "equiprojection-distort.js" (see: ScenesAssets > Shaders > 02\_EquirojectionDistort > Scripts) to the sphere Template Instance (parent).
 {% endstep %}
 
 {% step %}
-### Assigning the shader components to the shader script
+#### Assigning the shader components to the shader script
 
 Assign the Vertex and Fragment shaders (euiprojection-distort\_fs / equiprojection-distort\_vs) to the Script (see: ScenesAssets > Shaders > 02\_EquirojectionDistort > Shaders).
 {% endstep %}
 
 {% step %}
-### Assigning an Equirectangular Map to the shader script
+#### Assigning an Equirectangular Map to the shader script
 
 The Equirectangular Map is an image with a ratio of 2x1. A 4K image size is 4096x2048 pixels, while 8K is 8192x4096 pixels. In our sample project we use 8K images.
 
@@ -188,7 +188,7 @@ You do not need to generate a Play Canvas cube map, simply link your Equirectang
 {% endstep %}
 
 {% step %}
-### Assigning the Additive Equirectangular Map
+#### Assigning the Additive Equirectangular Map
 
 This is where you assign an additive equirectangular map (see additive map example in: ScenesAssets > Textures\_Equirectangular > SkyBox\_Stars)
 
@@ -198,7 +198,7 @@ Assign the Map in the in section : Equirectangular Map Stars.
 {% endstep %}
 
 {% step %}
-### Assigning the Distortion Map (Noise Map)
+#### Assigning the Distortion Map (Noise Map)
 
 Upload a Noise Map to your project and assign it to the shader script. This map will affect the distortion effect. You may use any Noise Map and check the result in game.
 {% endstep %}
@@ -248,13 +248,11 @@ The shader may be applied on any mesh with inverted normals/faces: on a floor, a
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-03-31 at 9.56.51 AM.png" alt="" width="409"><figcaption></figcaption></figure>
 
-
-
 ### Setting the Shader
 
 {% stepper %}
 {% step %}
-### The model (mesh)
+#### The model (mesh)
 
 Import any model with inverted normals/faces into your Play Canvas project. Make sure the mesh has correct UV mapping.
 
@@ -264,19 +262,19 @@ Place the sphere in the Hierarchy.
 {% endstep %}
 
 {% step %}
-### Assigning the shader to the mesh
+#### Assigning the shader to the mesh
 
 Assign the script "equiprojection-uvdistort.js" (see: ScenesAssets > Shaders > 03\_EquiprojectionUVDistort > Scripts) to the model Template Instance (parent).
 {% endstep %}
 
 {% step %}
-### Assigning the shader components to the shader script
+#### Assigning the shader components to the shader script
 
 Assign the Vertex and Fragment shaders (euiprojection-uvdistort\_fs / equiprojection-uvdistort\_vs) to the Script (see: ScenesAssets > Shaders > 03\_EquiprojectionUVDistort > Shaders).
 {% endstep %}
 
 {% step %}
-### Assigning the background equirectangular map
+#### Assigning the background equirectangular map
 
 This is where you assign an equirectangular map that will serve as the background image (see additive map example in: ScenesAssets > Textures\_Equirectangular > SkyBox\_Stars).
 
@@ -284,7 +282,7 @@ Upload an equirectangular image to your project and assign it to the shader scri
 {% endstep %}
 
 {% step %}
-### Assigning the additive map (seamless texture)
+#### Assigning the additive map (seamless texture)
 
 Upload a seamless texture with a ratio of 1x1 (1 K is 1024x1024 pixels, 2K is 2048x2048 pixels, 4K is 40996x4096 pixels).
 
@@ -297,7 +295,7 @@ Make sure to uncheck the Mipmaps in the texture settings.
 {% endstep %}
 
 {% step %}
-### Assigning the distortion map (noise map)
+#### Assigning the distortion map (noise map)
 
 This map will affect the distortion effect.
 
@@ -338,7 +336,7 @@ This is a custom made water shader that reacts to the mesh UV and may be applied
 
 {% stepper %}
 {% step %}
-### The model (mesh)
+#### The model (mesh)
 
 Import any model with into your Play Canvas project. Make sure the mesh has correct UV mapping since the normal map applied to the shader will reacts to the UV mapping.
 
@@ -352,25 +350,25 @@ Place the model Template in the Hierarchy.
 {% endstep %}
 
 {% step %}
-### Assigning the shader to the mesh
+#### Assigning the shader to the mesh
 
 Assign the script "waterShadert.js" (see: ScenesAssets > Shaders > 04\_WaterShadert > Scripts) to the model Template Instance (parent).
 {% endstep %}
 
 {% step %}
-### Assigning the shader components to the shader script
+#### Assigning the shader components to the shader script
 
 Assign the Vertex and Fragment shaders (water\_fs / water\_vs) to the Script (see: ScenesAssets > Shaders > > 04\_WaterShader > Shaders).
 {% endstep %}
 
 {% step %}
-### Assigning the cube map
+#### Assigning the cube map
 
 Just like in reality, a water without a reflection will not be visible. To achieve the water effect, you need to apply a Cube Map to the section : Cube Map.
 
 Upload a Cube Map into your project and assign it to the shader script.
 
-Creating a Cube Map from an Equirectangular Map: \
+Creating a Cube Map from an Equirectangular Map:\
 If you wish to create a Cube Map from the same Equirectangular Map you use in the skybox shader, you will need to generate a Cube Map from the Equirectangular Map. To do so, us the Play Canvas texture tool:
 
 https://playcanvas.com/texture-tool
@@ -379,7 +377,7 @@ see explanation in : https://developer.playcanvas.com/user-manual/assets/types/c
 {% endstep %}
 
 {% step %}
-### Assigning the normal map
+#### Assigning the normal map
 
 The Normal Map will generate the distortion effect, such as waves movement. See normal map example in: ScenesAssets > Shaders > > 04\_WaterShader > Textures.
 

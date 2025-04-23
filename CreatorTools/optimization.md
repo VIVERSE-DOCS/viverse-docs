@@ -23,7 +23,7 @@ VIVERSE Create uses PlayCanvas editor to create all the virtual worlds and envir
 
 {% stepper %}
 {% step %}
-### Create New Project
+#### Create New Project
 
 Before you can start using PlayCanvas, you’ll need to create an account. After creating an account, go to your profile page and click the PROJECTS tab. Then click NEW in the upper right.
 
@@ -31,7 +31,7 @@ Before you can start using PlayCanvas, you’ll need to create an account. After
 {% endstep %}
 
 {% step %}
-### Naming Project
+#### Naming Project
 
 Enter a name for your project. The description is optional and can be filled in later. Click CREATE.
 
@@ -39,7 +39,7 @@ Enter a name for your project. The description is optional and can be filled in 
 {% endstep %}
 
 {% step %}
-### Click Edit Button
+#### Click Edit Button
 
 Now that you’ve started a project, you can dive right into the editor – just click the EDITOR button.
 
@@ -51,37 +51,37 @@ Now that you’ve started a project, you can dive right into the editor – just
 
 {% stepper %}
 {% step %}
-### Model
+#### Model
 
 Make sure models are game-ready by optimizing them for real-time rendering. Use a reasonable topology that minimizes polygon count. Small details such as text, bevels, and screws can be rendered using textures.
 {% endstep %}
 
 {% step %}
-### UV
+#### UV
 
 Models need to contain two sets of UVs: UV1 for textures, and UV2 for lightmaps. Most 3D modeling software can make decent lightmaps. You can also use the PlayCanvas editor to generate lightmaps. See the [Lightmapping](https://developer.playcanvas.com/user-manual/graphics/lighting/lightmapping/) topic in the PlayCanvas User Manual for details.
 {% endstep %}
 
 {% step %}
-### Material
+#### Material
 
 PlayCanvas uses the PBR with advanced shading to make sure rendering is as realistic as possible. Single objects can contain multiple materials, but performance should be prioritized (for example, by reducing draw calls). \*See the [Physical Material](https://developer.playcanvas.com/user-manual/graphics/physical-rendering/physical-materials/) topic in the PlayCanvas User Manual for details.
 {% endstep %}
 
 {% step %}
-### Texture
+#### Texture
 
 High texture counts can overload the GPU. Try to keep the texture resolution at a reasonable size. Image resolution can’t be higher than 2048x2048, for the best texture quality, use JPGs, PNGs, or TGAs. Try storing RMA textures in different channels to reduce texture count (for example, RGB: R – Ambient Occlusion; G – Roughness; B – Metallic).
 {% endstep %}
 
 {% step %}
-### Lighting
+#### Lighting
 
 Real-time lighting drastically reduces performance (each new real-time light source results in two draw calls). Try using just one real-time light source to produce shadows for characters and dynamic objects. Use lightmaps for static objects. \*Additional HDRI cubemaps are required for reflective objects.
 {% endstep %}
 
 {% step %}
-### Collision
+#### Collision
 
 Make sure to use low-poly models as collision meshes for your scenes. Don’t use original high poly models as collision meshes. Also make sure the low-poly models are individual solid meshes. Don’t join and intersect multiple meshes.
 
@@ -89,7 +89,7 @@ Make sure to use low-poly models as collision meshes for your scenes. Don’t us
 {% endstep %}
 
 {% step %}
-### Export
+#### Export
 
 Name and group your models, then export them (preferably in GLB format). Make sure all textures and animations are packed, and then import them into PlayCanvas.
 {% endstep %}
@@ -122,7 +122,7 @@ The assets you create directly influence the look and the performance of your pr
 
 {% stepper %}
 {% step %}
-### Create Folder
+#### Create Folder
 
 Go to ASSETS and create folders to import your assets into.
 
@@ -130,7 +130,7 @@ Go to ASSETS and create folders to import your assets into.
 {% endstep %}
 
 {% step %}
-### Import Model
+#### Import Model
 
 Import your models. PlayCanvas will automatically extract textures, animation data, and other elements from GLB and FBX files and create folders for them.
 
@@ -138,7 +138,7 @@ Import your models. PlayCanvas will automatically extract textures, animation da
 {% endstep %}
 
 {% step %}
-### Import Cubemap
+#### Import Cubemap
 
 Import your cubemaps. Go to Settings, search for RENDERING, then add the cubemap to the Skybox field.
 
@@ -146,7 +146,7 @@ Import your cubemaps. Go to Settings, search for RENDERING, then add the cubemap
 {% endstep %}
 
 {% step %}
-### Configure Collision
+#### Configure Collision
 
 Configure collision settings. Add your low-poly collision models to the scene, click ADD COMPONENT, and then add two physics components: Collision and Rigid Body. For the Collision component, set Type to Mesh, add the intended low-poly model to Render Asset, and then turn off RENDER. Built-in non-mesh type collisions can also be used for models with simple shapes.
 
@@ -158,9 +158,9 @@ Built-in non-mesh type collisions can also be used for models with simple shapes
 {% endstep %}
 
 {% step %}
-### Configure Model Settings
+#### Configure Model Settings
 
-If the model is a static object in the scene, select Static for the Render component. If the models share the same material and mesh, use Batch Group to reduce the number of draw calls. \*See the [Batching](https://developer.playcanvas.com/user-manual/graphics/advanced-rendering/batching/ topic in the PlayCanvas User Manual for details.
+If the model is a static object in the scene, select Static for the Render component. If the models share the same material and mesh, use Batch Group to reduce the number of draw calls. \*See the \[Batching]\(https://developer.playcanvas.com/user-manual/graphics/advanced-rendering/batching/ topic in the PlayCanvas User Manual for details.
 
 <figure><img src=".gitbook/assets/image (363).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -168,7 +168,7 @@ See the [Batching](https://developer.playcanvas.com/en/user-manual/optimization/
 {% endstep %}
 
 {% step %}
-### Configure Material Settings
+#### Configure Material Settings
 
 Set Shading to Physical and place each texture in the correct channel.
 
@@ -176,7 +176,7 @@ Set Shading to Physical and place each texture in the correct channel.
 {% endstep %}
 
 {% step %}
-### Configure Texture Settings
+#### Configure Texture Settings
 
 Click the image to open the properties panel, then select BASIS in the compression properties window. Click COMPRESS BASIS to complete texture compression. The maximum resolution for textures is 1024 X 1024.
 
@@ -184,7 +184,7 @@ Click the image to open the properties panel, then select BASIS in the compressi
 {% endstep %}
 
 {% step %}
-### Configure Lighting Settings
+#### Configure Lighting Settings
 
 Add a directional light for characters and dynamic objects, and then in the light properties window, select Static and Cast Shadows. If you bake lightmaps in PlayCanvas, remember to disable all baked light, except directional light. If you don’t disable baked light, the scene may crash.
 
@@ -192,7 +192,7 @@ Add a directional light for characters and dynamic objects, and then in the ligh
 {% endstep %}
 
 {% step %}
-### Inspect Performance
+#### Inspect Performance
 
 Turn on the performance monitoring tools (Profiler, Debug, Mini stats, etc.) under the Launch button to check things like draw-calls, VRAM, and FPS. This way, can check whether the scene is overloaded or what’s causing a scene to crash. Make sure all performance data is aligned with the suggested stats.
 
@@ -200,7 +200,7 @@ Turn on the performance monitoring tools (Profiler, Debug, Mini stats, etc.) und
 {% endstep %}
 
 {% step %}
-### Private Project
+#### Private Project
 
 Go back to project page and set the project to PRIVATE to prevent any data leakage. Under the TEAM heading, you can authorize other accounts to view or edit projects for better collaboration
 

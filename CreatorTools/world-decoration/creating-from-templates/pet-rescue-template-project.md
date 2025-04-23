@@ -8,91 +8,85 @@ description: This document provides a guide for creating a Pet Rescue replica pr
 
 The Pet Rescue game is a treasure hunt style game in which the avatar is placed in a 3D environment and has to search for multiple cats. The user navigates the world with their avatar and uses the mouse button to click on the cats to capture them. The game includes a quest system, scoreboard, timer and many other features that can be useful for creating games in VIVERSE. Read up on Pet Rescue [here](https://www.news.viverse.com/post/cat-adventure-a-cozy-virtual-world-to-soothe-your-soul). Download the project and import the zip file into PlayCanvas.
 
-
-
-<table><thead><tr><th width="301">Project Name</th><th width="105">Download</th><th width="331">Version</th></tr></thead><tbody><tr><td>Pet_Rescue_Sample_Scenes_1.0</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/Pet_Rescue_Sample_Scenes_1.0_2025_2_21-23_8_44.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.0</strong> </p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr><tr><td>Pet_Rescue_Template_Project_1.0</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/Pet_Rescue_Template_Project_1.0_2025_2_21-23_9_12.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.0</strong> </p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr></tbody></table>
+<table><thead><tr><th width="301">Project Name</th><th width="105">Download</th><th width="331">Version</th></tr></thead><tbody><tr><td>Pet_Rescue_Sample_Scenes_1.0</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/Pet_Rescue_Sample_Scenes_1.0_2025_2_21-23_8_44.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.0</strong></p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr><tr><td>Pet_Rescue_Template_Project_1.0</td><td><a href="https://github.com/ViveportSoftware/viverse-docs/raw/refs/heads/main/samples/Pet_Rescue_Template_Project_1.0_2025_2_21-23_9_12.zip">Zip File</a></td><td><p>Sample Project Version: <strong>1.0</strong></p><p>PlayCanvas Extension Version: <strong>3.44.1</strong></p></td></tr></tbody></table>
 
 ## Pet Rescue Sample Scenes Project
 
-The Pet Rescue Sample Scene Project includes 2 scenes.&#x20;
+The Pet Rescue Sample Scene Project includes 2 scenes.
 
 **Original\_Scene** - The original Pet Rescue which can be found by searching in VIVERSE Worlds. [Link](https://create.viverse.com/MMuLWbE)
 
 **Tutorial\_Scene** - This scene contains a different iteration of the Pet Rescue. This is the scene that was created using the guides provided below.
 
-
-
 ## Pet Rescue Template Project
 
 **Template\_Scene -** A stripped down version of Pet Rescue. The 3D environment and colliders have been removed and all the Pet Rescue core game mechanics have been left in the scene to help creators do what they do best, BUT FASTER! Read through the checklist below. The components listed as <mark style="color:red;">Required</mark> will need to be created and/or configured. The components marked as Optional are already added and configured in the project, but only need to be modified if the creator wants to customize.
-
-
 
 ## Using The Pet Rescue Template Checklist
 
 {% stepper %}
 {% step %}
-### <mark style="color:red;">Required:</mark> A 3D environment needs to be added with collider(s).
+#### <mark style="color:red;">Required:</mark> A 3D environment needs to be added with collider(s).
 {% endstep %}
 
 {% step %}
-### <mark style="color:red;">Required:</mark> Spawn point is prebuilt, but requires customization of position and rotation for different environments.
+#### <mark style="color:red;">Required:</mark> Spawn point is prebuilt, but requires customization of position and rotation for different environments.
 {% endstep %}
 
 {% step %}
-### Optional: 4 cat groups are prebuilt (GroupA - GroupD), but can be customized by adding or removing groups.
+#### Optional: 4 cat groups are prebuilt (GroupA - GroupD), but can be customized by adding or removing groups.
 {% endstep %}
 
 {% step %}
-### <mark style="color:red;">Required:</mark> 17 cat hiding positions are prebuilt (A1-A8, B1-B3,  C1-C3, D1-D3), but require customization of position and rotation for different environments. Hiding positions can be added or removed.
+#### <mark style="color:red;">Required:</mark> 17 cat hiding positions are prebuilt (A1-A8, B1-B3, C1-C3, D1-D3), but require customization of position and rotation for different environments. Hiding positions can be added or removed.
 {% endstep %}
 
 {% step %}
-### Optional: 9 cat models are prebuilt and have been added to hiding positions. Cat models can be customized by adjusting the scale of the models and cats can be added or removed.
+#### Optional: 9 cat models are prebuilt and have been added to hiding positions. Cat models can be customized by adjusting the scale of the models and cats can be added or removed.
 {% endstep %}
 
 {% step %}
-### <mark style="color:red;">Required:</mark> Catbox is prebuilt, but requires customization of position, rotation and scale for different environments. Cat collect objects and cat models can be added or removed.
+#### <mark style="color:red;">Required:</mark> Catbox is prebuilt, but requires customization of position, rotation and scale for different environments. Cat collect objects and cat models can be added or removed.
 {% endstep %}
 
 {% step %}
-### Optional: Random waypoint assignment object is prebuilt. Can be customized if cats or cat groups are added or removed.
+#### Optional: Random waypoint assignment object is prebuilt. Can be customized if cats or cat groups are added or removed.
 {% endstep %}
 
 {% step %}
-### <mark style="color:red;">Required:</mark> Instructions board and start button are prebuilt, but require customization of position, rotation and scale for different environments.
+#### <mark style="color:red;">Required:</mark> Instructions board and start button are prebuilt, but require customization of position, rotation and scale for different environments.
 {% endstep %}
 
 {% step %}
-### Optional: Countdown is prebuilt.
+#### Optional: Countdown is prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: Scoreboard is prebuilt.
+#### Optional: Scoreboard is prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: GameOver user interface is prebuilt.
+#### Optional: GameOver user interface is prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: GameManager object is prebuilt.
+#### Optional: GameManager object is prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: Quest system is configured for finding 9 cats, but can be customized if cats are added or removed.
+#### Optional: Quest system is configured for finding 9 cats, but can be customized if cats are added or removed.
 {% endstep %}
 
 {% step %}
-### Optional: Cat animations are prebuilt.
+#### Optional: Cat animations are prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: Audio including cat sounds, background music and celebration music are prebuilt.
+#### Optional: Audio including cat sounds, background music and celebration music are prebuilt.
 {% endstep %}
 
 {% step %}
-### Optional: Cat particle effects are prebuilt.
+#### Optional: Cat particle effects are prebuilt.
 {% endstep %}
 {% endstepper %}
 
@@ -102,7 +96,7 @@ A 3D environment needs to be added to the template project. The basic process is
 
 {% stepper %}
 {% step %}
-### Add the 3D model to the project
+#### Add the 3D model to the project
 
 A. In the **Assets** window, create a new folder called **Models**.
 
@@ -112,7 +106,7 @@ B. Drag your 3D model into the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Add the 3D model to the scene
+#### Add the 3D model to the scene
 
 A. Locate the 3D model's **Template** file inside the folder that was generated by the 3D model that was added to the **Assets** window.
 
@@ -124,7 +118,7 @@ C. Update **Position, Rotation** and **Scale** of the model.
 {% endstep %}
 
 {% step %}
-### Add and configure the collider
+#### Add and configure the collider
 
 A. In the Hierarchy, create a new entity for the collider.
 
@@ -148,7 +142,7 @@ The spawn point is already added to the template project, but needs to be config
 
 {% stepper %}
 {% step %}
-### Create a spawn point
+#### Create a spawn point
 
 A. In the **Hierarchy**, add a new entity.
 
@@ -168,7 +162,7 @@ The cat groups are already added to the template project, but groups can be adde
 
 {% stepper %}
 {% step %}
-### Configure cat groups
+#### Configure cat groups
 
 A. A parent entity called Cats which holds the cats and hiding positions.
 
@@ -184,7 +178,7 @@ The cat hiding positions are already added to the template project, but hiding p
 
 {% stepper %}
 {% step %}
-### Configure cat hiding positions
+#### Configure cat hiding positions
 
 A. Each group has several hiding positions. In the sample, the positions under **GroupA** are named **A1, A2, A3,** etc.
 
@@ -200,7 +194,7 @@ The cat models are already added to the template project, but cat models can be 
 
 {% stepper %}
 {% step %}
-### Cat models
+#### Cat models
 
 A. Cat models are located in the **Models/Cats** directory.
 
@@ -208,7 +202,7 @@ A. Cat models are located in the **Models/Cats** directory.
 {% endstep %}
 
 {% step %}
-### Adding cat models in the scene
+#### Adding cat models in the scene
 
 A. For each cat, drag the **Template** from the **Assets** window to a hiding position in the **Hierarchy**.
 
@@ -220,7 +214,7 @@ C. Update the **Scale** for the cat model so the size is appropriate for the env
 {% endstep %}
 
 {% step %}
-### Add material
+#### Add material
 
 A. Select the first child object each cat.
 
@@ -230,7 +224,7 @@ B. Add the **Cat\_Material** to the **Materials** slot.
 {% endstep %}
 
 {% step %}
-### Disable the cats
+#### Disable the cats
 
 A. Select all the cats in the groups and **disable** them so that they are disabled by default.
 
@@ -238,7 +232,7 @@ A. Select all the cats in the groups and **disable** them so that they are disab
 {% endstep %}
 
 {% step %}
-### Add the cat script to the project
+#### Add the cat script to the project
 
 A. Drag the **cat.mjs** script to the **Assets** window.
 
@@ -248,7 +242,7 @@ B. Click the **parse** button.
 {% endstep %}
 
 {% step %}
-### Add the fader script to the project
+#### Add the fader script to the project
 
 A. Drag the **fader.mjs** script to the **Assets** window.
 
@@ -258,7 +252,7 @@ B. Click the **parse** button.
 {% endstep %}
 
 {% step %}
-### Configure the cat models
+#### Configure the cat models
 
 A. Add the **cat** tag in the **Tags** field.
 
@@ -274,7 +268,7 @@ E. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the Viverse functionality
+#### Add the Viverse functionality
 
 A. For each cat, add a **NotificationCenterSubscribeEntityPicking** trigger with **throttle in ms** set to **1600**.
 
@@ -292,7 +286,7 @@ The Catbox is already added to the template project, but needs to be configured 
 
 {% stepper %}
 {% step %}
-### Add the catbox to the scene
+#### Add the catbox to the scene
 
 A. Drag the **Catbox** **Template** to the Hierarchy.
 
@@ -304,7 +298,7 @@ C. Update the **Position, Rotation** and **Scale** of the **Catbox** to the appr
 {% endstep %}
 
 {% step %}
-### Add cat collect positions to the Catbox
+#### Add cat collect positions to the Catbox
 
 A. Create a new entity for each cat under the **CatBox** entity. In the sample, the entities are **cat\_1\_collect, cat\_2\_collect**, etc.
 
@@ -312,7 +306,7 @@ A. Create a new entity for each cat under the **CatBox** entity. In the sample, 
 {% endstep %}
 
 {% step %}
-### Configure cat collect positions
+#### Configure cat collect positions
 
 A. Add the **cat\_collect** tag to each cat collect position.
 
@@ -322,7 +316,7 @@ B. Update the **Position, Rotation** and **Scale** of the cat collect positions 
 {% endstep %}
 
 {% step %}
-### Add the cat models to the cat collect positions
+#### Add the cat models to the cat collect positions
 
 A. Add the cat models and paste them under their respective cat collect positions.
 
@@ -332,7 +326,7 @@ B. Update the **Scale** of each cat model to **(.01,.0 1, .01)**.
 {% endstep %}
 
 {% step %}
-### Disable the cat collect positions
+#### Disable the cat collect positions
 
 A. Select all the cat collect positions under the **CatBox** entity.
 
@@ -342,15 +336,13 @@ B. Disable all the cat collect positions so that the cats are hidden.
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Random Waypoint Assignment
 
 The random waypoint assignment object is already added to the project and configured. It can be customized if cats or cat groups are added or removed. The following steps show how it was setup and configured.
 
 {% stepper %}
 {% step %}
-### Add the **RandomWaypointAssignment** script to the project
+#### Add the **RandomWaypointAssignment** script to the project
 
 A. Drag the **RandomWaypointAssignment** script to the **Assets** window.
 
@@ -360,7 +352,7 @@ B. Select the **RandomWaypointAssignment** script and click the **Parse** button
 {% endstep %}
 
 {% step %}
-### Configure the **RandomWaypointAssignment** entity
+#### Configure the **RandomWaypointAssignment** entity
 
 A. Create a new entity called **RandomWaypointAssignment** and add the RandomWaypointAssignment script to it.
 
@@ -372,7 +364,7 @@ C. Add the number of groups to the **Array Size** box. In the sample, there are 
 {% endstep %}
 
 {% step %}
-### Test the RandomWaypointAssignment script
+#### Test the RandomWaypointAssignment script
 
 A. Publish the project to **VIVERSE** to test the script. Click the **Reset** button to confirm the cats are being placed in the appropriate locations. Remove the checkmark placed on the **DebugMode** checkbox on the **RandomWaypointAssignment** script to prevent the dialog box from showing in-game.
 
@@ -380,15 +372,13 @@ A. Publish the project to **VIVERSE** to test the script. Click the **Reset** bu
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Instructions Board With Start Button
 
 The instructions board with start button object is already added to the project and configured. The following steps show how it was setup and configured.
 
 {% stepper %}
 {% step %}
-### Add the GameInstructionsBoard to the project
+#### Add the GameInstructionsBoard to the project
 
 A. Drag the **GameInstructionsBoard.fbx** to the **Assets** window.
 
@@ -396,7 +386,7 @@ A. Drag the **GameInstructionsBoard.fbx** to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Add the **GameInstructionsBoard** to the scene
+#### Add the **GameInstructionsBoard** to the scene
 
 A. Drag the **GameInstructionsBoard** Template to the **Hierarchy**.
 
@@ -408,7 +398,7 @@ C. Update the **Position, Rotation** and **Scale** of the **GameInstructionsBoar
 {% endstep %}
 
 {% step %}
-### Add the GameInstructionsBoard texture to the project
+#### Add the GameInstructionsBoard texture to the project
 
 A. Drag the **Board\_B\_board\_shader\_BaseColor.jpg** texture to the Assets window.
 
@@ -416,7 +406,7 @@ A. Drag the **Board\_B\_board\_shader\_BaseColor.jpg** texture to the Assets win
 {% endstep %}
 
 {% step %}
-### Update the GameInstructionsBoard material
+#### Update the GameInstructionsBoard material
 
 A. Select the **board\_shader** material inside the **GameInstructionsBoard.fbx**
 
@@ -426,7 +416,7 @@ B. Add the **Board\_B\_board\_shader\_BaseColor.jpg** texture to the Emissive te
 {% endstep %}
 
 {% step %}
-### Add the ButtonGroup texture to the project
+#### Add the ButtonGroup texture to the project
 
 A. Drag the **ButtonGroup.png** texture to the **Assets** window.
 
@@ -438,7 +428,7 @@ C. Select the **Texture Atlas** and click the **Sprite Editor** button.
 {% endstep %}
 
 {% step %}
-### Cutting the sprite sheet
+#### Cutting the sprite sheet
 
 A. For the **Frame Count,** add **3** to the **Cols** box and **4** to the **Rows** box.
 
@@ -450,7 +440,7 @@ C. Delete frames 10 and 11.
 {% endstep %}
 
 {% step %}
-### Generate the sprites
+#### Generate the sprites
 
 A. Rename each frame based on the button style.
 
@@ -460,7 +450,7 @@ B. Select each frame and click **New Sprite From Selection** to generate each sp
 {% endstep %}
 
 {% step %}
-### Add the **Start-Btn.mjs** script to the project
+#### Add the **Start-Btn.mjs** script to the project
 
 A. Drag the **Start-Btn.mjs** script to the **Assets** window.
 
@@ -470,7 +460,7 @@ B. Select the **Start-Btn.mjs** script and click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Create the start button
+#### Create the start button
 
 A. Under the **GameInstructionsBoard** entity, create a new button called **StartButton.** Remove the Text entity that is created under the button.
 
@@ -486,7 +476,7 @@ E. Add a Collision component and resize it using **Half Extents**.
 {% endstep %}
 
 {% step %}
-### Continue creating the start button
+#### Continue creating the start button
 
 A. Update the **Width** and **Height** on the **Element** component
 
@@ -498,15 +488,13 @@ C. Add the **start-btn.mjs** script.
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Countdown UI
 
 The countdown user interface is already added to the project and configured. The following steps show it was setup and configured.
 
 {% stepper %}
 {% step %}
-### Create a 2D Countdown
+#### Create a 2D Countdown
 
 A. Create a new **2D Screen** entity.
 
@@ -518,7 +506,7 @@ C. Set **Priority** to **1**.
 {% endstep %}
 
 {% step %}
-### Add the font for the countdown
+#### Add the font for the countdown
 
 A. Drag the **SFProText-Bold.ttf** font to the **Assets** window.
 
@@ -536,7 +524,7 @@ B. Select the **CountDown.mjs** script and click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Configure the countdown entity
+#### Configure the countdown entity
 
 A. Add the **SFProText-Bold.ttf** font to the **Font** slot.
 
@@ -550,7 +538,7 @@ D. Change the **Color** to **FAF5CD**, the **Outline Color** to **3C5511FF** and
 {% endstep %}
 
 {% step %}
-### Add the countdown script
+#### Add the countdown script
 
 A. Add the **CountDown.mjs** script to the **CountDown** entity.
 
@@ -558,13 +546,11 @@ A. Add the **CountDown.mjs** script to the **CountDown** entity.
 {% endstep %}
 
 {% step %}
-### Disable the countdown entity
+#### Disable the countdown entity
 
 <figure><img src="../../.gitbook/assets/image (571).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 ## Setup Scoreboard UI
 
@@ -572,7 +558,7 @@ The scoreboard user interface is already added to the project and configured. Th
 
 {% stepper %}
 {% step %}
-### Add the Scoreboard.mjs script to the project
+#### Add the Scoreboard.mjs script to the project
 
 A. Drag the **Scoreboard.mjs** script to the **Assets** window.
 
@@ -582,7 +568,7 @@ B. Select the **Scoreboard.mjs** script and click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Add the scoreboard texture to the project
+#### Add the scoreboard texture to the project
 
 A. Drag the **ScoreboardBg.png** texture to the **Assets** window.
 
@@ -590,7 +576,7 @@ A. Drag the **ScoreboardBg.png** texture to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create the scoreboard
+#### Create the scoreboard
 
 A. Add an **Image Element** under the **2D Screen** entity called **Scoreboard**.
 
@@ -606,7 +592,7 @@ E. Add the **Scoreboard.mjs** script to the **Scoreboard** entity.
 {% endstep %}
 
 {% step %}
-### Add the font for the CatCount
+#### Add the font for the CatCount
 
 A. Drag the **SFProText-Regular.ttf** font to the **Assets** window.
 
@@ -614,7 +600,7 @@ A. Drag the **SFProText-Regular.ttf** font to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create the CatCount
+#### Create the CatCount
 
 A. Create a **Text Element** entity under the **Scoreboard** entity and name it **CatCount**.
 
@@ -634,7 +620,7 @@ G. Change the **Color** to **FAF5CD**.
 {% endstep %}
 
 {% step %}
-### Create the stopwatch
+#### Create the stopwatch
 
 A. Create a **Group Element** entity under the **Scoreboard** entity and name it **Stopwatch**.
 
@@ -648,7 +634,7 @@ D. Change the **Width** and **Height** to **32** and **20**.
 {% endstep %}
 
 {% step %}
-### Create the minutes text
+#### Create the minutes text
 
 A. Create a **Text Element** under the **Stopwatch** entity and name it **Min**.
 
@@ -666,7 +652,7 @@ F. Change the **Color** to **FAF5CD**.
 {% endstep %}
 
 {% step %}
-### Create the seconds text
+#### Create the seconds text
 
 A. Create a **Text Element** under the **Stopwatch** entity and name it **Sec**.
 
@@ -686,13 +672,11 @@ G. Change the **Color** to **FAF5CD**.
 {% endstep %}
 
 {% step %}
-### Disable the scoreboard entity
+#### Disable the scoreboard entity
 
 <figure><img src="../../.gitbook/assets/image (580).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 ## Setup GameOver UI
 
@@ -700,7 +684,7 @@ The game over user interface is already added to the project and configured. The
 
 {% stepper %}
 {% step %}
-### Add the game over texture to the project
+#### Add the game over texture to the project
 
 A. Drag the **congrats-bg.png** texture to the **Assets** window.
 
@@ -708,7 +692,7 @@ A. Drag the **congrats-bg.png** texture to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create a game over user interface
+#### Create a game over user interface
 
 A. Create a new **Image Element** entity under **2D Screen**.
 
@@ -720,7 +704,7 @@ C. Add the **congrats-bg.png** texture to the **Texture** slot.
 {% endstep %}
 
 {% step %}
-### Add button container
+#### Add button container
 
 A. Create a **Group Element** under the **Congrats2D** entity and name it **Btns**.
 
@@ -734,7 +718,7 @@ D. Change the **Width** to **174** and **Height** **36**.
 {% endstep %}
 
 {% step %}
-### Add the button texture to the project
+#### Add the button texture to the project
 
 A. Drag the **Button.png** to the **Assets** window.
 
@@ -742,7 +726,7 @@ A. Drag the **Button.png** to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create the restart button
+#### Create the restart button
 
 A. Create a new **Button** under the **Btns** entity and name it **Restart**.
 
@@ -756,7 +740,7 @@ D. Add the **Button.png** texture to the **Texture** slot.
 {% endstep %}
 
 {% step %}
-### Create the restart button
+#### Create the restart button
 
 A. Create a new **Button** under the **Btns** entity and name it **Restart**.
 
@@ -772,7 +756,7 @@ E. Add the **startBtn.mjs** script to the **Restart** button entity.
 {% endstep %}
 
 {% step %}
-### Update the restart button text
+#### Update the restart button text
 
 A. Change the **Position** to **(0, 0, 0)**.
 
@@ -788,7 +772,7 @@ E. Change to Color to **FFFFFF**.
 {% endstep %}
 
 {% step %}
-### Add the **Close-Btn.mjs** script to the project
+#### Add the **Close-Btn.mjs** script to the project
 
 A. Drag the **Close-Btn.mjs** script to the **Assets** window.
 
@@ -798,7 +782,7 @@ B. Select the **Close-Btn.mjs** script and click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Create the close button
+#### Create the close button
 
 A. Create a new **Button** under the **Btns** entity and name it **Close**.
 
@@ -814,7 +798,7 @@ E. Add the **Close-Btn.mjs** script to the **Close** button entity.
 {% endstep %}
 
 {% step %}
-### Update the close button text
+#### Update the close button text
 
 A. Update the **Text** field to **Close**.
 
@@ -826,7 +810,7 @@ C. Change **Color** to **FFFFFF**.
 {% endstep %}
 
 {% step %}
-### Add the timescore script to the project
+#### Add the timescore script to the project
 
 A. Drag the **time-score.mjs** scrip to the **Assets** window.
 
@@ -836,7 +820,7 @@ B. Click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Create the time display text group
+#### Create the time display text group
 
 A. Create a new **Group Element** under the game over entity and name it **TimeScore**.
 
@@ -850,7 +834,7 @@ D. Add the **time-score.mjs** script.
 {% endstep %}
 
 {% step %}
-### Add Roboto-Bold font to the project
+#### Add Roboto-Bold font to the project
 
 A. Drag the **Roboto-Bold.ttf** font to the **Assets** window.
 
@@ -858,7 +842,7 @@ A. Drag the **Roboto-Bold.ttf** font to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create the text for minutes
+#### Create the text for minutes
 
 A. Create a new **Text Element** under **TimeScore** and name it **Min**.
 
@@ -872,7 +856,7 @@ D. Update the **Text** to **00**.
 {% endstep %}
 
 {% step %}
-### Create the text for seconds
+#### Create the text for seconds
 
 A. Duplicate the **Min** entity under **TimeScore** and name it to **Sec**.
 
@@ -882,13 +866,11 @@ B. Change the **Position** to **(23, 0, 0)**.
 {% endstep %}
 
 {% step %}
-### Disable the GameOverUI entity
+#### Disable the GameOverUI entity
 
 <figure><img src="../../.gitbook/assets/image (596).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 ## Setup GameManager
 
@@ -896,7 +878,7 @@ The GameManager object is already added to the template project and configured. 
 
 {% stepper %}
 {% step %}
-### Add the **GameManager** script to the project
+#### Add the **GameManager** script to the project
 
 A. Drag the **game-manager.mjs** script to the **Assets** window.
 
@@ -906,7 +888,7 @@ B. Select the **game-manager.mjs** script and click the **Parse** button.
 {% endstep %}
 
 {% step %}
-### Create the **GameManager** entity
+#### Create the **GameManager** entity
 
 A. Create a new entity and name it **GameManager**
 
@@ -916,15 +898,13 @@ B. Add the **game-manager.mjs** script.
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Quest system
 
 The quest system is already added to the template project and configured, but quest tasks can be modified, added or removed. The following steps show how it was setup and configured.
 
 {% stepper %}
 {% step %}
-### Open Viverse Scene Settings
+#### Open Viverse Scene Settings
 
 A. Click on the **Vivese Scene Settings** button
 
@@ -932,7 +912,7 @@ A. Click on the **Vivese Scene Settings** button
 {% endstep %}
 
 {% step %}
-### Create a quest
+#### Create a quest
 
 A. Add a new **Quest** and name it **Pet Rescue**.
 
@@ -950,7 +930,7 @@ E. Update **Progress Steps** to **9**.
 {% endstep %}
 
 {% step %}
-### Starting the quest
+#### Starting the quest
 
 A. Select the **StartButton** and click **Edit Viverse Extension** button. Add the **NotificationCenterSubscribeEntityPicking** trigger.
 
@@ -960,7 +940,7 @@ B. Select the **Quest** action type with the **selected quest** set to **Pet Res
 {% endstep %}
 
 {% step %}
-### Add progress to the quest
+#### Add progress to the quest
 
 A. For each cat, add the **Quest** action under the **NotificationCenterSubscribeEntityPicking** trigger.
 
@@ -970,15 +950,13 @@ B. Change **selected quest** to **Pet Rescue**, change **quest response** to **a
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Animations
 
 The animations are already added to the template project and configured. The following steps show how they were setup and configured.
 
 {% stepper %}
 {% step %}
-### Create the animation state graph
+#### Create the animation state graph
 
 A. In the **Assets** window, right-click and create a new **Anim State Graph**.
 
@@ -986,7 +964,7 @@ A. In the **Assets** window, right-click and create a new **Anim State Graph**.
 {% endstep %}
 
 {% step %}
-### Rename animation state
+#### Rename animation state
 
 A. Rename the animation state to **CatAnim**.
 
@@ -994,7 +972,7 @@ A. Rename the animation state to **CatAnim**.
 {% endstep %}
 
 {% step %}
-### Add animation to the cats
+#### Add animation to the cats
 
 A. Add an **Anim** component to each cat.
 
@@ -1014,7 +992,7 @@ The audio files are already added to the template project and configured, but th
 
 {% stepper %}
 {% step %}
-### Add the cat audio files to the project
+#### Add the cat audio files to the project
 
 A. Drag the cat audio files to the **Assets** window.
 
@@ -1022,7 +1000,7 @@ A. Drag the cat audio files to the **Assets** window.
 {% endstep %}
 
 {% step %}
-### Create the sound entity
+#### Create the sound entity
 
 A. For each cat, create a new entity under it. Rename it to **cat1**, **cat2**, etc.
 
@@ -1034,7 +1012,7 @@ C. Rename the **Slot 1** to **cat1**, **cat2**, etc. Add the **cat1.wav**, **cat
 {% endstep %}
 
 {% step %}
-### To add cat sounds
+#### To add cat sounds
 
 A. On each cat, locate the **NotificationCenterSubscribeEntityPicking** trigger.
 
@@ -1044,7 +1022,7 @@ B. Add the **EntityPlaySound** action under the **NotificationCenterSubscribeEnt
 {% endstep %}
 
 {% step %}
-### To add background music
+#### To add background music
 
 A. Drag the **Funny20Puzzle20loop.mp3** to the **Assets** window.
 
@@ -1058,7 +1036,7 @@ D. Add the **Funny20Puzzle20loop.mp3** to the **Asset** slot, place a check on *
 {% endstep %}
 
 {% step %}
-### To add celebration music for completing the quest
+#### To add celebration music for completing the quest
 
 A. Drag **Quest\_Complete.mp3** to the **Assets** window.
 
@@ -1072,7 +1050,7 @@ D. Update the **Name** slot to **celebrate,** add the **Quest\_Complete.mp3** to
 {% endstep %}
 
 {% step %}
-### Add Viverse functionality for celebration music
+#### Add Viverse functionality for celebration music
 
 A. On the QuestComplete entity, add the **NotificationCenterSubscribe** trigger and **celebrate** to the **notification name to subscribe**.
 
@@ -1082,15 +1060,13 @@ B. Add the EntityPlaySound action, add **celebrate** to **sound name to play** a
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Setup Particle Effects
 
 The particle effects are already added to the template project and configured. The following steps show how they were setup and configured.
 
 {% stepper %}
 {% step %}
-### Add particles to the cats when clicked
+#### Add particles to the cats when clicked
 
 A. Firework is a PlayCanvas Template (prefab) that can be copied from one project to another.
 

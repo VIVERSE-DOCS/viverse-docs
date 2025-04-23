@@ -1,3 +1,9 @@
+---
+description: >-
+  This document provides a guide for creating a sample app in Three.js, building
+  the app with Vite and deploying the app to VIVERSE.
+---
+
 # Three.js with Vite | Getting Started Tutorial
 
 * Installing node
@@ -84,7 +90,37 @@ A. Create the **index.html** page inside the project folder. This can be done by
 {% step %}
 ### Create the main.js
 
-A. Create the **main.js** page inside the project folder. This can be done by creating a text file, pasting the code and saving it as an **.JS** file or using an IDE, such as Visual Studio Code.
+A. Create the **main.js** page inside the project folder. This can be done by creating a text file, pasting the code and saving it as a **.JS** file or using an IDE, such as Visual Studio Code.
+
+**main.js**
+
+```javascript
+import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setAnimationLoop( animate );
+document.body.appendChild( renderer.domElement );
+
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 5;
+
+function animate() {
+
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+
+  renderer.render( scene, camera );
+
+}
+```
 
 <figure><img src="../../.gitbook/assets/image (674).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -121,8 +157,6 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 ### Install the build tool Vite
 
 A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: **npm install --save-dev vite**.
-
-<figure><img src="../../.gitbook/assets/image (680).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}

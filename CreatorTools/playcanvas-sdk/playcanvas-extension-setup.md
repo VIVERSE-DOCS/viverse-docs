@@ -34,7 +34,7 @@ Be sure to use the same email address to create your PlayCanvas account as you u
 
 {% stepper %}
 {% step %}
-### Begin PlayCanvas Account Setup
+#### Begin PlayCanvas Account Setup
 
 Navigate to [PlayCanvas.com](https://playcanvas.com/) and click the Sign Up button to begin account creation.
 
@@ -42,7 +42,7 @@ Navigate to [PlayCanvas.com](https://playcanvas.com/) and click the Sign Up butt
 {% endstep %}
 
 {% step %}
-### Sign Up For A PlayCanvas Account
+#### Sign Up For A PlayCanvas Account
 
 Fill out the Playcanvas Account form with the same email address that was used to create the VIVERSE Account to ensure integration, then click Sign Up.
 
@@ -50,7 +50,7 @@ Fill out the Playcanvas Account form with the same email address that was used t
 {% endstep %}
 
 {% step %}
-### Create A New Project
+#### Create A New Project
 
 After logging into Playcanvas, click the **New** button to create a new Playcanvas project.
 
@@ -64,19 +64,19 @@ _This guide is a walkthrough for adding Playcanvas Extension to the Chrome brows
 
 {% stepper %}
 {% step %}
-### Download The Extension
+#### Download The Extension
 
 [Download](playcanvas-extension-setup.md#download-the-latest-extension-version) the latest version of the Playcanvas Extension.
 {% endstep %}
 
 {% step %}
-### Unzip The Downloaded File
+#### Unzip The Downloaded File
 
 <img src="../.gitbook/assets/1-1.png" alt="" data-size="original">
 {% endstep %}
 
 {% step %}
-### Open Your Chrome Extensions
+#### Open Your Chrome Extensions
 
 Click "**Extensions**" in the browser toolbar.
 
@@ -84,7 +84,7 @@ Click "**Extensions**" in the browser toolbar.
 {% endstep %}
 
 {% step %}
-### Open The Extension Editor
+#### Open The Extension Editor
 
 Click "**Manage extensions**" in the menu.
 
@@ -92,7 +92,7 @@ Click "**Manage extensions**" in the menu.
 {% endstep %}
 
 {% step %}
-### Enable Developer Mode
+#### Enable Developer Mode
 
 Enable **Developer mode** on the Extensions tab.
 
@@ -100,7 +100,7 @@ Enable **Developer mode** on the Extensions tab.
 {% endstep %}
 
 {% step %}
-### Load The Extension
+#### Load The Extension
 
 Click **Load unpacked** on the Extensions tab.
 
@@ -108,7 +108,7 @@ Click **Load unpacked** on the Extensions tab.
 {% endstep %}
 
 {% step %}
-### Select The Unzipped Extension
+#### Select The Unzipped Extension
 
 Navigate to the folder where the extension was extracted. Click **Select Folder**.
 
@@ -116,7 +116,7 @@ Navigate to the folder where the extension was extracted. Click **Select Folder*
 {% endstep %}
 
 {% step %}
-### Verify The Extension Set Up
+#### Verify The Extension Set Up
 
 Confirm the extension is enabled on the Extensions tab.
 
@@ -130,13 +130,13 @@ At times, issues in the installation process can produce persistent bugs that ar
 
 {% stepper %}
 {% step %}
-### Sign in & out of VIVERSE
+#### Sign in & out of VIVERSE
 
 Sign out of your account on viverse.com and then sign back in. **MAKE SURE** you are using the same email account as the one associated with your PlayCanvas account.
 {% endstep %}
 
 {% step %}
-### Delete VIVERSE entities from PlayCanvas project
+#### Delete VIVERSE entities from PlayCanvas project
 
 Go back to your PlayCanvas project and delete:\
 a. The Extension Entity from your scene hierarchy\
@@ -146,25 +146,25 @@ d. The extension-script folder from your project assets
 {% endstep %}
 
 {% step %}
-### Clear storage
+#### Clear storage
 
 Open the [developer tools](https://elfsight.com/blog/how-to-work-with-developer-console/) in Google Chrome, go to "Application", select "Storage" in the left hand toolbar and click the "Delete Site Data" button.
 {% endstep %}
 
 {% step %}
-### Refresh&#x20;
+#### Refresh
 
 Refresh your PlayCanvas project with the VIVERSE extension enabled
 {% endstep %}
 
 {% step %}
-### Sign in to PlayCanvas
+#### Sign in to PlayCanvas
 
 Sign in to PlayCanvas when prompted. **MAKE SURE** you are using the same email account as the one associated with your VIVERSE account.
 {% endstep %}
 
 {% step %}
-### Sign in to VIVERSE sso
+#### Sign in to VIVERSE sso
 
 Sign in to VIVERSE from within your PlayCanvas project using the VIVERSE Scene Settings
 {% endstep %}
@@ -176,7 +176,7 @@ Sign in to VIVERSE from within your PlayCanvas project using the VIVERSE Scene S
 
 #### Change Log
 
-<table><thead><tr><th width="160">Release Date</th><th width="125">Version</th><th>Release Notes</th></tr></thead><tbody><tr><td>4/16/2025</td><td>3.46.1</td><td><ul><li>Add 'Enable Flying' option in VIVERSE scene settings</li><li>Fixed turnToward method</li></ul></td></tr><tr><td>4/9/2025</td><td>3.45.3</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IQuest.html">IQuest</a></li></ul><p>-Methods: addCheckTask</p><p>-Methods: addProgressBarTask</p><p>-Methods: fire</p><p>-Methods: getTaskById</p><p>-Methods: off</p><p>-Methods: on</p><p>-Methods: reset</p><p>-Methods: start</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IQuestService.html">IQuestService</a></li></ul><p>-Methods: addQuest</p><p>-Methods: fire</p><p>-Methods: getQuestById</p><p>-Methods: getQuestByName</p><p>-Methods: off</p><p>-Methods: on</p><p>-Methods: resetAllQuests</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/ITask.html"><sub>ITask</sub></a></li></ul><p>-Methods: fire</p><p>-Methods: off</p><p>-Methods: on</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IProgressBarTask.html">IProgressBarTask</a></li></ul><p>-Methods: addProgress</p><p>-Methods: fire</p><p>-Methods: off</p><p>-Methods: on</p></td></tr><tr><td>3/27/2025</td><td>3.45.0</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/ILocalPlayer.html">ILocalPlayer</a></li></ul><p>-Methods: resetToViverseAvatar</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IPlayer.html">IPlayer</a></li></ul><p>-Properties: avatar</p><p>-Properties: network</p><p>-Properties: nametag</p><p>-Properties: profile</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IPlayerService.html">IPlayerService</a></li></ul><p>-Properties: localPlayer</p><p>-Properties: remotePlayers</p><p>-Properties: playerCount<br><br>Add enable/disable toggle of microphone and microphone permission function in “Player Config > Disable Microphone”</p></td></tr><tr><td>3/12/2025</td><td>3.44.12</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrController.html">IXrController</a></li></ul><p>-Properties: handedness</p><p>-Properties: inputSource</p><p>-Properties: modelEntity</p><p>-Methods: resetModelAsset</p><p>-Methods: setModelAsset</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrControllerEvents.html">IXrControllerEvents</a></li></ul><p>-Properties: add</p><p>-Properties: remove</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrService.html">IXrService</a></li></ul><p>-Properties: controllers</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrServiceEvents.html">IXrServiceEvents</a></li></ul><p>-Properties: controller:addInput</p><p>-Properties: controller:removeInput</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/classes/CameraService.html">CameraService</a></li></ul><p>-Properties: canRotate</p><p>-Properties: canZoom</p><p>-ILocalPlayer</p><p>-Methods: scaleAvatar</p></td></tr><tr><td>2/26/2025</td><td>3.44.7</td><td><ul><li>Adding switchPov methods to change 1st &#x26; 3rd person POV through code</li></ul></td></tr><tr><td>2/6/2025</td><td>3.43.1</td><td><p></p><ul><li>Add 3 features in Trigger &#x26; Action - EntityAssetUnload, EntityAssetReload, EntityAssetDestroy</li></ul></td></tr><tr><td>1/7/2025</td><td>3.40.7</td><td><p></p><ul><li>Add post effects settings</li></ul><ul><li>Add scene ownership check on publish tab</li></ul></td></tr><tr><td>12/3/2024</td><td>3.38.0</td><td><ul><li>Handle response err message from PlayCanvas server job api</li><li>Fix service worker error</li></ul></td></tr><tr><td>12/27/2024</td><td>3.36.4</td><td><ul><li>Error handling when publishing the scene</li></ul></td></tr><tr><td>10/21/2024</td><td>3.35.19</td><td><ul><li>Support latest Chrome version</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="160">Release Date</th><th width="125">Version</th><th>Release Notes</th></tr></thead><tbody><tr><td>4/16/2025</td><td>3.46.1</td><td><ul><li>Add 'Enable Flying' option in VIVERSE scene settings</li><li>Fixed turnToward method</li></ul></td></tr><tr><td>4/9/2025</td><td>3.45.3</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IQuest.html">IQuest</a></li></ul><p>-Methods: addCheckTask</p><p>-Methods: addProgressBarTask</p><p>-Methods: fire</p><p>-Methods: getTaskById</p><p>-Methods: off</p><p>-Methods: on</p><p>-Methods: reset</p><p>-Methods: start</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IQuestService.html">IQuestService</a></li></ul><p>-Methods: addQuest</p><p>-Methods: fire</p><p>-Methods: getQuestById</p><p>-Methods: getQuestByName</p><p>-Methods: off</p><p>-Methods: on</p><p>-Methods: resetAllQuests</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/ITask.html"><sub>ITask</sub></a></li></ul><p>-Methods: fire</p><p>-Methods: off</p><p>-Methods: on</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IProgressBarTask.html">IProgressBarTask</a></li></ul><p>-Methods: addProgress</p><p>-Methods: fire</p><p>-Methods: off</p><p>-Methods: on</p></td></tr><tr><td>3/27/2025</td><td>3.45.0</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/ILocalPlayer.html">ILocalPlayer</a></li></ul><p>-Methods: resetToViverseAvatar</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IPlayer.html">IPlayer</a></li></ul><p>-Properties: avatar</p><p>-Properties: network</p><p>-Properties: nametag</p><p>-Properties: profile</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IPlayerService.html">IPlayerService</a></li></ul><p>-Properties: localPlayer</p><p>-Properties: remotePlayers</p><p>-Properties: playerCount<br><br>Add enable/disable toggle of microphone and microphone permission function in “Player Config > Disable Microphone”</p></td></tr><tr><td>3/12/2025</td><td>3.44.12</td><td><p>Add SDK support to functions</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrController.html">IXrController</a></li></ul><p>-Properties: handedness</p><p>-Properties: inputSource</p><p>-Properties: modelEntity</p><p>-Methods: resetModelAsset</p><p>-Methods: setModelAsset</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrControllerEvents.html">IXrControllerEvents</a></li></ul><p>-Properties: add</p><p>-Properties: remove</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrService.html">IXrService</a></li></ul><p>-Properties: controllers</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/interfaces/IXrServiceEvents.html">IXrServiceEvents</a></li></ul><p>-Properties: controller:addInput</p><p>-Properties: controller:removeInput</p><ul><li><a href="https://viveportsoftware.github.io/pc-lib/classes/CameraService.html">CameraService</a></li></ul><p>-Properties: canRotate</p><p>-Properties: canZoom</p><p>-ILocalPlayer</p><p>-Methods: scaleAvatar</p></td></tr><tr><td>2/26/2025</td><td>3.44.7</td><td><ul><li>Adding switchPov methods to change 1st &#x26; 3rd person POV through code</li></ul></td></tr><tr><td>2/6/2025</td><td>3.43.1</td><td><ul><li>Add 3 features in Trigger &#x26; Action - EntityAssetUnload, EntityAssetReload, EntityAssetDestroy</li></ul></td></tr><tr><td>1/7/2025</td><td>3.40.7</td><td><ul><li>Add post effects settings</li></ul><ul><li>Add scene ownership check on publish tab</li></ul></td></tr><tr><td>12/3/2024</td><td>3.38.0</td><td><ul><li>Handle response err message from PlayCanvas server job api</li><li>Fix service worker error</li></ul></td></tr><tr><td>12/27/2024</td><td>3.36.4</td><td><ul><li>Error handling when publishing the scene</li></ul></td></tr><tr><td>10/21/2024</td><td>3.35.19</td><td><ul><li>Support latest Chrome version</li></ul></td></tr></tbody></table>
 
 We created a PlayCanvas [sample project](https://playcanvas.com/editor/scene/1984713) based on Playcanvas extension 3.40.7, which contains several demos that you can try on your own.
 
