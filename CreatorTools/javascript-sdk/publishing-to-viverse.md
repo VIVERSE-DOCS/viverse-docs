@@ -91,6 +91,8 @@ A. Confirm project was published successfully and working properly in VIVERSE by
 {% endstep %}
 {% endstepper %}
 
+
+
 ## Adjusting World Settings
 
 {% stepper %}
@@ -125,6 +127,8 @@ B. Select **World Settings**.
 {% endstep %}
 {% endstepper %}
 
+
+
 ## Find your published world on VIVERSE.COM
 
 {% stepper %}
@@ -151,43 +155,34 @@ C. Select the world in the page.
 {% endstep %}
 {% endstepper %}
 
+
+
 ## Troubleshooting
 
-{% hint style="warning" %}
+<details>
 
-{% endhint %}
+<summary>Using relative vs. absolute paths in build files</summary>
 
-## Publishing content to VIVERSE
+Here's some code used in a vite.config.js build file. In Node.js, `__dirname` is a global variable that represents the absolute path of the directory containing the currently executing JavaScript file. Deploying projects to VIVERSE with absolute paths will cause errors and may prevent your project from operating correctly. Using relative paths is required.
 
-{% stepper %}
-{% step %}
+```javascript
+export default defineConfig({
+  // base: "/assets/games/b16eab3d/202504021539/",
+  plugins: [vue(), mkcert()],
+  resolve: {
+    alias: {
+      "#game": path.resolve(__dirname, "./src/game"),
+      "#components": path.resolve(__dirname, "./src/components"),
+      "#assets": path.resolve(__dirname, "./src/assets"),
+    },
+  },
+  server: {
+    host: true,
+  },
+});
+```
 
-{% endstep %}
-
-{% step %}
-###
-{% endstep %}
-
-{% step %}
-### Publish content
-
-A. To publish content to VIVERSE type the following command with the project path to the project's production build folder, which is under the dist/ folder: **viverse-cli publish \<path>**, then click Enter.
-
-B. Confirm the content was published successfully.
-
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-### Test project
-
-A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL**.
-
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-{% endstepper %}
-
-
+</details>
 
 
 
@@ -207,8 +202,6 @@ B. Confirm the status authentication status.
 
 
 
-
-
 ## Viewing VIVERSE application list
 
 {% stepper %}
@@ -222,8 +215,6 @@ B. Confirm the list of published applications is printed.
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 
 
