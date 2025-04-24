@@ -170,6 +170,10 @@ Sign in to VIVERSE from within your PlayCanvas project using the VIVERSE Scene S
 {% endstep %}
 {% endstepper %}
 
+## Video Walkthrough
+
+{% embed url="https://www.youtube.com/watch?v=w3MFHo4v69E" %}
+
 ## PlayCanvas Extension Download
 
 #### [Download the latest extension version](https://htc-directus-dev-usw2-pc-ui-ext.s3.amazonaws.com/viverse-world/production-sso/3.46/3.46.1_viverse-world_production-sso_1b7da7e.zip)
