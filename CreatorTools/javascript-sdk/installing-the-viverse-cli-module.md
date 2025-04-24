@@ -72,7 +72,11 @@ C. Confirm login was successful.
 
 <summary>Do you need to use vite.js or can you use another library for building your project?</summary>
 
+You don’t need to use Vite specifically. Any tool that builds standard web content is fine. Examples include Webpack, Parcel, Rollup, or custom pipelines from Unity WebGL, PlayCanvas, Three.js, etc.
 
+The only thing we _do_ require is that your build uses **content hashing for file names**, especially for JavaScript and CSS files.
+
+This helps prevent cache issues. If the file name doesn’t change when the content changes, users might still get the old version due to browser cache.
 
 </details>
 
@@ -88,18 +92,14 @@ No, VIVERSE CLI can be used with other WebGL frameworks.
 
 <summary>Can you do API calls from within your project on VIVERSE?</summary>
 
+Currently, we don’t support arbitrary external API calls from user content on VIVERSE, mainly for security and platform consistency.
 
+However, we’re planning to **pre-approve a set of popular service domains** — like Firebase, Photon, and Lovable — so developers can integrate with these out of the box.
+
+If you need to use a different third-party service, you can reach out to the VIVERSE team, and we’ll review it for potential inclusion.
+
+In the future, we’re looking at supporting **per-content Domain access requests**.
+
+This will most likely be managed through the **Creator Studio backend**, rather than via the CLI, to give creators better visibility and control over their external dependencies.
 
 </details>
-
-
-
-{% stepper %}
-{% step %}
-
-{% endstep %}
-
-{% step %}
-
-{% endstep %}
-{% endstepper %}
