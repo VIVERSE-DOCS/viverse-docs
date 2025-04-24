@@ -80,8 +80,74 @@ B. Confirm the manifest file is updated.
 C. Confirm the content was published successfully.
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
 
+{% step %}
+### Test Content
 
+A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL** that is printed in the **Publish Details**.
+
+<figure><img src="../.gitbook/assets/image (697).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+## Adjusting World Settings
+
+{% stepper %}
+{% step %}
+### Open My Worlds
+
+A. Visit **Viverse.com** and login. After logging in, click on your avatar.
+
+B. Select **My Worlds.**
+
+<figure><img src="../.gitbook/assets/image (699).png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (703).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Open World Settings for the published world
+
+A. Locate the world that was published and click the **three dots** icon underneath the world.
+
+B. Select **World Settings**.
+
+<figure><img src="../.gitbook/assets/image (701).png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (705).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Adjust World Settings
+
+<figure><img src="../.gitbook/assets/image (706).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+## Find your published world on VIVERSE.COM
+
+{% stepper %}
+{% step %}
+### Make the world public
+
+A. Open up **World Settings** and change the **Access** to **Public**.
+
+<figure><img src="../.gitbook/assets/image (707).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Locate published world on Viverse.com
+
+A. Go to **Viverse.com**. Scroll down and click on **View All Worlds**.
+
+B. Type the name of world in the **search bar**.
+
+C. Select the world in the page.
+
+<figure><img src="../.gitbook/assets/image (708).png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (709).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
