@@ -36,7 +36,7 @@ in the **Automatically install the necessary tools** checkbox
 {% endstep %}
 
 {% step %}
-### Confirm Node.js is installed
+### Confirm Node.js is installed with at least v22
 
 A. Open a command prompt and type: **node**, then click Enter.
 
@@ -154,7 +154,7 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 {% step %}
 ### Install the build tool Vite
 
-A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: **npm install --save-dev vite**.
+A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: `npm install --save-dev vite`.
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}

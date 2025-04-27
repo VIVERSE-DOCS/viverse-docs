@@ -19,8 +19,6 @@ description: This document provides a guide for publishing JavaScript projects t
 
 * VIVERSE CLI module must be installed. Instructions can be found [here](installing-the-viverse-cli-module.md).
 
-
-
 ## Manifest.json
 
 {% hint style="warning" %}
@@ -155,8 +153,6 @@ C. Select the world in the page.
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Troubleshooting
 
 <details>
@@ -184,8 +180,6 @@ export default defineConfig({
 
 </details>
 
-
-
 ## Checking VIVERSE authentication status
 
 {% stepper %}
@@ -200,23 +194,19 @@ B. Confirm the status authentication status.
 {% endstep %}
 {% endstepper %}
 
-
-
 ## Viewing VIVERSE application list
 
 {% stepper %}
 {% step %}
 ### View list of applications published under the current account logged into VIVERSE
 
-A. Type the following command inside command prompt: **viverse-cli app list**, the click Enter.
+A. Type the following command inside command prompt: `viverse-cli app list`, the click Enter.
 
 B. Confirm the list of published applications is printed.
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 ## Logging out of VIVERSE
 

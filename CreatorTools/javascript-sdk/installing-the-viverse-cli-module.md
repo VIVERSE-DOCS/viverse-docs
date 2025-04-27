@@ -23,15 +23,13 @@ description: >-
 
 * Node.js v22.14.0 or later installed
 
-
-
 ## Installing the VIVERSE CLI in your account
 
 {% stepper %}
 {% step %}
 ### Install the tool using command prompt
 
-A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
+A. Inside a command prompt, type: `npm install -g @viverse/cli`, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
 
 * **Windows** : In windows, packages are installed in %APPDATA%\npm\node\_modules .
 * **macOS and Linux** : In mac or Linux packages are typically installed in /usr/local/lib/node\_modules or a user-specific directory like \~/.npm-global.
@@ -70,6 +68,14 @@ C. Confirm login was successful.
 
 <details>
 
+<summary>Do you need to use three.js or can you use other packages?</summary>
+
+No, VIVERSE CLI can be used with other WebGL frameworks, including AFRAME, Babylon, ReactThreeFibre, UnityWebGL, GodotHTML5 and more!
+
+</details>
+
+<details>
+
 <summary>Do you need to use vite.js or can you use another library for building your project?</summary>
 
 You don’t need to use Vite specifically. Any tool that builds standard web content is fine. Examples include Webpack, Parcel, Rollup, or custom pipelines from Unity WebGL, PlayCanvas, Three.js, etc.
@@ -82,21 +88,13 @@ This helps prevent cache issues. If the file name doesn’t change when the cont
 
 <details>
 
-<summary>Do you need to use three.js or can you use other packages?</summary>
-
-No, VIVERSE CLI can be used with other WebGL frameworks.
-
-</details>
-
-<details>
-
 <summary>Can you do API calls from within your project on VIVERSE?</summary>
 
 Currently, we don’t support arbitrary external API calls from user content on VIVERSE, mainly for security and platform consistency.
 
 However, we’re planning to **pre-approve a set of popular service domains** — like Firebase, Photon, and Lovable — so developers can integrate with these out of the box.
 
-If you need to use a different third-party service, you can reach out to the VIVERSE team, and we’ll review it for potential inclusion.
+If you need to use a different third-party service, you can[ reach out to the VIVERSE team](mailto:michael_morran@htc.com,marcus_nixon@htc.com?subject=VIVERSE%20External%20API%20Request), and we’ll review it for potential inclusion. Please include your VIVERSE world URL and details about the endpoint you are desiring to use.
 
 In the future, we’re looking at supporting **per-content Domain access requests**.
 
