@@ -9,13 +9,13 @@ description: >-
 
 ***
 
-PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them are powered by HTML5. The platform is entirely cloud-based, thus no further installs are required - you are able to access your work on any device from a supported web browser.
+PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them are powered by HTML5. The platform is entirely cloud-based, thus no further installs are required - you are able to access your work on any device from a supported web browser.
 
 {% hint style="info" %}
 We strongly recommend taking a look at the PlayCanvas User Manual before getting started so you’ll have an idea about how to use PlayCanvas when you decide to jump in and start making games. [PlayCanvas Manual](https://developer.playcanvas.com/user-manual/)
 {% endhint %}
 
-VIVERSE Create uses PlayCanvas editor to create all the virtual worlds and environments you see in VIVERSE Create. This guide describes how to create a project and configure settings so you can start constructing your first scene.
+VIVERSE Create uses PlayCanvas editor to create all the virtual worlds and environments you see in VIVERSE. This guide describes how to create a project and configure settings so you can start constructing your first scene.
 
 <figure><img src=".gitbook/assets/image (346).png" alt="" width="375"><figcaption></figcaption></figure>
 
