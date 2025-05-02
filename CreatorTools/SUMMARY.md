@@ -63,7 +63,7 @@
 ## JAVASCRIPT SDK
 
 * [Installing the VIVERSE CLI Module](javascript-sdk/installing-the-viverse-cli-module.md)
+* [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
 * [Publishing to VIVERSE](javascript-sdk/publishing-to-viverse.md)
 * [Examples](javascript-sdk/examples/README.md)
   * [Three.js with Vite | Getting Started Tutorial](javascript-sdk/examples/three.js-with-vite-or-getting-started-tutorial.md)
-* [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
