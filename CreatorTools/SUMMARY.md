@@ -43,6 +43,7 @@
 * [Custom Code](playcanvas-sdk/custom-code/README.md)
   * [Connecting No-Code Events to Custom Scripts](playcanvas-sdk/custom-code/connecting-no-code-events-to-custom-scripts.md)
   * [Introduction to MJS](playcanvas-sdk/custom-code/introduction-to-mjs.md)
+  * [Camera Management: Settings and Switching](playcanvas-sdk/custom-code/camera-management-settings-and-switching.md)
 * [Examples](playcanvas-sdk/tutorials/README.md)
   * [Create Your First PlayCanvas Project](playcanvas-sdk/tutorials/create-your-first-playcanvas-project.md)
   * [SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader.md)
