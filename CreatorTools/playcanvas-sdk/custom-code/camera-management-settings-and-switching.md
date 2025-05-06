@@ -80,9 +80,9 @@ export class OverrideViverseCamera extends Script {
 }
 ```
 
-### Camera Switching on Events: Player Ready and VR
+### Camera Switching on Events: VR and Player Ready
 
-You can listen for certain events from other services and switch cameras:
+You can listen for certain events from other services that may be related to your desired camera behavior. For example, on the `player:ready` event, we know that all player cameras and scripting have loaded in and are ready to interact with the scene:
 
 ```javascript
 // Wait for the XR start event then get the VR camera
