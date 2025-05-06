@@ -53,7 +53,7 @@ export class OverrideViverseCamera extends Script {
   initialize() {
     this.activeCamera = null;
     if (!this.overrideCamera) {
-      console.error("No override camera set!!!!!!");
+      console.error("No override camera set!");
       return;
     }
 
@@ -69,7 +69,7 @@ export class OverrideViverseCamera extends Script {
       this.activeCamera = this.cameraService.activeCamera;
       if (this.activeCamera != this.overrideCamera) {
         this.cameraService.switchCamera(this.overrideCamera);
-        console.warn("overriding camera with ", this.overrideCamera);
+        console.warn("Overriding camera with ", this.overrideCamera);
       }
     }
     
