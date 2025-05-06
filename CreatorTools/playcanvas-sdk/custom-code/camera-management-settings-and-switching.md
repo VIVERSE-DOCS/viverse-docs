@@ -49,7 +49,7 @@ export class OverrideViverseCamera extends Script {
    * @type {Entity}
    */
   overrideCamera = null;
-
+  
   initialize() {
     this.activeCamera = null;
     if (!this.overrideCamera) {
@@ -60,7 +60,7 @@ export class OverrideViverseCamera extends Script {
     this.cameraService = new CameraService();
     this.attemptActiveCameraCapture();
   }
-
+  
   attemptActiveCameraCapture(retryDelay = 200) {
     if (
       this.overrideCamera &&
@@ -72,7 +72,7 @@ export class OverrideViverseCamera extends Script {
         console.warn("overriding camera with ", this.overrideCamera);
       }
     }
-
+    
     if (this.activeCamera != this.overrideCamera) {
       setTimeout(() => this.attemptActiveCameraCapture(retryDelay), retryDelay);
     }
