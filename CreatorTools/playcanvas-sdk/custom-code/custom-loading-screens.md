@@ -23,9 +23,9 @@ VIVERSE creators can make full use of [PlayCanvas' built-in loading screen featu
 
 <figure><img src="../../.gitbook/assets/loading-screen-settings-d2a07d4f515566a1b4b0126f923419b0.png" alt=""><figcaption></figcaption></figure>
 
-If you have the [VIVERSE-PlayCanvas browser extension](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup#playcanvas-extension-download) installed, this will inject a VIVERSE logo into the loading screen template, **which is required for all projects**. You can move the logo (for example, to center it or align with other UI), but it must be shown clearly.
+If you have the [VIVERSE-PlayCanvas browser extension](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup#playcanvas-extension-download) installed, this will inject a VIVERSE logo into the loading screen template, **which is required for all projects**.
 
-Other than that, `loading-screen.js` is yours to customize. Add your logo, a tagline in a custom font, a cool background image, grounding your users in your experience immediately.&#x20;
+Other than that, `loading-screen.js` is yours to customize. Add your logo, a tagline in a custom font, or a cool background image, grounding your users in your experience immediately.&#x20;
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt="" width="375"><figcaption><p>The custom loading screen from <em>In Tirol</em>.</p></figcaption></figure>
 
