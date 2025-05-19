@@ -18,6 +18,7 @@
 
 * [PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
 * [Publishing to VIVERSE](playcanvas-sdk/publishing-to-viverse.md)
+* [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-sdk/playcanvas-to-viverse-development-best-practices.md)
 * [Scene Settings](playcanvas-sdk/scene-settings.md)
 * [No Code Tools](playcanvas-sdk/no-code-tools/README.md)
   * [Sample Project](playcanvas-sdk/no-code-tools/sample-project.md)

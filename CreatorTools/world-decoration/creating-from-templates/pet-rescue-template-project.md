@@ -382,7 +382,7 @@ The instructions board with start button object is already added to the project 
 
 A. Drag the **GameInstructionsBoard.fbx** to the **Assets** window.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="300"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -394,7 +394,7 @@ B. Select the **GameInstructionsBoard** in the **Hierarchy**.
 
 C. Update the **Position, Rotation** and **Scale** of the **GameInstructionsBoard** to fit appropriately in the scene.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -402,7 +402,7 @@ C. Update the **Position, Rotation** and **Scale** of the **GameInstructionsBoar
 
 A. Drag the **Board\_B\_board\_shader\_BaseColor.jpg** texture to the Assets window.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="317"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="317"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -412,7 +412,7 @@ A. Select the **board\_shader** material inside the **GameInstructionsBoard.fbx*
 
 B. Add the **Board\_B\_board\_shader\_BaseColor.jpg** texture to the Emissive texture slot.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -424,7 +424,7 @@ B. Right-click on the **ButtonGroup.png** and select **Create Texture Atlas**.
 
 C. Select the **Texture Atlas** and click the **Sprite Editor** button.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -436,7 +436,7 @@ B. Click the **Generate Frames** button.
 
 C. Delete frames 10 and 11.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -446,7 +446,7 @@ A. Rename each frame based on the button style.
 
 B. Select each frame and click **New Sprite From Selection** to generate each sprite.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -456,7 +456,7 @@ A. Drag the **Start-Btn.mjs** script to the **Assets** window.
 
 B. Select the **Start-Btn.mjs** script and click the **Parse** button.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -472,7 +472,7 @@ D. Add the 3 button sprites.
 
 E. Add a Collision component and resize it using **Half Extents**.
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
