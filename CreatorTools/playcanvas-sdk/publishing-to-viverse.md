@@ -10,6 +10,49 @@ A Scene is the blueprint of your virtual space registered in VIVERSE Create. One
 A World is your designated virtual space in VIVERSE Create, accessible via a unique URL.
 {% endhint %}
 
+## VRAM Classification and Performance Recommendations
+
+To ensure consistent performance and platform compatibility, our system classifies content based on **VRAM usage per world** and provides platform-specific **performance recommendations**. Developers should optimize their content to target the desired range of supported devices.
+
+#### VRAM Usage Categories
+
+The system automatically assigns a **performance boundary level** based on the amount of VRAM your world uses:
+
+| Boundary Level | VRAM Usage          |
+| -------------- | ------------------- |
+| **Low**        | ≤ 500 MB            |
+| **Medium**     | 500 MB and ≤ 800 MB |
+| **High**       | 800 MB and ≤ 2 GB   |
+| **Very High**  | 2 GB                |
+
+{% hint style="warning" %}
+Worlds marked **Very High** will trigger a **warning popup** for users, indicating that the content is intended for high-end PCs only.
+{% endhint %}
+
+#### Platform Recommendations
+
+Each boundary level maps to a set of recommended platforms, reflecting performance expectations:
+
+| Boundary Level | Recommended Platforms                  |
+| -------------- | -------------------------------------- |
+| **Low**        | PC / iOS / Android / HMD (VR Headsets) |
+| **Medium**     | PC / Android                           |
+| **High**       | PC                                     |
+| **Very High**  | PC (High-End only, with warning popup) |
+
+#### Developer Guidance
+
+* **Targeting Wider Compatibility**: Aim to keep VRAM usage **under 500 MB** to support the broadest range of devices.
+* **Optimizing for Android or iOS**: Stay within **Low** or **Medium** boundary levels to ensure mobile device compatibility.
+* **High-End Visuals**: Worlds exceeding **800 MB VRAM** should be optimized for **PC-only** audiences.
+* **Exceeding 2 GB VRAM**: Consider splitting large scenes, using LODs, or reducing texture resolutions to avoid user warnings.
+
+For best results, monitor your world’s VRAM usage regularly during development and test on target platforms.
+
+
+
+
+
 ## The Scene Preview
 
 This guide is a walkthrough for uploading and publishing a PlayCanvas project to VIVERSE Create.
