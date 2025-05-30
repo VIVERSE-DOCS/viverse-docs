@@ -1,0 +1,44 @@
+---
+description: >-
+  Control how users see and express themselves with the .changeAvatar() method
+  on LocalPlayer
+---
+
+# Change Avatars Programatically
+
+If you don't want to use default VIVERSE avatars for your world, the PlayCanvas SDK features a simple method to swap to any .vrm avatar asset in your project.
+
+[Per the API docs](https://viveportsoftware.github.io/pc-lib/index.html), import the [`PlayerService`](https://viveportsoftware.github.io/pc-lib/interfaces/IPlayerService.html), which has a [`localPlayer` property](https://viveportsoftware.github.io/pc-lib/interfaces/ILocalPlayer.html) of type `LocalPlayer`, which in turn has a [`.changeAvatar()` method](https://viveportsoftware.github.io/pc-lib/interfaces/ILocalPlayer.html#changeAvatar.changeAvatar-1).
+
+For more information on how .mjs scripts and imports work, see [Introduction to MJS](introduction-to-mjs.md).
+
+```javascript
+import { Script, Asset } from "playcanvas";
+import { PlayerService } from "../@viverse/create-sdk.mjs";
+
+export class VvSwitchAvatars extends Script {
+  static scriptName = "vvSwitchAvatars";
+
+  /**
+   * @attribute
+   * @type {Asset}
+   */
+  vrmAsset = null;
+
+  initialize() {
+    this.playerService = new PlayerService();
+    this.playerService.localPlayer.changeAvatar(this.vrmAsset);
+  }
+}
+
+```
+
+Because `vrmAsset` is defined as an attribute of type `Asset`, we can then select which asset to use directly in the PlayCanvas editor.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Then when we publish to VIVERSE and load the experience, the .vrm is loaded. Avatar switching is possible at any point during runtime and can be triggered with UI, trigger colliders, or with any other programmatic callback.\
+\
+Reference Code: [PlayCanvas minimal reproduction project](https://playcanvas.com/project/1350550/overview/changeavatar-demo) & [live demo](https://create.viverse.com/DApMQ7h)
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>

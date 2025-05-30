@@ -46,6 +46,7 @@
   * [Introduction to MJS](playcanvas-sdk/custom-code/introduction-to-mjs.md)
   * [Camera Management: Settings and Switching](playcanvas-sdk/custom-code/camera-management-settings-and-switching.md)
   * [Custom Loading Screens](playcanvas-sdk/custom-code/custom-loading-screens.md)
+  * [Change Avatars Programatically](playcanvas-sdk/custom-code/change-avatars-programatically.md)
 * [Examples](playcanvas-sdk/tutorials/README.md)
   * [Create Your First PlayCanvas Project](playcanvas-sdk/tutorials/create-your-first-playcanvas-project.md)
   * [SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader.md)
