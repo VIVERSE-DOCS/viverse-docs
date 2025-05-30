@@ -37,7 +37,7 @@ Because `vrmAsset` is defined as an attribute of type `Asset`, we can then selec
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-When we publish to VIVERSE and load the experience, the .vrm is loaded immediately. Avatar switching is possible at any point during runtime and can be triggered with UI, trigger colliders, or with any other programmatic callback.\
+When we publish to VIVERSE and load the experience, the .vrm is loaded immediately. Avatar switching for the local player is possible at any point during runtime and can be triggered with UI, trigger colliders, or with any other programmatic callback.\
 \
 **Reference Code:**\
 [PlayCanvas minimal reproduction project](https://playcanvas.com/project/1350550/overview/changeavatar-demo)\
