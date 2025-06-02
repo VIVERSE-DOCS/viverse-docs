@@ -37,7 +37,7 @@ export class CameraManager extends Script {
 
 ### Custom Camera Override Example
 
-If the VIVERSE player rig cameras don't totally meet your needs, you can switch to your own camera entity for cut scenes or preview cameras. Here's a practical example of how to override the default VIVERSE camera with a custom camera. This approach includes retry logic since the script may initialize before the camera is instantiated:
+If the VIVERSE player rig cameras don't totally meet your needs, you can switch to your own camera entity for cut scenes or preview cameras. Here's a practical example of how to override the default VIVERSE camera with a custom camera on init:
 
 ```javascript
 import { Script, Entity } from "playcanvas";
@@ -51,31 +51,13 @@ export class OverrideViverseCamera extends Script {
   overrideCamera = null;
   
   initialize() {
-    this.activeCamera = null;
     if (!this.overrideCamera) {
       console.error("No override camera set!");
       return;
     }
 
     this.cameraService = new CameraService();
-    this.attemptActiveCameraCapture();
-  }
-  
-  attemptActiveCameraCapture(retryDelay = 200) {
-    if (
-      this.overrideCamera &&
-      this.activeCamera != this.cameraService.activeCamera
-    ) {
-      this.activeCamera = this.cameraService.activeCamera;
-      if (this.activeCamera != this.overrideCamera) {
-        this.cameraService.switchCamera(this.overrideCamera);
-        console.warn("Overriding camera with ", this.overrideCamera);
-      }
-    }
-    
-    if (this.activeCamera != this.overrideCamera) {
-      setTimeout(() => this.attemptActiveCameraCapture(retryDelay), retryDelay);
-    }
+    this.cameraService.switchCamera(this.overrideCamera);
   }
 }
 ```
