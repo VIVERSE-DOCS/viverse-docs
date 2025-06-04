@@ -71,3 +71,7 @@
 * [Publishing to VIVERSE](javascript-sdk/publishing-to-viverse.md)
 * [Examples](javascript-sdk/examples/README.md)
   * [Three.js with Vite | Getting Started Tutorial](javascript-sdk/examples/three.js-with-vite-or-getting-started-tutorial.md)
+
+## Godot SDK
+
+* [Exporting Godot to VIVERSE](godot-sdk/exporting-godot-to-viverse.md)
