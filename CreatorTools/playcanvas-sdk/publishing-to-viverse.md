@@ -47,7 +47,7 @@ Each boundary level maps to a set of recommended platforms, reflecting performan
 * **High-End Visuals**: Worlds exceeding **800 MB VRAM** should be optimized for **PC-only** audiences.
 * **Exceeding 2 GB VRAM**: Consider splitting large scenes, using LODs, or reducing texture resolutions to avoid user warnings.
 
-For best results, monitor your world’s VRAM usage regularly during development and test on target platforms.
+For best results, monitor your world’s VRAM usage regularly during development and test on target platforms. Pressing 'Shift + .' will open the console to view various profiling values including VRAM.
 
 
 
