@@ -1,5 +1,6 @@
 ---
 description: Track high scores and other ranked data with the VIVERSE Leaderboard SDK
+hidden: true
 ---
 
 # Leaderboard SDK

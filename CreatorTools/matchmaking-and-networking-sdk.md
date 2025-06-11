@@ -3,6 +3,7 @@ description: >-
   This guide introduces the Play SDK and explains how to integrate core
   multiplayer features into VIVERSE  Studio content. It covers setup and usage
   for features such as matchmaking, session management,
+hidden: true
 ---
 
 # Matchmaking & Networking SDK

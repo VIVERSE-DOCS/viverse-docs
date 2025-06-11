@@ -1,5 +1,6 @@
 ---
 description: How to access .vrm avatar assets for authenticated users.
+hidden: true
 ---
 
 # Avatar SDK

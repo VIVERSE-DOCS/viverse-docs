@@ -2,6 +2,7 @@
 description: >-
   Learn how to check for and login to VIVERSE services to access user
   information including their preferred avatars
+hidden: true
 ---
 
 # Login & Authentication for the SDK
