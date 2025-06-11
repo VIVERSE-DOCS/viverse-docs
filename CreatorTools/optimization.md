@@ -5,49 +5,27 @@ description: >-
   publishing from.
 ---
 
-# Optimization
+# Optimizing for the Web
 
 ***
 
-PlayCanvas is a visual development platform for creating interactive 3D web content. Both the tools and web apps you create with them are powered by HTML5. The platform is entirely cloud-based, thus no further installs are required - you are able to access your work on any device from a supported web browser.
+## Device Filtering on VIVERSE
 
-{% hint style="info" %}
-We strongly recommend taking a look at the PlayCanvas User Manual before getting started so you’ll have an idea about how to use PlayCanvas when you decide to jump in and start making games. [PlayCanvas Manual](https://developer.playcanvas.com/user-manual/)
+Although any VIVERSE world can theoretically be accessed across all devices, the detail of the assets and rendering pipeline used may limit the ability of the world to run on lower powered devices. Creators building with VIVERSE may select which device(s) their world is capable of running on in the [World Settings](publishing-with-your-viverse-account.md#world-settings) dashboard. If a user attempts to access the world on a device that is not included in the selected device filters, they will receive a notice that they cannot join on their existing device.
+
+<figure><img src=".gitbook/assets/Screenshot 2025-06-08 at 10.36.40 AM.png" alt="" width="375"><figcaption><p>Device compatibility warning.</p></figcaption></figure>
+
+## Performance Warnings
+
+Regardless of the device filter selected by the creator, VIVERSE will warn users if the experience is not optimized for their device. These performance warnings are determined by based on the VRAM usage of the world with the following guidelines:
+
+<table><thead><tr><th width="215.4302978515625">Performance Classification</th><th width="227.0836181640625">VRAM Usage</th><th>Recommend Device Filters</th></tr></thead><tbody><tr><td>Low</td><td>≤ 500 MB</td><td>PC / iOS / Android / HMD (VR Headsets)</td></tr><tr><td>Medium</td><td>500 MB and ≤ 800 MB</td><td>PC / Android</td></tr><tr><td>High</td><td>800 MB and ≤ 2 GB</td><td>PC</td></tr><tr><td>Very High</td><td>2 GB</td><td>PC (High-End only, with warning popup)</td></tr></tbody></table>
+
+{% hint style="warning" %}
+Worlds marked **Very High** will trigger a **warning popup** for users, indicating that the content is intended for high-end PCs only.
 {% endhint %}
 
-VIVERSE Create uses PlayCanvas editor to create all the virtual worlds and environments you see in VIVERSE. This guide describes how to create a project and configure settings so you can start constructing your first scene.
-
-<figure><img src=".gitbook/assets/image (346).png" alt="" width="375"><figcaption></figcaption></figure>
-
-### **Creating A PlayCanvas Project**
-
-{% stepper %}
-{% step %}
-#### Create New Project
-
-Before you can start using PlayCanvas, you’ll need to create an account. After creating an account, go to your profile page and click the PROJECTS tab. Then click NEW in the upper right.
-
-<figure><img src=".gitbook/assets/image (347).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Naming Project
-
-Enter a name for your project. The description is optional and can be filled in later. Click CREATE.
-
-<figure><img src=".gitbook/assets/image (353).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Click Edit Button
-
-Now that you’ve started a project, you can dive right into the editor – just click the EDITOR button.
-
-<figure><img src=".gitbook/assets/image (354).png" alt="" width="195"><figcaption></figcaption></figure>
-{% endstep %}
-{% endstepper %}
-
-## **3D Asset Guide**
+## Asset Optimization Tips
 
 {% stepper %}
 {% step %}
@@ -92,118 +70,5 @@ Make sure to use low-poly models as collision meshes for your scenes. Don’t us
 #### Export
 
 Name and group your models, then export them (preferably in GLB format). Make sure all textures and animations are packed, and then import them into PlayCanvas.
-{% endstep %}
-{% endstepper %}
-
-### Recommended Parameter
-
-The assets you create directly influence the look and the performance of your project. Recommended performance and asset resource parameters are listed below.
-
-### Overall Performance
-
-| FPS (frame rate) | 60 or higher    |
-| ---------------- | --------------- |
-| Draw Call        | Below 150       |
-| VRAM             | Less than 400mb |
-| System RAM       | less than 500mb |
-
-### Asset resource
-
-| Polycount          | Below 30,000 for each model                            |
-| ------------------ | ------------------------------------------------------ |
-| Texture format     | PNG/JPG/TGA                                            |
-| Texture resolution | Up to 1024 x 1024                                      |
-| Materials          | PBR shading; maximum material count: 50                |
-| Rig bone count     | Below 60 (including leaf bones and non-weighted bones) |
-| Bones per vertex   | 4 bones maximum                                        |
-| Size of each file  | 60mb maximum                                           |
-
-### Importing Assets
-
-{% stepper %}
-{% step %}
-#### Create Folder
-
-Go to ASSETS and create folders to import your assets into.
-
-<figure><img src=".gitbook/assets/image (356).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Import Model
-
-Import your models. PlayCanvas will automatically extract textures, animation data, and other elements from GLB and FBX files and create folders for them.
-
-<figure><img src=".gitbook/assets/image (359).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Import Cubemap
-
-Import your cubemaps. Go to Settings, search for RENDERING, then add the cubemap to the Skybox field.
-
-<figure><img src=".gitbook/assets/image (360).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Configure Collision
-
-Configure collision settings. Add your low-poly collision models to the scene, click ADD COMPONENT, and then add two physics components: Collision and Rigid Body. For the Collision component, set Type to Mesh, add the intended low-poly model to Render Asset, and then turn off RENDER. Built-in non-mesh type collisions can also be used for models with simple shapes.
-
-<figure><img src=".gitbook/assets/image (361).png" alt="" width="375"><figcaption></figcaption></figure>
-
-Built-in non-mesh type collisions can also be used for models with simple shapes.
-
-<figure><img src=".gitbook/assets/image (362).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Configure Model Settings
-
-If the model is a static object in the scene, select Static for the Render component. If the models share the same material and mesh, use Batch Group to reduce the number of draw calls. \*See the \[Batching]\(https://developer.playcanvas.com/user-manual/graphics/advanced-rendering/batching/ topic in the PlayCanvas User Manual for details.
-
-<figure><img src=".gitbook/assets/image (363).png" alt="" width="375"><figcaption></figcaption></figure>
-
-See the [Batching](https://developer.playcanvas.com/en/user-manual/optimization/batching/) topic in the PlayCanvas User Manual for details.
-{% endstep %}
-
-{% step %}
-#### Configure Material Settings
-
-Set Shading to Physical and place each texture in the correct channel.
-
-<figure><img src=".gitbook/assets/image (364).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Configure Texture Settings
-
-Click the image to open the properties panel, then select BASIS in the compression properties window. Click COMPRESS BASIS to complete texture compression. The maximum resolution for textures is 1024 X 1024.
-
-<figure><img src=".gitbook/assets/image (366).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Configure Lighting Settings
-
-Add a directional light for characters and dynamic objects, and then in the light properties window, select Static and Cast Shadows. If you bake lightmaps in PlayCanvas, remember to disable all baked light, except directional light. If you don’t disable baked light, the scene may crash.
-
-<figure><img src=".gitbook/assets/image (367).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Inspect Performance
-
-Turn on the performance monitoring tools (Profiler, Debug, Mini stats, etc.) under the Launch button to check things like draw-calls, VRAM, and FPS. This way, can check whether the scene is overloaded or what’s causing a scene to crash. Make sure all performance data is aligned with the suggested stats.
-
-<figure><img src=".gitbook/assets/image (369).png" alt="" width="375"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-#### Private Project
-
-Go back to project page and set the project to PRIVATE to prevent any data leakage. Under the TEAM heading, you can authorize other accounts to view or edit projects for better collaboration
-
-<figure><img src=".gitbook/assets/image (368).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

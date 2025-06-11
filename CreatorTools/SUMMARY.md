@@ -1,18 +1,36 @@
 # Table of contents
 
 * [Introduction to Creator Tools](README.md)
-* [Publishing with Your VIVERSE Account](publishing-with-your-viverse-account.md)
-* [Optimization](optimization.md)
+* [VIVERSE Studio](publishing-with-your-viverse-account.md)
+* [Optimizing for the Web](optimization.md)
 * [Monetization](monetization.md)
-* [Embedding Assets In VIVERSE](embedding-assets-in-viverse.md)
 
-## World Decoration
+## Publishing From Templates
 
-* [Edit Mode](world-decoration/edit-mode.md)
-* [Supported Media & Settings](world-decoration/supported-media-and-settings.md)
-* [Overview](world-decoration/overview.md)
-* [Creating From Templates](world-decoration/creating-from-templates/README.md)
-  * [Pet Rescue Template Project](world-decoration/creating-from-templates/pet-rescue-template-project.md)
+* [Creating From Templates](publishing-from-templates/creating-from-templates.md)
+* [Edit Mode](publishing-from-templates/edit-mode.md)
+* [Supported Media & Settings](publishing-from-templates/supported-media-and-settings.md)
+
+## Standalone Publishing
+
+* [Installing the CLI](standalone-publishing/installing-the-cli.md)
+
+***
+
+* [Publishing to VIVERSE with the CLI](publishing-to-viverse-with-the-cli.md)
+* [Unity WebGL Example](unity-webgl-example.md)
+* [ThreeJS Example](three.js-with-vite-or-getting-started-tutorial.md)
+* [Godot HTML5 Example](godot-html5-example.md)
+
+## Developer Tools
+
+* [Login & Authentication for the SDK](developer-tools/login-and-authentication-for-the-sdk.md)
+
+***
+
+* [Avatar SDK](avatar-sdk.md)
+* [Leaderboard SDK](leaderboard-sdk.md)
+* [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
 
 ## PlayCanvas SDK
 
@@ -52,6 +70,7 @@
   * [SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader.md)
   * [WITHIN | A Generative Audiovisual Maze](playcanvas-sdk/tutorials/within-or-a-generative-audiovisual-maze.md)
   * [First Person Shooter with Destruction](playcanvas-sdk/tutorials/first-person-shooter-with-destruction.md)
+  * [Pet Rescue Template Project](playcanvas-sdk/tutorials/pet-rescue-template-project.md)
   * [Create Your First Quest](playcanvas-sdk/tutorials/create-your-first-quest.md)
 * [Overview](playcanvas-sdk/overview.md)
 
@@ -69,9 +88,6 @@
 * [Installing the VIVERSE CLI Module](javascript-sdk/installing-the-viverse-cli-module.md)
 * [Integrating VIVERSE Avatars](javascript-sdk/integrating-viverse-avatars.md)
 * [Publishing to VIVERSE](javascript-sdk/publishing-to-viverse.md)
-* [Examples](javascript-sdk/examples/README.md)
-  * [Three.js with Vite | Getting Started Tutorial](javascript-sdk/examples/three.js-with-vite-or-getting-started-tutorial.md)
+* [Examples](javascript-sdk/examples.md)
 
 ## Godot SDK
-
-* [Exporting Godot to VIVERSE](godot-sdk/exporting-godot-to-viverse.md)
