@@ -58,6 +58,18 @@ Navigate to the "Content Versions" tab and select the file you would like to use
 {% endstep %}
 
 {% step %}
+### Submit Content For review
+
+After uploading, your content will be viewable in preview mode only. To submit your world for curation on our webpages, please select "Submit for Review" and select whether you would like iframe support for your experience.
+
+{% hint style="info" %}
+iframe support means the ability to embed your 3D VIVERSE project onto other webpages using an iframe element.
+{% endhint %}
+
+<figure><img src=".gitbook/assets/Image 6-12-25 at 1.12 PM.jpg" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 ### (Optional) Add an SDK \[Beta]
 
 Navigate to the "SDK Settings" tab and use the interface to configure any new SDKs for your world.

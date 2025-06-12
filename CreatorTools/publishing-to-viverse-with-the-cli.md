@@ -10,7 +10,7 @@ description: >-
 
 After [install and authentication](publishing-to-viverse-with-the-cli.md), the VIVERSE CLI can be used to publish any working WebGL build to the VIVERSE platform after an authentication process. When publishing, you'll either access your existing projects, or create a new one.
 
-### **Creating Applications**
+## Creating Applications
 
 You can use the VIVERSE CLI to create a new application directly:
 
@@ -47,7 +47,7 @@ The output will be displayed in a table format with the following columns:
 * TITLE: Application name
 * URL: Application preview URL
 
-### **Publishing Content**
+## Publishing Content
 
 Publishing content requires two inputs:
 
@@ -71,4 +71,8 @@ viverse-cli app publish --app-id <your-app-id>
 > **Important:** After uploading content successfully, you'll need to visit the Creator Studio website to complete the review and publishing process.
 
 > **Warning:** The `<path>` parameter MUST point to your **build output folder** and NOT your source code folder. Publishing source code folders (containing `src/`, `node_modules/`, or development files like `.tsx`, `.jsx`, `.vue`, `.unity`, etc.) will result in non-functional content and deployment failures.
+
+### Content Approval
+
+For security purposes, creators must submit their application for approval
 

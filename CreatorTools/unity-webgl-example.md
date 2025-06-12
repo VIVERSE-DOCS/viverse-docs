@@ -79,9 +79,17 @@ In the terminal session, run `viverse-cli auth login` and enter your VIVERSE acc
 {% endstep %}
 
 {% step %}
+### Create VIVERSE App
+
+In the terminal session, run `viverse-cli app create` . Once complete, copy the app ID to be used when publishing.
+
+<figure><img src=".gitbook/assets/Image 6-12-25 at 1.06 PM.jpg" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 ### Publish to VIVERSE
 
-In the terminal session, run `viverse-cli app publish {path/to/unity/webgl/build}` referencing folder containing the index.html of your Unity build.
+In the terminal session, run `viverse-cli app publish {path/to/unity/webgl/build} --app-id {your app id from step 4}` referencing folder containing the index.html of your Unity build.
 
 <figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.35.45 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -89,10 +97,16 @@ In the terminal session, run `viverse-cli app publish {path/to/unity/webgl/build
 {% step %}
 ### Test & Configure World Settings
 
-Navigate to the url created for the world. You can also access the world and its settings in [studio.viverse.com/content](https://studio.viverse.com/content)
+Navigate to the preview url created for the world. You can also access the world and its settings in [studio.viverse.com/content](https://studio.viverse.com/content).&#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.45.53 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 8.04.00 PM.png" alt="" width="316"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Submit for Curation and Discovery
+
+By default, worlds uploaded will only be accessible via preview urls. For placement and curation on our webpages, meaning your experience will be easier to share, please [submit for review](publishing-with-your-viverse-account.md#upload).
 {% endstep %}
 {% endstepper %}
