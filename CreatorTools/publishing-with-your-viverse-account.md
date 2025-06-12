@@ -58,7 +58,7 @@ Navigate to the "Content Versions" tab and select the file you would like to use
 {% endstep %}
 
 {% step %}
-### (Optional) Add an SDK
+### (Optional) Add an SDK \[Beta]
 
 Navigate to the "SDK Settings" tab and use the interface to configure any new SDKs for your world.
 
