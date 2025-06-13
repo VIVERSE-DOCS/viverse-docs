@@ -43,9 +43,9 @@ Navigate to Window > Package Manager > Unity Registry and search for "WebGL Publ
 {% endstep %}
 
 {% step %}
-### Enable Decompression Fallback
+### (Optional) Enable Decompression Fallback
 
-This is required for compability with VIVERSE. Navigate to Edit > Project Settings > Player > Web Settings > Publishing Settings and check "Decompression Fallback".
+Compression is supported on VIVERSE, however you can enable fallback if you are encountering errors or would like to have it included. Navigate to Edit > Project Settings > Player > Web Settings > Publishing Settings and check "Decompression Fallback".
 
 <figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.40.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
