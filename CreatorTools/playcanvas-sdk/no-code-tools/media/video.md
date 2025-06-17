@@ -34,7 +34,7 @@ C. Click the **Edit Viverse Extension** button.
 {% step %}
 ### Add the video module
 
-A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown.
+A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown. Select either "Asset" for files contained in your PlayCanvas project, or "URL" for a video to stream, such as a YouTube URL (but please note: YouTube or other embeds are run inside iframe elements, which do not render in VR).
 
 B. Select the **Video** module and add it.
 
