@@ -18,8 +18,8 @@ While VIVERSE is a great place for multiplayer games with networked avatars — 
 
 ## Prerequisites
 
-* Unity Hub and Unity installed on your device.
-* [Node](https://nodejs.org/en) and [npm](https://www.npmjs.com/package/@viverse/cli) installed on your device. Please use at least Node v22
+* Unity Hub and Unity with the WebGL platform for that version of unity installed on your device, in the hub you should see the WebGL platform module next to the version of unity you're using.\
+  <img src=".gitbook/assets/image (730).png" alt="" data-size="original">
 
 {% hint style="warning" %}
 In this tutorial, we will be using Unity v6.1, however any WebGL-compatible version of Unity should be supported.
@@ -35,19 +35,59 @@ In this tutorial, we will be using Unity v6.1, however any WebGL-compatible vers
 {% endstep %}
 
 {% step %}
-### Install the WebGL Publisher
+### Install the Unity Plugin
 
-Navigate to Window > Package Manager > Unity Registry and search for "WebGL Publisher". Add the module to your project.
+Go to the Package manager
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.21.24 PM.png" alt="" width="358"><figcaption></figcaption></figure>
+Press the "Plus icon" and select "Add from git URL", and add the url "git@github.com:ViveDeveloperRelations/ViverseUnitySDK.git"
+
+&#x20;![](<.gitbook/assets/image (731).png>)
 {% endstep %}
 
 {% step %}
-### (Optional) Enable Decompression Fallback
+### Switch your build to the WebGL platform in the Build Profiles
 
-Compression is supported on VIVERSE, however you can enable fallback if you are encountering errors or would like to have it included. Navigate to Edit > Project Settings > Player > Web Settings > Publishing Settings and check "Decompression Fallback".
+Select Switch platform if you're not currently on the webgl settings page
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.40.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (734).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Open the menu Tools/WebGL Build Settings
+
+<figure><img src=".gitbook/assets/image (732).png" alt=""><figcaption></figcaption></figure>
+
+It should look like the above, select "Apply WebGL Settings" to apply the appropriate settings
+
+Selecting auto-zip builds after completion will allow you to quickly upload builds to the studio.viverse.com site
+
+The selection for decompression fallback and other relevant settings will be there&#x20;
+{% endstep %}
+
+{% step %}
+### If planning to use avatars, import the VRM packages by pressing the "Install VRM Packages" button
+
+<figure><img src=".gitbook/assets/image (735).png" alt=""><figcaption></figcaption></figure>
+
+
+{% endstep %}
+
+{% step %}
+### Add Missing shaders after importing VRM related packages to ensure proper rendering of avatars that are dynamically loaded
+
+<div><figure><img src=".gitbook/assets/image (736).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/image (738).png" alt=""><figcaption></figcaption></figure></div>
+{% endstep %}
+
+{% step %}
+### Import sample scenes
+
+<figure><img src=".gitbook/assets/image (740).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Optionally add the configurable driver scene to the build settings
+
+This will help you familiar with the SDK lifecycle, how to configure and use the sdk visually![](<.gitbook/assets/image (741).png>)
 {% endstep %}
 {% endstepper %}
 
@@ -57,9 +97,7 @@ Compression is supported on VIVERSE, however you can enable fallback if you are 
 {% step %}
 ### Build your project
 
-Navigate to Publish and select "WebGL Publish". In the pop-up, click "Build and Publish", selecting the desired folder for your build. When doing this for the first time, Unity will automatically publish to their web-servers for testing. For future builds, you can disable this behavior to just the builds without publishing.
-
-<figure><img src=".gitbook/assets/Screenshot 2025-06-09 at 7.24.49 PM (1).png" alt="" width="317"><figcaption></figcaption></figure>
+Go to build profiles and select "Build", as build and run will not allow you to use Viverse functionality - you must publish the app to be able to use it at the moment ![](<.gitbook/assets/image (742).png>)
 {% endstep %}
 
 {% step %}
@@ -108,5 +146,14 @@ Navigate to the preview url created for the world. You can also access the world
 ### Submit for Curation and Discovery
 
 By default, worlds uploaded will only be accessible via preview urls. For placement and curation on our webpages, meaning your experience will be easier to share, please [submit for review](publishing-with-your-viverse-account.md#upload).
+{% endstep %}
+
+{% step %}
+### Iterate, Learn, Explore!
+
+In addition to the sample scenes, the rough flow of api usage can be reviewed at [https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity\_Viverse\_SDK\_Developer\_Guide.md](https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity_Viverse_SDK_Developer_Guide.md)\
+\
+And overview of the current version of the sdk with additional hints and tips at\
+[https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl](https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl)
 {% endstep %}
 {% endstepper %}
