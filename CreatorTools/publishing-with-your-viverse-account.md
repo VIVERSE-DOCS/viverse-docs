@@ -16,6 +16,10 @@ All creations published to your VIVERSE account are known as "Worlds" and can be
 
 Currently, Worlds can only be associated with, owned and managed by one VIVERSE account. The owner's account name will display under the world on the VIVERSE world discovery page.
 
+## Video Overview
+
+{% embed url="https://www.youtube.com/watch?v=KywJOAbqtos" %}
+
 ## The VIVERSE Studio Interface
 
 The [VIVERSE studio](https://studio.viverse.com/) is the one-stop-shop for managing all content associated with your VIVERSE account and profile.&#x20;
