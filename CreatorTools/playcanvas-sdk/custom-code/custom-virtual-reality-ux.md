@@ -1,23 +1,23 @@
 ---
-description: Use `XRService` to interact with virtual reality devices and controllers
+description: Use `XrService` to interact with virtual reality devices and controllers
 ---
 
 # Custom Virtual Reality UX
 
-WebXR experiences can run on desktop, mobile and virtual reality devices alike. Utilizing the `XRService` in the Create SDK, you can write custom code to manage VR controllers, locomotion settings, and XR session callbacks.
+WebXR experiences can run on desktop, mobile and virtual reality devices alike. Utilizing the `XrService` in the Create SDK, you can write custom code to manage VR controllers, locomotion settings, and XR session callbacks.
 
 ### Custom Locomotion Settings
 
 By default, the VIVERSE character controller uses teleport for locomotion, since this is the more comfortable option, in general. However, smooth locomotion (where the player glides smoothly across the floor) can be enabled on either or both controllers by setting the [`LocomotionType`](https://viveportsoftware.github.io/pc-lib/enums/XrTypes.LocomotionTypes.html) of each.
 
-Import the [`XRService`](https://viveportsoftware.github.io/pc-lib/classes/XrService.html) from the Create SDK into an .mjs script. Per the API docs, this gives you access to both [left and right controllers](https://viveportsoftware.github.io/pc-lib/classes/XrService.html#controllers), and their properties, to set on init:
+Import the [`XrService`](https://viveportsoftware.github.io/pc-lib/classes/XrService.html) from the Create SDK into an .mjs script. Per the API docs, this gives you access to both [left and right controllers](https://viveportsoftware.github.io/pc-lib/classes/XrService.html#controllers), and their properties, to set on init:
 
 ```javascript
 import { Script, Asset } from "playcanvas";
 import { XrService } from "../@viverse/create-sdk.mjs";
 
-export class ViverseXRManager extends Script {
-  static scriptName = "viverseXRManager";
+export class ViverseXrManager extends Script {
+  static scriptName = "viverseXrManager";
   
   initialize() {
     this.xrService = new XrService();
@@ -39,8 +39,8 @@ Checking the `IXrController` interface further, we can [use the `setModelAsset()
 import { Script, Asset } from "playcanvas";
 import { XrService } from "../@viverse/create-sdk.mjs";
 
-export class ViverseXRManager extends Script {
-  static scriptName = "viverseXRManager";
+export class ViverseXrManager extends Script {
+  static scriptName = "viverseXrManager";
   
   /**
   * @attribute
