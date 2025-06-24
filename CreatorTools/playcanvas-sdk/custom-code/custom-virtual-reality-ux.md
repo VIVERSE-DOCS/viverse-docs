@@ -10,7 +10,7 @@ WebXR experiences can run on desktop, mobile and virtual reality devices alike. 
 
 By default, the VIVERSE character controller uses teleport for locomotion, since this is the more comfortable option, in general. However, smooth locomotion (where the player glides smoothly across the floor) can be enabled on either or both controllers by setting the [`LocomotionType`](https://viveportsoftware.github.io/pc-lib/enums/XrTypes.LocomotionTypes.html) of each.
 
-Import the [`XRService`](https://viveportsoftware.github.io/pc-lib/classes/XrService.html) from the Create SDK into an .mjs script. Per the API docs, this gives you access to both [left and right controllers](https://viveportsoftware.github.io/pc-lib/classes/XrService.html#controllers), and their properties.
+Import the [`XRService`](https://viveportsoftware.github.io/pc-lib/classes/XrService.html) from the Create SDK into an .mjs script. Per the API docs, this gives you access to both [left and right controllers](https://viveportsoftware.github.io/pc-lib/classes/XrService.html#controllers), and their properties, to set on init:
 
 ```javascript
 import { Script, Asset } from "playcanvas";
@@ -23,9 +23,13 @@ export class ViverseXRManager extends Script {
     this.xrService = new XRService();
     this.xrService.controllers.right.locomotionType = 2;  // Teleport
     this.xrService.controllers.left.locomotionType = 1;  // Smooth
+    // See enum definitions here:
+    // https://viveportsoftware.github.io/pc-lib/enums/XrTypes.LocomotionTypes.html
   }
 }
 ```
+
+> **NOTE:** _this script asset must be placed in `/scripts` or another subfolder, since it assumes the VIVERSE SDK is one level up, located at: `"../@viverse/create-sdk.mjs"` - or you can alter this import path as needed. For more information on how .mjs scripts and imports work, see_ [_Introduction to MJS_](introduction-to-mjs.md)_._
 
 ### Custom Controller Models
 
@@ -57,8 +61,6 @@ export class ViverseXRManager extends Script {
   }
 }
 ```
-
-> **NOTE:** _this script asset must be placed in `/scripts` or another subfolder, since it assumes the VIVERSE SDK is one level up, located at: `"../@viverse/create-sdk.mjs"` - or you can alter this import path as needed. For more information on how .mjs scripts and imports work, see_ [_Introduction to MJS_](introduction-to-mjs.md)_._
 
 After defining the `vrControllerAssetL` and `vrControllerAssetR` attributes of type `Asset` in the above script, we then reference custom 3D controller assets in the editor, which our script instantiates at runtime in VR.
 
