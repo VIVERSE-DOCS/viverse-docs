@@ -14,13 +14,13 @@ Import the [`XRService`](https://viveportsoftware.github.io/pc-lib/classes/XrSer
 
 ```javascript
 import { Script, Asset } from "playcanvas";
-import { XRService } from "../@viverse/create-sdk.mjs";
+import { XrService } from "../@viverse/create-sdk.mjs";
 
 export class ViverseXRManager extends Script {
   static scriptName = "viverseXRManager";
   
   initialize() {
-    this.xrService = new XRService();
+    this.xrService = new XrService();
     this.xrService.controllers.right.locomotionType = 2;  // Teleport
     this.xrService.controllers.left.locomotionType = 1;  // Smooth
     // See enum definitions here:
@@ -37,7 +37,7 @@ Checking the `IXrController` interface further, we can [use the `setModelAsset()
 
 ```javascript
 import { Script, Asset } from "playcanvas";
-import { XRService } from "../@viverse/create-sdk.mjs";
+import { XrService } from "../@viverse/create-sdk.mjs";
 
 export class ViverseXRManager extends Script {
   static scriptName = "viverseXRManager";
@@ -55,7 +55,7 @@ export class ViverseXRManager extends Script {
   vrControllerAssetL = null;
 
   initialize() {
-    this.xrService = new XRService();
+    this.xrService = new XrService();
     this.xrService.controllers.right.setModelAsset(this.vrControllerAssetR);
     this.xrService.controllers.left.setModelAsset(this.vrControllerAssetL);
   }
