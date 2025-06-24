@@ -33,7 +33,7 @@ export class ViverseXRManager extends Script {
 
 ### Custom Controller Models
 
-Checking the `IController` interface further, we can [use the `setModelAsset()` function to set custom 3D models for our controllers](https://viveportsoftware.github.io/pc-lib/interfaces/IXrController.html#setModelAsset.setModelAsset-1), instead of the default VIVERSE models.
+Checking the `IXrController` interface further, we can [use the `setModelAsset()` function to set custom 3D models for our controllers](https://viveportsoftware.github.io/pc-lib/interfaces/IXrController.html#setModelAsset.setModelAsset-1), instead of the default VIVERSE models.
 
 ```javascript
 import { Script, Asset } from "playcanvas";
