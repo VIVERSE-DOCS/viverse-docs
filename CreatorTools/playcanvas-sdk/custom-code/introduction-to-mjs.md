@@ -12,7 +12,7 @@ Modular JavaScript is an evolved form of JavaScript in which related functionali
 
 ## CommonJS (NodeJS) example
 
-Here's a comparison between MJS and CommonJS, which requires node.js, and relies on `require()`  statements to import other scripts:
+Here's a comparison between MJS and CommonJS. The latter requires node.js, and relies on `require()`  statements to import other scripts/modules:
 
 ```javascript
 // To include the File System module, use the require() method
