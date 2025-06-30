@@ -8,9 +8,11 @@ description: >-
 
 ***
 
-Modular JavaScript is an evolved form of JavaScript in which related functionality is kept in a single file or module and that functionality is exposed when required using import and export functionality. Here's a comparison breakdown between CommonJS (NodeJS) and MJS.
+Modular JavaScript is an evolved form of JavaScript in which related functionality is kept in a single file or module and that functionality is exposed when required using import and export functionality.&#x20;
 
 ## CommonJS (NodeJS) example
+
+Here's a comparison between MJS and CommonJS, which requires node.js, and relies on `require()`  statements to import other scripts:
 
 ```javascript
 // To include the File System module, use the require() method
@@ -25,9 +27,7 @@ module.exports = function greet(name) {
 };
 ```
 
-
-
-## MJS example
+MJS, on the other hand, can use import statements like other languages.
 
 ```javascript
 // To include the File System module, you no longer use require() method
@@ -38,19 +38,15 @@ import fs from 'fs';
 fs.readFile();
 
 // Exporting the greet function so it can be used in other modules, you no longer
-// use module.exports.
-// Use export instead.
+// use `module.exports`. Use `export` instead.
 export const greet = (name) => {
     return 'Hello, ${name}!';
 };
-
 ```
 
+## MJS PlayCanvas Script Structure
 
-
-## MJS Structure
-
-Here's an example of how a script called GameManager.mjs would look if created in PlayCanvas.
+Further, MJS is now supported by PlayCanvas and the VIVERSE Create SDK, to make script imports easier and mroe modern. Here's an example of a script called `GameManager.mjs` (critically, the file extension is `.mjs`, not just `.js` as usual) created for PlayCanvas, extending its built-in `Script` class:
 
 ```javascript
 import { Script } from 'playcanvas';
@@ -72,11 +68,9 @@ export class GameManager extends Script {
 }
 ```
 
-
-
 ## Accessing a function in a MJS(.mjs) file from regular JavaScript (.js) code example
 
-**DoorRotator.mjs** - Script can be added to a PlayCanvas entity. This allows functions to be executed on that entity such as a door that needs to be opened. After adding additional code inside the rotateDoor function, this function can be called from another script to open the door.
+**DoorRotator.mjs** can can be added to a PlayCanvas entity. This allows functions to be executed on that entity such as a door that needs to be opened. After adding additional code inside the rotateDoor function, this function can be called from another script to open the door.
 
 ```javascript
 import { Script } from 'playcanvas';
