@@ -21,8 +21,8 @@ export class ViverseXrManager extends Script {
   
   initialize() {
     this.xrService = new XrService();
-    this.xrService.controllers.right.locomotionType = 2;  // Teleport
-    this.xrService.controllers.left.locomotionType = 1;  // Smooth
+    this.xrService.controllers.right.locomotionType = 1;  // Teleport
+    this.xrService.controllers.left.locomotionType = 2;  // Smooth
     // See enum definitions here:
     // https://viveportsoftware.github.io/pc-lib/enums/XrTypes.LocomotionTypes.html
   }
