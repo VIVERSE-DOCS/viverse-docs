@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>3D Tic-Tac-Toe</title>
+    <meta name="description" content="3D Tic-Tac-Toe Game using A-Frame">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #ui {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+        }
+        
+        #gameTitle {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #FA8072;
+            text-align: center;
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #FA8072;
+        }
+        
+        .info-label {
+            font-size: 16px;
+            color: #FA8072;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .info-content {
+            font-size: 16px;
+            color: white;
+        }
+        
+        button {
+            background: #FA8072;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background: #E55B50;
+        }
+        
+        button:disabled {
+            background: #888;
+            cursor: not-allowed;
+        }
+        
+        #instructions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        
+        .instructions-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1E90FF;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .instruction-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border-left: 3px solid #1E90FF;
+            font-size: 16px;
+        }
+        
+        #scoreboard {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: left;
+        }
+        
+        #scoreboard-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFA500;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .score-row {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .score-label {
+            color: white;
+            font-size: 16px;
+        }
+        
+        .score-value {
+            font-weight: bold;
+            color: white;
+            font-size: 16px;
+        }
+        
+        #coinToss {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            min-width: 300px;
+        }
+        
+        .coin-container {
+            perspective: 1000px;
+            margin: 20px auto;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .coin {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: 3px solid #DAA520;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .coin.flipping {
+            animation: coinFlip 2s ease-out forwards;
+        }
+        
+        @keyframes coinFlip {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(1800deg); }
+        }
+        
+        .coin-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #C0C0C0, #E0E0E0);
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            backface-visibility: hidden;
+        }
+        
+        .coin-front {
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <div id="gameTitle">3D Tic-Tac-Toe</div>
+        
+        <div class="info-box">
+            <div class="info-label">Roles:</div>
+            <div class="info-content">
+                <div>👤 You are: <span id="playerRole">X</span></div>
+                <div style="margin-top: 5px;">🤖 AI is: <span id="aiRole">O</span></div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-label">Current Turn:</div>
+            <div class="info-content" id="currentTurn">Your turn</div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-label">Result:</div>
+            <div class="info-content" id="gameResult">-</div>
+        </div>
+        
+        <button onclick="startNewGame()">NEW GAME</button>
+    </div>
+    
+    <div id="coinToss">
+        <h2>Coin Toss!</h2>
+        <p>Determining who goes first...</p>
+        <div class="coin-container">
+            <div class="coin" id="coin">
+                <div class="coin-front">👤</div>
+                <div class="coin-back">🤖</div>
+            </div>
+        </div>
+        <div id="coinResult"></div>
+    </div>
+    
+    <div id="instructions">
+        <div class="instructions-title">How to Play</div>
+        
+        <div class="instruction-box">
+            🎯 Click on any empty box to place your piece
+        </div>
+        
+        <div class="instruction-box">
+            🤖 AI will automatically place its piece
+        </div>
+        
+        <div class="instruction-box">
+            🏆 Get 3 in a row, column, or diagonal to win!
+        </div>
+        
+        <div class="instruction-box">
+            🎲 X always goes first, coin toss determines roles
+        </div>
+    </div>
+
+    <div id="scoreboard">
+        <div id="scoreboard-title">Scoreboard</div>
+        <div class="score-row">
+            <span class="score-label">👤 You</span>
+            <span class="score-value" id="player-score">0</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">🤖 AI</span>
+            <span class="score-value" id="ai-score">0</span>
+        </div>
+        <div class="score-row">
+            <span class="score-label">🤝 Ties</span>
+            <span class="score-value" id="tie-score">0</span>
+        </div>
+    </div>
+
+    <a-scene background="color: #232323" vr-mode-ui="enabled: false" embedded style="height: 100vh; width: 100vw;">
+        <!-- Camera -->
+        <a-camera position="0 0 16" look-controls="enabled: false" wasd-controls="enabled: false">
+        </a-camera>
+
+        <!-- Lighting -->
+        <!-- Optimized scene lighting for chrome materials -->
+        <a-light type="ambient" color="#606060" intensity="1.2"></a-light>
+        <a-light type="directional" position="3 6 4" color="#FFFFFF" intensity="1.0"></a-light>
+        <a-light type="directional" position="-3 4 4" color="#FFFFFF" intensity="0.6"></a-light>
+        <a-light type="point" position="0 3 6" color="#FFFFFF" intensity="0.8"></a-light>
+        
+        <!-- Colorful accent lighting for chrome reflections -->
+        <a-light type="point" position="2 2 3" color="#FFD700" intensity="0.4"></a-light>
+        <a-light type="point" position="-2 2 3" color="#87CEEB" intensity="0.3"></a-light>
+        <a-light type="point" position="0 -2 3" color="#FFB6C1" intensity="0.25"></a-light>
+        <a-light type="point" position="1.5 1.5 4" color="#98FB98" intensity="0.2"></a-light>
+        <a-light type="point" position="-1.5 -1.5 4" color="#DDA0DD" intensity="0.2"></a-light>
+        
+        <!-- Directional colored lights from four sides for dynamic reflections and shadows -->
+        <a-light type="directional" position="4 1 2" target="#game-board" color="#FFA500" intensity="0.3" castShadow="true"></a-light>
+        <a-light type="directional" position="-4 1 2" target="#game-board" color="#40E0D0" intensity="0.3" castShadow="true"></a-light>
+        <a-light type="directional" position="0 4 2" target="#game-board" color="#FF6347" intensity="0.25" castShadow="true"></a-light>
+        <a-light type="directional" position="0 -4 2" target="#game-board" color="#9370DB" intensity="0.25" castShadow="true"></a-light>
+        
+        <!-- Additional angled lights for enhanced metallic reflections -->
+        <a-light type="spot" position="3 3 3" target="#game-board" color="#FFE4B5" intensity="0.2" angle="45" penumbra="0.1"></a-light>
+        <a-light type="spot" position="-3 -3 3" target="#game-board" color="#E6E6FA" intensity="0.2" angle="45" penumbra="0.1"></a-light>
+
+        <!-- Game Board -->
+        <a-entity id="game-board" position="0 0 0" scale="6.25 6.25 6.25">
+            <!-- Row 0 -->
+            <a-box id="box-0-0" class="game-cell" position="-1 1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="0" data-col="0">
+            </a-box>
+            <a-box id="box-0-1" class="game-cell" position="0 1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="0" data-col="1">
+            </a-box>
+            <a-box id="box-0-2" class="game-cell" position="1 1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="0" data-col="2">
+            </a-box>
+            
+            <!-- Row 1 -->
+            <a-box id="box-1-0" class="game-cell" position="-1 0 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="1" data-col="0">
+            </a-box>
+            <a-box id="box-1-1" class="game-cell" position="0 0 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="1" data-col="1">
+            </a-box>
+            <a-box id="box-1-2" class="game-cell" position="1 0 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="1" data-col="2">
+            </a-box>
+            
+            <!-- Row 2 -->
+            <a-box id="box-2-0" class="game-cell" position="-1 -1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="2" data-col="0">
+            </a-box>
+            <a-box id="box-2-1" class="game-cell" position="0 -1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="2" data-col="1">
+            </a-box>
+            <a-box id="box-2-2" class="game-cell" position="1 -1 0" 
+                   geometry="primitive: box; width: 0.9; height: 0.9; depth: 0.1" 
+                   material="color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9"
+                   data-row="2" data-col="2">
+            </a-box>
+        </a-entity>
+
+
+
+
+    </a-scene>
+
+    <script>
+        // Game state
+        let board = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ];
+        let currentPlayer = 'X'; // X always goes first
+        let gameActive = false; // Starts false until coin toss
+        let scene, camera;
+        
+        // Role tracking - who plays as X and O
+        let playerSymbol = 'X'; // Player's symbol (X or O)
+        let aiSymbol = 'O'; // AI's symbol (O or X)
+        let isPlayerTurn = true; // Current turn
+        
+        // Score tracking
+        let playerWins = 0;
+        let aiWins = 0;
+        let ties = 0;
+
+        // UI elements
+        const playerRoleElement = document.getElementById('playerRole');
+        const aiRoleElement = document.getElementById('aiRole');
+        const currentTurnElement = document.getElementById('currentTurn');
+        const gameResultElement = document.getElementById('gameResult');
+        const playerScoreElement = document.getElementById('player-score');
+        const aiScoreElement = document.getElementById('ai-score');
+        const tieScoreElement = document.getElementById('tie-score');
+
+        // Initialize game
+        function initGame() {
+            console.log('Initializing game...');
+            
+            scene = document.querySelector('a-scene');
+            camera = document.querySelector('a-camera');
+            
+            // Add mouse and touch event listeners to the scene canvas
+            const canvas = scene.canvas;
+            
+            // Mouse events for PC
+            canvas.addEventListener('click', handleCanvasClick);
+            
+            // Touch events for mobile
+            canvas.addEventListener('touchend', handleCanvasTouch);
+            
+            updateScoreboard();
+            startNewGame(); // Start with coin toss
+        }
+
+        // Start new game with coin toss
+        function startNewGame() {
+            // Reset board
+            board = [
+                ['', '', ''],
+                ['', '', ''],
+                ['', '', '']
+            ];
+            gameActive = false;
+            currentPlayer = 'X';
+            gameResultElement.textContent = '-';
+            currentTurnElement.textContent = 'Coin toss in progress';
+            
+            // Clear board visually
+            for (let row = 0; row < 3; row++) {
+                for (let col = 0; col < 3; col++) {
+                    const box = document.getElementById(`box-${row}-${col}`);
+                    
+                    // Remove all children (X and O symbols)
+                    while (box.firstChild) {
+                        box.removeChild(box.firstChild);
+                    }
+                    
+                    // Reset appearance
+                    box.setAttribute('material', 'color: #303030; roughness: 1.0; metalness: 0.0; opacity: 0.9');
+                }
+            }
+            
+            // Start coin toss
+            performCoinToss();
+        }
+
+        // Perform coin toss animation
+        function performCoinToss() {
+            const coinTossModal = document.getElementById('coinToss');
+            const coinElement = document.getElementById('coin');
+            const coinResultElement = document.getElementById('coinResult');
+            
+            // Show coin toss modal
+            coinTossModal.style.display = 'block';
+            coinResultElement.textContent = '';
+            
+            // Reset coin rotation
+            coinElement.classList.remove('flipping');
+            coinElement.style.transform = 'rotateY(0deg)';
+            
+            // Determine result (50/50 chance)
+            const playerGetsX = Math.random() < 0.5;
+            
+            // The coin faces are already set up correctly in HTML:
+            // coin-front: 👤 (player emoji) - visible at 0° and 1800° (even rotations)
+            // coin-back: 🤖 (AI emoji) - visible at 180° and 1980° (odd rotations)
+            
+            // Start coin flip animation
+            setTimeout(() => {
+                coinElement.classList.add('flipping');
+                
+                // Set final rotation based on result
+                // coin-front: visible at 0°, 360°, 720°, 1080°, 1440°, 1800°
+                // coin-back: has 180° initial rotation, so visible at 180°, 540°, 900°, 1260°, 1620°, 1980°
+                const finalRotation = playerGetsX ? 1800 : 1980;
+                console.log(`Player gets X: ${playerGetsX}, Final rotation: ${finalRotation}`);
+                coinElement.style.transform = `rotateY(${finalRotation}deg)`;
+                
+                // Show result after animation
+                setTimeout(() => {
+                    if (playerGetsX) {
+                        playerSymbol = 'X';
+                        aiSymbol = 'O';
+                        isPlayerTurn = true;
+                        coinResultElement.innerHTML = '<h3>You go first!</h3><p>You are X, AI is O</p>';
+                        
+                        // BRUTE FORCE: Player goes first, so show player emoji on BOTH sides
+                        coinElement.querySelector('.coin-front').textContent = '👤';
+                        coinElement.querySelector('.coin-back').textContent = '👤';
+                    } else {
+                        playerSymbol = 'O';
+                        aiSymbol = 'X';
+                        isPlayerTurn = false;
+                        coinResultElement.innerHTML = '<h3>AI goes first!</h3><p>You are O, AI is X</p>';
+                        
+                        // BRUTE FORCE: AI goes first, so show AI emoji on BOTH sides
+                        coinElement.querySelector('.coin-front').textContent = '🤖';
+                        coinElement.querySelector('.coin-back').textContent = '🤖';
+                    }
+                    
+                    // Update UI
+                    playerRoleElement.textContent = playerSymbol;
+                    aiRoleElement.textContent = aiSymbol;
+                    
+                    // Hide modal and start game
+                    setTimeout(() => {
+                        coinTossModal.style.display = 'none';
+                        gameActive = true;
+                        
+                        // Update current turn status after coin toss
+                        updateCurrentTurn();
+                        
+                        // If AI goes first, make AI move
+                        if (!isPlayerTurn) {
+                            setTimeout(aiMove, 1000);
+                        }
+                    }, 2000);
+                }, 2000);
+            }, 500);
+        }
+
+        // Handle canvas click (PC)
+        function handleCanvasClick(event) {
+            event.preventDefault();
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            console.log(`Canvas clicked at: ${x}, ${y}`);
+            handleInteraction(x, y, rect);
+        }
+
+        // Handle canvas touch (Mobile)
+        function handleCanvasTouch(event) {
+            event.preventDefault();
+            if (event.changedTouches.length > 0) {
+                const touch = event.changedTouches[0];
+                const rect = event.target.getBoundingClientRect();
+                const x = touch.clientX - rect.left;
+                const y = touch.clientY - rect.top;
+                
+                console.log(`Canvas touched at: ${x}, ${y}`);
+                handleInteraction(x, y, rect);
+            }
+        }
+
+        // Handle interaction (both click and touch)
+        function handleInteraction(x, y, rect) {
+            if (!gameActive || !isPlayerTurn) {
+                console.log('Not player turn or game not active');
+                return;
+            }
+
+            // Convert screen coordinates to normalized device coordinates
+            const mouse = new THREE.Vector2();
+            mouse.x = (x / rect.width) * 2 - 1;
+            mouse.y = -(y / rect.height) * 2 + 1;
+
+            // Create raycaster
+            const raycaster = new THREE.Raycaster();
+            const cameraEl = camera.getObject3D('camera');
+            raycaster.setFromCamera(mouse, cameraEl);
+
+            // Get all game cell objects
+            const gameCells = [];
+            for (let row = 0; row < 3; row++) {
+                for (let col = 0; col < 3; col++) {
+                    const boxEl = document.getElementById(`box-${row}-${col}`);
+                    if (boxEl && boxEl.object3D) {
+                        gameCells.push({
+                            object: boxEl.object3D,
+                            row: row,
+                            col: col,
+                            element: boxEl
+                        });
+                    }
+                }
+            }
+
+            // Find intersections
+            const objects = gameCells.map(cell => cell.object);
+            const intersects = raycaster.intersectObjects(objects, true);
+
+            if (intersects.length > 0) {
+                // Find which cell was clicked
+                const clickedObject = intersects[0].object;
+                for (const cell of gameCells) {
+                    if (cell.object === clickedObject || cell.object.children.includes(clickedObject)) {
+                        console.log(`Cell ${cell.row}, ${cell.col} was clicked`);
+                        handleCellClick(cell.row, cell.col);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Handle cell click
+        function handleCellClick(row, col) {
+            console.log(`Player clicked cell ${row},${col}`);
+            
+            if (!gameActive || !isPlayerTurn) {
+                console.log('Not player turn or game not active');
+                return;
+            }
+
+            if (board[row][col] !== '') {
+                console.log('Cell already occupied');
+                return;
+            }
+
+            // Make player move with their assigned symbol
+            makeMove(row, col, playerSymbol);
+            
+            // Check game state
+            if (checkWin(playerSymbol)) {
+                gameActive = false;
+                gameResultElement.textContent = 'You won!';
+                currentTurnElement.textContent = 'Game Over';
+                playerWins++;
+                updateScoreboard();
+                return;
+            }
+            
+            if (checkDraw()) {
+                gameActive = false;
+                gameResultElement.textContent = "It's a tie!";
+                currentTurnElement.textContent = 'Game Over';
+                ties++;
+                updateScoreboard();
+                return;
+            }
+
+            // Switch to AI turn
+            isPlayerTurn = false;
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            updateCurrentTurn();
+            setTimeout(aiMove, 800);
+        }
+
+        // Make a move
+        function makeMove(row, col, player) {
+            console.log(`Making move: ${player} at ${row},${col}`);
+            board[row][col] = player;
+            
+            const box = document.getElementById(`box-${row}-${col}`);
+            
+            if (player === 'X') {
+                // Keep box color the same - don't change square color
+                // Create X symbol
+                createXSymbol(box);
+            } else {
+                // Keep box color the same - don't change square color
+                // Create O symbol
+                createOSymbol(box);
+            }
+        }
+
+        // Create X symbol
+        function createXSymbol(parentBox) {
+            // Create a container for the X symbol to ensure perfect centering
+            const xContainer = document.createElement('a-entity');
+            xContainer.setAttribute('position', '0 0 0.15');
+            
+            // Create crossing lines with cylindrical geometry for better light reflection (scaled for larger board)
+            const line1 = document.createElement('a-entity');
+            line1.setAttribute('position', '0 0 0');
+            line1.setAttribute('geometry', 'primitive: cylinder; radius: 0.03872; height: 0.5808; segmentsRadial: 16');
+            line1.setAttribute('rotation', '0 0 45');
+            line1.setAttribute('material', 'color: #FFD700; metalness: 1.0; roughness: 0.001; emissive: #FFAA00; emissiveIntensity: 0.4; envMap: auto; reflectivity: 1.0; clearcoat: 1.0; clearcoatRoughness: 0.001');
+            
+            const line2 = document.createElement('a-entity');
+            line2.setAttribute('position', '0 0 0');
+            line2.setAttribute('geometry', 'primitive: cylinder; radius: 0.03872; height: 0.5808; segmentsRadial: 16');
+            line2.setAttribute('rotation', '0 0 -45');
+            line2.setAttribute('material', 'color: #FFD700; metalness: 1.0; roughness: 0.001; emissive: #FFAA00; emissiveIntensity: 0.4; envMap: auto; reflectivity: 1.0; clearcoat: 1.0; clearcoatRoughness: 0.001');
+            
+            xContainer.appendChild(line1);
+            xContainer.appendChild(line2);
+            parentBox.appendChild(xContainer);
+        }
+
+        // Create O symbol
+        function createOSymbol(parentBox) {
+            // Create a container for the O symbol to ensure perfect centering
+            const oContainer = document.createElement('a-entity');
+            oContainer.setAttribute('position', '0 0 0.15');
+            
+            const ring = document.createElement('a-entity');
+            ring.setAttribute('position', '0 0 0');
+            ring.setAttribute('geometry', 'primitive: torus; radius: 0.1936; radiusTubular: 0.025');
+            ring.setAttribute('material', 'color: #FFFFFF; metalness: 1.0; roughness: 0.001; emissive: #F8F8FF; emissiveIntensity: 0.4; envMap: auto; reflectivity: 1.0; clearcoat: 1.0; clearcoatRoughness: 0.001');
+            
+            oContainer.appendChild(ring);
+            parentBox.appendChild(oContainer);
+        }
+
+        // AI move
+        function aiMove() {
+            if (!gameActive) return;
+
+            let row, col;
+            
+            // Medium difficulty: Balanced AI that gives player ~50% win rate
+            const moveType = Math.random();
+            
+            if (moveType < 0.7) {
+                // 70% chance for strategic move (win or block)
+                const strategicMove = findStrategicMove();
+                if (strategicMove) {
+                    row = strategicMove.row;
+                    col = strategicMove.col;
+                } else {
+                    // Fallback to random if no strategic move
+                    const randomMove = getRandomMove();
+                    row = randomMove.row;
+                    col = randomMove.col;
+                }
+            } else if (moveType < 0.85) {
+                // 15% chance for decent move (center or corners)
+                const decentMove = findDecentMove();
+                if (decentMove) {
+                    row = decentMove.row;
+                    col = decentMove.col;
+                } else {
+                    const randomMove = getRandomMove();
+                    row = randomMove.row;
+                    col = randomMove.col;
+                }
+            } else {
+                // 15% chance for completely random move
+                const randomMove = getRandomMove();
+                row = randomMove.row;
+                col = randomMove.col;
+            }
+
+            // Make AI move with its assigned symbol
+            makeMove(row, col, aiSymbol);
+            
+            // Check game state
+            if (checkWin(aiSymbol)) {
+                gameActive = false;
+                gameResultElement.textContent = 'AI won!';
+                currentTurnElement.textContent = 'Game Over';
+                aiWins++;
+                updateScoreboard();
+                return;
+            }
+            
+            if (checkDraw()) {
+                gameActive = false;
+                gameResultElement.textContent = "It's a tie!";
+                currentTurnElement.textContent = 'Game Over';
+                ties++;
+                updateScoreboard();
+                return;
+            }
+
+            // Back to player turn
+            isPlayerTurn = true;
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            updateCurrentTurn();
+        }
+
+        // Find strategic move (win or block only)
+        function findStrategicMove() {
+            // Try to win first (highest priority)
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === '') {
+                        board[i][j] = aiSymbol;
+                        if (checkWin(aiSymbol)) {
+                            board[i][j] = '';
+                            return { row: i, col: j };
+                        }
+                        board[i][j] = '';
+                    }
+                }
+            }
+
+            // Try to block player from winning
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === '') {
+                        board[i][j] = playerSymbol;
+                        if (checkWin(playerSymbol)) {
+                            board[i][j] = '';
+                            return { row: i, col: j };
+                        }
+                        board[i][j] = '';
+                    }
+                }
+            }
+
+            return null; // No strategic move found
+        }
+
+        // Find decent move (center or corners, but not optimal)
+        function findDecentMove() {
+            // Take center if available
+            if (board[1][1] === '') {
+                return { row: 1, col: 1 };
+            }
+
+            // Take corners if available
+            const corners = [[0,0], [0,2], [2,0], [2,2]];
+            const availableCorners = corners.filter(([row, col]) => board[row][col] === '');
+            if (availableCorners.length > 0) {
+                const randomCorner = availableCorners[Math.floor(Math.random() * availableCorners.length)];
+                return { row: randomCorner[0], col: randomCorner[1] };
+            }
+
+            return null; // No decent move found
+        }
+
+        // Get random move
+        function getRandomMove() {
+            const available = [];
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === '') {
+                        available.push({ row: i, col: j });
+                    }
+                }
+            }
+            
+            if (available.length > 0) {
+                return available[Math.floor(Math.random() * available.length)];
+            }
+            return null;
+        }
+
+        // Check for win
+        function checkWin(player) {
+            // Check rows
+            for (let i = 0; i < 3; i++) {
+                if (board[i][0] === player && board[i][1] === player && board[i][2] === player) {
+                    return true;
+                }
+            }
+            
+            // Check columns
+            for (let j = 0; j < 3; j++) {
+                if (board[0][j] === player && board[1][j] === player && board[2][j] === player) {
+                    return true;
+                }
+            }
+            
+            // Check diagonals
+            if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+                return true;
+            }
+            if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+                return true;
+            }
+            
+            return false;
+        }
+
+        // Check for draw
+        function checkDraw() {
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (board[i][j] === '') {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        // Update current turn display
+        function updateCurrentTurn() {
+            if (gameActive) {
+                if (isPlayerTurn) {
+                    currentTurnElement.textContent = `Your turn (${playerSymbol})`;
+                } else {
+                    currentTurnElement.textContent = `AI thinking... (${aiSymbol})`;
+                }
+            }
+        }
+
+        // Update scoreboard
+        function updateScoreboard() {
+            playerScoreElement.textContent = playerWins;
+            aiScoreElement.textContent = aiWins;
+            tieScoreElement.textContent = ties;
+        }
+
+
+
+        // Start game when A-Frame is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for A-Frame to be ready
+            const scene = document.querySelector('a-scene');
+            if (scene.hasLoaded) {
+                initGame();
+            } else {
+                scene.addEventListener('loaded', initGame);
+            }
+        });
+    </script>
+</body>
+</html> 
