@@ -64,7 +64,7 @@ A. The **SeatHintFarAway** icon is a white dot that is automatically generated a
 
 A. The **SeatHintFarAwayTriggerSphere** is automatically generated.
 
-B. Adjust the **Radius** on the **Collision** component to modify the distance away before the **SeatHintFarAway** icon displays.
+B. Adjust the **Radius** on the **Collision** component to modify the distance away before the **SeatHintFarAway** icon displays. Also ensure the height of the collider is above ground level, so the player capsule collider is sure to intersect with it.
 
 <figure><img src="../../.gitbook/assets/image (551).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
