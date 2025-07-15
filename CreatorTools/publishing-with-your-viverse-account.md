@@ -70,7 +70,7 @@ After uploading, your content will be viewable in preview mode only. To submit y
 Several web features require requesting iframe Support, such as `xr-spatial-tracking`, `camera`, or `allow-pointer-lock`. These can be applied to preview links in the "iframe Support for Preview" menu, and must be set when you "Submit for Review," as well.
 {% endhint %}
 
-<div><figure><img src=".gitbook/assets/Image 6-12-25 at 1.12 PM.jpg" alt="" width="375"><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/Screenshot 2025-07-15 101342.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div><figure><img src=".gitbook/assets/Screenshot 2025-07-15 101654.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/Screenshot 2025-07-15 101342.png" alt="" width="375"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
