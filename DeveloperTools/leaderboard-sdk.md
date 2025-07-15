@@ -10,7 +10,8 @@ description: Track high scores and other ranked data with the VIVERSE Leaderboar
 
 ### Leaderboard Setup in VIVERSE Studio
 
-Before integrating the Leaderboard SDK, you must first configure the leaderboard metadata settings for your content&#x20;in VIVERSE Studio.
+Before integrating the Leaderboard SDK, you must first configure the leaderboard metadata settings for your content
+&#x20;in VIVERSE Studio.
 
 1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.\
 
@@ -20,7 +21,8 @@ Before integrating the Leaderboard SDK, you must first configure the leaderboard
 
 
     <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-3.  In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard    &#x20;system.\
+3.  In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard
+    &#x20;system.\
 
 
     <figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
@@ -37,7 +39,7 @@ const accessToken = await globalThis.viverseClient.getToken();
 globalThis.gameDashboardClient = new globalThis.viverse.gameDashboard({
     baseURL: 'https://www.viveport.com/',
     communityBaseURL: 'https://www.viverse.com/',
-    token: { accessToken }
+    token: accessToken
 });
 ```
 
@@ -95,3 +97,90 @@ The response will be formatted like so, which you can integrate into your game's
     total_count: number
 }
 </code></pre>
+
+## API Reference
+
+### `new viverse.gameDashboard(options)`
+
+Initializes a new Game Dashboard client instance.
+
+| Parameter | Type | Description | Required |
+| :--- | :--- | :--- | :--- |
+| `options` | `object` | An object containing configuration for the client. | Yes |
+| ↳ `baseURL` | `string` | The base URL for the Viveport API. Should be `https://www.viveport.com/`. | Yes |
+| ↳ `communityBaseURL` | `string` | The base URL for the VIVERSE community API. Should be `https://www.viverse.com/`. | Yes |
+| ↳ `token` | `string` | The access token obtained from the VIVERSE client. Required for user-specific data. | Yes |
+
+---
+
+### `uploadLeaderboardScore(appID, scores)`
+
+Uploads one or more scores to the leaderboard.
+
+| Parameter | Type | Description | Required |
+| :--- | :--- | :--- | :--- |
+| `appID` | `string` | Your application's unique ID from VIVERSE Studio. | Yes |
+| `scores` | `Array<Score>` | An array of `Score` objects to upload. | Yes |
+
+**Score Object**
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | The name of the leaderboard to upload the score to. This corresponds to the `meta_name` configured in VIVERSE Studio. |
+| `value`| `string` | The score value to upload. |
+
+---
+
+### `getLeaderboard(appID, config)`
+
+Retrieves leaderboard data based on the provided configuration.
+
+| Parameter | Type | Description | Required |
+| :--- | :--- | :--- | :--- |
+| `appID` | `string` | Your application's unique ID from VIVERSE Studio. | Yes |
+| `config` | `object` | A configuration object for the leaderboard query. | Yes |
+
+**Leaderboard Config Object**
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | The name of the leaderboard to retrieve. |
+| `range_start` | `number` | The starting rank for the query. |
+| `range_end` | `number` | The ending rank for the query. |
+| `region` | `string` | The region for the leaderboard. Can be `"global"` or `"local"`. |
+| `time_range` | `string` | The time range for the leaderboard. e.g., `"alltime"`. |
+| `around_user` | `boolean` | Whether to fetch ranks around the current user. |
+
+---
+
+### Leaderboard Response Object
+
+The `getLeaderboard` method returns a `Promise` that resolves to an object with the following structure.
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `ranking` | `Array<RankingEntry>` | An array of objects representing the leaderboard rankings. |
+| `meta` | `object` | Metadata about the leaderboard. |
+| `total_count` | `number` | The total number of entries in the leaderboard. |
+
+**RankingEntry Object**
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `uid` | `string` | The unique ID of the user. |
+| `name` | `string` | The display name of the user. |
+| `value` | `number` | The user's score. |
+| `rank` | `number` | The user's rank in the leaderboard. |
+
+**Meta Object**
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `app_id` | `string` | The application ID. |
+| `meta_name` | `string` | The internal name of the leaderboard. |
+| `display_name` | `Array<object>` | An array of display names for different languages. |
+| ↳ `lang` | `string` | The language code (e.g., `"en-US"`). |
+| ↳ `name` | `string` | The display name in the specified language. |
+| `sort_type` | `number` | The method used for sorting scores (e.g., ascending, descending). |
+| `update_type` | `number` | The rule for updating scores (e.g., keep highest, latest). |
+| `data_type` | `number` | The data type of the score value. |
