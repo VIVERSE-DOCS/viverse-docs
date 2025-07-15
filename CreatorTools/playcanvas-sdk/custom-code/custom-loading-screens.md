@@ -12,7 +12,7 @@ Because web games and assets take time to transfer over the internet and load on
 
 While creators should [optimize load time as much as possible](https://developer.playcanvas.com/user-manual/optimization/load-time/), it's also somewhat inevitable. As such, VIVERSE provides a default loading experience during the asset pre-load phase:
 
-<div align="center"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Custom Loading Screens
 
