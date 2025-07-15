@@ -67,7 +67,7 @@ Navigate to the "Content Versions" tab and select the file you would like to use
 After uploading, your content will be viewable in preview mode only. To submit your world for curation on our webpages, please select "Submit for Review" and select whether you would like iframe support for your experience.
 
 {% hint style="info" %}
-Since VIVERE content is iframed by default, several web features require requesting permissions, such as `xr-spatial-tracking`, `camera`, or `allow-pointer-lock`. These can be applied to preview links in the "iframe Support for Preview" menu, and must be set when you "Submit for Review," as well.
+Since VIVERSE content is iframed by default on our landing pages, several web features require requesting permissions, such as `xr-spatial-tracking`, `camera`, or `allow-pointer-lock`. These can be applied to preview links in the "iframe Support for Preview" menu, and must be set when you "Submit for Review," as well.
 {% endhint %}
 
 <div><figure><img src=".gitbook/assets/Screenshot 2025-07-15 101654.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/Screenshot 2025-07-15 101342.png" alt="" width="375"><figcaption></figcaption></figure></div>
