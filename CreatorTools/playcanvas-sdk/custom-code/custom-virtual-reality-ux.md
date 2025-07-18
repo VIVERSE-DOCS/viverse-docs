@@ -31,7 +31,7 @@ export class ViverseXrManager extends Script {
 
 > **NOTE:** _this script asset must be placed in `/scripts` or another subfolder, since it assumes the VIVERSE SDK is one level up, located at: `"../@viverse/create-sdk.mjs"` - or you can alter this import path as needed. For more information on how .mjs scripts and imports work, see_ [_Introduction to MJS_](introduction-to-mjs.md)_._
 
-When switching to Smooth Locomotion, this also enables flight in VR. "Click" the Smooth Locomotion joystick to enter flight mode. Once flying, pressing forward on the joystick will fly forward along the VR camera's forward axis (i.e. wherever you're looking), and vice versa backwards.
+When switching to Smooth Locomotion, this also enables flight in VR in any World where flight is enabled in World Settings. Just "click" the Smooth Locomotion joystick to enter flight mode. Once flying, pressing forward on the joystick will fly forward along the VR camera's forward axis (i.e. wherever you're looking), and vice versa backwards.
 
 ### Custom Controller Models
 
