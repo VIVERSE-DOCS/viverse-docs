@@ -74,6 +74,14 @@ Since VIVERSE content is iframed by default on our landing pages, several web fe
 {% endstep %}
 
 {% step %}
+### (Optional) Iterate on your build
+
+After uploading the first build and adding iframe settings, you can continue uploading iterative builds by clicking the "Upload" section in the sidebar, then "Manage Content" next to the world in question. This will bring up the same upload and permissions screen shown in Step 3.
+
+<figure><img src=".gitbook/assets/image (745).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
 ### (Optional) Add an SDK \[Beta]
 
 Navigate to the "SDK Settings" tab and use the interface to configure any new SDKs for your world.
