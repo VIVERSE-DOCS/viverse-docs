@@ -5,4 +5,5 @@
 * [Avatar SDK](avatar-sdk.md)
 * [Leaderboard SDK](leaderboard-sdk.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
+* [Storage SDK](storage-sdk.md)
 * [Change Log](CHANGELOG.md)
