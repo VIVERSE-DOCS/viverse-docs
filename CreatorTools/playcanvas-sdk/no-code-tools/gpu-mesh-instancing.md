@@ -2,6 +2,7 @@
 description: >-
   The document provides a guide for setting up a 3D model for GPU Mesh
   Instancing.
+hidden: true
 ---
 
 # GPU Mesh Instancing
