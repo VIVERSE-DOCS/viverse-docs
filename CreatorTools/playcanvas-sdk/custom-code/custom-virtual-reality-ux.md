@@ -14,15 +14,15 @@ Import the [`XrService`](https://viveportsoftware.github.io/pc-lib/classes/XrSer
 
 ```javascript
 import { Script, Asset } from "playcanvas";
-import { XrService } from "../@viverse/create-sdk.mjs";
+import { XrService, XrTypes } from "../@viverse/create-sdk.mjs";
 
 export class ViverseXrManager extends Script {
   static scriptName = "viverseXrManager";
   
   initialize() {
     this.xrService = new XrService();
-    this.xrService.controllers.right.locomotionType = 1;  // Teleport
-    this.xrService.controllers.left.locomotionType = 2;  // Smooth
+    this.xrService.controllers.right.locomotionType = XrTypes.LocomotionTypes.Teleport;
+    this.xrService.controllers.left.locomotionType = XrTypes.LocomotionTypes.Smooth;  // Smooth
     // See enum definitions here:
     // https://viveportsoftware.github.io/pc-lib/enums/XrTypes.LocomotionTypes.html
   }
