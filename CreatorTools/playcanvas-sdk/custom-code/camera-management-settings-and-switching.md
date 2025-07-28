@@ -16,16 +16,15 @@ The [`CameraService`](https://viveportsoftware.github.io/pc-lib/classes/CameraSe
 
 ```javascript
 import { Script } from "playcanvas";
-import { CameraService } from "../@viverse/create-sdk.mjs";
+import { CameraService, CameraTypes } from "../@viverse/create-sdk.mjs";
 
 export class CameraManager extends Script {
   initialize() {
     this.cameraService = new CameraService();
 
-    // Switch to first person view
-    // First person is index 0
-    // Third person is index 1
-    this.cameraService.switchPov(0);
+    // Switch to first person view to first person 
+    this.cameraService.switchPov(CameraTypes.PovTypes.FirstPerson);
+    // At any time, you can switch back to CameraTypes.PovTypes.ThirdPerson
 
     // Prevent users from switching POV, which is usually done in user settings or with the keyboard shortcut "V"
     this.cameraService.canSwitchPov = false;
