@@ -121,10 +121,10 @@ Uploads one or more scores to the leaderboard.
 
 **Score Object**
 
-| Property | Type     | Description                                                                                                           |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `name`   | `string` | The name of the leaderboard to upload the score to. This corresponds to the `meta_name` configured in VIVERSE Studio. |
-| `value`  | `string` | The score value to upload.                                                                                            |
+| Property | Type     | Description                                                                                                    |
+| -------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `name`   | `string` | The name of the leaderboard to upload the score to. This corresponds to the name configured in VIVERSE Studio. |
+| `value`  | `string` | The score value to upload.                                                                                     |
 
 ***
 
