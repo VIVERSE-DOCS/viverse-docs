@@ -18,9 +18,9 @@ Before integrating the Leaderboard SDK, you must first configure the leaderboard
 2.  Click "Upload Content" for the world you want to edit, then navigate to the SDK Settings tab.\\
 
     <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-3.  In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard system.\\
-
-    <figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+3. In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard system.\
+   \
+   ![](<.gitbook/assets/image (5).png>)
 
 ### Game Dashboard Client Setup
 
@@ -43,8 +43,8 @@ Then call `uploadLeaderboardScore()` to change leaderboard data:
 ```
 // Can upload multiple leaderboard scores at once
 const scores = [
-    { name: "high_scores", value: "100.0" },
-    { name: "number_of_times_played", value: "60.0" }
+    { name: "highScores", value: "100.0" },
+    { name: "numberOfTimesPlayed", value: "60.0" }
 ];
 
 const uploadLeaderboard = await globalThis.gameDashboardClient.uploadLeaderboardScore(appID, scores)
