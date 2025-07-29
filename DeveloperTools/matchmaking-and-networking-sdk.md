@@ -35,7 +35,8 @@ globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debu
 
 Set the player’s session ID, name, and custom properties in the current room.
 
-This API should be called before creating or joining a room. The SDK will store the actor information and automatically attach it to&#x20;the player upon entering the room.
+This API should be called before creating or joining a room. The SDK will store the actor information and automatically attach it to
+&#x20;the player upon entering the room.
 
 ```
 matchmakingClient.setActor({
@@ -365,7 +366,7 @@ const info = await multiplayerClient.init();
 `MultiplayerClient` is a global class under `play` namespace and is not created via `playClient`. However, Play SDK must still be initialized first.
 {% endhint %}
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.56.25 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/play-client-multiplayer-1.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Connection Control
 
@@ -375,13 +376,40 @@ Handles the multiplayer client's connection lifecycle. Use these APIs to detect 
 
 Triggered when the multiplayer client establishes a connection. Use this to perform setup logic after the session is ready.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.57.47 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+```js
+multiplayerClient.onConnected(() => {
+  console.log("Multiplayer client connected.");
+});
+```
 
 #### Disconnect
 
 Manually disconnects the multiplayer client instance. Useful for cleanup or leaving the session before navigating away.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.59.17 PM.png" alt="" width="338"><figcaption></figcaption></figure>
+```js
+multiplayerClient.disconnect();
+```
+
+#### Client Connect Event
+
+Invoked when a new client connects, allowing you to track who is currently online.
+
+```js
+multiplayerClient.onClientConnected(data => 
+   appendLog(`onClientConnected: ${data.user_id}`)
+);
+```
+ 
+
+#### Client Disconnect Event
+
+Invoked when a client disconnects, allowing you to track who goes offline.
+
+```js
+multiplayerClient.onClientDisconnected(data => 
+   appendLog(`onClientDisconnected: ${data.user_id}`)
+);
+```
 
 ### General
 
