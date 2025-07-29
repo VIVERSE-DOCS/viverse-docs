@@ -56,7 +56,7 @@ Or call `getLeaderboard()` to check scores:
 
 <pre><code>// A valid leaderboardConfig example:
 const leaderboardConfig = {
-    name: "high_scores",  // string
+    name: "highScores",  // string
     range_start: 0,  // number, show number of users beyond user's rank
     range_end: 100,  // number, show number of users below user's rank
     region: "global",  // string, get by local/global
