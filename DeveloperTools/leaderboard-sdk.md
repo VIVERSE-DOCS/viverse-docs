@@ -171,13 +171,13 @@ The `getLeaderboard` method returns a `Promise` that resolves to an object with 
 
 **Meta Object**
 
-| Property       | Type            | Description                                                       |
-| -------------- | --------------- | ----------------------------------------------------------------- |
-| `app_id`       | `string`        | The application ID.                                               |
-| `meta_name`    | `string`        | The internal name of the leaderboard.                             |
-| `display_name` | `Array<object>` | An array of display names for different languages.                |
-| ↳ `lang`       | `string`        | The language code (e.g., `"en-US"`).                              |
-| ↳ `name`       | `string`        | The display name in the specified language.                       |
-| `sort_type`    | `number`        | The method used for sorting scores (e.g., ascending, descending). |
-| `update_type`  | `number`        | The rule for updating scores (e.g., keep highest, latest).        |
-| `data_type`    | `number`        | The data type of the score value.                                 |
+| Property       | Type            | Description                                                                                                                |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `app_id`       | `string`        | The application ID.                                                                                                        |
+| `meta_name`    | `string`        | The internal name of the leaderboard.                                                                                      |
+| `display_name` | `Array<object>` | An array of display names for different languages.                                                                         |
+| ↳ `lang`       | `string`        | The language code (e.g., `"en-US"`).                                                                                       |
+| ↳ `name`       | `string`        | The display name in the specified language.                                                                                |
+| `sort_type`    | `number`        | The method used for sorting scores (e.g., ascending, descending).                                                          |
+| `update_type`  | `number`        | The rule for updating scores (e.g., append to add all submitted scores, or update to only store the user's highest score). |
+| `data_type`    | `number`        | The data type of the score value.                                                                                          |
