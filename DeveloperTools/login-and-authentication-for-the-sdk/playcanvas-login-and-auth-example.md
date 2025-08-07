@@ -85,7 +85,7 @@ async loadViverse() {
 }
 ```
 
-### Step 3: Add Attribute Reference and UI Elements
+### Step 3: Add attribute reference and UI elements
 
 Now that we're checking auth status, let's add some Element UI components to our demo scene to display logged-in users' names, and a button to prompt the login process if they are logged out.
 
@@ -127,7 +127,7 @@ Once the script is saved and parsed, add these UI elements in the scene in the P
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-### Step 5: Hook Code into UI
+### Step 5: Hook SDK code into UI
 
 With attribute references set, we can now act on these buttons and text elements. We've already set up the button's click callback to run the SSO login redirect if necessary. Let's also change the status message to encourage the user to login in that case.
 
