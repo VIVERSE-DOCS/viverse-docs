@@ -9,7 +9,7 @@ description: >-
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk.md), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`playClient\` instance
 
@@ -35,8 +35,7 @@ globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debu
 
 Set the player’s session ID, name, and custom properties in the current room.
 
-This API should be called before creating or joining a room. The SDK will store the actor information and automatically attach it to
-&#x20;the player upon entering the room.
+This API should be called before creating or joining a room. The SDK will store the actor information and automatically attach it to the player upon entering the room.
 
 ```
 matchmakingClient.setActor({
@@ -399,7 +398,6 @@ multiplayerClient.onClientConnected(data =>
    appendLog(`onClientConnected: ${data.user_id}`)
 );
 ```
- 
 
 #### Client Disconnect Event
 

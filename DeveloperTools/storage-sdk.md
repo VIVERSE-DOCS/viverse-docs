@@ -1,15 +1,15 @@
 ---
 description: >-
-  This guide introduces the Storage SDK and explains how to integrate 
-  cloudSave features into VIVERSE Studio content. It covers setup and usage
-  for features such as player data saving,
+  This guide introduces the Storage SDK and explains how to integrate  cloudSave
+  features into VIVERSE Studio content. It covers setup and usage for features
+  such as player data saving,
 ---
 
 # Storage SDK
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk.md), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`storageClient\` instance
 
@@ -36,6 +36,7 @@ Call setPlayerData() with a specific key-value pair within the player's data.
 <figure><img src=".gitbook/assets/storage-client-cloudsave-2.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
+
 ```
 const keyA = 'coins';
 const dataA = 100;
@@ -59,22 +60,24 @@ cloudSaveClient.setPlayerData(keyB, dataB, access_token);
 ### Get Player Data
 
 Retrieves the value of a specific key from the player's data.
- 
+
 <figure><img src=".gitbook/assets/storage-client-cloudsave-3.png" alt=""><figcaption></figcaption></figure>
- 
+
 Example code:
+
 ```
 const key = 'coins';
-cloudSaveClient.getPlayerData(key, access_token).then((res: any) => {
+cloudSaveClient.getPlayerData(key, access_token).then((res) => {
   console.log(res)
 })
 
 // Possible return values:
 // 100
 ```
+
 ```
 const key = 'data';
-cloudSaveClient.getPlayerData(key, access_token).then((res: any) => {
+cloudSaveClient.getPlayerData(key, access_token).then((res) => {
   console.log(${JSON.stringify(res)})
 })
 
@@ -88,9 +91,10 @@ cloudSaveClient.getPlayerData(key, access_token).then((res: any) => {
 //     }
 // }
 ```
+
 ```
 const key = 'new';
-cloudSaveClient.getPlayerData(key, access_token).then((res: any) => {
+cloudSaveClient.getPlayerData(key, access_token).then((res) => {
   console.log(res)
 })
 
@@ -102,9 +106,10 @@ cloudSaveClient.getPlayerData(key, access_token).then((res: any) => {
 
 Saves the provided data as a new version.
 
-<figure><img src=".gitbook/assets/storage-client-cloudsave-4.png" alt=""><figcaption></figcaption></figure> 
+<figure><img src=".gitbook/assets/storage-client-cloudsave-4.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
+
 ```
 const dataB = { "level": 10, "stages": { "1": { "score": 20 } } };
 cloudSaveClient.save(data, access_token);
@@ -118,14 +123,15 @@ cloudSaveClient.save(data, access_token);
 //     "error": "error message"
 // }
 ```
- 
 
 ### Get All
+
 Retrieves all saved versions of saved data.
 
 <figure><img src=".gitbook/assets/storage-client-cloudsave-5.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
+
 ```
 cloudSaveClient.getAll(access_token);
 
@@ -152,9 +158,10 @@ cloudSaveClient.getAll(access_token);
 
 Retrieves the most recent version of saved data.
 
-<figure><img src=".gitbook/assets/storage-client-cloudsave-6.png" alt=""><figcaption></figcaption></figure> 
+<figure><img src=".gitbook/assets/storage-client-cloudsave-6.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
+
 ```
 cloudSaveClient.getLatest(access_token);
 
@@ -179,10 +186,10 @@ cloudSaveClient.getLatest(access_token);
 
 Deletes a specific version of the saved data.
 
-<figure><img src=".gitbook/assets/storage-client-cloudsave-7.png" alt=""><figcaption></figcaption></figure> 
-
+<figure><img src=".gitbook/assets/storage-client-cloudsave-7.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
+
 ```
 const version = 1752564108;
 cloudSaveClient.delete(version, access_token);

@@ -6,7 +6,7 @@ description: Track high scores and other ranked data with the VIVERSE Leaderboar
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk.md) before requesting leaderboard services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](../login-and-authentication-for-the-sdk/) before requesting leaderboard services.
 
 ### Leaderboard Setup in VIVERSE Studio
 
@@ -15,18 +15,18 @@ Before integrating the Leaderboard SDK, you must first configure the leaderboard
 1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.\
 
 
-    <figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 2. Click "Upload Content" for the world you want to edit, then navigate to the SDK Settings tab, and click Add New Leaderboard.\
    \
-   ![](<.gitbook/assets/image (1).png>)\
+   ![](<../.gitbook/assets/image (1).png>)\
 
 3. In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard system.\
    \
-   ![](<.gitbook/assets/image (5).png>)
+   ![](<../.gitbook/assets/image (5).png>)
 
 ### Game Dashboard Client Setup
 
-To then make use of your VIVERSE Leaderboard, you must instantiate the `gameDashboardClient` [after authentication](broken-reference/).
+To then make use of your VIVERSE Leaderboard, you must instantiate the `gameDashboardClient` [after authentication](../broken-reference/).
 
 ```
 // If the user is logged in, get the token; if not, return `undefined`

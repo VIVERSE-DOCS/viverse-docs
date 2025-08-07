@@ -8,16 +8,14 @@ description: >-
 
 ***
 
-This guide is designed to help creators integrate VIVERSE SDKs when uploading WebGL content from engines like Unity, three.js or Wonderland Engine to
-&#x20;VIVERSE Studio.
+This guide is designed to help creators integrate VIVERSE SDKs when uploading WebGL content from engines like Unity, three.js or Wonderland Engine to VIVERSE Studio.
 
 > BEFORE GETTING STARTED:
 >
 > 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/publishing-with-your-viverse-account#the-viverse-studio-interface) for this information.
 > 2.  The VIVERSE SDK is hosted at this URL and must be integrated into your JavaScript/WebGL project and target engine:
 >
->     [`https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js`
->     ](https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js)
+>     [`https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js`](https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js)
 
 ## Authentication & Authorization
 
@@ -90,7 +88,7 @@ window.addEventListener('load', async () => {
 });
 ```
 
-If `result` has valid authorization credentials, you can then utilize features like the [Avatar SDK](avatar-sdk.md), Leaderboard SDK and Matchmaking SDK.
+If `result` has valid authorization credentials, you can then utilize features like the [Avatar SDK](../avatar-sdk.md), Leaderboard SDK and Matchmaking SDK.
 
 ## API Reference
 
@@ -98,12 +96,12 @@ If `result` has valid authorization credentials, you can then utilize features l
 
 Initializes a new VIVERSE client instance.
 
-| Parameter | Type | Description | Required |
-| :--- | :--- | :--- | :--- |
-| `options` | `object` | An object containing configuration for the client. | Yes |
-| ↳ `clientId` | `string` | Your App ID obtained from VIVERSE Studio. | Yes |
-| ↳ `domain` | `string` | The authentication domain. This should be `account.htcvive.com`. | Yes |
-| ↳ `cookieDomain` | `string` | The domain on which the cookie will be set for authentication. | No |
+| Parameter        | Type     | Description                                                      | Required |
+| ---------------- | -------- | ---------------------------------------------------------------- | -------- |
+| `options`        | `object` | An object containing configuration for the client.               | Yes      |
+| ↳ `clientId`     | `string` | Your App ID obtained from VIVERSE Studio.                        | Yes      |
+| ↳ `domain`       | `string` | The authentication domain. This should be `account.htcvive.com`. | Yes      |
+| ↳ `cookieDomain` | `string` | The domain on which the cookie will be set for authentication.   | No       |
 
 ### `checkAuth()`
 
@@ -113,18 +111,18 @@ Checks if the user is currently authenticated. Returns a `Promise` that resolves
 
 The resolved object will have the following properties:
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| `access_token` | `string` | The access token to be used in API requests. |
-| `account_id` | `string` | The unique user account ID. |
-| `expires_in` | `number` | Remaining token lifetime in seconds. |
-| `state` | `string` | Optional custom state value from the original login. |
+| Property       | Type     | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `access_token` | `string` | The access token to be used in API requests.         |
+| `account_id`   | `string` | The unique user account ID.                          |
+| `expires_in`   | `number` | Remaining token lifetime in seconds.                 |
+| `state`        | `string` | Optional custom state value from the original login. |
 
 ### `loginWithWorlds(options)`
 
 Redirects the user to the VIVERSE Worlds login page to authenticate. This is used for Single Sign-On (SSO). After login, the page will be refreshed.
 
-| Parameter | Type | Description | Required |
-| :--- | :--- | :--- | :--- |
-| `options` | `object` | An object containing configuration for the client. | No |
-| ↳ `state` | `string` | A customize value. If this parameter is set in the request, then it is returned to the application as part of the redirection_url. | No |
+| Parameter | Type     | Description                                                                                                                         | Required |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `options` | `object` | An object containing configuration for the client.                                                                                  | No       |
+| ↳ `state` | `string` | A customize value. If this parameter is set in the request, then it is returned to the application as part of the redirection\_url. | No       |
