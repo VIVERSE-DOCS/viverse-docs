@@ -27,7 +27,7 @@ The matchmaking and networking APIs must then be initialized individually.
 globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debug);
 ```
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **NOTE:** Support for random and ticket-based matchmaking is under development.
 
@@ -62,7 +62,7 @@ matchmakingClient.setActor({
 
 Call `createRoom()` with a configuration object like so:
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 

@@ -2,10 +2,10 @@
 
 * [Introduction to Developer Tools](README.md)
 * [Login & Authentication for the SDK](login-and-authentication-for-the-sdk/README.md)
-  * [PlayCanvas Login & Auth example](login-and-authentication-for-the-sdk/playcanvas-login-and-auth-example.md)
+  * [PlayCanvas Login & Auth minimal example](login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md)
 * [Avatar SDK](avatar-sdk.md)
 * [Leaderboard SDK](leaderboard-sdk/README.md)
-  * [PlayCanvas Leaderboard example](leaderboard-sdk/playcanvas-leaderboard-example.md)
+  * [PlayCanvas Leaderboard minimal example](leaderboard-sdk/playcanvas-leaderboard-minimal-example.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
 * [Storage SDK](storage-sdk.md)
 * [Change Log](CHANGELOG.md)
