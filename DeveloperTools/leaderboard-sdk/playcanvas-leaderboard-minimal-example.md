@@ -193,12 +193,10 @@ That should function well, but until we submit some high scores, the list will r
 
 ```javascript
   update(dt) {
-    if (this.hasLoadedScore) {
       this.score++;  // Score goes up 1 every tick
       
       // Set the PlayCanvas UI element text to the current score
       this.scoreText.element.text = this.score.toString();
-    }
   }
   
   async handleSubmit() {
@@ -234,7 +232,7 @@ This requires adding two more attribute references and setting them in the edito
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-Then add another click callback in the editor — and again, it can be anywhere within the `initialize()` lifecycle hook.
+Then add another click callback in `leaderboard.mjs` — and again, it can be anywhere within the `initialize()` lifecycle hook.
 
 ```
 this.submitButton.button.on("click", () => {
