@@ -9,7 +9,7 @@ VIVERSE experiences run in web browsers. This allows 3D experiences to securely 
 
 ## The Challenges of Optimizing for WebXR
 
-WebXR is an API that provides the necessary functionality for rendering VR and AR (collectively referred to as XR) content to an XR headset and sensing real-world updates to the headset and other inputs (controllers, hands). This abstracts away complexities like pose estimation and scene understanding. Major 3D rendering engines like Unity, Three.js, PlayCanvas, and Babylon.js have further wrappers around WebXR that make it very easy to convert a traditional 3D experience into an immersive 3D experience. However, while it is easy to make a functional experience  in XR, it is challenging to make an experience that performs well on an XR device. We will investigate these unique challenges in the following section.
+WebXR is an API that provides the necessary functionality for rendering VR and AR (collectively referred to as XR) content to an XR headset and sensing real-world updates to the headset and other inputs (controllers, hands). This abstracts away complexities like pose estimation and scene understanding. Major 3D rendering engines like Unity, Three.js, PlayCanvas, and Babylon.js have further wrappers around WebXR that make it very easy to convert a traditional 3D experience into an immersive 3D experience. However, while it is easy to make a functional experience in XR, it is challenging to make an experience that performs well on an XR device. We will investigate these unique challenges in the following section.
 
 ### XR Performance Constraints
 
@@ -37,6 +37,26 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 
 **Network Bandwidth**: Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../../CreatorTools/optimization.md) for more details on optimizing assets for the web.
 
+**Browser Compatibility**:
+- WebGL2 vs. WebGL
+- Multiview support
+
+## Optimizing for WebXR vs. Traditional Game Dev Optimization
+
+Given these constraints, how should a developer approach optimizing for WebXR in comparison to optimizing for a native context?
+
+1. Many optimization techniques from traditional game development still apply; for instance, object pooling [11], shader optimization [12], and multithreading are still valid techniques. However, WebXR applications require even more optimization because of the higher minimum framerates and lower available compute time. Refer to subsequent pages for resources around optimizing and profiling WebXR-enabled engines.
+2. WebXR development optimization requires the use of unique browser APIs, such as WebGL, WebWorkers, and WebAssembly. See the section below for leveraging browser APIs in 3D experiences.
+3. A developer may need to tailor their experience specifically for mobile chipsets, using lower polygon counts, enabling GPU instancing, and reducing dynamic lighting. See the section below for optimizing mobile chipsets.
+4. Assets need to be heavily optimized, as they need to be downloaded over the network on application start.
+5. Developers needs to reuse JavaScript objects and leverage typed arrays to improve JavaScript garbage collection performance. Refer to the section on Optimizing JavaScript Garbage Collection for more details.
+
+### Leveraging Browser APIs in WebXR Experiences
+
+### Optimizing For Mobile Chipsets
+
+### Optimizing JavaScript Garbage Collection
+
 ## Why Build for the Web?
 
 ### Portability
@@ -57,3 +77,5 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 [8] https://doc.babylonjs.com/setup/support/webGPU/webGPUStatus/#features-not-working-because-not-implemented-yet
 [9] https://docs.unity3d.com/Manual/WebGPU.html
 [10] https://docs.unity3d.com/6000.1/Documentation/Manual/performance-garbage-collector.html
+[11] https://en.wikipedia.org/wiki/Object_pool_pattern
+[12] https://docs.unity3d.com/6000.1/Documentation/Manual/SL-ShaderPerformance.html
