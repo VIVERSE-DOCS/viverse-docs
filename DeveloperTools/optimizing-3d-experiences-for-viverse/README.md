@@ -53,6 +53,32 @@ Given these constraints, how should a developer approach optimizing for WebXR in
 
 ### Leveraging Browser APIs in WebXR Experiences
 
+**Multi-threading**: The [Web Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) allows for complex, non-rendering work to be run on a background thread, enabling basic multi-threading. This is particularly useful for computationally expensive tasks like AI pathfinding.
+
+WebGL Rendering can also be performed in a worker thread using the [OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas) API. This is particularly useful if the main thread is very busy with user interactions and/or animations.
+
+**Caching Assets**: The browser exposes two key APIs for caching source code and assets:
+
+- The [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) API is useful for caching game assets. It acts as a local proxy server between the application and asset CDN, intercepting potentially expensive asset download requests and returning a cached response. This can enable near-native loading performance and can reduce network bandwidth usage for users that may have service-provider imposed data caps.
+- [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) is useful for storing large amounts of serializable text data across sessions. This can be used to store game save files and configuration files locally, rather than replicating them to a server: Rendering engines like Babylon [13] and Unity [14] also allow caching assets in IndexedDB for faster loading times.
+
+**WebAssembly**:
+
+Native engines like Unity compile most of the engine code to Wasm, exposing a thin interoperability layer to JavaScript to interact with user inputs and the WebXR API. In Unity, developers may need to opt into particular Wasm configurations to ensure the best performance:
+
+- [Enabling WebAssembly 2023](https://docs.unity3d.com/6000.1/Documentation/Manual/webassembly-2023.html)
+- [Compiling native plug-ins to Wasm](https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-native-plugins-with-emscripten.html)
+
+JavaScript-based engines like Three.js, Babylon.js, and PlayCanvas can leverage Wasm for computationally expensive features like physics simulation, texture decompression, and mesh optimization:
+
+- [MeshOptimizer](https://www.npmjs.com/package/meshoptimizer)
+- [Basis Universal](https://github.com/BinomialLLC/basis_universal/blob/master/webgl/encoder/README.md) texture compression
+- [Rapier](https://rapier.rs/docs/user_guides/javascript/getting_started_js) physics engine
+
+Code that is not well-suited to JavaScript can also be re-written in a language like C, C++, or Rust and compiled to Wasm using tools like [Emscripten](https://emscripten.org/).
+
+**WebGPU**: Though not all engines fully support WebGPU for all rendering tasks, WebGPU can still be leveraged for general purpose GPU computations, allowing non-rendering work to be done on the GPU. This enables highly parallelizable computations like AI pathfinding and animations to be performed asynchronously on the GPU [15] [16].
+
 ### Optimizing For Mobile Chipsets
 
 ### Optimizing JavaScript Garbage Collection
@@ -79,3 +105,7 @@ Given these constraints, how should a developer approach optimizing for WebXR in
 [10] https://docs.unity3d.com/6000.1/Documentation/Manual/performance-garbage-collector.html
 [11] https://en.wikipedia.org/wiki/Object_pool_pattern
 [12] https://docs.unity3d.com/6000.1/Documentation/Manual/SL-ShaderPerformance.html
+[13] https://doc.babylonjs.com/features/featuresDeepDive/scene/optimizeCached
+[14] https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-caching.html
+[15] https://surma.dev/things/webgpu/
+[16] https://webgpufundamentals.org/webgpu/lessons/webgpu-compute-shaders.html
