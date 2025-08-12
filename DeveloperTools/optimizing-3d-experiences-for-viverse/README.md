@@ -33,7 +33,7 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 - Dispatching Overhead: There is overhead when dispatching WebGL calls on the CPU, as the WebGL API call must be translated into the correct native graphics API call [3]. Further, the browser implements more security checks than native code to prevent things like Out of Range Memory Accesses [4]. This slower dispatching limits the number of draw calls that can be performed in the browser.
 - Because WebGL is based on OpenGL ES 2.0, it lacks many features that modern graphics APIs like DirectX 12, Vulkan, and Metal can provide [5], limiting the theoretical performance of an experience. The WebGPU browser API does support many of these features, but WebXR support is still being specified [6], and WebGPU support is experimental in most major engines [7], [8], [9].
 
-**JavaScript Garbage Collection**
+**JavaScript Garbage Collection**: 3D applications running in the browser can be very sensitive to JavaScript Garbage Collection (GC) pauses. [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) is an automatic memory management technique used in many programming languages, including JavaScript. This technique helps avoid issues like memory leaks and dangling pointers, but has some performance overhead. When memory usage is high in a particular frame, the resulting garbage collection step will freeze the main frame until it completes. In WebXR, this freeze can result in dropped frames, affecting user experience. Although engines like Unity use garbage collection in C# scripting contexts [10], the underlying engine is written in C++, which can take advantage of manual memory management in native contexts. Engines written in JavaScript, like Three.js, do not have this advantage, and developers must be very careful about allocating memory and reusing resources like Vectors and Arrays.
 
 **Network Bandwidth**: Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../../CreatorTools/optimization.md) for more details on optimizing assets for the web.
 
@@ -56,3 +56,4 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 [7] https://github.com/mrdoob/three.js/issues/28968
 [8] https://doc.babylonjs.com/setup/support/webGPU/webGPUStatus/#features-not-working-because-not-implemented-yet
 [9] https://docs.unity3d.com/Manual/WebGPU.html
+[10] https://docs.unity3d.com/6000.1/Documentation/Manual/performance-garbage-collector.html
