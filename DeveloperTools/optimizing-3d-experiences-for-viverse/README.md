@@ -20,6 +20,20 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 5. **Scene Understanding**: Some WebXR experiences allow interactions between objects in the simulated world and objects in the real world. For example, a virtual tennis ball could bounce off your actual floor. Performing this simulation is expensive, as the device must estimate a 3D collision geometry for the floor, again processing large amounts of sensor data in real time.
 6. **Device Constraints**: Most XR headsets run on mobile chipsets like the Qualcomm Snapdragon XR2, which are typically less powerful than those found in desktops, consoles, and laptops (though there is a wide variance in all of these devices). This means that an experience that runs at a stable 60 fps on a mid-range laptop may run at a much lower framerate on an XR headset. It is recommended to [throttle your CPU](https://developer.chrome.com/docs/devtools/settings/throttling/) in your web browser while profiling performance.
 
+### Web Browser Performance Constraints
+
+**WebAssembly Limitations**: [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (or Wasm) is a special binary instruction set that can be executed in all major browsers. Non-browser compatible languages like C++, Rust, and C# can be compiled to this binary format and then run in the browser, often leading to dramatic performance improvements when compared to JavaScript. Real-time 3D engines written in C++ or Rust like Unity and Bevy make use of Wasm to run games in the browser at "near-native speed" [0] . However, there are some limitations compared to native code:
+
+- Startup Time: Like all web app source code, Wasm bytecode must be downloaded by the browser before it can begin running. This can result in worse startup time in comparison to native apps, where source is downloaded ahead of time.
+- Garbage Collection: In Unity WebGL, garbage collection only runs at the end of each frame. This means that allocating many temporary values in a single frame can lead to "temporary quadratic memory growth pressure for the garbage collector" [1].
+- Multi-threading: Threading support in Wasm is constantly evolving. Although the Wasm supports multi-threading and SIMD instructions, not all engines fully implement Wasm multi-threading. For instance, Unity does not support C# multithreading [2].
+
+**WebGL2 Limitations**
+
+**JavaScript Garbage Collection**
+
+**Network Bandwidth**
+
 ## Why Build for the Web?
 
 ### Portability
@@ -28,3 +42,7 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 
 ### Adoption
 
+## Sources
+[0] https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts#what_is_webassembly
+[1] https://docs.unity3d.com/2022.3/Documentation/Manual/webgl-memory.html
+[2] https://docs.unity3d.com/Manual/webgl-technical-overview.html
