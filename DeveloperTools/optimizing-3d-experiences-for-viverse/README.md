@@ -37,19 +37,15 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 
 **Network Bandwidth**: Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../../CreatorTools/optimization.md) for more details on optimizing assets for the web.
 
-**Browser Compatibility**:
-- WebGL2 vs. WebGL
-- Multiview support
-
 ## Optimizing for WebXR vs. Traditional Game Dev Optimization
 
 Given these constraints, how should a developer approach optimizing for WebXR in comparison to optimizing for a native context?
 
-1. Many optimization techniques from traditional game development still apply; for instance, object pooling [11], shader optimization [12], and multithreading are still valid techniques. However, WebXR applications require even more optimization because of the higher minimum framerates and lower available compute time. Refer to subsequent pages for resources around optimizing and profiling WebXR-enabled engines.
-2. WebXR development optimization requires the use of unique browser APIs, such as WebGL, WebWorkers, and WebAssembly. See the section below for leveraging browser APIs in 3D experiences.
-3. A developer may need to tailor their experience specifically for mobile chipsets, using lower polygon counts, enabling GPU instancing, and reducing dynamic lighting. See the section below for optimizing mobile chipsets.
-4. Assets need to be heavily optimized, as they need to be downloaded over the network on application start.
-5. Developers needs to reuse JavaScript objects and leverage typed arrays to improve JavaScript garbage collection performance. Refer to the section on Optimizing JavaScript Garbage Collection for more details.
+Optimization techniques for WebXR experiences typically fall into 3 buckets:
+
+1. **Engine-specific Optimization**: Many optimization techniques from traditional game development still apply to WebXR engines; for instance, object pooling [11], shader optimization [12], and instancing are still valid techniques. However, WebXR applications require even more optimization because of the higher minimum framerates and lower available compute time. Explicit techniques typically vary for each game engine; for example, object pooling may be more effective in some engines than others. Refer to subsequent pages for specific optimization techniques for major WebXR engines.
+2. **Leveraging Browser APIs**: WebXR development optimization requires the use of unique browser APIs, such as WebGL, WebWorkers, and WebAssembly. See the section below for leveraging browser APIs in 3D experiences.
+3. **Optimizing the Scene for the Browser**: A developer may need to tailor their experience specifically for mobile chipsets, using lower polygon counts, reducing draw calls, enabling GPU instancing, and reducing the number of dynamic lights in a scene. Assets should be optimized, as they need to be downloaded over the network on application start.
 
 ### Leveraging Browser APIs in WebXR Experiences
 
@@ -79,9 +75,32 @@ Code that is not well-suited to JavaScript can also be re-written in a language 
 
 **WebGPU**: Though not all engines fully support WebGPU for all rendering tasks, WebGPU can still be leveraged for general purpose GPU computations, allowing non-rendering work to be done on the GPU. This enables highly parallelizable computations like AI pathfinding and animations to be performed asynchronously on the GPU [15] [16].
 
-### Optimizing For Mobile Chipsets
+### Optimizing Scenes for Browsers
 
-### Optimizing JavaScript Garbage Collection
+In addition to leveraging browser APIs to improve performance, developers must also tailor their experiences towards the browser and the devices that WebXR applications typically run on. In the next pages we will cover engine-specific techniques for implementing these optimizations.
+
+**Reducing and Batching Draw Calls**: The first technique to try before lowering the quality of a scene is reducing the number of draw calls per frame. In graphics programming, a draw call is a command sent to the GPU telling it to render a set of triangles. Because GPUs excel at rendering large batches of triangles, it is generally more expensive to generate and submit a draw call on the CPU than it is to execute it on the GPU. As a result, it is advantageous to perform few draw calls with more triangles per draw call than to submit many draw calls with few triangles. In general, draw calls can be reduced by:
+
+- Reusing a single material across different meshes by using atlas textures and texture arrays
+- Merging static meshes that use the same material
+- Using hardware instancing to draw meshes with the same geometry in a single draw call
+- Leveraging level of detail (LOD) systems
+- Culling meshes that are not visible
+
+**Reducing Scene Complexity**: If draw calls can not be batched further and performance does not match expectations, the developer should consider reducing the complexity of the scene. This can include:
+
+- Reducing the meshes from the scene
+- Throttling animation frame rates
+- Removing transparency from meshes
+
+**Reducing Visual Fidelity**: If the application is GPU bound, i.e. the application spends a significant portion of time on the GPU, the developer should reduce the visual fidelity of the app. This can include:
+
+- Lowering the polygon count of mehses
+- Reducing the size of textures
+- Reducing the number of dynamic lights in the scene
+- Simplifying shaders
+- Removing complex post-processing shaders like fog
+
 
 ## Why Build for the Web?
 
@@ -92,6 +111,7 @@ Code that is not well-suited to JavaScript can also be re-written in a language 
 ### Adoption
 
 ## Sources
+
 [0] https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts#what_is_webassembly
 [1] https://docs.unity3d.com/2022.3/Documentation/Manual/webgl-memory.html
 [2] https://docs.unity3d.com/Manual/webgl-technical-overview.html
