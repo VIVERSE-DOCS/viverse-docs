@@ -35,7 +35,7 @@ WebXR is an API that provides the necessary functionality for rendering VR and A
 
 **JavaScript Garbage Collection**
 
-**Network Bandwidth**
+**Network Bandwidth**: Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../../CreatorTools/optimization.md) for more details on optimizing assets for the web.
 
 ## Why Build for the Web?
 
