@@ -104,11 +104,72 @@ In addition to leveraging browser APIs to improve performance, developers must a
 
 ## Why Build for the Web?
 
-### Portability
+### Portability Across Devices
 
-### Security
+Web apps reach phones, desktops, and XR headsets via the same URL. Chrome (across all devices it runs on) alone accounts for ~68% of global browsing, making distribution simple.
 
-### Adoption
+### Open Standards
+
+WebGPU/WebGL 2, WebXR, WebAssembly (WASM), CSS, and JavaScript are standardized by mature standards bodies and implemented across most major web browser engines. There is no store gatekeeping and no review queues.
+
+### Secure By Default
+
+The web’s application sandbox, HTTPS, and permissions model let you consume powerful graphics, XR, and platform features with user consent and origin isolation—without building and shipping native binaries per operating system and hardware combination.
+
+## By the Numbers: Potential User Reach for Modern 3D Web (Early 2025)
+
+### Internet User Demographics
+
+**Global internet users**:
+
+Experts estimate that there is a Total Addressable Market (TAM) of 5.56 billion people online today [17].
+
+**Emerging Markets**
+
+The following markets have lower internet speeds, but are expected to rapidly grow in the coming decade:
+
+- **South Asia**: 1.03 billion people online [18]
+- **Sub-Saharan Africa**: 350 million people online [19] [20]
+
+**Salable Addressable Market**
+
+Of the remaining estimated 4.15 billion people with higher speed internet, an estimated 70% have access to a smartphone capable of rendering high-end 3D web experiences, forming an addressable market of **3 billion users**.
+
+### Browser Demographics for 3D Web
+
+Browser usage demographics heavily favor a WebGPU/WebGL 2 strategy tuned for Chromium first, with good WebGL2 fallback for Safari.
+
+
+**Global Browser Share** (July 2025) [22]
+
+Overall:
+- Chrome ~67.9%,
+- Safari ~16.2%,
+- Edge ~5.1%,
+- Firefox ~2.5%
+
+Mobile:
+- Chrome ~67.3%
+- Safari ~22.4%
+
+**WebGL 2 Support**
+
+- 99% of iOS devices (going back to iOS 15) support WebGL 2 [21].
+- Android Chromium WebGL2 support dates back to 2017 [23]
+- In conjunction, a very conservative 90% of the smartphone market supports WebGL 2.
+
+**WebGPU Support**
+
+- Enabled by default as of Chrome 121 released in 2024 [24]
+- Experimental support in Safari
+- Enabled by default on desktop Chrome as of 2023
+- Together, this suggests that 67% of the market has WebGPU access, with more coming online soon with upcoming Safari and FireFox support.
+
+
+### Internet Bandwidth Readiness
+
+- Mobile speeds are now “3D‑capable” for most users: Global median mobile downlink is ~61.5 Mbps (2025). This is enough for streamed assets, compressed textures, and progressive loading strategies on the open web [25].
+- Coverage gaps remain concentrated in the excluded regions: Usage gaps are largest in Sub‑Saharan Africa and South Asia [26]
 
 ## Sources
 
@@ -129,3 +190,13 @@ In addition to leveraging browser APIs to improve performance, developers must a
 [14] https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-caching.html
 [15] https://surma.dev/things/webgpu/
 [16] https://webgpufundamentals.org/webgpu/lessons/webgpu-compute-shaders.html
+[17] https://datareportal.com/reports/digital-2025-global-overview-report
+[18] https://ngital.com/bangladesh-internet-penetration-2025-data-insights/
+[19] https://africa.businessinsider.com/local/lifestyle/african-countries-with-the-largest-internet-population-in-2025/871gpnf
+[20] https://www.itu.int/itu-d/reports/statistics/2024/11/10/ff24-internet-use/
+[21] https://telemetrydeck.com/survey/apple/iOS/majorSystemVersions/
+[22] https://gs.statcounter.com/browser-market-share
+[23] https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#api.webgl2renderingcontext
+[24] https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#specifications
+[25] https://datareportal.com/reports/digital-2025-sub-section-accelerated-access
+[26] https://www.gsma.com/r/wp-content/uploads/2024/10/The-State-of-Mobile-Internet-Connectivity-Report-2024.pdf
