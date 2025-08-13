@@ -8,7 +8,6 @@
   * [PlayCanvas Leaderboard minimal example](leaderboard-sdk/playcanvas-leaderboard-minimal-example.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
 * [Storage SDK](storage-sdk.md)
-* [Optimizing 3D Experiences for VIVERSE](optimizing-3d-experiences-for-viverse)
 * [Change Log](CHANGELOG.md)
   * [August 2025](change-log/2025-08.md)
     * [v1.3.0](change-log/2025-08/v1.3.0.md)
