@@ -44,28 +44,33 @@ Developing XR experiences is very rewarding, as it allows users to experience a 
 
 ## Web Browser Performance Constraints
 
-Developing for web browsers imposes additional constraints in comparison to developing for native platforms (Windows, Mac, iOS, Android, Consoles, etc.). Web browsers guarantee security and portability for 3D experiences by placing some restrictions on the rendering technologies and programming languages that can be used. In order to build a highly optimized WebXR experience, developers need to make the most out of technologies like JavaScript, WebGL2, and WebAssembly. While these technologies are powerful, they have some important limitations compared to the corresponding native technologies.
+Developing for web browsers imposes additional constraints in comparison to developing for native platforms (Windows, Mac, iOS, Android, Consoles, etc.). Web browsers guarantee security and portability for 3D experiences by placing some restrictions on the rendering technologies (e.g. WebGL) and programming languages (e.g. JavaScript) that can be used. While these technologies are powerful, they have some important limitations compared to the corresponding native technologies, and must be carefully utilized to get the most performance possible.
 
-### WebGL2 Limitations
+### 3D Rendering Limitations
 
-By default, rendering engines like Three.js, Babylon.js, Unity, and PlayCanvas use the [WebGL 2 API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2) to take advantage of hardware-accelerated graphics in the browser. WebGL 2 largely conforms to the Open GL ES 2.0 standard and dispatches commands to the GPU, meaning that the performance of a WebGL API call is very close to the corresponding native OpenGL call. However, there are some limitations to WebGL 2 vs. native code:
+By default, rendering engines like Three.js, Babylon.js, Unity, and PlayCanvas use the [WebGL 2 API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2) to take advantage of hardware-accelerated graphics in the browser. WebGL 2 largely conforms to the Open GL ES 2.0 standard and dispatches commands to the GPU, meaning that the performance of a WebGL API call is very close to the corresponding native OpenGL call. However, there are some limitations to WebGL 2 in comparison to native graphics APIs:
 
 - **Dispatching Overhead**: There is overhead when dispatching WebGL calls on the CPU, as the WebGL API call must be translated into the correct native graphics API call [3]. Further, the browser implements more security checks than native code to prevent things like Out of Range Memory Accesses [4]. This slower dispatching limits the number of draw calls that can be performed in the browser.
 - **Missing Modern Features**: Because WebGL is based on OpenGL ES 2.0, it lacks many features that modern graphics APIs like DirectX 12, Vulkan, and Metal can provide [5], limiting the theoretical performance of an experience. The WebGPU browser API does support many of these features, but WebXR support is still being specified [6], and WebGPU support is experimental in most major engines [7], [8], [9].
 
-### WebAssembly Limitations
+### Programming Language Limitations
 
-[WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (or Wasm) is a special binary instruction set that can be executed in all major browsers. Non-browser compatible languages like C++, Rust, and C# can be compiled to this binary format and then run in the browser, often leading to dramatic performance improvements when compared to JavaScript. Real-time 3D engines written in C++ or Rust like Unity and Bevy make use of Wasm to run games in the browser at "near-native speed" [0] . However, there are some limitations compared to native code:
+For historical reasons and security reasons, the only officially supported browser language is JavaScript. To execute non-JavaScript code directly in the browser, it must be compiled to a binary format known as [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (refer to the WebAssembly section below for more details), where it can be directly executed by a virtual machine in the browser.
 
-- **Startup Time**: Like all web app source code, Wasm bytecode must be downloaded by the browser before it can begin running. This can result in worse startup time in comparison to native apps, where source is downloaded ahead of time.
-- **Garbage Collection**: In Unity WebGL, garbage collection only runs at the end of each frame. This means that allocating many temporary values in a single frame can lead to "temporary quadratic memory growth pressure for the garbage collector" [1].
-- **Multi-threading**: Threading support in Wasm is constantly evolving. Although the Wasm supports multi-threading and SIMD instructions, engines must explicitly support these Wasm features. For instance, Unity does not support C# multithreading [2].
+There are therefore two main approaches to building rendering engines for the web:
 
-### JavaScript Garbage Collection
+- Compiling an existing engine written in a low-level languages (e.g. C, C++, Rust) to WebAssembly. This approach is taken by engines like Unity, Godot, and Bevy.
+- Writing the engine entirely in JavaScript. This approach is used by engines like PlayCanvas, Three.js, and Babylon.js.
+
+Each approach has certain tradeoffs. With the WebAssembly approach, one challenge is compatibility. For example, automatic memory management is constrained in WebAssembly to maintain security, leading to potential out-of-memory errors that may not occur in a native application. Another challenge is interfacing with the browser. Browser APIs are generally not available to the WebAssembly runtime; to interface with the browser, WebAssembly code must call a JavaScript function that then calls the corresponding browser API. Sending commands and data over this reflection layer can be expensive, negating some of the benefits of the generally faster WebAssembly code. However, when properly optimized, low-level code compiled to WebAssembly runs much faster than the equivalent JavaScript code, approaching native speeds.
+
+JavaScript-based engines come with some benefits outside of browser compatibility. Engine code can be directly profiled and debugged in the browser, making optimization and bug-fixing work much simpler. There is no additional compilation step or build configuration like there is for WebAssembly code, making it much easier to prototype and deploy an application. Any improvements to the browser's JavaScript engine will immediately benefit performance, while a WebAssembly application likely needs to be recompiled or rewritten to take advantage of browser improvements. However, while modern JavaScript engines like V8 and JavaScriptCore are fast and perfectly capable of running intense graphics applications, the language has a performance ceiling. In particular, the language is single-threaded, uses automatic memory management, and cannot leverage SIMD in the browser.
+
+### Memory Management Limiations
 
 3D applications running in the browser can be very sensitive to JavaScript Garbage Collection (GC) pauses. [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) is an automatic memory management technique used in many programming languages, including JavaScript. This technique helps avoid issues like memory leaks and dangling pointers, but has some performance overhead. When memory usage is high in a particular frame, the resulting garbage collection step will freeze the main frame until it completes. In WebXR, this freeze can result in dropped frames, affecting user experience. Although engines like Unity use garbage collection in C# scripting contexts [10], the underlying engine is written in C++, which can take advantage of manual memory management in native contexts. Engines written in JavaScript, like Three.js, do not have this advantage, and developers must be very careful about allocating memory and reusing resources like Vectors and Arrays.
 
-### Network Bandwidth
+### App Startup Time
 Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../optimization.md) for more details on optimizing assets for the web.
 
 ## Specific Optimization Techniques for WebXR
@@ -103,7 +108,9 @@ The browser exposes two key APIs for caching source code and assets:
 
 ### WebAssembly
 
-Native engines like Unity compile most of the engine code to Wasm, exposing a thin interoperability layer to JavaScript to interact with user inputs and the WebXR API. In Unity, developers may need to opt into particular Wasm configurations to ensure the best performance:
+[WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (or Wasm) is a special binary instruction set that can be executed in all major browsers. Non-browser compatible languages like C++, Rust, and C# can be compiled to this binary format and then run in the browser, often leading to dramatic performance improvements when compared to JavaScript. Real-time 3D engines written in C++ or Rust like Unity and Bevy make use of Wasm to run games in the browser at "near-native speed" [0].
+
+In Unity, developers may need to opt into particular Wasm configurations to ensure the best performance:
 
 - [Enabling WebAssembly 2023](https://docs.unity3d.com/6000.1/Documentation/Manual/webassembly-2023.html)
 - [Compiling native plug-ins to Wasm](https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-native-plugins-with-emscripten.html)
@@ -114,7 +121,14 @@ JavaScript-based engines like Three.js, Babylon.js, and PlayCanvas can leverage 
 - [Basis Universal](https://github.com/BinomialLLC/basis_universal/blob/master/webgl/encoder/README.md) texture compression
 - [Rapier](https://rapier.rs/docs/user_guides/javascript/getting_started_js) physics engine
 
-Code that is not well-suited to JavaScript can also be re-written in a language like C, C++, or Rust and compiled to Wasm using tools like [Emscripten](https://emscripten.org/).
+First-party code that is not well-suited to JavaScript can be re-written in a language like C, C++, or Rust and compiled to Wasm using tools like [Emscripten](https://emscripten.org/).
+
+####  Limitations
+There are some limitations to Wasm in comparison to native code:
+
+- Startup Time: Like all web app source code, Wasm bytecode must be downloaded by the browser before it can begin running. This can result in worse startup time in comparison to native apps, where source is downloaded ahead of time.
+- Garbage Collection In Unity WebGL, garbage collection only runs at the end of each frame. This means that allocating many temporary values in a single frame can lead to "temporary quadratic memory growth pressure for the garbage collector" [1].
+- Multi-threading: Threading support in Wasm is constantly evolving. Although the Wasm supports multi-threading and SIMD instructions, engines must explicitly support these Wasm features. For instance, Unity does not support C# multithreading [2].
 
 ### WebGPU
 
