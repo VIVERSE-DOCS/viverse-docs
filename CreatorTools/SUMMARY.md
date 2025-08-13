@@ -35,7 +35,7 @@
 * [Leaderboard SDK](leaderboard-sdk.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
 
-## Optimizing for WebXR
+## Performance Optimization
 
 * [Optimizing 3D Experiences for WebXR](optimizing-3d-experiences-for-viverse/README.md)
 
