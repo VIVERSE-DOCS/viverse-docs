@@ -52,8 +52,8 @@ Developing for web browsers imposes additional constraints in comparison to deve
 
 By default, rendering engines like Three.js, Babylon.js, Unity, and PlayCanvas use the [WebGL 2 API](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#webgl_2) to take advantage of hardware-accelerated graphics in the browser. WebGL 2 largely conforms to the Open GL ES 2.0 standard and dispatches commands to the GPU, meaning that the performance of a WebGL API call is very close to the corresponding native OpenGL call. However, there are some limitations to WebGL 2 in comparison to native graphics APIs:
 
-- **Dispatching Overhead**: There is overhead when dispatching WebGL calls on the CPU, as the WebGL API call must be translated into the correct native graphics API call [3]. Further, the browser implements more security checks than native code to prevent things like Out of Range Memory Accesses [4]. This slower dispatching limits the number of draw calls that can be performed in the browser.
-- **Missing Modern Features**: Because WebGL is based on OpenGL ES 2.0, it lacks many features that modern graphics APIs like DirectX 12, Vulkan, and Metal can provide [5], limiting the theoretical performance of an experience. The WebGPU browser API does support many of these features, but WebXR support is still being specified [6], and WebGPU support is experimental in most major engines [7], [8], [9].
+- **Dispatching Overhead**: There is overhead when dispatching WebGL calls on the CPU, as the WebGL API call must be translated into the correct native graphics API call [\[3\]](https://docs.unity3d.com/6000.3/Documentation/Manual/webgl-performance.html). Further, the browser implements more security checks than native code to prevent things like Out of Range Memory Accesses [\[4\]](https://www.khronos.org/webgl/wiki/Main%20Page/cms/security). This slower dispatching limits the number of draw calls that can be performed in the browser.
+- **Missing Modern Features**: Because WebGL is based on OpenGL ES 2.0, it lacks many features that modern graphics APIs like DirectX 12, Vulkan, and Metal can provide [\[5\]](https://github.com/KhronosGroup/Vulkan-Samples/blob/main/samples/vulkan_basics.adoc), limiting the theoretical performance of an experience. The WebGPU browser API does support many of these features, but WebXR support is still being specified [\[6\]](https://github.com/immersive-web/WebXR-WebGPU-Binding/blob/main/explainer.md), and WebGPU support is experimental in most major engines [\[7\]](https://github.com/mrdoob/three.js/issues/28968), [\[8\]](https://doc.babylonjs.com/setup/support/webGPU/webGPUStatus/#features-not-working-because-not-implemented-yet), [\[9\]](https://docs.unity3d.com/Manual/WebGPU.html).
 
 ### Programming Language Limitations
 
@@ -72,7 +72,7 @@ The choice of engine is not as clear-cut as performance vs. usability. Given the
 
 ### Memory Management Limiations
 
-3D applications running in the browser can be very sensitive to JavaScript Garbage Collection (GC) pauses. [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) is an automatic memory management technique used in many programming languages, including JavaScript. This technique helps avoid issues like memory leaks and dangling pointers, but has some performance overhead. When memory usage is high in a particular frame, the resulting garbage collection step will freeze the main frame until it completes. In WebXR, this freeze can result in dropped frames, affecting user experience. Although engines like Unity use garbage collection in C# scripting contexts [10], the underlying engine is written in C++, which can take advantage of manual memory management in native contexts. Engines written in JavaScript, like Three.js, do not have this advantage, and developers must be very careful about allocating memory and reusing resources like Vectors and Arrays.
+3D applications running in the browser can be very sensitive to JavaScript Garbage Collection (GC) pauses. [Garbage Collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) is an automatic memory management technique used in many programming languages, including JavaScript. This technique helps avoid issues like memory leaks and dangling pointers, but has some performance overhead. When memory usage is high in a particular frame, the resulting garbage collection step will freeze the main frame until it completes. In WebXR, this freeze can result in dropped frames, affecting user experience. Although engines like Unity use garbage collection in C# scripting contexts [\[10\]](https://docs.unity3d.com/6000.1/Documentation/Manual/performance-garbage-collector.html), the underlying engine is written in C++, which can take advantage of manual memory management in native contexts. Engines written in JavaScript, like Three.js, do not have this advantage, and developers must be very careful about allocating memory and reusing resources like Vectors and Arrays.
 
 ### App Startup Time
 Startup time is limited by network bandwidth in the browser. This contrasts with native apps, where assets and source code are typically downloaded on the initial install, or in explicit updates to the app. Refer to [Optimizing for the Web](../optimization.md) for more details on optimizing assets for the web.
@@ -93,7 +93,7 @@ A developer may need to tailor their experience specifically for mobile chipsets
 
 ### 3. Engine-specific Optimizations
 
-Many optimization techniques from traditional game development still apply to WebXR engines; for instance, object pooling [11], shader optimization [12], and instancing are still valid techniques. However, WebXR applications require even more optimization because of the higher minimum framerates and lower available compute time. Explicit techniques typically vary for each game engine; for example, object pooling may be more effective in some engines than others. Refer to subsequent pages for specific optimization techniques for major WebXR engines.
+Many optimization techniques from traditional game development still apply to WebXR engines; for instance, object pooling [\[11\]](https://en.wikipedia.org/wiki/Object_pool_pattern), shader optimization [\[12\]](https://docs.unity3d.com/6000.1/Documentation/Manual/SL-ShaderPerformance.html), and instancing are still valid techniques. However, WebXR applications require even more optimization because of the higher minimum framerates and lower available compute time. Explicit techniques typically vary for each game engine; for example, object pooling may be more effective in some engines than others. Refer to subsequent pages for specific optimization techniques for major WebXR engines.
 
 ## Leveraging Browser APIs in WebXR Experiences
 
@@ -108,11 +108,11 @@ WebGL Rendering can also be performed in a worker thread using the [OffscreenCan
 The browser exposes two key APIs for caching source code and assets:
 
 - The [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) API is useful for caching game assets. It acts as a local proxy server between the application and asset CDN, intercepting potentially expensive asset download requests and returning a cached response. This can enable near-native loading performance and can reduce network bandwidth usage for users that may have service-provider imposed data caps.
-- [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) is useful for storing large amounts of serializable text data across sessions. This can be used to store game save files and configuration files locally, rather than replicating them to a server: Rendering engines like Babylon [13] and Unity [14] also allow caching assets in IndexedDB for faster loading times.
+- [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) is useful for storing large amounts of serializable text data across sessions. This can be used to store game save files and configuration files locally, rather than replicating them to a server: Rendering engines like Babylon [\[13\]](https://doc.babylonjs.com/features/featuresDeepDive/scene/optimizeCached) and Unity [\[14\]](https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-caching.html) also allow caching assets in IndexedDB for faster loading times.
 
 ### WebAssembly
 
-[WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (or Wasm) is a special binary instruction set that can be executed in all major browsers. Non-browser compatible languages like C++, Rust, and C# can be compiled to this binary format and then run in the browser, often leading to dramatic performance improvements when compared to JavaScript. Real-time 3D engines written in C++ or Rust like Unity and Bevy make use of Wasm to run games in the browser at "near-native speed" [0].
+[WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) (or Wasm) is a special binary instruction set that can be executed in all major browsers. Non-browser compatible languages like C++, Rust, and C# can be compiled to this binary format and then run in the browser, often leading to dramatic performance improvements when compared to JavaScript. Real-time 3D engines written in C++ or Rust like Unity and Bevy make use of Wasm to run games in the browser at "near-native speed" [\[0\]](https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts#what_is_webassembly).
 
 In Unity, developers may need to opt into particular Wasm configurations to ensure the best performance:
 
@@ -131,12 +131,12 @@ First-party code that is not well-suited to JavaScript can be re-written in a la
 There are some limitations to Wasm in comparison to native code:
 
 - Startup Time: Like all web app source code, Wasm bytecode must be downloaded by the browser before it can begin running. This can result in worse startup time in comparison to native apps, where source is downloaded ahead of time.
-- Garbage Collection In Unity WebGL, garbage collection only runs at the end of each frame. This means that allocating many temporary values in a single frame can lead to "temporary quadratic memory growth pressure for the garbage collector" [1].
-- Multi-threading: Threading support in Wasm is constantly evolving. Although the Wasm supports multi-threading and SIMD instructions, engines must explicitly support these Wasm features. For instance, Unity does not support C# multithreading [2].
+- Garbage Collection In Unity WebGL, garbage collection only runs at the end of each frame. This means that allocating many temporary values in a single frame can lead to "temporary quadratic memory growth pressure for the garbage collector" [\[1\]](https://docs.unity3d.com/2022.3/Documentation/Manual/webgl-memory.html).
+- Multi-threading: Threading support in Wasm is constantly evolving. Although the Wasm supports multi-threading and SIMD instructions, engines must explicitly support these Wasm features. For instance, Unity does not support C# multithreading [\[2\]](https://docs.unity3d.com/Manual/webgl-technical-overview.html).
 
 ### WebGPU
 
-Though not all engines fully support WebGPU for all rendering tasks, WebGPU can still be leveraged for general purpose GPU computations, allowing non-rendering work to be done on the GPU. This enables highly parallelizable computations like AI pathfinding and animations to be performed asynchronously on the GPU [15] [16].
+Though not all engines fully support WebGPU for all rendering tasks, WebGPU can still be leveraged for general purpose GPU computations, allowing non-rendering work to be done on the GPU. This enables highly parallelizable computations like AI pathfinding and animations to be performed asynchronously on the GPU [\[15\]](https://surma.dev/things/webgpu/) [\[16\]](https://webgpufundamentals.org/webgpu/lessons/webgpu-compute-shaders.html).
 
 ## Optimizing Scenes for Browsers
 
@@ -178,14 +178,14 @@ If the application is GPU bound, i.e. the application spends a significant porti
 
 **Global internet users**:
 
-Experts estimate that there is a Total Addressable Market (TAM) of 5.56 billion people online today [17].
+Experts estimate that there is a Total Addressable Market (TAM) of 5.56 billion people online today [\[17\]](https://datareportal.com/reports/digital-2025-global-overview-report).
 
 **Emerging Markets**
 
 The following markets have lower internet speeds, but are expected to rapidly grow in the coming decade:
 
-- **South Asia**: 1.03 billion people online [18]
-- **Sub-Saharan Africa**: 350 million people online [19] [20]
+- **South Asia**: 1.03 billion people online [\[18\]](https://ngital.com/bangladesh-internet-penetration-2025-data-insights/)
+- **Sub-Saharan Africa**: 350 million people online [\[19\]](https://africa.businessinsider.com/local/lifestyle/african-countries-with-the-largest-internet-population-in-2025/871gpnf) [\[20\]](https://www.itu.int/itu-d/reports/statistics/2024/11/10/ff24-internet-use/)
 
 **Salable Addressable Market**
 
@@ -196,7 +196,7 @@ Of the remaining estimated 4.15 billion people with higher speed internet, an es
 Browser usage demographics heavily favor a WebGPU/WebGL 2 strategy tuned for Chromium first, with good WebGL2 fallback for Safari.
 
 
-**Global Browser Share** (July 2025) [22]
+**Global Browser Share** (July 2025) [\[22\]](https://gs.statcounter.com/browser-market-share)
 
 Overall:
 - Chrome ~67.9%,
@@ -210,13 +210,13 @@ Mobile:
 
 **WebGL 2 Support**
 
-- 99% of iOS devices (going back to iOS 15) support WebGL 2 [21].
-- Android Chromium WebGL2 support dates back to 2017 [23]
+- 99% of iOS devices (going back to iOS 15) support WebGL 2 [\[21\]](https://telemetrydeck.com/survey/apple/iOS/majorSystemVersions/).
+- Android Chromium WebGL2 support dates back to 2017 [\[23\]](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#api.webgl2renderingcontext)
 - In conjunction, a very conservative 90% of the smartphone market supports WebGL 2.
 
 **WebGPU Support**
 
-- Enabled by default as of Chrome 121 released in 2024 [24]
+- Enabled by default as of Chrome 121 released in 2024 [\[24\]](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#specifications)
 - Experimental support in Safari
 - Enabled by default on desktop Chrome as of 2023
 - Together, this suggests that 67% of the market has WebGPU access, with more coming online soon with upcoming Safari and FireFox support.
@@ -224,8 +224,8 @@ Mobile:
 
 ### Internet Bandwidth Readiness
 
-- Mobile speeds are now “3D‑capable” for most users: Global median mobile downlink is ~61.5 Mbps (2025). This is enough for streamed assets, compressed textures, and progressive loading strategies on the open web [25].
-- Coverage gaps remain concentrated in the excluded regions: Usage gaps are largest in Sub‑Saharan Africa and South Asia [26]
+- Mobile speeds are now “3D‑capable” for most users: Global median mobile downlink is ~61.5 Mbps (2025). This is enough for streamed assets, compressed textures, and progressive loading strategies on the open web [\[25\]](https://datareportal.com/reports/digital-2025-sub-section-accelerated-access).
+- Coverage gaps remain concentrated in the excluded regions: Usage gaps are largest in Sub‑Saharan Africa and South Asia [\[26\]](https://www.gsma.com/r/wp-content/uploads/2024/10/The-State-of-Mobile-Internet-Connectivity-Report-2024.pdf)
 
 ## Sources
 
