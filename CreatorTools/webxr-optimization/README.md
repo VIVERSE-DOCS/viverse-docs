@@ -9,9 +9,11 @@ VIVERSE experiences run in web browsers. This allows 3D experiences to securely 
 
 ## Why Build for the Web?
 
+When developing a mixed reality (XR) experience, developers can choose to build a native application or a web-based application. In either case, it is possible to build immersivee, detailed experiences. VIVERSE prefers the web for the following benefits:
+
 ### Portability Across Devices
 
-Web apps reach phones, desktops, and XR headsets via the same URL. Chrome (across all devices it runs on) alone accounts for ~68% of global browsing, making distribution simple.
+Web apps reach phones, desktops, and XR headsets via the same URL. Chrome (across all devices it runs on) alone accounts for ~68% of global browsing, making distribution simple. View more stats below to understand more about the wide reach of the [web platform](#by-the-numbers-potential-user-reach-for-modern-3d-web-early-2025).
 
 ### Open Standards
 
@@ -23,7 +25,7 @@ The web’s application sandbox, HTTPS, and permissions model let you consume po
 
 ## The Challenges of Optimizing for WebXR
 
-WebXR is an API that provides developers with the necessary functionality to interface with XR headsets and glasses. This functionality includes rendering and composing 3D content on an XR headset, sensing the movement of the headset and other inputs in the real world, and updating imagery according to the real world data.
+WebXR is an API that provides developers with the necessary functionality to interface with XR headsets and glasses from web browsers. This functionality includes rendering and composing 3D content on an XR headset, sensing the movement of the headset and other inputs in the real world, and updating imagery according to the real world data.
 
 This abstracts away complexities like pose estimation and scene understanding. Major 3D rendering engines like Unity, Three.js, PlayCanvas, and Babylon.js directly integrate the WebXR API, making it simple to convert a flat 3D experience into an immersive 3D experience. However, while it is easy to make a functional immersive experience, it is challenging to make an experience that performs well on typical XR hardware in web browsers. We will investigate the unique challenges of developing for XR and developing for web browsers in the next two sections.
 
