@@ -230,29 +230,55 @@ Mobile:
 ## Sources
 
 [0] https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Concepts#what_is_webassembly
+
 [1] https://docs.unity3d.com/2022.3/Documentation/Manual/webgl-memory.html
+
 [2] https://docs.unity3d.com/Manual/webgl-technical-overview.html
+
 [3] https://docs.unity3d.com/6000.3/Documentation/Manual/webgl-performance.html
+
 [4] https://www.khronos.org/webgl/wiki/Main%20Page/cms/security
+
 [5] https://github.com/KhronosGroup/Vulkan-Samples/blob/main/samples/vulkan_basics.adoc
+
 [6] https://github.com/immersive-web/WebXR-WebGPU-Binding/blob/main/explainer.md
+
 [7] https://github.com/mrdoob/three.js/issues/28968
+
 [8] https://doc.babylonjs.com/setup/support/webGPU/webGPUStatus/#features-not-working-because-not-implemented-yet
+
 [9] https://docs.unity3d.com/Manual/WebGPU.html
+
 [10] https://docs.unity3d.com/6000.1/Documentation/Manual/performance-garbage-collector.html
+
 [11] https://en.wikipedia.org/wiki/Object_pool_pattern
+
 [12] https://docs.unity3d.com/6000.1/Documentation/Manual/SL-ShaderPerformance.html
+
 [13] https://doc.babylonjs.com/features/featuresDeepDive/scene/optimizeCached
+
 [14] https://docs.unity3d.com/6000.1/Documentation/Manual/webgl-caching.html
+
 [15] https://surma.dev/things/webgpu/
+
 [16] https://webgpufundamentals.org/webgpu/lessons/webgpu-compute-shaders.html
+
 [17] https://datareportal.com/reports/digital-2025-global-overview-report
+
 [18] https://ngital.com/bangladesh-internet-penetration-2025-data-insights/
+
 [19] https://africa.businessinsider.com/local/lifestyle/african-countries-with-the-largest-internet-population-in-2025/871gpnf
+
 [20] https://www.itu.int/itu-d/reports/statistics/2024/11/10/ff24-internet-use/
+
 [21] https://telemetrydeck.com/survey/apple/iOS/majorSystemVersions/
+
 [22] https://gs.statcounter.com/browser-market-share
+
 [23] https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API#api.webgl2renderingcontext
+
 [24] https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#specifications
+
 [25] https://datareportal.com/reports/digital-2025-sub-section-accelerated-access
+
 [26] https://www.gsma.com/r/wp-content/uploads/2024/10/The-State-of-Mobile-Internet-Connectivity-Report-2024.pdf
