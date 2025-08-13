@@ -136,7 +136,7 @@ One we have a response, the Dynamic UI Scrolling View tutorial already contains 
   }
 ```
 
-We'll fire `getHighScores()` on button click, and reference the button by attribute as `getLeaderboardButton`. `this.scrollControllerEntity`  is another attribute reference set in the editor, responsible for spawning new score entries. And `this.contentEntity` is one of its children that will contain all UI template instances. We'll want to reference each of these in our scripting.
+To summarize, we fire `this.getHighScores()` on button click, and reference the button by attribute as `this.getLeaderboardButton`. `this.scrollControllerEntity` is another attribute reference set in the editor, responsible for spawning new score entries. And `this.contentEntity` is one of its children that will contain all UI template instances. We reference each of these in our scripting and in the editor like so:
 
 ```javascript
   /**
@@ -160,7 +160,7 @@ We'll fire `getHighScores()` on button click, and reference the button by attrib
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-Then add the click callback in the editor, anywhere within the `initialize()` lifecycle hook.
+Then add the click callback in the editor, anywhere within the `initialize()` lifecycle hook, to run the `this.getHighScores()` function we defined above.
 
 ```javascript
 this.getLeaderboardButton.button.on("click", () => {
@@ -168,7 +168,9 @@ this.getLeaderboardButton.button.on("click", () => {
 });
 ```
 
-With those set, we're getting leaderboard data on click, then firing the `addScoreEntry` event on every ranked score returned in order in the [Leaderboard Response](./#leaderboard-response-object) according to the request configuration! The PlayCanvas demo we forked includes an event listener that spawns a new UI element template, which we can modify slightly to handle our leaderboard data structure:
+With those references set, we're getting leaderboard data on click, then firing the `addScoreEntry` event on every ranked score returned in the [Leaderboard Response](./#leaderboard-response-object) according to the request configuration!&#x20;
+
+The PlayCanvas demo we forked already includes an event listener that spawns a new UI element template, which we can modify slightly to handle our leaderboard data structure:
 
 ```javascript
 ScrollController.prototype._onAddEntry = function (rank) {
@@ -185,7 +187,7 @@ ScrollController.prototype._onAddEntry = function (rank) {
 };
 ```
 
-Leave one instance of the score entry UI template in the scene on initialization, and change its text value from blank to "Fetching scores..." — this entry will be cleared as soon as actual scores are returned from the SDK. We can add a button to run this `getHighScores()` function on click, as well.
+We'll leave one instance of the score entry UI template in the scene on initialization, and change its text value from blank to "Fetching scores..." — this entry will be cleared as soon as actual scores are returned from the SDK. We can add a button to run this `getHighScores()` function on click, as well.
 
 ### Step 5: Submit a score
 
@@ -236,7 +238,7 @@ Then add another click callback in `leaderboard.mjs` — and again, it can be an
 
 ```
 this.submitButton.button.on("click", () => {
-    this.getHighScores()
+    this.handleSubmit()
 });
 ```
 
