@@ -2,6 +2,7 @@
 description: >-
   Learn how to combine the VIVERSE Storage SDK with PlayCanvas UI then publish
   the project via VIVERSE Studio
+hidden: true
 ---
 
 # PlayCanvas Storage minimal example

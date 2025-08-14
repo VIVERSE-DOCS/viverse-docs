@@ -9,7 +9,7 @@ description: >-
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](../login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`storageClient\` instance
 
@@ -27,13 +27,13 @@ The cloudsave API must then be initialized individually.
 globalThis.cloudSaveClient = await storageClient.newCloudSaveClient(appId);
 ```
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Set Player Data
 
 Call setPlayerData() with a specific key-value pair within the player's data.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-2.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -61,7 +61,7 @@ cloudSaveClient.setPlayerData(keyB, dataB, access_token);
 
 Retrieves the value of a specific key from the player's data.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-3.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -106,7 +106,7 @@ cloudSaveClient.getPlayerData(key, access_token).then((res) => {
 
 Saves the provided data as a new version.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-4.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -128,7 +128,7 @@ cloudSaveClient.save(data, access_token);
 
 Retrieves all saved versions of saved data.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-5.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -158,7 +158,7 @@ cloudSaveClient.getAll(access_token);
 
 Retrieves the most recent version of saved data.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-6.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -186,7 +186,7 @@ cloudSaveClient.getLatest(access_token);
 
 Deletes a specific version of the saved data.
 
-<figure><img src="../.gitbook/assets/storage-client-cloudsave-7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/storage-client-cloudsave-7.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
