@@ -6,7 +6,7 @@ description: >-
 
 # PlayCanvas Leaderboard minimal example
 
-Leaderboards allow players to compare their performance against others, increasing engagement time and replayability. VIVERSE's Leaderboard SDK can be combined with PlayCanvas' powerful screen- and world-space Element UI systems to provide an end-to-end solution for this in your game.
+Leaderboards allow players to compare their performance against others, increasing engagement time and replayability. VIVERSE's Leaderboard SDK can be combined with PlayCanvas' powerful screen- and screen-space Element UI systems to provide an end-to-end solution for this in your game.
 
 <figure><img src="../.gitbook/assets/image (11).png" alt="" width="563"><figcaption></figcaption></figure>
 
