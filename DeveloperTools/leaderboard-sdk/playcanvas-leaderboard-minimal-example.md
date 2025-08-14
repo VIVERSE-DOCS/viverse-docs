@@ -263,3 +263,5 @@ The build is ready. Here are the relevant links:
 Public PlayCanvas project: [https://playcanvas.com/project/1373864/overview/viverse-leaderboard--playcanvas](https://playcanvas.com/project/1373864/overview/viverse-leaderboard--playcanvas)
 
 Demo scene live on VIVERSE: [https://worlds.viverse.com/i9ii4Vp](https://worlds.viverse.com/i9ii4Vp)
+
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
