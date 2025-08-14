@@ -24,13 +24,13 @@ PlayCanvas already maintains many great tutorials for their engine, including a 
 
 <figure><img src="../.gitbook/assets/image (18).png" alt="" width="375"><figcaption></figcaption></figure>
 
-Initially, we'll simply increase the width of the UI column to allow for displaying names, and I'll replace the "Add Entry" UI button on top with a simple label that says "High Scores".
-
 ### Step 1: Add the VIVERSE SDK as an external script
 
 Once the project is forked, go to the new project Settings in the PlayCanvas editor, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point to \`[`https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js`](https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js)\` as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
 
 <figure><img src="../.gitbook/assets/image (15).png" alt="" width="153"><figcaption></figcaption></figure>
+
+Initially, we'll also increase the width of the UI column to allow for displaying names, and I'll replace the "Add Entry" UI button on top with a simple label that says "High Scores".
 
 ### Step 2: Login and Auth
 
