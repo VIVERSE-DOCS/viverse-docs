@@ -9,15 +9,15 @@ VIVERSE experiences run in web browsers. This allows 3D experiences to securely 
 
 ## Why Build for the Web?
 
-When developing a mixed reality (XR) experience, developers can choose to build a native application or a web-based application. In either case, it is possible to build immersivee, detailed experiences. VIVERSE prefers the web for the following benefits:
+When developing a mixed reality (XR) experience, developers can choose to build a native application or a web-based application. In either case, it is possible to build immersive, detailed experiences. VIVERSE prefers the web for the following benefits:
 
 ### Portability Across Devices
 
-Web apps reach phones, desktops, and XR headsets via the same URL. Chrome (across all devices it runs on) alone accounts for ~68% of global browsing, making distribution simple. View more stats below to understand more about the wide reach of the [web platform](#by-the-numbers-potential-user-reach-for-modern-3d-web-early-2025).
+3D web apps reach phones, desktop computers, laptop computers, and Mixed Reality headsets via the same URL. Chrome (across all devices it runs on) alone accounts for ~68% of global browsing, making packaging and distribution straightforward. View more stats below to understand more about the wide reach of the [web platform](#by-the-numbers-potential-user-reach-for-modern-3d-web-early-2025).
 
 ### Open Standards
 
-WebGPU/WebGL 2, WebXR, WebAssembly (WASM), CSS, and JavaScript are standardized by mature standards bodies and implemented across most major web browser engines. There is no store gatekeeping and no review queues.
+WebGPU/WebGL 2, WebXR, WebAssembly (WASM), CSS, and JavaScript are standardized by mature standards bodies and implemented across most major web browser engines. There is no store gatekeeping and no review queues versus native app stores.
 
 ### Secure By Default
 
