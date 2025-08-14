@@ -4,7 +4,7 @@ description: >-
   standalone PlayCanvas game
 ---
 
-# PlayCanvas Login & Auth example
+# PlayCanvas Login & Auth minimal example
 
 ### Pre-requisite: Create a World and App ID in VIVERSE Studio&#x20;
 
@@ -125,7 +125,7 @@ export class ViverseManager extends Script {
 
 Once the script is saved and parsed, add these UI elements in the scene in the PlayCanvas editor and set both attribute references, pointing to the "Logged In As" label's text element and the "Login" button entity.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 5: Hook SDK code into UI
 
@@ -197,4 +197,4 @@ Public PlayCanvas project: [https://playcanvas.com/project/1375569/overview/vive
 
 Demo scene live on VIVERSE: [https://worlds.viverse.com/Rkofb3v](https://worlds.viverse.com/Rkofb3v)
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
