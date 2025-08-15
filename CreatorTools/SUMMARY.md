@@ -35,6 +35,10 @@
 * [Leaderboard SDK](leaderboard-sdk.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
 
+## Performance Optimization
+
+* [Optimizing 3D Experiences for WebXR](webxr-optimization/README.md)
+
 ## PlayCanvas SDK
 
 * [PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
