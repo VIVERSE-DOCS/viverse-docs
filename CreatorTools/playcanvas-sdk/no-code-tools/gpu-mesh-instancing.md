@@ -35,7 +35,7 @@ A. Export the model as a **GLTF** **(.glft/.glb)** file. Give the file the same 
 
 B. Expand **Scene Graph** and place checkmark by **GPU Instances**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
