@@ -6,7 +6,7 @@ description: >-
 
 # PlayCanvas Login & Auth minimal example
 
-### Pre-requisite: Create a World and App ID in VIVERSE Studio&#x20;
+### Pre-requisite: Create a World and App ID in VIVERSE Studio
 
 All SDK usage requires an App ID tied to a specific VIVERSE World, which can be created via [VIVERSE Studio](https://studio.viverse.com/upload). This process is described in detail in [our documentation on VIVERSE Studio](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/publishing-with-your-viverse-account) — but simply create a new app and copy its App ID to get started.
 
@@ -16,13 +16,13 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 ### Step 1: Create a new PlayCanvas project and add the VIVERSE SDK as an external script
 
-In a new PlayCanvas project, go to the project Settings, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point it to `https://www.viverse.com/static-assets/viverse-sdk/1.3.1/index.umd.cjs` as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
+In a new PlayCanvas project, go to the project Settings, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point it  to [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs) as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
 
 <figure><img src="../.gitbook/assets/image (15).png" alt="" width="153"><figcaption></figcaption></figure>
 
 ### Step 2: Initialize the SDK in a new .mjs script
 
-Add a new script called `viverse-manager.mjs` in the project to handle all VIVERSE SDK services and authentication. This process is described generically in our documentation, [**Login & Authentication for the SDK**](./), but here is how it would apply to a modular PlayCanvas script.&#x20;
+Add a new script called `viverse-manager.mjs` in the project to handle all VIVERSE SDK services and authentication. This process is described generically in our documentation, [**Login & Authentication for the SDK**](./), but here is how it would apply to a modular PlayCanvas script.
 
 ```javascript
 import { Script, Entity } from "playcanvas";
@@ -131,9 +131,9 @@ Once the script is saved and parsed, add these UI elements in the scene in the P
 
 With attribute references set, we can now act on these buttons and text elements. We've already set up the button's click callback to run the SSO login redirect if necessary. Let's also change the status message to encourage the user to login in that case.
 
-But if they user is _already_ logged-in (whether from previous VIVERSE experiences, or because they just completed the SSO redirect loop), let's disable the login button, and change its text.&#x20;
+But if they user is _already_ logged-in (whether from previous VIVERSE experiences, or because they just completed the SSO redirect loop), let's disable the login button, and change its text.
 
-Then, finally, instantiate an `avatarClient`  and await the response from its `getProfile()` function to get the user's profile info, including display name and active avatar information.
+Then, finally, instantiate an `avatarClient` and await the response from its `getProfile()` function to get the user's profile info, including display name and active avatar information.
 
 ```javascript
 async loadViverse() {
