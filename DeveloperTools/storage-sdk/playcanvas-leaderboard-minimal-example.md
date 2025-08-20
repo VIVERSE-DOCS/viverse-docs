@@ -2,14 +2,13 @@
 description: >-
   Learn how to combine the VIVERSE Storage SDK with PlayCanvas UI then publish
   the project via VIVERSE Studio
-hidden: true
 ---
 
 # PlayCanvas Storage minimal example
 
-The Storage SDK empowers developers to add persistent data to their games per world for logged-in users. VIVERSE's Storage SDK can be combined with PlayCanvas' powerful screen- and screen-space Element UI systems to provide an end-to-end solution for saving persistent data in your game. This page will a provide minimum viable example.
+The Storage SDK empowers developers to add persistent data to their games per world for logged-in users. VIVERSE's Storage SDK can be combined with PlayCanvas' powerful Element UI systems to provide an end-to-end solution for saving persistent data in your game. This page will a provide minimum viable example.
 
-<figure><img src="../.gitbook/assets/image (22).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-08-19 175018.png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Pre-requisite #1: Create a World, App ID and Leaderboard in VIVERSE Studio&#x20;
 
@@ -19,233 +18,112 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 <div><figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-07-31 113911.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-07-31 115641.png" alt=""><figcaption></figcaption></figure></div>
 
-### Pre-requisite #2: Clone the PlayCanvas Scrolling UI tutorial
+### Pre-requisite #2: Clone the Login & Authentication SDK example project
 
-PlayCanvas already maintains many great tutorials for their engine, including a scrolling UI system with dynamic sizing. We'll click the 🍴 Fork button to clone this project to use [as a starting point](https://app.gitbook.com/s/d69no6CEQxke8g3u7ZrP/) and ensure our UI practices are standard for the engine. This already has a few scripts for adding UI entries to a list based on a PlayCanvas template.
+We'll base this project on the [PlayCnavas Login & Authentication minimal example](../login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md), which already shows how to add the VIVERSE SDK to external scripts, then `checkAuth()`  and run the SSO login loop if necessary, all within the `viverse-manager.mjs` script. This will be required before we can set up and use the Storage SDK. Fork the project, and don't forget to replace the App ID in the script with the one you created in Pre-requisite #1.
 
-<figure><img src="../.gitbook/assets/image (18).png" alt="" width="375"><figcaption></figcaption></figure>
+<div><figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-08-19 182239.png" alt=""><figcaption></figcaption></figure></div>
 
-### Step 1: Add the VIVERSE SDK as an external script
+### Step 1: Set Up Additional UI
 
-Once the project is forked, go to the new project Settings in the PlayCanvas editor, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point to \`[`https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js`](https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js)\` as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
-
-<figure><img src="../.gitbook/assets/image (15).png" alt="" width="153"><figcaption></figcaption></figure>
-
-Initially, we'll also increase the width of the UI column to allow for displaying names, and I'll replace the "Add Entry" UI button on top with a simple label that says "High Scores".
-
-### Step 2: Login and Auth
-
-The player must be logged into VIVERSE to either request leaderboard data or to submit it. So this example first checks if the user is logged in, and if not, forces login through VIVERSE's "single sign-on" (SSO) redirect loop.
-
-We'll add a new script called `leaderboard.mjs` to manage the VIVERSE SDK services and handle authentication. These code comments also explain the significance of each line, but this process is described in detail in our documentation, [**Login & Authentication for the SDK**](../login-and-authentication-for-the-sdk/), as well.
-
-```javascript
-import { Script, Entity } from "playcanvas";
-
-export class Leaderboard extends Script {
-  static scriptName = "leaderboard";
-
-  initialize() {
-    // Log globalThis for reference - the VIVERSE SDK relies on it
-    console.log("globalThis", globalThis);
-
-    // Call the VIVERSE SDK init logic defined below in this component
-    this.loadViverse();
-  }
-  
-  async loadViverse() {
-    // Create a new viverseClient instance on globalThis
-    globalThis.viverseClient = new globalThis.viverse.client({
-      clientId: '9dbensqh9g', // the App ID from VIVERSE Studio described above
-      domain: 'account.htcvive.com', // HTC Account domain
-    });
-    
-    // check login status again
-    const result = await globalThis.viverseClient.checkAuth();
-    
-    if (result === undefined) { // undefined means not logged in
-      // This will cause a refresh and forward to the VIVERSE login process
-      globalThis.viverseClient.loginWithWorlds();
-    } else {  // `result` contains credentials to make authorized requests 
-      console.log("auth result!", result)
-    }
-  }
-}
-```
-
-### Step 3: Set up the VIVERSE \`gameDashboardClient\`
-
-Now we should have valid credentials to make requests to the Leaderboard SDK. Let's add the `gameDashboardClient` using our access token, then write a function to fetch high scores from the Leaderboard SDK.
-
-```javascript
-
-    // Continued from above
-    } else {  // `result` contains credentials to make authorized requests 
-      // Get the token to start making requests;
-      const accessToken = await globalThis.viverseClient.getToken();
-
-      // Start the leaderboard init process by creasting a gameDashboardClient instance
-      globalThis.gameDashboardClient = new globalThis.viverse.gameDashboard({
-        baseURL: 'https://www.viveport.com/',
-        communityBaseURL: 'https://www.viverse.com/',
-        token: accessToken
-      });
-
-      // Immediately fetch high scores if logged in and gameDashboardClient was created
-      this.getHighScores();
-    }
-  }
-```
-
-### Step 4: Fetch high scores and tie response to PlayCanvas UI elements
-
-Now we should call `getLeaderboard()` with a valid config object, get a [Leaderboard Response](../leaderboard-sdk/#leaderboard-response-object) back, then tie that data into our PlayCanvas UI.\
-\
-One we have a response, the Dynamic UI Scrolling View tutorial already contains UI elements for a scrollable list of score values of arbitrary length, including an event to spawn a new instance of a "score" value with template UI. I modified the base template to include a left-aligned text element for the player's name, and a right-aligned text element for score, and fired the `addScoreEntry` event containing that data.
-
-```javascript
-  async getHighScores() {
-    // A valid leaderboard config example:
-    const config = {
-        name: "highScores",  // should match the name set in SDK Settings menu
-        range_start: 0,  // get first place
-        range_end: 100,  // all the way to rank 100
-        region: "global",
-        time_range: "alltime",
-        around_user: false
-    };
-
-    // Again the App ID is required
-    const leaderboardResponse =
-      await globalThis.gameDashboardClient.getLeaderboard('9dbensqh9g', config);
-        
-    // Clear high scores before displaying new leaderboard data
-    this.clearHighScores()
-
-    // Have the scrollController add a new entry according to this ranking
-    leaderboardResponse.ranking.forEach((ranking) => {
-      this.scrollControllerEntity.fire('addScoreEntry', ranking);
-    })
-  }
-
-  clearHighScores() {
-    // Clear leaderboard entries - i.e. all the children under the contentEntity
-    for (let i = this.contentEntity.children.length - 1; i >= 0; i--) {
-      console.log("destroying child: ", this.contentEntity.children[i])
-      this.contentEntity.children[this.contentEntity.children.length-1].destroy();
-    }
-  }
-```
-
-To summarize, we fire `this.getHighScores()` on button click, and reference the button by attribute as `this.getLeaderboardButton`. `this.scrollControllerEntity` is another attribute reference set in the editor, responsible for spawning new score entries. And `this.contentEntity` is one of its children that will contain all UI template instances. We reference each of these in our scripting and in the editor like so:
-
-```javascript
-  /**
-   * @attribute
-   * @type {Entity}
-   */
-  contentEntity;
-
-  /**
-   * @attribute
-   * @type {Entity}
-   */
-  scrollControllerEntity;
-
-  /**
-   * @attribute
-   * @type {Entity}
-   */
-  getLeaderboardButton;
-```
+To start, add a two-column horizontal Layout Group with the original UI as one child, and a new Group Element as the second child on the right. Under that we can create one UI button and three labels as shown here:
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-Then add the click callback in the editor, anywhere within the `initialize()` lifecycle hook, to run the `this.getHighScores()` function we defined above.
+Then in `viverse-manager.mjs`, add references for a few of these like so:
 
 ```javascript
-this.getLeaderboardButton.button.on("click", () => {
-    this.getHighScores()
-});
-```
-
-With those references set, we're getting leaderboard data on click, then firing the `addScoreEntry` event on every ranked score returned in the [Leaderboard Response](../leaderboard-sdk/#leaderboard-response-object) according to the request configuration!&#x20;
-
-The PlayCanvas demo we forked already includes an event listener that spawns a new UI element template, which we can modify slightly to handle our leaderboard data structure:
-
-```javascript
-ScrollController.prototype._onAddEntry = function (rank) {
-    var randomIndex = Math.floor(pc.math.random(0, this.entryTemplateAssets.length));
-    var template = this.entryTemplateAssets[randomIndex];
-    var instance = template.resource.instantiate();
-    // "Score Text" is the right-aligned text element set in the UI template
-    var scoreEntity = instance.findByName('Score Text');
-    scoreEntity.element.text = rank.value;
-    // "Name Text" is the left-aligned text element set in the UI template
-    var nameEntity = instance.findByName('Name Text');
-    nameEntity.element.text =  (rank.rank + 1) + ". " + rank.name;
-    instance.reparent(this._content);
-};
-```
-
-We'll leave one instance of the score entry UI template in the scene on initialization, and change its text value from blank to "Fetching scores..." — this entry will be cleared as soon as actual scores are returned from the SDK. We can add a button to run this `getHighScores()` function on click, as well.
-
-### Step 5: Submit a score
-
-That should function well, but until we submit some high scores, the list will return empty and nothing will display! Let's add another button to "Submit Score," reference it with an attribute in our script, and set a click callback.
-
-```javascript
-  update(dt) {
-      this.score++;  // Score goes up 1 every tick
-      
-      // Set the PlayCanvas UI element text to the current score
-      this.scoreText.element.text = this.score.toString();
-  }
-  
-  async handleSubmit() {
-      this.clearHighScores()
-
-      // You can upload multiple leaderboard scores to multiple leaderboards at once
-      const scores = [
-          { name: "highScores", value: this.score.toString() },
-      ];
-
-      await globalThis.gameDashboardClient.uploadLeaderboardScore(this.appId, scores)
-
-      // Fetch high scores again because the list doesn't refresh automatically
-      this.getHighScores()
-  }
-```
-
-This requires adding two more attribute references and setting them in the editor:
-
-```javascript
- /**
+  /**
    * @attribute
    * @type {Entity}
    */
-  scoreText;
+  scoreLabel
 
   /**
    * @attribute
    * @type {Entity}
    */
-  submitButton;
+  saveScoreButton
+
+  /**
+   * @attribute
+   * @type {Entity}
+   */
+  lastSavedScoreLabel
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+### Step 2: Create a Score to Save
 
-Then add another click callback in `leaderboard.mjs` — and again, it can be anywhere within the `initialize()` lifecycle hook.
+Add a `this.score` property to the `initialize()` lifecycle event, and update it every frame after we check for a score with a `this.hasCheckedForScore` flag. This will give us a continually changing value to save to the cloud. This could just as easily be gems, experience points, resources gathered or other gameplay elements.
 
+```javascript
+  
+  initialize() {
+    // somewhere in initialize
+    this.score = 0
+    this.hasCheckedForScore = false
+  }
+  
+  update() {
+    if (this.hasCheckedForScore) {  // let's check for a saved score before starting
+      this.score++
+      this.scoreLabel.element.text = this.score.toString()
+    }
+  }
 ```
-this.submitButton.button.on("click", () => {
-    this.handleSubmit()
-});
+
+### Step 3: Set up the VIVERSE \`storageClient\`
+
+With the code from the Login & Auth example in the `loadViverse()` method, we should have valid credentials to create Storage and Cloud Save SDK clients. The API reference for this process can be found on the Storage SDK page.
+
+```javascript
+    // Continued from loadViverse() method, after successful login via checkAuth():
+    } else {
+      // Get the token to start making requests;
+      const accessToken = await globalThis.viverseClient.getToken();
+
+      try {  // Attempt storage client init
+          globalThis.storageClient = new globalThis.viverse.storage()
+          globalThis.cloudSaveClient = await globalThis.storageClient.newCloudSaveClient(this.appId);
+          
+          // Start by checking for existing player data
+          globalThis.cloudSaveClient.getPlayerData('score', this.accessToken).then((response) => {
+            if (response!= null) {  // there exists some data for this property!
+              this.score = response
+              this.scoreLabel.element.text = this.score.toString()
+              this.lastSavedScoreLabel.element.text = "Last saved score: " + this.score.toString()
+            } else {  // the response was null - no saved value exists for this key
+              this.lastSavedScoreLabel.element.text = "No saved score found. Save now!"
+            }
+            this.saveScoreButton.button.active = true
+            this.hasCheckedForScore = true;  // start iterating on score
+          });
+        } catch(err) { console.error(err) }
+    }
+  }
+```
+
+### Step 4: Add a Cloud Save Callback
+
+That should function well, but until we submit some cloud data, the `getPlayerData()` check will return null and nothing will display! We already added the "Save Score" button and referenced it with an attribute in our script. Now let's create an set the click callback.
+
+```javascript
+  initialize() {
+    // somewhere within initialize()
+    this.saveScoreButton.button.on("click", () => {
+        this.cloudSaveScore();
+    });
+  }
+  
+  async cloudSaveScore() {
+    let savedScore = await globalThis.cloudSaveClient.setPlayerData("score", this.score.toString(), this.accessToken)
+    this.lastSavedScoreLabel.element.text = "Last Saved Score: " + this.score.toString();
+  }
 ```
 
 ### Step 6: Export and Publish to VIVERSE
 
-That's it! That should fulfil our minimal requirements to use the VIVERSE Leaderboard SDK along with PlayCanvas UI. Now we just need to export and publish.
+That's it! That should fulfil our minimal requirements to use the VIVERSE Storage SDK along with PlayCanvas UI. Now we just need to export and publish.
 
 In PlayCanvas' Publish/Download menus, choose the "DOWNLOAD ZIP," then set your export options and click the first grey "DOWNLOAD," which will prepare you a build, exposing the final orange "DOWNLOAD" button after a few seconds.
 
@@ -261,8 +139,8 @@ From there, you can preview your build, or submit it for content review and appr
 
 The build is ready. Here are the relevant links:
 
-Public PlayCanvas project: [https://playcanvas.com/project/1373864/overview/viverse-leaderboard--playcanvas](https://playcanvas.com/project/1373864/overview/viverse-leaderboard--playcanvas)
+Public PlayCanvas project: [https://playcanvas.com/project/1380461/overview/viverse-storage-sdk--pc](https://playcanvas.com/project/1380461/overview/viverse-storage-sdk--pc)
 
-Demo scene live on VIVERSE: [https://worlds.viverse.com/i9ii4Vp](https://worlds.viverse.com/i9ii4Vp)
+Demo scene live on VIVERSE: [https://worlds.viverse.com/xESmRTh](https://worlds.viverse.com/xESmRTh)
 
 <figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>

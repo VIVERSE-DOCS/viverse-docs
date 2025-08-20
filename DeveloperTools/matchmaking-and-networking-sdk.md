@@ -27,7 +27,7 @@ The matchmaking and networking APIs must then be initialized individually.
 globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debug);
 ```
 
-<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **NOTE:** Support for random and ticket-based matchmaking is under development.
 
