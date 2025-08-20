@@ -20,7 +20,7 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 ### Pre-requisite #2: Clone the Login & Authentication SDK example project
 
-We'll base this project on the [PlayCnavas Login & Authentication minimal example](../login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md), which already shows how to add the VIVERSE SDK to external scripts, then `checkAuth()`  and run the SSO login loop if necessary, all within the `viverse-manager.mjs` script. This will be required before we can set up and use the Storage SDK. Fork the project, and don't forget to replace the App ID in the script with the one you created in Pre-requisite #1.
+We'll base this project on the [PlayCanvas Login & Authentication minimal example](../login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md), which already shows how to add the VIVERSE SDK to external scripts, then `checkAuth()`  and run the SSO login loop if necessary, all within the `viverse-manager.mjs` script. This will be required before we can set up and use the Storage SDK. Fork the project, and don't forget to replace the App ID in the script with the one you created in Pre-requisite #1.
 
 <div><figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-08-19 182239.png" alt=""><figcaption></figcaption></figure></div>
 
