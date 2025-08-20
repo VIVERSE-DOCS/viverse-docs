@@ -54,7 +54,7 @@ Then in `viverse-manager.mjs`, add references for a few of these like so:
 
 ### Step 2: Create a Score to Save
 
-Add a `this.score` property to the `initialize()` lifecycle event, and update it every frame after we check for a score with a `this.hasCheckedForScore` flag. This will give us a continually changing value to save to the cloud. This could just as easily be gems, experience points, resources gathered or other gameplay elements.
+Add a `this.score` property to the `initialize()` lifecycle event, and iterate by 1 every frame after a `this.hasCheckedForScore` flag has been set to true (this gives us the chance to check for a value saved in the cloud before we start — we'll come back to this). Now we have  a continually changing value to save to the cloud. This could just as easily be gems, experience points, resources gathered or other gameplay elements, depending on your game's needs.
 
 ```javascript
   
@@ -121,7 +121,7 @@ That should function well, but until we submit some cloud data, the `getPlayerDa
   }
 ```
 
-### Step 6: Export and Publish to VIVERSE
+### Step 5: Export and Publish to VIVERSE
 
 That's it! That should fulfil our minimal requirements to use the VIVERSE Storage SDK along with PlayCanvas UI. Now we just need to export and publish.
 
