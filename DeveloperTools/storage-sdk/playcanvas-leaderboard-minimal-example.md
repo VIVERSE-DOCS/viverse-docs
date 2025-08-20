@@ -26,7 +26,7 @@ We'll base this project on the [PlayCanvas Login & Authentication minimal exampl
 
 ### Step 1: Set Up Additional UI
 
-To start, add a two-column horizontal Layout Group with the original UI as one child, and a new Group Element as the second child on the right. Under that we can create one UI button and three labels as shown here:
+To start, add a two-column horizontal Layout Group with the login UI as the first child, and a new Group Element as the second child on the right. In that column we can create one UI button and three labels as shown here:
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
