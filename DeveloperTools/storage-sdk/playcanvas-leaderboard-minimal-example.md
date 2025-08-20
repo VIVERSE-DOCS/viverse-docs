@@ -143,4 +143,4 @@ Public PlayCanvas project: [https://playcanvas.com/project/1380461/overview/vive
 
 Demo scene live on VIVERSE: [https://worlds.viverse.com/xESmRTh](https://worlds.viverse.com/xESmRTh)
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
