@@ -65,7 +65,7 @@ Add a `this.score` property to the `initialize()` lifecycle event, and update it
   }
   
   update() {
-    if (this.hasCheckedForScore) {  // let's check for a saved score before starting
+    if (this.hasCheckedForScore) {  // wait until this flag is set before updating
       this.score++
       this.scoreLabel.element.text = this.score.toString()
     }
