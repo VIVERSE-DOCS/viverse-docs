@@ -80,13 +80,13 @@ If you need to re-publish versions, you will have to re-upload and merge content
 
 After testing your world, you can submit it for approval and publish it for discovery to VIVERSE users.
 
-### Submit For Review
+### A. Submit For Review
 
 Select "Submit for Review" twice to submit the project to the moderation team. Only check the box for iframe support if you would like to iframe the VIVERSE url on other webpages. It typically takes less than 24 hours to review, but you may also DM MikeMorran@HTC on the [VIVERSE Discord](https://discord.gg/viversecreators) to get quick approval.&#x20;
 
 <figure><img src=".gitbook/assets/Screenshot 2025-08-26 at 4.05.14 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
-### Configure World Settings
+### B. Configure World Settings
 
 Navigate to [https://worlds.viverse.com/profile](https://worlds.viverse.com/profile) and scroll down to the "My Worlds" section. Select the kebab menu next to the world and select "World Settings" to navigate to the settings page.
 
