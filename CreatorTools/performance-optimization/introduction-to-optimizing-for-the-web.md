@@ -102,6 +102,8 @@ Native applications are downloaded ahead of launch, making it much easier to ach
 * **Keep assets small** - users have to download assets over their network on each page load. Keeping assets small makes your experience accessible to users with slower internet speeds and speeds up the loading time. The average user has an internet speed of 50 megabits per second (mbps) and each extra second of waiting time increases [bounce rates](https://en.wikipedia.org/wiki/Bounce_rate) by [14%](https://www.tooltester.com/en/blog/website-loading-time-statistics/).
 * **Load in assets as you go** - one benefit of the browser is that assets can be continuously fetched over the network. Rather than loading everything in at once, only download it when you need it.
 * **Show the user something as soon as you can** - users will be visiting your game from a web page, which typically load very quickly. To keep the experience seamless, make sure to render a loading bar while resources are downloading.
+* **Cache assets for future sessions** - modern browsers expose features like IndexedDB and Service Workers that allow developers to store files on a user's device. This enables developers to cache assets on the first launch and load almost instantly on subsequent launches.
+* **Reuse assets where possible** - assets can also be cached in memory and reused while the application is running. We can then clone and modify cached meshes at any time, removing the need to redownload a similar mesh. For instance, we may load a single monster mesh that we color and resize instead of downloading multiple meshes with different colors and sizes.
 
 ### :desktop: :computer: Prepare for cross-platform use :mobile\_phone::goggles:
 
@@ -126,7 +128,7 @@ Running applications in the browser adds some overhead for extra security. Devel
 
 * **Account for WebGL execution overhead** - the browser adds security measures to ensure that APIs like [WebGL](https://registry.khronos.org/webgl/specs/1.0/#ATTRIBS_AND_RANGE_CHECKING) can't be used to run malicious code. This adds some CPU overhead to 3D web applications compared to native applications, reducing the total number of WebGL commands we can execute in a frame. However, once the CPU passes the command to the GPU, rendering performance is largely the same [compared to an OpenGL application](https://docs.unity3d.com/6000.2/Documentation/Manual/webgl-performance.html).
 * **Understand how** [**draw calls**](https://howik.com/understanding-draw-calls) **impact performance, and** [**how to reduce them**](the-principles-of-web-optimization.md#reducing-and-batching-draw-calls) - CPU performance scales with the number of draw calls that occur in each frame. A draw call is a command that the engine sends to the GPU telling it to a draw a series of triangles or pixels. This operation happens quickly on the GPU, but is slow on the CPU, making it advantageous to batch draw calls.
-* **Reduce scene complexity** - You may need to reduce mesh counts, render animations at lower frame rates, and/or remove transparency and reflections.
+* **Reduce scene complexity** - You may need to reduce mesh counts, reduce [polygon counts](https://gamedev.stackexchange.com/questions/82538/why-are-huge-polygon-amounts-bad), reduce [overdraw](https://www.sceneri.com/sceneri-docs-glossar/overdraw/), remove expensive shaders (e.g. water, fire), remove particle effects, remove full-screen post-processing shaders, and/or remove transparency and reflections.
 
 ### :fire\_engine: Select the best engine for the experience
 
