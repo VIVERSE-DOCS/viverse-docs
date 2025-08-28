@@ -97,3 +97,121 @@ There are a few gotchas to keep an eye for:
 * Trying to create an Actor immediately after Matchmaking Client instantiation will result in web socket error. That's why we need to subscribe to `onConnect` event - only then our Client is considered ready
 * You don't have to create an Actor right after the Client is connected. But as you see later, it still has to be done before user attempts creating or joining the Room
 * From now on we're going to use async / await heavily. If you want to refresh... (TODO finish this)
+
+### Step 4: Explore available Rooms and create a new Room
+
+TODO: Write up
+
+```javascript
+// @ts-nocheck
+import { Script, Entity, guid } from 'playcanvas';
+const { viverse } = globalThis;
+
+export class Main extends Script
+{
+    static scriptName = 'Main';
+    
+    initialize () {...}
+    
+    async initMatchClient ()
+    {
+        this.matchClient = await this.playClient.newMatchmakingClient (this.appId);
+        this.matchClient.on ('onRoomListUpdate', (rooms) => console.log (rooms));
+        this.matchClient.on ('onConnect', async () =>
+        {
+            await this.matchClient.setActor ({...});
+            await this.createNewRoom ();
+        });
+    }
+    
+    async createNewRoom ()
+    {
+        const {success, message, room} = await this.matchClient.createRoom
+        ({
+            name: `Some Room Name`, // non-unique room name
+            mode: 'pvp', // any string identifying your game mode
+            minPlayers: 1,
+            maxPlayers: 4,
+            properties: {} // custom room properties, optional
+        });
+        
+        console.log (success, room);
+    }
+}
+```
+
+### Step 5: Full Room lifecycle: create, join and leave the Room
+
+TODO: Write up
+
+<pre class="language-javascript"><code class="lang-javascript">// @ts-nocheck
+import { Script, Entity, guid } from 'playcanvas';
+const { viverse } = globalThis;
+
+export class Main extends Script
+{
+    static scriptName = 'Main';
+    
+    initialize ()
+    {
+        this.appId = 'ajhzug2zwb';
+        this.playClient = new viverse.Play ();
+        
+        // We're exposing ....
+        window.init = this.initMatchClient.bind (this);
+        window.create = this.createRoom.bind (this);
+        window.join = this.joinRoom.bind (this);
+        window.leave = this.leaveRoom.bind (this);
+    }
+    
+    async initMatchClient (username, session)
+    {
+        this.matchClient = await this.playClient.newMatchmakingClient (this.appId);
+<strong>        this.matchClient.on ('onRoomListUpdate', (rooms) => console.log (rooms));
+</strong>        this.matchClient.on ('onRoomActorChange', (actors) => console.log (actors));
+        this.matchClient.on ('onConnect', async () =>
+        {
+            await this.matchClient.setActor
+            ({
+                name: username,
+                session_id: session,
+                properties: {}
+            });
+            
+            console.log (`>>> Matchmaking client:`, this.matchClient);
+            console.log (`>>> Current Actor:`, this.matchClient.currentActor);
+        });
+    }
+    
+    async createRoom (name)
+    {
+        const {success, message, room} = await this.matchClient.createRoom
+        ({
+            name: name,
+            mode: 'pvp',
+            minPlayers: 1,
+            maxPlayers: 4,
+            properties: {}
+        });
+        
+        if (success) console.log (`>>> Created room: ${room.id}`);
+        else console.error (message);
+    }
+    
+    async joinRoom (id)
+    {
+        const {success, message, room} = await this.matchClient.joinRoom (id);
+        
+        if (success) console.log (`>>> Joined room: ${room.id}`);
+        else console.error (message);
+    }
+
+    async leaveRoom ()
+    {
+        const {success, message} = await this.matchClient.leaveRoom ();
+        
+        if (success) console.log (`>>> Left room`);
+        else console.error (message);
+    }
+}
+</code></pre>

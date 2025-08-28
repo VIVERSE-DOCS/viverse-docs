@@ -9,7 +9,7 @@ description: >-
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](../login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`playClient\` instance
 
@@ -27,7 +27,7 @@ The matchmaking and networking APIs must then be initialized individually.
 globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debug);
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **NOTE:** Support for random and ticket-based matchmaking is under development.
 
@@ -62,7 +62,7 @@ matchmakingClient.setActor({
 
 Call `createRoom()` with a configuration object like so:
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -118,7 +118,7 @@ Example code:
 
 Join an existing room by its room ID.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 3.40.05 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-10 at 3.40.05 PM.png" alt=""><figcaption></figcaption></figure>
 
 Example code:
 
@@ -288,55 +288,55 @@ Failed Value:
 
 You can listen to matchmaking events using `matchmakingClient.on(eventName, callback)` . These events help you track lobby status, room lifecycle, and player activity in real time.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.33.28 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.33.28 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onConnect Event
 
 Triggered when the client successfully connects to the SDK.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.42.12 PM.png" alt="" width="348"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.42.12 PM.png" alt="" width="348"><figcaption></figcaption></figure>
 
 ### onJoinedLobby Event
 
 Triggered when client joins the lobby.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.42.57 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.42.57 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onJoinRoom Event
 
 Triggered when the client joins a room.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.43.49 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.43.49 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onRoomListUpdate Event
 
 Triggered when the list of rooms in the lobby is updated.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.48.54 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.48.54 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onRoomActorChange Event
 
 Triggered when the list of actors in the current room changes.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.49.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.49.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onRoomClosed Event
 
 Triggered whe nthe room is successfully closed by the client.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.50.12 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.50.12 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onError Event
 
 Triggered when an error occurs with a client request.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.50.44 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.50.44 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### stateChange Event
 
 Triggered when the client connection state changes.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.51.14 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.51.14 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Multiplayer APIs
 
@@ -344,13 +344,13 @@ Triggered when the client connection state changes.
 
 Before using any Multiplayer APIs, you must:
 
-* Initialize the [Play client instance](./#initialize-the-playclient-instance)
+* Initialize the [Play client instance](matchmaking-and-networking-sdk.md#initialize-the-playclient-instance)
 * Construct a `MultiplayerClient` instance with a valid room ID and app ID
 * Call `init()` to establish the multiplayer session
 
 ### Initialize Multiplayer Client
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 1.53.10 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.53.10 PM.png" alt=""><figcaption></figcaption></figure>
 
 ```
 //initialize multiplayer client instance
@@ -365,7 +365,7 @@ const info = await multiplayerClient.init();
 `MultiplayerClient` is a global class under `play` namespace and is not created via `playClient`. However, Play SDK must still be initialized first.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/play-client-multiplayer-1.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/play-client-multiplayer-1.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Connection Control
 
@@ -417,13 +417,13 @@ The `General` module lets creators send and receive custom messages between peer
 
 Sends message to peers.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.01.00 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.01.00 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### onMessage
 
 Receives message from peers.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.08.41 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.08.41 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### NetworkSync
 
@@ -433,25 +433,25 @@ This module synchronizes real-time position and entity state across players. Thi
 
 Sends my position request to the server.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.10.15 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.10.15 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### updateEntityPosition
 
 Sends entity's position request to the server.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.12.01 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.12.01 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### onNotifyPositionUpdate
 
 Triggered when a user or entity's position or state is updated in the scene.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.12.42 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.12.42 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### onNotifyRemove
 
 Tirggered when a user or an entity is removed from the scene.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.13.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.13.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### ActionSync
 
@@ -465,7 +465,7 @@ Sends an action request to the server for arbitration.
 All parameters must match across clients to be recognized as the same competition event.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.15.35 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.15.35 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### onCompetition
 
@@ -475,7 +475,7 @@ Triggered when a competition result is returned from the server.
 Use this to determine which player won the arbitration and proceed accordingly in your game logic (e.g. only the winner picks up the item).
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.16.52 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.16.52 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Real-time Leaderboard
 
@@ -485,10 +485,10 @@ This module handles real-time score reporting and live leaderboard updates acros
 
 Submits a new score to the real-time leaderboard.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.19.02 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.19.02 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
 #### onLeaderboardUpdate
 
 Triggered when the leaderboard is updated and a new score ranking is available.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-12 at 2.19.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.19.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
