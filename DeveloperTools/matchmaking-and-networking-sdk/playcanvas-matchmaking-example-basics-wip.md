@@ -14,9 +14,13 @@ In order to use VIVERSE SDKs you would need to create a World first and retrieve
 
 > _**NOTE:** VIVERSE SDKs cannot be used with projects published via the PlayCanvas Create SDK extension, which do not have App IDs._
 
+<div><figure><img src="../.gitbook/assets/cr1a (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/cr1b (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+
 ### Step 1: Create a new PlayCanvas project and add the VIVERSE SDK as an external script
 
 Let's create a new blank PlayCanvas project or use an already created one that you have. Go to the SETTINGS > EXTERNAL SCRIPTS and add a new script there: [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs). This will ensure the VIVERSE SDK is loaded first and your PlayCanvas logic has full access to its functionality.
+
+<figure><img src="../.gitbook/assets/cr2.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Step 2: Create a new script and initialize the SDK
 
@@ -175,10 +179,10 @@ Now let's refactor our previous script and prepare 4 essential methods and 2 eve
   async leaveRoom ()
   ```
 * ```javascript
-  this.matchClient.on ('onRoomListUpdate', this.onRoomListUpdate.bind (this));
+  this.matchClient.on ('onRoomListUpdate', this.onRoomListUpdate);
   ```
 * ```javascript
-  this.matchClient.on ('onRoomActorChange', this.onRoomActorChange.bind (this));
+  this.matchClient.on ('onRoomActorChange', this.onRoomActorChange);
   ```
 
 Each of them will be wrapping corresponding SDK method and printing results to the console. Once we have all of them prepared - the easiest way to test it all together is to attach methods to global window object. Here is what the final result could look like:
@@ -284,4 +288,10 @@ Now it's time to test! Launch your PlayCanvas app in two separate tabs and open 
 * In the second tab join this Room by its id:  `await join ('...')` . Observe how the list of Room's Actors is updated in both tabs now
 * Leave current Room in any tab: `await leave ()` , and notice how Room's Actors list is updated again
 
-<div><figure><img src="../.gitbook/assets/mm3a.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm3b.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/mm3a (1).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm3b (1).png" alt=""><figcaption></figcaption></figure></div>
+
+### Final Words
+
+That's it! Now you can use essential Matchmaking functionality from VIVERSE Play SDK in your custom projects. You can list available Rooms, join one or create one, and track players in your current Room.
+
+In the second part of this tutorial we'll revisit our PlayCanvas app and redesign it to be more robust and production-ready. We'll add beautiful UI screens and experiment with async state flow to streamline our development experience and prepare us for more complicated topics in the future.
