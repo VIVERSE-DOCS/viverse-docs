@@ -156,11 +156,35 @@ Here is what's happening:
 * We request SDK to create a new Room for us, with specific parameters. Once the Room is created - we automatically join it, since any Room without Actors is marked empty and deleted immediately
 * After Room is created - our `onRoomListUpdate`  handler prints an updated Rooms List with our new Room included here
 
-### Step 5: Full Room lifecycle: create, join and leave the Room
+That's almost it! In the next and final step we'll learn how to join and leave Rooms, receive updates about Actors in our current Room, and combine it all together into a small convenient test app.
 
-TODO: Write up
+### Step 5: Create, join and leave the Room and receive relevant updates
 
-<pre class="language-javascript"><code class="lang-javascript">// @ts-nocheck
+Now let's refactor our previous script and prepare 4 essential methods and 2 event handlers to work with Matchmaking client:
+
+* ```javascript
+  async initMatchClient (username, session)
+  ```
+* ```javascript
+  async createRoom (name)
+  ```
+* ```javascript
+  async joinRoom (id)
+  ```
+* ```javascript
+  async leaveRoom ()
+  ```
+* ```javascript
+  this.matchClient.on ('onRoomListUpdate', this.onRoomListUpdate.bind (this));
+  ```
+* ```javascript
+  this.matchClient.on ('onRoomActorChange', this.onRoomActorChange.bind (this));
+  ```
+
+Each of them will be wrapping corresponding SDK method and printing results to the console. Once we have all of them prepared - the easiest way to test it all together is to attach methods to global window object. Here is what the final result could look like:
+
+```javascript
+// @ts-nocheck
 import { Script, Entity, guid } from 'playcanvas';
 const { viverse } = globalThis;
 
@@ -173,18 +197,25 @@ export class Main extends Script
         this.appId = 'ajhzug2zwb';
         this.playClient = new viverse.Play ();
         
-        // We're exposing ....
+        // We're exposing our essential methods globally
+        // So we can test all functionality in browser console
+        // Without involving PlayCanvas UI system at this point
+        
         window.init = this.initMatchClient.bind (this);
         window.create = this.createRoom.bind (this);
         window.join = this.joinRoom.bind (this);
         window.leave = this.leaveRoom.bind (this);
     }
     
+    //-----------------------------------------------------------------------------//
+    //          Essential Methods: init cleint, create / join / leave room         //
+    //-----------------------------------------------------------------------------//
+        
     async initMatchClient (username, session)
     {
         this.matchClient = await this.playClient.newMatchmakingClient (this.appId);
-<strong>        this.matchClient.on ('onRoomListUpdate', (rooms) => console.log (rooms));
-</strong>        this.matchClient.on ('onRoomActorChange', (actors) => console.log (actors));
+        this.matchClient.on ('onRoomListUpdate', this.onRoomListUpdate.bind (this));
+        this.matchClient.on ('onRoomActorChange', this.onRoomActorChange.bind (this));
         this.matchClient.on ('onConnect', async () =>
         {
             await this.matchClient.setActor
@@ -229,5 +260,28 @@ export class Main extends Script
         if (success) console.log (`>>> Left room`);
         else console.error (message);
     }
+    
+    //-----------------------------------------------------------------------------//
+    //      Live Updates: all available rooms, all actors in the current room      //
+    //-----------------------------------------------------------------------------//
+    
+    onRoomListUpdate (rooms)
+    {
+        console.log (`::: Room List:`, rooms?.map (room => room.name));
+    }
+    
+    onRoomActorChange (actors)
+    {
+        console.log (`::: Room Actors:`, actors?.map (actor => actor.name));
+    }
 }
-</code></pre>
+```
+
+Now it's time to test! Launch your PlayCanvas app in two separate tabs and open browser console in both of them. Then try the following:
+
+* Instantiate both Matchmaking clients by typing in `await init ('Player A', 'abc123')` and `await init ('Player B', 'qwe456')` respectively
+* In the first tab, request to create a new Room:  `await create ('Room 01')` . It should log back a Room's `id` to you. Observe how the list of available Rooms is updated in both tabs
+* In the second tab join this Room by its id:  `await join ('...')` . Observe how the list of Room's Actors is updated in both tabs now
+* Leave current Room in any tab: `await leave ()` , and notice how Room's Actors list is updated again
+
+<div><figure><img src="../.gitbook/assets/mm3a.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm3b.png" alt=""><figcaption></figcaption></figure></div>
