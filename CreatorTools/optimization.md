@@ -3,6 +3,7 @@ description: >-
   The page outlines the general optimization and design recommendations for all
   creators publishing on VIVERSE, regardless of which platform they are
   publishing from.
+hidden: true
 ---
 
 # Optimizing for the Web
