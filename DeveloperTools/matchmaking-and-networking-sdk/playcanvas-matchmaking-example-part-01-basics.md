@@ -6,7 +6,7 @@ hidden: true
 noIndex: true
 ---
 
-# PlayCanvas Matchmaking example: Basics (WIP)
+# PlayCanvas Matchmaking example: Part 01 - Basics
 
 ### Pre-requisite: Create a World and App ID in VIVERSE Studio
 
@@ -16,7 +16,7 @@ In order to use VIVERSE SDKs you would need to create a World first and retrieve
 
 <div><figure><img src="../.gitbook/assets/cr1a (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/cr1b (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-### Step 1: Create a new PlayCanvas project and add the VIVERSE SDK as an external script
+### Step 1: Setup PlayCanvas project and add VIVERSE SDK
 
 Let's create a new blank PlayCanvas project or use an already created one that you have. Go to the SETTINGS > EXTERNAL SCRIPTS and add a new script there: [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs). This will ensure the VIVERSE SDK is loaded first and your PlayCanvas logic has full access to its functionality.
 
@@ -24,11 +24,11 @@ Let's create a new blank PlayCanvas project or use an already created one that y
 
 ### Step 2: Create a new script and initialize the SDK
 
-For the purpose of this tutorial we will be using recently introduced [ESM scripts](https://developer.playcanvas.com/user-manual/scripting/fundamentals/esm-scripts/), although you can still follow it with the [Classic scripting](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/classic/) as well. Let's start with creating a new script called `main.mjs` and use built-in `initialize()` method to instantiate Play SDK client:
+For the purpose of this tutorial we will be using recently introduced [ESM scripts](https://developer.playcanvas.com/user-manual/scripting/fundamentals/esm-scripts/), although you can still follow it with the [Classic scripting](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/classic/) as well. Let's start with creating a new script called `main.mjs` and use built-in `initialize()` method to [instantiate Play SDK client](../matchmaking-and-networking-sdk.md#initialize-the-playclient-instance):
 
 ```javascript
 // @ts-nocheck
-import { Script, Entity, guid } from 'playcanvas';
+import { Script } from 'playcanvas';
 
 // If Viverse SDK is set up correctly
 // `viverse`should be available on window / globalThis
@@ -54,15 +54,15 @@ export class Main extends Script
 If you're new to PlayCanvas Editor and scripting system - we would strongly recommend consulting with official [PlayCanvas Scripting Guide](https://developer.playcanvas.com/user-manual/scripting/) before going any further. From now on we assume you're familiar with how scripts are added to the project, parsed and attached to Entities.
 {% endhint %}
 
-Congrats with a great start! Now if you launch your PlayCanvas project — you will see Play SDK client initialized and logged into the console.
+Congrats with a great start! Now if you launch your PlayCanvas project — you will see Play SDK client initialized and logged into the console. Please note that App ID is not required at this point, but we will definitely need it later!
 
 ### Step 3: Initialize Matchmaking client and setup an Actor
 
-The Play SDK client is just a starting point and doesn't do anything on its own. In order to make use of its matchmaking features we would need to initialize Matchmaking client first and associate some Actor with our user:
+The Play SDK client is just a starting point and doesn't do anything on its own. In order to make use of its matchmaking features we would need to [initialize Matchmaking client](../matchmaking-and-networking-sdk.md#matchmaking-api) first and [associate some Actor](../matchmaking-and-networking-sdk.md#setup-actor-info) with our user:
 
 ```javascript
 // @ts-nocheck
-import { Script, Entity, guid } from 'playcanvas';
+import { Script } from 'playcanvas';
 const { viverse } = globalThis;
 
 export class Main extends Script
@@ -101,22 +101,22 @@ export class Main extends Script
 There are a few gotchas to keep an eye for:
 
 * Play SDK doesn't require users to be logged in with VIVERSE
-* Trying to create an Actor immediately after Matchmaking Client instantiation will result in web socket error. That's why we need to subscribe to `onConnect` event - only then our Client is considered ready
-* You don't have to create an Actor right after the Client is connected. But as you see later, it still has to be done before user attempts creating or joining the Room
+* Trying to create an Actor immediately after Matchmaking Client instantiation will result in web socket error. That's why we need to subscribe to `onConnect` [event](../matchmaking-and-networking-sdk.md#onconnect-event) - only then our Client is considered ready
+* You don't have to create an Actor right after the Client is connected. But as you see later, it still has to be done before creating or joining the Room
 
 {% hint style="info" %}
 Heads up! From now on we’ll be relying on **async / await** a lot. If you’d like a quick recap, please read [Async / Await JS basics](https://javascript.info/async-await)
 {% endhint %}
 
-### Step 4: Create a new Room and receive Room List updates
+### Step 4: Create a new Room and subscribe to Room List updates
 
-Now that we have Matchmaking client instantiated and Actor set up - we can create or join a Room. The Room is convenient abstraction that groups multiple Actors together for a shared game session. Typical gameplay events like updated player position or objects collision can only be sent and received by Actors within their currently shared Room. Actors from other Rooms would have no means to participate in our game session unless they leave their Room and join ours.
+Now that we have Matchmaking client instantiated and Actor set up - we can create or join a Room. The Room is convenient abstraction that groups multiple Actors together for a shared game session. Typical gameplay events like updated player position or object collision can only be sent and received by Actors within their currently shared Room. Actors from other Rooms have no means to participate in our game session unless they leave their Room and join ours.
 
-Let's start with a simple Room creation and subscribing to `onRoomListUpdate` event. For the sake of this example we create new Room automatically once Matchmaking client is ready:
+Let's start with a simple Room creation and subscribing to `onRoomListUpdate` event. For the sake of this example we [create new Room](../matchmaking-and-networking-sdk.md#create-and-configure-a-room) automatically once Matchmaking client is ready:
 
 ```javascript
 // @ts-nocheck
-import { Script, Entity, guid } from 'playcanvas';
+import { Script } from 'playcanvas';
 const { viverse } = globalThis;
 
 export class Main extends Script
@@ -156,11 +156,11 @@ export class Main extends Script
 
 Here is what's happening:
 
-* Once Matchmaking client is initilialized - we immediately receive `onRoomListUpdate` with the current list of available Rooms. In our case it's empty, but it's fine
-* We request SDK to create a new Room for us, with specific parameters. Once the Room is created - we automatically join it, since any Room without Actors is marked empty and deleted immediately
+* Once Matchmaking client is initialized - we immediately receive `onRoomListUpdate` [event](../matchmaking-and-networking-sdk.md#onroomlistupdate-event) with the current list of available Rooms. In our case it's empty, but it's fine
+* We request SDK to [create a new Room](../matchmaking-and-networking-sdk.md#create-and-configure-a-room) for us, with specific parameters. Once the Room is created - we automatically join it, since any Room without Actors is marked empty and deleted immediately
 * After Room is created - our `onRoomListUpdate`  handler prints an updated Rooms List with our new Room included here
 
-That's almost it! In the next and final step we'll learn how to join and leave Rooms, receive updates about Actors in our current Room, and combine it all together into a small convenient test app.
+That's almost it! In the next and final step we'll learn how to [join](../matchmaking-and-networking-sdk.md#join-room-by-roomid) and [leave](../matchmaking-and-networking-sdk.md#leave-room) Rooms, [receive updates about Actors](../matchmaking-and-networking-sdk.md#onroomactorchange-event) in our current Room, and combine it all together into a small convenient test app.
 
 ### Step 5: Create, join and leave the Room and receive relevant updates
 
@@ -189,7 +189,7 @@ Each of them will be wrapping corresponding SDK method and printing results to t
 
 ```javascript
 // @ts-nocheck
-import { Script, Entity, guid } from 'playcanvas';
+import { Script } from 'playcanvas';
 const { viverse } = globalThis;
 
 export class Main extends Script
@@ -212,7 +212,7 @@ export class Main extends Script
     }
     
     //-----------------------------------------------------------------------------//
-    //          Essential Methods: init cleint, create / join / leave room         //
+    //                Essential Methods: init, create, join, leave                 //
     //-----------------------------------------------------------------------------//
         
     async initMatchClient (username, session)
@@ -266,7 +266,7 @@ export class Main extends Script
     }
     
     //-----------------------------------------------------------------------------//
-    //      Live Updates: all available rooms, all actors in the current room      //
+    //                      Event Handlers: rooms and actors                       //
     //-----------------------------------------------------------------------------//
     
     onRoomListUpdate (rooms)
@@ -284,14 +284,14 @@ export class Main extends Script
 Now it's time to test! Launch your PlayCanvas app in two separate tabs and open browser console in both of them. Then try the following:
 
 * Instantiate both Matchmaking clients by typing in `await init ('Player A', 'abc123')` and `await init ('Player B', 'qwe456')` respectively
-* In the first tab, request to create a new Room:  `await create ('Room 01')` . It should log back a Room's `id` to you. Observe how the list of available Rooms is updated in both tabs
+* In the first tab, request to create a new Room:  `await create ('Room 01')` . It should log back Room `id` to you. Observe how the list of available Rooms is updated in both tabs
 * In the second tab join this Room by its id:  `await join ('...')` . Observe how the list of Room's Actors is updated in both tabs now
 * Leave current Room in any tab: `await leave ()` , and notice how Room's Actors list is updated again
 
 <div><figure><img src="../.gitbook/assets/mm3a (1).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm3b (1).png" alt=""><figcaption></figcaption></figure></div>
 
-### Final Words
+### Wrapping up
 
-That's it! Now you can use essential Matchmaking functionality from VIVERSE Play SDK in your custom projects. You can list available Rooms, join one or create one, and track players in your current Room.
+And that's it! Now you can use essential Matchmaking functionality from VIVERSE Play SDK in your custom projects. You can list available Rooms, join one or create one, and track Actors in your current Room.
 
-In the second part of this tutorial we'll revisit our PlayCanvas app and redesign it to be more robust and production-ready. We'll add beautiful UI screens and experiment with async state flow to streamline our development experience and prepare us for more complicated topics in the future.
+In the second part of this tutorial we'll revisit our PlayCanvas app and redesign it to be more robust and production-ready. We'll add beautiful UI screens and experiment with async state flow to streamline our development process and prepare us for more complicated topics in the future.
