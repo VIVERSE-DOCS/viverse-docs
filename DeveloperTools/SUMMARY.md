@@ -8,6 +8,7 @@
   * [PlayCanvas Leaderboard minimal example](leaderboard-sdk/playcanvas-leaderboard-minimal-example.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
   * [PlayCanvas Matchmaking example: Part 01 - Basics](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-01-basics.md)
+  * [PlayCanvas Matchmaking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-02-advanced.md)
 * [Storage SDK](storage-sdk.md)
   * [PlayCanvas Storage minimal example](storage-sdk/playcanvas-storage-minimal-example.md)
 * [Change Log](CHANGELOG.md)
