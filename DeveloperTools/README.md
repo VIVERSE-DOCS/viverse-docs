@@ -20,7 +20,7 @@ While we do not require developers use these tools — and while we also make it
 
 ## SDK Versioning
 
-Latest: [v1.3.1](https://www.viverse.com/static-assets/viverse-sdk/1.3.1/index.umd.cjs) (2025-08-18)
+Latest: [v1.3.2](https://www.viverse.com/static-assets/viverse-sdk/1.3.2/index.umd.cjs) (2025-09-03)
 
 [Change log](CHANGELOG.md)
 
