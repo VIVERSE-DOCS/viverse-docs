@@ -83,16 +83,7 @@ async function checkAuthentication() {
 
 #### Login Flow
 
-Now that we're checking auth status, let's add some Element UI components to our demo scene to prompt the login process if they are logged out.
-
-```javascript
-// Login with VIVERSE Worlds
-function loginWithViverse() {
-  if (globalThis.viverseClient) {
-    globalThis.viverseClient.loginWithWorlds();
-  }
-}
-```
+Now that we're checking auth status, let's add some UI to our demo scene to prompt the login process if they are logged out.
 
 #### Dynamic UI Creation
 
