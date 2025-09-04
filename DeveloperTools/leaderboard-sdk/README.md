@@ -150,9 +150,31 @@ Retrieves leaderboard data based on the provided configuration.
 
 ***
 
+### `getGuestLeaderboard(appID, config)`
+
+Retrieves leaderboard data based on the provided configuration.
+
+| Parameter | Type     | Description                                       | Required |
+| --------- | -------- | ------------------------------------------------- | -------- |
+| `appID`   | `string` | Your application's unique ID from VIVERSE Studio. | Yes      |
+| `config`  | `object` | A configuration object for the leaderboard query. | Yes      |
+
+**Leaderboard Config Object**
+
+| Property       | Type      | Description                                                                                     |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------- |
+| `name`         | `string`  | The name of the leaderboard to retrieve.                                                        |
+| `range_start`  | `number`  | The starting rank for the query.                                                                |
+| `range_end`    | `number`  | The ending rank for the query.                                                                  |
+| `region`       | `string`  | The region for the leaderboard. Can be `"global"` or `"local"`.                                 |
+| `time_range`   | `string`  | The time range for the leaderboard. e.g., `"alltime"`.                                          |
+| `country_code` | `string`  | The language of the leaderboard name. ISO 3166-1 alpha-2 country code, now is only support 'US' |
+
+***
+
 ### Leaderboard Response Object
 
-The `getLeaderboard` method returns a `Promise` that resolves to an object with the following structure.
+The `getLeaderboard` and `getGuestLeaderboard` methods returns a `Promise` that resolves to an object with the following structure.
 
 | Property      | Type                  | Description                                                |
 | ------------- | --------------------- | ---------------------------------------------------------- |
