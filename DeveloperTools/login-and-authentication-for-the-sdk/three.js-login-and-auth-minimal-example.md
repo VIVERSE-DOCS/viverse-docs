@@ -85,8 +85,6 @@ async function checkAuthentication() {
 
 Now that we're checking auth status, let's add some UI to our demo scene to prompt the login process if they are logged out.
 
-#### Dynamic UI Creation
-
 ```javascript
 function createAuthUI() {
   // Create authentication status element
