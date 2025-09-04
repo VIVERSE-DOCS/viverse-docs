@@ -1,30 +1,21 @@
 ---
 description: >-
-  Learn how to clone a three.js example project then import the VIVERSE SDK to
-  add login and authentication features
+  Learn how to extend our three.js driving project with the VIVERSE Storage SDK
+  to add persistent data
+hidden: true
 ---
 
-# three.js Login & Auth minimal example
+# three.js Storage minimal example
 
-This tutorial demonstrates how to extend a basic three.js example project with VIVERSE SDK functionality, creating an engaging collectible driving game with Rapier physics.
+Our last tutorial demonstrated how to extend a basic three.js example project with VIVERSE SDK functionality, creating an engaging collectible driving game with Rapier physics.
 
 In this initial tutorial, we'll add the Authentication SDK, as well as several gameplay features that we'll continue to build on in future steps with the Storage and Leaderboard SDK examples.
 
-<figure><img src="../.gitbook/assets/image (27).png" alt="" width="563"><figcaption></figcaption></figure>
+### Pre-requisite #1: Download the VIVERSE Login & Auth three.js minimal example
 
-### Pre-requisite #1: Create a World and App ID in VIVERSE Studio
+Start by downloading the . This example provides a complete three.js scene setup with Rapier physics tied to a functional vehicle controller with WASD controls — drive too fast before turning and you can fully flip over, providing a fun challenge driven by Rapier's realistic physics simulation.
 
-All SDK usage requires an App ID tied to a specific VIVERSE World, which can be created via [VIVERSE Studio](https://studio.viverse.com/upload). This process is described in detail in [our documentation on VIVERSE Studio](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/publishing-with-your-viverse-account) — but simply create a new app and copy its App ID to get started.
 
-> _**NOTE:** VIVERSE SDKs cannot be used with projects published via the PlayCanvas Create SDK extension, which do not have App IDs._
-
-<figure><img src="../.gitbook/assets/Screenshot 2025-08-07 144325.png" alt="" width="563"><figcaption></figcaption></figure>
-
-### Pre-requisite #2: Clone the three.js Vehicle Controller Example
-
-Start by copying [the official three.js Rapier vehicle controller sample](https://github.com/mrdoob/three.js/blob/master/examples/physics_rapier_vehicle_controller.html) as your foundation. This example provides a complete three.js scene setup with Rapier physics tied to a functional vehicle controller with WASD controls — drive too fast before turning and you can fully flip over, providing a fun challenge driven by Rapier's realistic physics simulation.
-
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 1: Add VIVERSE SDK Integration
 
@@ -39,7 +30,7 @@ Building on the base three.js vehicle controller example, we'll now add VIVERSE 
 
 #### Client Initialization
 
-This process is described generically in our documentation, [**Login & Authentication for the SDK**](./), but here is how it would apply to a modular three.js script:
+This process is described generically in our documentation, [**Login & Authentication for the SDK**](../login-and-authentication-for-the-sdk/), but here is how it would apply to a modular three.js script:
 
 ```javascript
 // Initialize VIVERSE client

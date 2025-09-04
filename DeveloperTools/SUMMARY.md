@@ -12,6 +12,7 @@
   * [PlayCanvas Matchmaking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-02-advanced.md)
 * [Storage SDK](storage-sdk.md)
   * [PlayCanvas Storage minimal example](storage-sdk/playcanvas-storage-minimal-example.md)
+  * [three.js Storage minimal example](storage-sdk/three.js-storage-minimal-example.md)
 * [Change Log](CHANGELOG.md)
   * [September 2025](change-log/2025-09.md)
     * [v1.3.2 - September 3](change-log/2025-09/v1.3.2.md)
