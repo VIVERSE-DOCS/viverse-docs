@@ -12,9 +12,20 @@ noIndex: true
 
 TODO
 
-### Chapter 1: \[Async state flow, refactoring]
+### Chapter 1: Introduction to Async State Flow
 
-TODO
+In Part 01 of this tutorial we ended up devising 4 essential methods to work with our Matchmaking Client — `initMatchClient`, `createRoom`, `joinRoom` and `leaveRoom`. But as you might notice, due to the nature of networking each of them is not instantaneous — it takes time to send requests to remote Play SDK servers, receive updates from them, and so on.
+
+And as responsible developer you might want to handle this asynchronicity gracefully. What if you want to display a Loading screen while \[...]
+
+<figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
+
+* `Init State` : initialize Matchmaking client, setup user's Actor
+* `Lobby State` : show available Rooms, handle user request to Create or Join the Room
+* &#x20;`Create State` : ask SDK to create the Room, handle response
+* &#x20;`Join State` : ask SDK to join the Room, handle response
+* &#x20; `Room State` : show Actors currently in the Room,  handle user request to Leave the Room
+* &#x20;`Leave State` : ask SDK to leave the Room, handle response
 
 ```javascript
 // @ts-nocheck
