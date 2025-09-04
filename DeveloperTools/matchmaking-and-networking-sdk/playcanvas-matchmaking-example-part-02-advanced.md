@@ -12,11 +12,21 @@ noIndex: true
 
 TODO
 
-### Chapter 1: Introduction to Async State Flow
+### Chapter 1: App architecture and introduction to Async State Flow
 
-In Part 01 of this tutorial we ended up devising 4 essential methods to work with our Matchmaking Client — `initMatchClient`, `createRoom`, `joinRoom` and `leaveRoom`. But as you might notice, due to the nature of networking each of them is not instantaneous — it takes time to send requests to remote Play SDK servers, receive updates from them, and so on.
+#### Introduction
 
-And as responsible developer you might want to handle this asynchronicity gracefully. What if you want to display a Loading screen while \[...]
+In [Part 01](playcanvas-matchmaking-example-part-01-basics.md#step-5-create-join-and-leave-the-room-and-receive-relevant-updates) of this tutorial we ended up devising 4 essential methods to work with our Matchmaking Client — `initMatchClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 useful event listeners —  `onRoomListUpdate` and `onRoomActorChange` — to receive live updates when a new Room is created or when current room's Actor List is updated.
+
+And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do I know when user enters the Room after leaving the Lobby, and vice versa? What if I want to show special Loading screen while SDK is initializing? What if I want some code to execute exactly once each time user enters the Room?
+
+In order to prepare our application for all this extra complexity we might want to refactor current code into something more robust and resilient. \[And that's where State Flow might be an interesting topic to discuss.]
+
+#### Heading
+
+First, let's introduce a concept of Application State - a single point in discreet space of all possible states that can meaningfully describe our application.
+
+\[State -> State via action and ...]
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
