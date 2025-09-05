@@ -185,6 +185,96 @@ Alright, time to give a test run to this new refactored architecture! As previou
 
 
 
-### Chapter 2: \[Integrating PlayCanvas UI system]
+### Chapter 2: Integrating PlayCanvas UI system
 
 TODO
+
+<figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
+
+```javascript
+import { Script, Entity, guid } from 'playcanvas';
+const { viverse } = globalThis;
+
+/** @interface */
+class Screens
+{
+    /** @title Loading @type {Entity} */ loading;
+    /** @title Lobby @type {Entity} */  lobby;
+    /** @title Room @type {Entity} */   room;
+}
+
+export class Main extends Script
+{
+    static scriptName = 'Main';
+
+    /** @attribute @title Screens @type {Screens} */  screens;
+
+    initialize () {...}
+    
+    //----------------------------------------------------------------------------//
+    //                                 State Flow                                 //
+    //----------------------------------------------------------------------------//
+    
+    async gotoInitState ()
+    {
+        this.showScreen ('loading');
+        // ... rest of the code
+        // [Initialization complete] -> Lobby State
+    };
+
+    async gotoLobbyState ()
+    {
+        this.showScreen ('lobby');
+        // ... rest of the code
+        // [On user action] -> Create State | Join State
+    };
+
+    async gotoCreateState ()
+    {
+        this.showScreen ('loading');
+        // ... rest of the code
+        // [Room creation complete] -> Room State
+    };
+
+    async gotoJoinState (id)
+    {
+        this.showScreen ('loading');
+        // ... rest of the code
+        // [Room joining complete] -> Room State
+    };
+
+    async gotoRoomState ()
+    {
+        this.showScreen ('room');
+        // ... rest of the code
+        // [On user action] -> Leave State
+    };
+
+    async gotoLeaveState ()
+    {
+        this.showScreen ('loading');
+        // ... rest of the code
+        // [Room leaving complete] -> Lobby State
+    };
+
+    //----------------------------------------------------------------------------//
+    //                                   Utils                                    //
+    //----------------------------------------------------------------------------//
+
+    randomUsername ()
+    {
+        let username = '';
+        username += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' [Math.floor (Math.random () * 26)];
+        for (let i = 0; i < 3; i++)
+            username += '0123456789' [Math.floor (Math.random () * 10)];
+        return username;
+    }
+    
+    showScreen (id)
+    {
+        this.screens.loading.enabled = (id === 'loading');
+        this.screens.lobby.enabled = (id === 'lobby');
+        this.screens.room.enabled = (id === 'room');
+    }
+}
+```
