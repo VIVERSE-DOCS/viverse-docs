@@ -278,3 +278,174 @@ export class Main extends Script
     }
 }
 ```
+
+### Chapter 3: Populating UI elements and wiring buttons to user actions
+
+TODO
+
+<figure><img src="../.gitbook/assets/mm6.png" alt=""><figcaption></figcaption></figure>
+
+```javascript
+// @ts-nocheck
+import { Script, Entity, guid } from 'playcanvas';
+const { viverse } = globalThis;
+
+/** @interface */
+class Screens
+{
+    /** @title Loading @type {Entity} */ loading;
+    /** @title Lobby @type {Entity} */  lobby;
+    /** @title Room @type {Entity} */   room;
+}
+
+/** @interface */
+class Buttons
+{
+    /** @title Create @type {Entity} */ create;
+    /** @title Leave @type {Entity} */  leave;
+    /** @title Join @type {Entity[]} */ join;
+}
+
+/** @interface */
+class Elements
+{
+    /** @title User Name @type {Entity} */  username;
+    /** @title Room Name @type {Entity} */  roomname;
+    /** @title Player Count @type {Entity} */ counter;
+}
+
+export class Main extends Script
+{
+    static scriptName = 'Main';
+
+    /** @attribute @title Screens @type {Screens} */  screens;
+    /** @attribute @title Buttons @type {Buttons} */  buttons;
+    /** @attribute @title Elements @type {Elements} */  elements;
+
+    initialize () {...}
+
+    //----------------------------------------------------------------------------//
+    //                                 State Flow                                 //
+    //----------------------------------------------------------------------------//
+    
+    async gotoInitState ()
+    {
+        this.showScreen ('loading');
+
+        // ... rest of the code
+        // [Initialization complete] -> Lobby State
+    }
+
+    async gotoLobbyState ()
+    {
+        this.showScreen ('lobby');
+        
+        // Display current username in Lobby screen
+        this.elements.username.element.text = `Guest ${this.username}`;
+        
+        // Wire Create button to switch app state to Create
+        this.buttons.create.element.off ('click');
+        this.buttons.create.element.on ('click', async () =>
+        {
+            await this.gotoCreateState ();
+        });
+
+        // Update Join buttons each time the Room List is updated
+        // Wire each Join button to Join state with respective room id
+        this.hideJoinButtons ();
+        this.matchClient.on ('onRoomListUpdate', (rooms) =>
+        {
+            this.showJoinButtons (rooms, async (room) =>
+            {
+                await this.gotoJoinState (room.id);
+            });
+        });
+    }
+
+    async gotoCreateState ()
+    {
+        this.showScreen ('loading');
+        
+        // ... rest of the code
+        // [Room creation complete] -> Room State
+    }
+
+    async gotoJoinState (id)
+    {
+        this.showScreen ('loading');
+        
+        // ... rest of the code
+        // [Room joining complete] -> Room State
+    }
+
+    async gotoRoomState ()
+    {
+        this.showScreen ('room');
+
+        // Display current room name in Room Screen
+        this.elements.roomname.element.text = this.matchClient.currentRoom.name;
+        
+        // Update player counter each time the Actor List is changed
+        this.matchClient.on ('onRoomActorChange', (actors) =>
+        {
+            this.elements.counter.element.text = `${actors.length}  PLAYER`;
+            this.elements.counter.element.text += actors.length > 1 ? 'S' : '';
+        });
+
+        // Wire Leave button to switch app state to Leave
+        this.buttons.leave.element.off ('click');
+        this.buttons.leave.element.on ('click', async () =>
+        {
+            await this.gotoLeaveState ();
+        });
+    }
+    
+    async gotoLeaveState ()
+    {
+        this.showScreen ('loading');
+
+        // ... rest of the code
+        // [Room leaving complete] -> Lobby State
+    }
+
+    //----------------------------------------------------------------------------//
+    //                                   Utils                                    //
+    //----------------------------------------------------------------------------//
+    
+    randomUsername () {...}
+
+    showScreen (id) {...}
+
+    hideJoinButtons ()
+    {
+        for (let button of this.buttons.join)
+            button.enabled = false;
+    }
+
+    showJoinButtons (rooms, callback)
+    {
+        this.hideJoinButtons ();
+
+        for (let i = 0; i < rooms.length; i++)
+        {
+            let room = rooms[i];
+            let button = this.buttons.join[i];
+            
+            // For simplicity our Lobby screen has only 4 Join Buttons instantiated
+            // So only first 4 Rooms will be parsed and available for joining
+            // The 5th and subsequent Rooms will be ignored
+            
+            if (button)
+            {
+                button.enabled = true;
+                button.findByName ('Room Name').element.text = room.name;
+                button.findByName ('Counter').element.text = room.actors.length;
+
+                button.element.off ('click');
+                button.element.on ('click', async () => await callback (room));
+            }
+        }
+    }
+}
+
+```
