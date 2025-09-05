@@ -18,129 +18,28 @@ TODO
 
 In [Part 01](playcanvas-matchmaking-example-part-01-basics.md#step-5-create-join-and-leave-the-room-and-receive-relevant-updates) of this tutorial we ended up devising 4 essential methods to work with our Matchmaking Client — `initMatchClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 useful event listeners —  `onRoomListUpdate` and `onRoomActorChange` — to receive live updates when a new Room is created or when current room's Actor List is updated.
 
-And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do I know when user enters the Room after leaving the Lobby, and vice versa? What if I want to show special Loading screen while SDK is initializing? What if I want some code to execute exactly once each time user enters the Room?
+And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do we know when user enters the Room after leaving the Lobby, and vice versa? What if we want to show special Loading screen every time a new SDK request is being made? What if we want some code to execute only once each time user enters the Room?
 
 In order to prepare our application for all this extra complexity we might want to refactor current code into something more robust and resilient. \[And that's where State Flow might be an interesting topic to discuss.]
 
 #### Heading
 
-First, let's introduce a concept of Application State - a single point in discreet space of all possible states that can meaningfully describe our application.
+First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, and its current State is \[inert on its own] — it switches to another State only when certain conditions are met. These conditions can be \[...]
 
-\[State -> State via action and ...]
+Let's define 6 distinct States our application can take, along with \[...functionality]:
+
+* `Init State` : initialize Matchmaking client, setup user's Actor, go to Lobby State
+* `Lobby State` : show available Rooms, handle user request to Create or Join the Room
+* &#x20;`Create State` : ask SDK to create the Room, handle response, go to Room State
+* &#x20;`Join State` : ask SDK to join the Room, handle response, go to Room State
+* &#x20; `Room State` : show Actors currently in the Room,  handle user request to Leave the Room
+* &#x20;`Leave State` : ask SDK to leave the Room, handle response, back to Lobby State
+
+Here is a State Flow graph:
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
-* `Init State` : initialize Matchmaking client, setup user's Actor
-* `Lobby State` : show available Rooms, handle user request to Create or Join the Room
-* &#x20;`Create State` : ask SDK to create the Room, handle response
-* &#x20;`Join State` : ask SDK to join the Room, handle response
-* &#x20; `Room State` : show Actors currently in the Room,  handle user request to Leave the Room
-* &#x20;`Leave State` : ask SDK to leave the Room, handle response
 
-```javascript
-// @ts-nocheck
-import { Script, guid } from 'playcanvas';
-const { viverse } = globalThis;
-
-export class Main extends Script
-{
-    static scriptName = 'Main';
-
-    initialize ()
-    {
-        this.appId = 'ajhzug2zwb'; // replace with your App ID
-        this.username = 'A123';
-        this.playClient = new viverse.Play ();
-
-        // We're exposing these 3 actions to global window object 
-        // So we can create / join / leave the Room via browser console
-        // Without setting up PlayCanvas UI at this point
-        
-        window.create = this.gotoCreateState.bind (this);
-        window.join = this.gotoJoinState.bind (this);
-        window.leave = this.gotoLeaveState.bind (this);
-        
-        this.gotoInitState ();
-    }
-
-    //----------------------------------------------------------------------------//
-    //                                 State Flow                                 //
-    //----------------------------------------------------------------------------//
-    //          INIT -> LOBBY -> CREATE / JOIN -> ROOM -> LEAVE -> LOBBY          //
-    //----------------------------------------------------------------------------//
-
-    async gotoInitState ()
-    {
-        console.log ('>>> Username:', this.username);
-        console.log ('>>> Init matchmaking...');
-
-        this.matchClient = await this.playClient.newMatchmakingClient (this.appId);
-        this.matchClient.on ('onConnect', async () =>
-        {
-            await this.matchClient.setActor
-            ({
-                name: this.username,
-                session_id: guid.create (), // unique random string
-                properties: {}
-            });
-
-            await this.gotoLobbyState ();
-        });
-    };
-
-    async gotoLobbyState ()
-    {
-        console.log ('>>> In the Lobby');
-        
-        // Waiting for creating or joining the Room via console
-        // >.. await create () OR await join ('...')
-    };
-
-    async gotoCreateState ()
-    {
-        console.log ('>>> Creating room...');
-
-        let {success} = await this.matchClient.createRoom
-        ({
-            name: `${this.username}'s Room`, mode: 'pvp',
-            minPlayers: 1, maxPlayers: 4, properties: {}
-        });
-
-        if (success) await this.gotoRoomState ();
-        else await this.gotoLobbyState ();
-    };
-
-    async gotoJoinState (id)
-    {
-        console.log ('>>> Joining room...');
-
-        let {success} = await this.matchClient.joinRoom (id);
-
-        if (success) await this.gotoRoomState ();
-        else await this.gotoLobbyState ();
-    };
-
-    async gotoRoomState ()
-    {
-        console.log ('>>> In the Room:', this.matchClient.currentRoom.id);
-        
-        // Waiting for leaving the Room via console
-        // >.. await leave ()
-    };
-
-    async gotoLeaveState ()
-    {
-        console.log ('>>> Leaving room...');
-
-        await this.matchClient.leaveRoom ();
-        await this.gotoLobbyState ();
-    };
-}
-```
-
-### Chapter 2: \[Further improvements and live updates]
-
-TODO
 
 ```javascript
 // @ts-nocheck
@@ -179,7 +78,11 @@ export class Main extends Script
         console.log ('>>> Username:', this.username);
         console.log ('>>> Init matchmaking...');
 
+        // NOTE: Matchmaking Client has only .on() method to subscribe to events
+        // We implement our own .off() to make our code look sleeker later on
+        
         this.matchClient = await this.playClient.newMatchmakingClient (this.appId);
+        this.matchClient.off = (event) => this.matchClient.eventListeners.delete (event);
         this.matchClient.on ('onConnect', async () =>
         {
             await this.matchClient.setActor
@@ -191,12 +94,6 @@ export class Main extends Script
 
             await this.gotoLobbyState ();
         });
-
-        // IMPORTANT!
-        // Matchmaking Client has .on() method to subscribe to events
-        // But as of v1.3 it doesn't have .off() method to unsubscribe from them
-        // So we implement our own .off() to make our code look better later on
-        this.matchClient.off = (event) => this.matchClient.eventListeners.delete (event);
     };
 
     async gotoLobbyState ()
@@ -208,7 +105,8 @@ export class Main extends Script
             console.log (`::: Existing Rooms:`, rooms.map (room => room.id))));
         
         // Waiting for creating or joining the Room via console
-        // >.. await create () OR await join ('...')
+        // >.. await create ()
+        // >.. await join ('...')
     };
 
     async gotoCreateState ()
@@ -279,6 +177,14 @@ export class Main extends Script
 }
 ```
 
-### Chapter 3: \[Integrating PlayCanvas UI system]
+#### Testing
+
+Alright, time to give a test run to this new refactored architecture! As previously, let's launch our PlayCanvas app in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
+
+<div><figure><img src="../.gitbook/assets/mm4a.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm4b.png" alt="" width="375"><figcaption></figcaption></figure></div>
+
+
+
+### Chapter 2: \[Integrating PlayCanvas UI system]
 
 TODO
