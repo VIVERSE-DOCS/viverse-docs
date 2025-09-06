@@ -16,17 +16,19 @@ TODO
 
 #### Introduction
 
-In [Part 01](playcanvas-matchmaking-example-part-01-basics.md#step-5-create-join-and-leave-the-room-and-receive-relevant-updates) of this tutorial we ended up devising 4 essential methods to work with our Matchmaking Client — `initMatchClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 useful event listeners —  `onRoomListUpdate` and `onRoomActorChange` — to receive live updates when a new Room is created or when current room's Actor List is updated.
+In [Part 01](playcanvas-matchmaking-example-part-01-basics.md#step-5-create-join-and-leave-the-room-and-receive-relevant-updates) of this tutorial we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors.
 
-And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do we know when user enters the Room after leaving the Lobby, and vice versa? What if we want to show special Loading screen every time a new SDK request is being made? What if we want some code to execute only once each time user enters the Room?
+/\*\*\*\* And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do we know when user enters the Room after leaving the Lobby, and vice versa? What if we want to show special Loading screen every time a new SDK request is being made? What if we want some code to execute only once each time user enters the Room?
 
-In order to prepare our application for all this extra complexity we might want to refactor current code into something more robust and resilient. \[And that's where State Flow might be an interesting topic to discuss.]
+In order to prepare our application for all this extra complexity we might want to refactor current code into something more robust and resilient. \[And that's where State Flow might be an interesting topic to discuss.] \*\*\*\*/
 
-#### Heading
+In this chapter, we'll cover \[...]
 
-First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, and its current State is \[inert on its own] — it switches to another State only when certain conditions are met. These conditions can be \[...]
+#### State Flow
 
-Let's define 6 distinct States our application can take, along with \[...functionality]:
+First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, but it can instantly switch to another State once certain conditions are met.
+
+Let's define 6 distinct States that can encompass the entire functionality of our application at different moments of time:
 
 * `Init State` : initialize Matchmaking client, setup user's Actor, go to Lobby State
 * `Lobby State` : show available Rooms, handle user request to Create or Join the Room
@@ -35,11 +37,11 @@ Let's define 6 distinct States our application can take, along with \[...functio
 * &#x20; `Room State` : show Actors currently in the Room,  handle user request to Leave the Room
 * &#x20;`Leave State` : ask SDK to leave the Room, handle response, back to Lobby State
 
-Here is a State Flow graph:
+Now, if we organize them in directional graph — we will end up with something like this, which we can conveniently call State Flow:
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
-
+#### Refactoring
 
 ```javascript
 // @ts-nocheck
