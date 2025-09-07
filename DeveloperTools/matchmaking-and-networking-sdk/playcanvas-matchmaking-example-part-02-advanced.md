@@ -8,40 +8,59 @@ noIndex: true
 
 # PlayCanvas Matchmaking example: Part 02 - Advanced
 
-### Pre-requisite: \[Part 01 tutorial]
+### Prerequisite
 
-TODO
+This tutorial assumes you've completed [Part 01](playcanvas-matchmaking-example-part-01-basics.md) and already familiar with the basics of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) / [Matchmaking](../matchmaking-and-networking-sdk.md#matchmaking-api) functionality. Please feel free to revisit those if you need a quick recap!
+
+In the second part we'll focus on adding more juice to our application, facilitating architectural changes and integrating UI system. You can follow this tutorial by forking a dedicated [PlayCanvas Project](https://playcanvas.com/project/1381603/) with all the code and assets included.
 
 ### Chapter 1: App architecture and introduction to Async State Flow
 
-#### Introduction
+As you might recall, we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors.
 
-In [Part 01](playcanvas-matchmaking-example-part-01-basics.md#step-5-create-join-and-leave-the-room-and-receive-relevant-updates) of this tutorial we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors.
+In this chapter, we'll \[...]
 
-/\*\*\*\* And while that is a decent introduction to Matchmaking SDK functionality — it doesn't do great job at actually mapping that functionality to the real world application. How do we know when user enters the Room after leaving the Lobby, and vice versa? What if we want to show special Loading screen every time a new SDK request is being made? What if we want some code to execute only once each time user enters the Room?
-
-In order to prepare our application for all this extra complexity we might want to refactor current code into something more robust and resilient. \[And that's where State Flow might be an interesting topic to discuss.] \*\*\*\*/
-
-In this chapter, we'll cover \[...]
-
-#### State Flow
+#### 1.1  Constructing the State Flow
 
 First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, but it can instantly switch to another State once certain conditions are met.
 
-Let's define 6 distinct States that can encompass the entire functionality of our application at different moments of time:
+Let's define 6 distinct States encompassing the entire scope of our application at different stages:
 
-* `Init State` : initialize Matchmaking client, setup user's Actor, go to Lobby State
+* `Init State` : initialize Matchmaking client, setup user's Actor, then go to Lobby State
 * `Lobby State` : show available Rooms, handle user request to Create or Join the Room
-* &#x20;`Create State` : ask SDK to create the Room, handle response, go to Room State
-* &#x20;`Join State` : ask SDK to join the Room, handle response, go to Room State
-* &#x20; `Room State` : show Actors currently in the Room,  handle user request to Leave the Room
-* &#x20;`Leave State` : ask SDK to leave the Room, handle response, back to Lobby State
+* &#x20;`Create State` : ask SDK to create the Room, handle response, then go to Room State
+* &#x20;`Join State` : ask SDK to join the Room, handle response, then go to Room State
+* &#x20; `Room State` : show Actors currently in the Room, handle user request to Leave the Room
+* &#x20;`Leave State` : ask SDK to leave the Room, handle response, then back to Lobby State
 
-Now, if we organize them in directional graph — we will end up with something like this, which we can conveniently call State Flow:
+Now, if we organize these States in directional graph, along with conditions triggering State switches — we will end up with something called State Flow:
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
-#### Refactoring
+#### 1.2  Refactoring&#x20;
+
+It's time to put our State Flow to implementation! Similar to how we defined 4 essential methods in the previous steps, let's create 6 methods each executing functionality of corresponding state:
+
+* ```javascript
+  async gotoInitState () // init Matchmaking, setup Actor --> Lobby State
+  ```
+* ```javascript
+  async gotoLobbyState () // show Create and Join buttons ?.> Create | Join State
+  ```
+* ```javascript
+  async gotoCreateState () // create the Room --> Room State
+  ```
+* ```javascript
+  async gotoJoinState () // join the Room --> Room State
+  ```
+* ```javascript
+  async gotoRoomState () // show connected Actors, Leave button ?.> Leave State
+  ```
+* ```javascript
+  async gotoLeaveState () // leave the Room --> Lobby State
+  ```
+
+Once they're put together in a single script - you may end up with something like this:
 
 ```javascript
 // @ts-nocheck
@@ -93,7 +112,7 @@ export class Main extends Script
                 session_id: guid.create (), // unique random string
                 properties: {}
             });
-
+            
             await this.gotoLobbyState ();
         });
     };
@@ -179,13 +198,24 @@ export class Main extends Script
 }
 ```
 
-#### Testing
+Notice a few things:
 
-Alright, time to give a test run to this new refactored architecture! As previously, let's launch our PlayCanvas app in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
+* As we [mentioned](playcanvas-matchmaking-example-part-01-basics.md#step-4-create-a-new-room-and-subscribe-to-room-list-updates) in Part 01, Play SDK doesn't require users to be logged in with VIVERSE. So we created a simple method `randomUsername ()`  to generate usernames for all our guests
+* At the same time we're using PlayCanvas built-in [guid](https://app.gitbook.com/u/b1o5AUm04xR3caBWZx1XiI42C0a2) helper to generate unique random strings for our user sessions
+* Once Matchmaking client is ready and Actor is set up, Init State transitions to Lobby State automatically
+* In Lobby State we subscribe to `onRoomListUpdate` and then stay idle until user decides to create or join the Room via our globally exposed methods `create ()` and `join ()`&#x20;
+* Create and Join states are transitional and just call corresponding Play SDK methods. Then depending on API response — app transitions either to Room State (success) or back to Lobby State (error)
+* Also notice that we unsubscribe from `onRoomListUpdate` in Create and Join states since we don't want to receive those updates when no longer in the Lobby
+* In Room State we subscribe to `onRoomActorChange` and then stay idle until user decides to leave the Room via globally exposed `leave ()` method
+* Finally, the Leave State is also transitional — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle continues
+
+#### 1.3  Testing
+
+Alright, time to give a test run to this new refactored architecture! As previously, let's launch our PlayCanvas project in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
 
 <div><figure><img src="../.gitbook/assets/mm4a.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm4b.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-
+Great progress for now! In the next chapter, we'll finally move away from console testing and \[...integrate PlayCanvas UI system].
 
 ### Chapter 2: Integrating PlayCanvas UI system
 
