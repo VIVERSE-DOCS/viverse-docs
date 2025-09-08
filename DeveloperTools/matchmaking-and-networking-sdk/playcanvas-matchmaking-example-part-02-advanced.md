@@ -8,7 +8,7 @@ noIndex: true
 
 # PlayCanvas Matchmaking example: Part 02 - Advanced
 
-### Prerequisite
+### Prerequisites
 
 This tutorial assumes you've completed [Part 01](playcanvas-matchmaking-example-part-01-basics.md) and already familiar with the basics of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) / [Matchmaking](../matchmaking-and-networking-sdk.md#matchmaking-api) functionality. Please feel free to revisit those if you need a quick recap!
 
@@ -20,7 +20,7 @@ As you might recall, we devised 4 essential methods to work with our Matchmaking
 
 In this chapter, we'll \[...]
 
-#### 1.1  Constructing the State Flow
+#### 1.1  Constructing State Flow
 
 First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, but it can instantly switch to another State once certain conditions are met.
 
@@ -33,13 +33,13 @@ Let's define 6 distinct States encompassing the entire scope of our application 
 * &#x20; `Room State` : show Actors currently in the Room, handle user request to Leave the Room
 * &#x20;`Leave State` : ask SDK to leave the Room, handle response, then back to Lobby State
 
-Now, if we organize these States in directional graph, along with conditions triggering State switches — we will end up with something called State Flow:
+Now, if we organize these States in a closed directional graph, along with conditions triggering State switches — we will end up with something colloquially called State Flow:
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
-#### 1.2  Refactoring&#x20;
+#### 1.2  Implementing State Flow&#x20;
 
-It's time to put our State Flow to implementation! Similar to how we defined 4 essential methods in the previous steps, let's create 6 methods each executing functionality of corresponding state:
+It's time to put our State Flow to implementation! Similar to how we defined 4 essential methods in the previous steps, let's refactor them into 6 new methods — each containing functionality of corresponding State:
 
 * ```javascript
   async gotoInitState () // init Matchmaking, setup Actor --> Lobby State
@@ -48,7 +48,7 @@ It's time to put our State Flow to implementation! Similar to how we defined 4 e
   async gotoLobbyState () // show Create and Join buttons ?.> Create | Join State
   ```
 * ```javascript
-  async gotoCreateState () // create the Room --> Room State
+  async gotoCreateState () // create new Room --> Room State
   ```
 * ```javascript
   async gotoJoinState () // join the Room --> Room State
@@ -57,10 +57,10 @@ It's time to put our State Flow to implementation! Similar to how we defined 4 e
   async gotoRoomState () // show connected Actors, Leave button ?.> Leave State
   ```
 * ```javascript
-  async gotoLeaveState () // leave the Room --> Lobby State
+  async gotoLeaveState () // leave current Room --> Lobby State
   ```
 
-Once they're put together in a single script - you may end up with something like this:
+Once we put them all together in a single script — we will end up with something like this:
 
 ```javascript
 // @ts-nocheck
@@ -115,7 +115,7 @@ export class Main extends Script
             
             await this.gotoLobbyState ();
         });
-    };
+    }
 
     async gotoLobbyState ()
     {
@@ -128,7 +128,7 @@ export class Main extends Script
         // Waiting for creating or joining the Room via console
         // >.. await create ()
         // >.. await join ('...')
-    };
+    }
 
     async gotoCreateState ()
     {
@@ -145,7 +145,7 @@ export class Main extends Script
 
         if (success) await this.gotoRoomState ();
         else await this.gotoLobbyState ();
-    };
+    }
 
     async gotoJoinState (id)
     {
@@ -158,7 +158,7 @@ export class Main extends Script
 
         if (success) await this.gotoRoomState ();
         else await this.gotoLobbyState ();
-    };
+    }
 
     async gotoRoomState ()
     {
@@ -170,7 +170,7 @@ export class Main extends Script
         
         // Waiting for leaving the Room via console
         // >.. await leave ()
-    };
+    }
 
     async gotoLeaveState ()
     {
@@ -181,7 +181,7 @@ export class Main extends Script
 
         await this.matchClient.leaveRoom ();
         await this.gotoLobbyState ();
-    };
+    }
 
     //----------------------------------------------------------------------------//
     //                                   Utils                                    //
@@ -198,28 +198,46 @@ export class Main extends Script
 }
 ```
 
-Notice a few things:
+Notice a few things here:
 
 * As we [mentioned](playcanvas-matchmaking-example-part-01-basics.md#step-4-create-a-new-room-and-subscribe-to-room-list-updates) in Part 01, Play SDK doesn't require users to be logged in with VIVERSE. So we created a simple method `randomUsername ()`  to generate usernames for all our guests
 * At the same time we're using PlayCanvas built-in [guid](https://app.gitbook.com/u/b1o5AUm04xR3caBWZx1XiI42C0a2) helper to generate unique random strings for our user sessions
-* Once Matchmaking client is ready and Actor is set up, Init State transitions to Lobby State automatically
-* In Lobby State we subscribe to `onRoomListUpdate` and then stay idle until user decides to create or join the Room via our globally exposed methods `create ()` and `join ()`&#x20;
-* Create and Join states are transitional and just call corresponding Play SDK methods. Then depending on API response — app transitions either to Room State (success) or back to Lobby State (error)
-* Also notice that we unsubscribe from `onRoomListUpdate` in Create and Join states since we don't want to receive those updates when no longer in the Lobby
-* In Room State we subscribe to `onRoomActorChange` and then stay idle until user decides to leave the Room via globally exposed `leave ()` method
-* Finally, the Leave State is also transitional — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle continues
+* Once Matchmaking client is ready and Actor is set up, the Init State transitions to the Lobby State automatically
+* In the Lobby State we subscribe to `onRoomListUpdate` and then stay idle until user decides to create or join the Room via our globally exposed methods `create ()` and `join ()`&#x20;
+* Create and Join states are transitional and just call corresponding Play SDK methods. Then depending on API response — our app switches either to the Room State (success) or back to the Lobby State (error)
+* Also notice that we unsubscribe from `onRoomListUpdate` in Create and Join states since we don't want to receive Room List updates when no longer in the Lobby
+* While in the Room State, we subscribe to `onRoomActorChange` and then stay idle until user decides to leave the Room via globally exposed `leave ()` method
+* And finally, the Leave State is also transitional — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle repeats
 
-#### 1.3  Testing
+#### 1.3  Testing refactored application
 
-Alright, time to give a test run to this new refactored architecture! As previously, let's launch our PlayCanvas project in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
+Alright, time to give a test run to this new architecture! As previously, let's launch our PlayCanvas project in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
 
 <div><figure><img src="../.gitbook/assets/mm4a.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm4b.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-Great progress for now! In the next chapter, we'll finally move away from console testing and \[...integrate PlayCanvas UI system].
+Great progress so far! In the next chapter, we'll finally move away from console testing and \[...integrate PlayCanvas UI system]
 
-### Chapter 2: Integrating PlayCanvas UI system
+### Chapter 2: Integrating UI system
 
-TODO
+One of the strongest advantages of PlayCanvas engine is its visual editor which allows assembling scenes from imported assets in [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) fashion. And while it's technically possible to preassemble scenes in 3D apps like Blender and then export / import them in GLTF format, this idea falls flat on its face once we need to implement a decent UI system of any complexity.
+
+In this chapter we'll take a look at \[...]
+
+#### 2.1  Designing UI screens
+
+Our application has 6 possible states, but only 2 of them are stationary - Lobby and Room. The other 4 states are transitional - they always resolve into one of those two. So our entire functionality can be covered just by 3 screens:
+
+* **`LOBBY`** : display a list of Rooms that user can join, along with Create button
+* **`ROOM`** : display a list of currently connected Actors, along with Leave button
+* **`LOADING`** : show simple loading spinner any time user is neither in the Lobby nor in the Room
+
+Let's start with the simplest of them - the Loading Screen.
+
+Due to the limited scope of this tutorial we won't go in depth \[...]
+
+
+
+<figure><img src="../.gitbook/assets/mm7.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -250,44 +268,50 @@ export class Main extends Script
     async gotoInitState ()
     {
         this.showScreen ('loading');
+        
         // ... rest of the code
         // [Initialization complete] -> Lobby State
-    };
+    }
 
     async gotoLobbyState ()
     {
         this.showScreen ('lobby');
+        
         // ... rest of the code
         // [On user action] -> Create State | Join State
-    };
+    }
 
     async gotoCreateState ()
     {
         this.showScreen ('loading');
+        
         // ... rest of the code
         // [Room creation complete] -> Room State
-    };
+    }
 
     async gotoJoinState (id)
     {
         this.showScreen ('loading');
+        
         // ... rest of the code
         // [Room joining complete] -> Room State
-    };
+    }
 
     async gotoRoomState ()
     {
         this.showScreen ('room');
+        
         // ... rest of the code
         // [On user action] -> Leave State
-    };
+    }
 
     async gotoLeaveState ()
     {
         this.showScreen ('loading');
+        
         // ... rest of the code
         // [Room leaving complete] -> Lobby State
-    };
+    }
 
     //----------------------------------------------------------------------------//
     //                                   Utils                                    //
@@ -311,7 +335,7 @@ export class Main extends Script
 }
 ```
 
-### Chapter 3: Populating UI elements and wiring buttons to user actions
+#### 2.2  Populating UI elements and wiring buttons
 
 TODO
 
@@ -481,3 +505,9 @@ export class Main extends Script
 }
 
 ```
+
+#### 2.3  Testing
+
+
+
+<figure><img src="../.gitbook/assets/mm9.gif" alt=""><figcaption></figcaption></figure>
