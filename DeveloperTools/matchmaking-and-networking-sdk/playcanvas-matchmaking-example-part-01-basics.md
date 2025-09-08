@@ -8,7 +8,7 @@ noIndex: true
 
 # PlayCanvas Matchmaking example: Part 01 - Basics
 
-### Pre-requisite: Create a World and App ID in VIVERSE Studio
+### Prerequisite: Create a World and App ID in VIVERSE Studio
 
 In order to use VIVERSE SDKs you would need to create a World first and retrieve its App ID, which can be done with [VIVERSE Studio](https://studio.viverse.com/upload). This process is described in detail in [our documentation on VIVERSE Studio](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/publishing-with-your-viverse-account) — but for now you can simply create a new app and copy its App ID to get started.
 

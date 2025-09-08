@@ -225,7 +225,7 @@ In this chapter we'll take a look at \[...]
 
 #### 2.1  Designing UI screens
 
-Our application has 6 possible states, but only 2 of them are stationary - Lobby and Room. The other 4 states are transitional - they always resolve into one of those two. So our entire functionality can be covered just by 3 screens:
+Our application has 6 possible states, but only 2 of them are stationary - Lobby and Room. The other 4 states are transitional - they always resolve into one of those two. So our entire UI functionality can be covered just by 3 screens:
 
 * **`LOBBY`** : display a list of Rooms that user can join, along with Create button
 * **`ROOM`** : display a list of currently connected Actors, along with Leave button
@@ -235,11 +235,11 @@ Let's start with the simplest of them - the Loading Screen.
 
 Due to the limited scope of this tutorial we won't go in depth \[...]
 
+#### 2.2  Assigning UI screens to Script Attributes
 
+We have all required screens now, but our app is still displaying all them simultaneously. To make it show only one screen depending on current State, we need to link our screens to Script Attributes, and create a simple `showScreen ('...')` method switching them on and off.
 
-<figure><img src="../.gitbook/assets/mm7.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
+The following is example implementation of this functionality:
 
 ```javascript
 import { Script, Entity, guid } from 'playcanvas';
@@ -317,14 +317,7 @@ export class Main extends Script
     //                                   Utils                                    //
     //----------------------------------------------------------------------------//
 
-    randomUsername ()
-    {
-        let username = '';
-        username += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' [Math.floor (Math.random () * 26)];
-        for (let i = 0; i < 3; i++)
-            username += '0123456789' [Math.floor (Math.random () * 10)];
-        return username;
-    }
+    randomUsername () {...}
     
     showScreen (id)
     {
@@ -335,11 +328,28 @@ export class Main extends Script
 }
 ```
 
-#### 2.2  Populating UI elements and wiring buttons
+Let's see what's happening here:
 
-TODO
+* We're using [ESM Script Attributes](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/esm/) which rely on [JSDoc](https://jsdoc.app/) tags / annotations to define custom attributes exposed to PlayCanvas Editor
+* To link UI screens to our script, we create an [interface-like](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/esm/#interface-attributes) class `Screens` with `loading`, `lobby` and `room` fields and define our attribute with this custom complex type:\
+  `/** @attribute @title Screens @type {Screens} */ screens`&#x20;
+* After that we implement a simple `showScreen (id)` method that enables only Screen with provided `id`, while disabling any other Screens
+* And finally we add a call to `showScreen` with corresponding `id` at the start of every State
 
-<figure><img src="../.gitbook/assets/mm6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+You don't have to create complex interface-like attribute to link these 3 screens to your script. You could achieve similar results just by creating 3 separate attributes with Entity type instead. But our approach allows grouping Screens together in the Inspector, which is a nice convenience, especially when we decide to add new attributes later on
+{% endhint %}
+
+#### 2.3  Dynamic UI elements and using buttons to switch States
+
+Our app can now show a dedicated Screen when switching to particular State, but elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script as well:
+
+* Buttons: `Create`, `Join` and `Leave`
+* Elements: `Username`, `Room Name` and `Player Counter`
+
+
 
 ```javascript
 // @ts-nocheck
