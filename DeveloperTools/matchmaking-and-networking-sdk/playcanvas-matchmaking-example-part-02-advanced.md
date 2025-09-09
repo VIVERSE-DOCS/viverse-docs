@@ -202,10 +202,10 @@ Notice a few things here:
 * At the same time we're using PlayCanvas built-in [guid](https://app.gitbook.com/u/b1o5AUm04xR3caBWZx1XiI42C0a2) helper to create unique random strings for our user sessions
 * Once Matchmaking client is ready and Actor is set up, the Init State transitions to the Lobby State automatically
 * In the Lobby State we subscribe to `onRoomListUpdate` and then stay idle until user decides to create or join the Room via our globally exposed methods `create ()` and `join ()`&#x20;
-* Create and Join states are transitional and just call corresponding Play SDK methods. Then depending on API response — our app switches either to the Room State (success) or back to the Lobby State (error)
+* Create and Join states are transient and just call corresponding Play SDK methods. Then depending on API response — our app switches either to the Room State (success) or back to the Lobby State (error)
 * Also notice that we unsubscribe from `onRoomListUpdate` in Create and Join states since we don't want to receive Room List updates when no longer in the Lobby
 * While in the Room State, we subscribe to `onRoomActorChange` and then stay idle until user decides to leave the Room via globally exposed `leave ()` method
-* And finally, the Leave State is also transitional — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle repeats
+* And finally, the Leave State is also transient — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle repeats
 
 #### 1.3  Testing in multiple tabs
 
@@ -231,7 +231,7 @@ Our application has 6 possible states, but only 2 of them are steady - Lobby and
 
 * **Lobby** : display a list of Rooms that user can join, along with Create button
 * **Room** : display a list of currently connected Actors, along with Leave button
-* **Loading** : show spinner any time the user is somewhere between the Lobby and the Room
+* **Loading** : show spinner any time the user is neither in the Lobby nor in the Room
 
 {% tabs %}
 {% tab title="Loading" %}
@@ -247,7 +247,7 @@ Our application has 6 possible states, but only 2 of them are steady - Lobby and
 {% endtab %}
 {% endtabs %}
 
-If you explore our [PlayCanvas Project](https://playcanvas.com/project/1381603/) used in this tutorial, you may notice that UI screens there have specific structure — they consist of Label text, Frame group and Content group, but only contents of the Content group are visible during rendering. There is no magic here — once you look closely you'll see that both Label and Frame's contents are positioned outside of Screen's \[0, 0, 1, 1] space, hence they never appear during rendering but still exist in 3D world. This is purely cosmetic touch — to make our Screens look more like Figma frames in the Editor, which may be quite user-friendly for designers familiar with that tool.
+If you explore [PlayCanvas Project](https://playcanvas.com/project/1381603/) created for this tutorial, you may notice that UI screens there have specific structure — they consist of Label text, Frame group and Content group, but only contents of the Content group are visible during testing. There is no magic here — once you look closely you'll see that both Label and Frame's contents are positioned outside of Screen's \[0, 0, 1, 1] space, hence they never appear during rendering but still exist in 3D world. This is purely cosmetic touch — to make our Screens look more like Figma frames in the Editor, which may be quite welcoming for UX designers familiar with that tool.
 
 #### 2.2  Mapping UI screens to States
 
@@ -350,20 +350,24 @@ Here is a breakdown of what's happening:
 * After that we implement a simple `showScreen (id)` method which enables only one Screen with provided `id`, while disabling any other screens
 * And finally we add a call to `showScreen` with corresponding `id` at the start of every State
 
+And that's it! Once we parse our updated script and drag and drop screen Entities into corresponding Attribute fields — our Screens should be mapped to States now.
+
 <figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You don't have to create complex interface-like attribute to link these 3 screens to your script. You could achieve similar results just by creating 3 separate attributes with Entity type instead. But our approach allows grouping Screens together in the Inspector, which is a nice convenience, especially when we decide to add new attributes later on.
 {% endhint %}
 
-#### 2.3  Dynamic UI elements and using buttons to switch States
+#### 2.3  Dynamic UI elements and mapping Buttons to State switches
 
-Our app can now show a dedicated Screen when switching to particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script as well:
+Our app can now display a dedicated Screen when entering particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script as well:
 
-* **Lobby**: Username, Create button and a list of Join buttons
-* **Room**: Room name, Player Counter and Leave button
+* **Lobby Screen**: Username text, Create button and array of Join buttons
+* **Room Screen**: Room Name text, Player Count text and Leave button
 
-If we group those into Buttons and Elements interface attributes, we \[...]
+If we group those into Buttons and Elements respectively — we can add two additional interface attributes with corresponding fields like demonstrated below:
+
+<figure><img src="../.gitbook/assets/mm6.png" alt=""><figcaption></figcaption></figure>
 
 ```javascript
 // @ts-nocheck
@@ -423,7 +427,7 @@ export class Main extends Script
         // Display current username in Lobby screen
         this.elements.username.element.text = `Guest ${this.username}`;
         
-        // Wire Create button to switch app state to Create
+        // Wire Create button to switch app to Create State
         this.buttons.create.element.off ('click');
         this.buttons.create.element.on ('click', async () =>
         {
@@ -431,7 +435,7 @@ export class Main extends Script
         });
 
         // Update Join buttons each time the Room List is updated
-        // Wire each Join button to Join state with respective room id
+        // Wire each Join button to switch app to Join State with respective room id
         this.hideJoinButtons ();
         this.matchClient.on ('onRoomListUpdate', (rooms) =>
         {
@@ -465,14 +469,14 @@ export class Main extends Script
         // Display current room name in Room Screen
         this.elements.roomname.element.text = this.matchClient.currentRoom.name;
         
-        // Update player counter each time the Actor List is changed
+        // Update Player Count each time the Actor List is changed
         this.matchClient.on ('onRoomActorChange', (actors) =>
         {
             this.elements.counter.element.text = `${actors.length}  PLAYER`;
             this.elements.counter.element.text += actors.length > 1 ? 'S' : '';
         });
 
-        // Wire Leave button to switch app state to Leave
+        // Wire Leave button to switch app to the Leave State
         this.buttons.leave.element.off ('click');
         this.buttons.leave.element.on ('click', async () =>
         {
@@ -530,13 +534,17 @@ export class Main extends Script
 
 ```
 
-\[...]
+We introduced some new complexity here, so let's unwrap it step by step:
 
-* Similar to Screens, we organized our UI into Buttons and Elements and linked those entities to corresponding Script Attributes. Also note that we're using array of Entities for Join button since we're anticipating to have multiple Rooms available for joining in our Lobby
-*
+* Similar to Screens, we organized new UI into Buttons and Elements and linked those entities to corresponding Script Attributes. Also note that we're using array of Entities for Join button since we're anticipating to have multiple Rooms available to join in our Lobby
+* In the Lobby State, we're stripping away Create Button's `click` handler before subscribing to it again in the next line. It doesn't look elegant, but it's a necessary cleanup to make sure that buttons don't have dead event listeners attached to them during previous State execution. As alternative, attached listeners could be stripped away before transitioning to the next State, but it's more of a preference thing. You can see the same pattern for all other buttons in this demo project
+* For Join buttons, we created two utility methods: `hideJoinButtons` and `showJoinButtons` , to map a  list of available rooms received from `onRoomListUpdate` event. So each time a new Room is created or removed in the context of our app — our Join buttons will be rearranged and remapped to room ids
+* And finally, in the Room State we subscribe to `onRoomActorChange` and update Player Count each time its changed. Also please don't forget that we unsubscribe from these events when leaving Room and Lobby States respectively, but this code snippet doesn't show that explicitly
 
-#### 2.3  Further improvements and testing
+We're finally reaching the end \[...]
 
+#### 2.3  Further improvements and final testing
 
+\[...Add final paragraph]
 
 <figure><img src="../.gitbook/assets/mm9.gif" alt=""><figcaption></figcaption></figure>
