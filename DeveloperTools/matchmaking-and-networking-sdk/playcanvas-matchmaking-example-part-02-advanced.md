@@ -360,7 +360,7 @@ You don't have to create complex interface-like attribute to link these 3 screen
 
 #### 2.3  Dynamic UI elements and mapping Buttons to State switches
 
-Our app can now display a dedicated Screen when entering particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script as well:
+Our app can now display a dedicated Screen when entering particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script:
 
 * **Lobby Screen**: Username text, Create button and array of Join buttons
 * **Room Screen**: Room Name text, Player Count text and Leave button
@@ -534,17 +534,22 @@ export class Main extends Script
 
 ```
 
-We introduced some new complexity here, so let's unwrap it step by step:
+We introduced some new complexity along the way, so let's unwrap it step by step:
 
-* Similar to Screens, we organized new UI into Buttons and Elements and linked those entities to corresponding Script Attributes. Also note that we're using array of Entities for Join button since we're anticipating to have multiple Rooms available to join in our Lobby
-* In the Lobby State, we're stripping away Create Button's `click` handler before subscribing to it again in the next line. It doesn't look elegant, but it's a necessary cleanup to make sure that buttons don't have dead event listeners attached to them during previous State execution. As alternative, attached listeners could be stripped away before transitioning to the next State, but it's more of a preference thing. You can see the same pattern for all other buttons in this demo project
-* For Join buttons, we created two utility methods: `hideJoinButtons` and `showJoinButtons` , to map a  list of available rooms received from `onRoomListUpdate` event. So each time a new Room is created or removed in the context of our app — our Join buttons will be rearranged and remapped to room ids
-* And finally, in the Room State we subscribe to `onRoomActorChange` and update Player Count each time its changed. Also please don't forget that we unsubscribe from these events when leaving Room and Lobby States respectively, but this code snippet doesn't show that explicitly
+* Similar to Screens, we've grouped new UI functionality into Buttons and Elements, and linked respective entities to corresponding Script Attributes. Also note that we're using array of Entities for Join button since we're going to have multiple of them in our Lobby
+* In the Lobby State, we're stripping away Create Button's `click` handler before subscribing to it again in the next line. It may look confusing, but it's a necessary cleanup to make sure that buttons don't have dead event listeners attached to them during previous State execution. As alternative, attached listeners could be cleaned up before transitioning to the next State, so either way is fine as long as you do that cleanup. You can see the same pattern for all other buttons in this demo project
+* For Join buttons, we've created two utility methods: `hideJoinButtons` and `showJoinButtons`, to map a list of available rooms received from `onRoomListUpdate` event. So each time a new Room is created or destroyed in the context of our app — the array of Join buttons will be updated respectively
+* And finally, in the Room State we subscribe to `onRoomActorChange` and update Player Count each time Actors List is changed. Don't forget that we also unsubscribe from these events when leaving Room and Lobby states, but this code snippet doesn't show that explicitly
 
-We're finally reaching the end \[...]
+#### 2.3  Final testing and further improvements
 
-#### 2.3  Further improvements and final testing
+Hard to believe, but we're finally reaching the grand finale of this tutorial! Let's summarize what we've learned so far:
 
-\[...Add final paragraph]
+* We've refactored our code from Part 01 and incorporated Async State Flow consisting of 6 states:\
+  Init -> Lobby -> Create / Join -> Room -> Leave -> Lobby
+* We've created 3 UI screens — Lobby, Room and Loading — and mapped them to respective application states
+* We've linked buttons and dynamic UI elements to Script Attributes and used them in our code to control application's State Flow and display realtime updates
+
+Congratulations with finishing such a long read! Please feel free to fork our dedicated [PlayCanvas Project](https://playcanvas.com/project/1381603/) or [test it live](https://playcanv.as/p/yh6qc9xL/) using multiple tabs to create and join the Rooms.
 
 <figure><img src="../.gitbook/assets/mm9.gif" alt=""><figcaption></figcaption></figure>
