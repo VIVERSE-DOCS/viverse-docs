@@ -14,7 +14,7 @@ This tutorial assumes you've completed [Part 01](playcanvas-matchmaking-example-
 
 In the second part, we'll focus on adding more juice to our application, exploring architectural changes and integrating the UI system. You can follow this tutorial by forking a dedicated [PlayCanvas Project](https://playcanvas.com/project/1381603/) with all the code and assets included.
 
-### Chapter 1: App architecture and introduction to Async State Flow
+### Chapter 1: App architecture and Async State Flow
 
 As you might recall, we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors. In this chapter, we'll revisit that code once again and reorganize it into something more robust and future-proof.
 
@@ -219,23 +219,39 @@ Nice progress so far! In the next chapter, we'll finally move beyond console tes
 
 One of the strongest advantages of PlayCanvas engine is its visual editor which allows assembling scenes from imported assets in [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) fashion. And while it's technically possible to preassemble scenes in 3D apps like Blender and then export / import them in GLTF format, this idea falls apart once we try to implement a decent UI of any complexity.
 
-In this chapter we'll cover basics of PlayCanvas UI and \[...]
-
-#### 2.1  Designing UI screens
-
-Our application has 6 possible states, but only 2 of them are steady - Lobby and Room. The other 4 states are transient - they always resolve into one of those two. For the purpose of this tutorial we will cover our entire UI functionality with just 3 screens:
-
-* **`LOBBY`** : display a list of Rooms that user can join, along with Create button
-* **`ROOM`** : display a list of currently connected Actors, along with Leave button
-* **`LOADING`** : show Loading prompt any time the user is neither in the Lobby nor in the Room
+In this chapter, we’ll get to know the PlayCanvas UI system and use it to build a simple, screen-based UI for our project.
 
 {% hint style="info" %}
-
+From now on we assume you have basic familiarity with PlayCanvas UI system and its essential components like Screen, Element (Group / Image / Text) and Button. If you’d like a quick recap, please read [PlayCanvas UI User Manual](https://developer.playcanvas.com/user-manual/user-interface/user-interface-basics/)
 {% endhint %}
 
-#### 2.2  Assigning UI screens to Script Attributes
+#### 2.1  Assembling UI screens
 
-We have all required screens now, but our app is still displaying all them simultaneously. To make it show only one screen depending on current State, we need to link our screens to Script Attributes, and create a simple `showScreen ('...')` method switching them on and off.
+Our application has 6 possible states, but only 2 of them are steady - Lobby and Room. The other 4 states are transient - they always resolve into one of those two. For the purpose of this tutorial we can cover our entire UI functionality with just 3 screens:
+
+* **Lobby** : display a list of Rooms that user can join, along with Create button
+* **Room** : display a list of currently connected Actors, along with Leave button
+* **Loading** : show spinner any time the user is somewhere between the Lobby and the Room
+
+{% tabs %}
+{% tab title="Loading" %}
+<figure><img src="../.gitbook/assets/mm8a.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Lobby" %}
+<figure><img src="../.gitbook/assets/mm8b.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Room" %}
+<figure><img src="../.gitbook/assets/mm8c.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+If you explore our [PlayCanvas Project](https://playcanvas.com/project/1381603/) used in this tutorial, you may notice that UI screens there have specific structure — they consist of Label text, Frame group and Content group, but only contents of the Content group are visible during rendering. There is no magic here — once you look closely you'll see that both Label and Frame's contents are positioned outside of Screen's \[0, 0, 1, 1] space, hence they never appear during rendering but still exist in 3D world. This is purely cosmetic touch — to make our Screens look more like Figma frames in the Editor, which may be quite user-friendly for designers familiar with that tool.
+
+#### 2.2  Mapping UI screens to States
+
+We have all required screens now, but our app is still displaying all them simultaneously. To make it show only one Screen depending on current State, we need to link our screens to Script Attributes, and create a simple `showScreen` method switching them on and off.
 
 Let's put this idea into practise:
 
@@ -326,26 +342,26 @@ export class Main extends Script
 }
 ```
 
-Here is the breakdown of what's happening:
+Here is a breakdown of what's happening:
 
 * We're using [ESM Script Attributes](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/esm/) which rely on [JSDoc](https://jsdoc.app/) tags / annotations to define custom attributes exposed to PlayCanvas Editor
 * To link UI screens to our script, we create an [interface-like](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/esm/#interface-attributes) class `Screens` with `loading`, `lobby` and `room` fields and define our attribute with this custom complex type:\
   `/** @attribute @title Screens @type {Screens} */ screens`&#x20;
-* After that we implement a simple `showScreen (id)` method which enables only one Screen with provided `id`, while disabling any other Screens
+* After that we implement a simple `showScreen (id)` method which enables only one Screen with provided `id`, while disabling any other screens
 * And finally we add a call to `showScreen` with corresponding `id` at the start of every State
+
+<figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You don't have to create complex interface-like attribute to link these 3 screens to your script. You could achieve similar results just by creating 3 separate attributes with Entity type instead. But our approach allows grouping Screens together in the Inspector, which is a nice convenience, especially when we decide to add new attributes later on.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/mm5 (1).png" alt=""><figcaption></figcaption></figure>
-
 #### 2.3  Dynamic UI elements and using buttons to switch States
 
 Our app can now show a dedicated Screen when switching to particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script as well:
 
-* Lobby: Username, Create button and a list of Join buttons
-* Room: Room name, Player Counter and Leave button
+* **Lobby**: Username, Create button and a list of Join buttons
+* **Room**: Room name, Player Counter and Leave button
 
 If we group those into Buttons and Elements interface attributes, we \[...]
 
