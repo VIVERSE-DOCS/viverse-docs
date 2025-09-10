@@ -8,14 +8,13 @@ description: >-
 
 This guide extends the official [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) by adding persistent data storage functionality using the VIVERSE Storage SDK. This can be used to track any number of gameplay elements, from experience points, to resources, to equippable items.
 
-### Prerequisites
+### Pre-requisite:
 
-Before starting this guide, you should have:
+Before starting this guide, you should have completed the [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) which includes features such as:
 
-1. ✅ Completed the [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example)
-2. ✅ A working three.js vehicle controller with VIVERSE authentication
-3. ✅ A VIVERSE Studio App ID
-4. ✅ Basic understanding of JavaScript and three.js
+1. ✅ A working three.js vehicle controller with VIVERSE authentication
+2. ✅ A VIVERSE Studio App ID
+3. ✅ A basic collectible driving game featuring rapier.js physics
 
 ### Step 1: Add Storage SDK Variables
 
