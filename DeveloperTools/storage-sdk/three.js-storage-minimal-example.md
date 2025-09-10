@@ -12,9 +12,9 @@ This guide extends the official [VIVERSE three.js Login & Auth minimal example](
 
 Before starting this guide, you should have completed the [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) which includes features such as:
 
-1. ✅ A working three.js vehicle controller with VIVERSE authentication
-2. ✅ A VIVERSE Studio App ID
-3. ✅ A basic collectible driving game featuring rapier.js physics
+1. ✅ A working three.js vehicle controller featuring rapier.js physics
+2. ✅ A collectible pickup and scoring system
+3. ✅ Basic VIVERSE login and authentication features
 
 ### Step 1: Add Storage SDK Variables
 
