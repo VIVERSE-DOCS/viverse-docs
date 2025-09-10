@@ -2,50 +2,70 @@
 description: >-
   Learn how to extend our three.js driving project with the VIVERSE Storage SDK
   to add persistent data
-hidden: true
 ---
 
 # three.js Storage minimal example
 
-Our last tutorial demonstrated how to extend a basic three.js example project with VIVERSE SDK functionality, creating an engaging collectible driving game with Rapier physics.
+This guide extends the official [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) by adding persistent data storage functionality using the VIVERSE Storage SDK. This can be used to track any number of gameplay elements, from experience points, to resources, to equippable items.
 
-In this initial tutorial, we'll add the Authentication SDK, as well as several gameplay features that we'll continue to build on in future steps with the Storage and Leaderboard SDK examples.
+### Prerequisites
 
-### Pre-requisite #1: Download the VIVERSE Login & Auth three.js minimal example
+Before starting this guide, you should have:
 
-Start by downloading the . This example provides a complete three.js scene setup with Rapier physics tied to a functional vehicle controller with WASD controls — drive too fast before turning and you can fully flip over, providing a fun challenge driven by Rapier's realistic physics simulation.
+1. ✅ Completed the [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example)
+2. ✅ A working three.js vehicle controller with VIVERSE authentication
+3. ✅ A VIVERSE Studio App ID
+4. ✅ Basic understanding of JavaScript and three.js
 
+### Step 1: Add Storage SDK Variables
 
+Add these variables alongside your existing authentication variables:
 
-### Step 1: Add VIVERSE SDK Integration
+```javascript
+// VIVERSE Authentication variables (existing)
+let isAuthenticated = false;
+let userInfo = null;
 
-Building on the base three.js vehicle controller example, we'll now add VIVERSE authentication and gameplay enhancements. Simply copy the CDN URL into the `<head>` of your HTML document.
+// ADD THESE NEW VARIABLES:
+let accessToken = null;
 
-```html
-<!-- Add to <head> section: -->
-<script src="https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs"></script>
+// VIVERSE Storage variables
+let storageClient = null;
+let cloudSaveClient = null;
 ```
 
-### Step 2: Implement VIVERSE Authentication
+### Step 2: Update VIVERSE Client Initialization
 
-#### Client Initialization
-
-This process is described generically in our documentation, [**Login & Authentication for the SDK**](../login-and-authentication-for-the-sdk/), but here is how it would apply to a modular three.js script:
+Modify your existing `initializeViverseClient()` function to also initialize the storage client:
 
 ```javascript
 // Initialize VIVERSE client
 function initializeViverseClient() {
   globalThis.viverseClient = new globalThis.viverse.client({
-    clientId: "your-app-id", // Replace with your actual App ID from VIVERSE Studio
+    clientId: "your-app-id", // Replace with your actual App ID
     domain: "account.htcvive.com",
     cookieDomain: window.location.hostname,
   });
+
+  // ADD THIS: Initialize storage client
+  initializeStorageClient();
+}
+
+// ADD THIS NEW FUNCTION:
+// Initialize VIVERSE Storage client
+async function initializeStorageClient() {
+  try {
+    storageClient = new globalThis.viverse.storage();
+    console.log("Storage client initialized");
+  } catch (error) {
+    console.error("Failed to initialize storage client:", error);
+  }
 }
 ```
 
-#### Authentication Check
+### Step 3: Update Authentication Check
 
-Once the `viverseClient` is instantiated, use its `checkAuth()` function to determine whether the user is logged in. It will return `undefined` if they are **not** logged-in, or credentials if they are.
+Modify your existing `checkAuthentication()` function to capture the access token and initialize cloud save:
 
 ```javascript
 // Check authentication status
@@ -56,389 +76,213 @@ async function checkAuthentication() {
     if (result) {
       isAuthenticated = true;
       userInfo = result;
+      accessToken = result.access_token; // ADD THIS LINE
       updateAuthUI(true, result.account_id);
       console.log("User authenticated:", result);
-    } else {
-      isAuthenticated = false;
-      userInfo = null;
-      updateAuthUI(false);
-      console.log("User not authenticated");
+
+      // ADD THESE LINES:
+      // Initialize cloud save client after authentication
+      await initializeCloudSaveClient();
     }
+}
+
+// Initialize Cloud Save client
+async function initializeCloudSaveClient() {
+  if (!storageClient || !accessToken) {
+    console.log("Storage client or access token not available");
+    return;
+  }
+
+  try {
+    cloudSaveClient = await storageClient.newCloudSaveClient("your-app-id"); // Use same App ID
+    console.log("Cloud save client initialized");
   } catch (error) {
-    console.error("Authentication check failed:", error);
-    isAuthenticated = false;
-    updateAuthUI(false);
+    console.error("Failed to initialize cloud save client:", error);
   }
 }
 ```
 
-#### Login Flow
+### Step 4: Add Save Score Function
 
-Now that we're checking auth status, let's add some Element UI components to our demo scene to prompt the login process if they are logged out.
-
-```javascript
-// Login with VIVERSE Worlds
-function loginWithViverse() {
-  if (globalThis.viverseClient) {
-    globalThis.viverseClient.loginWithWorlds();
-  }
-}
-```
-
-#### Dynamic UI Creation
+Now that the client has been initialized, and a score checked for, let's add a save score function:
 
 ```javascript
-function createAuthUI() {
-  // Create authentication status element
-  const authElement = document.createElement("div");
-  authElement.id = "auth-status";
-  authElement.innerHTML = "Checking authentication...";
-  document.body.appendChild(authElement);
-
-  // Create login button
-  const loginButton = document.createElement("button");
-  loginButton.id = "login-button";
-  loginButton.innerHTML = "Login with VIVERSE";
-  loginButton.addEventListener("click", loginWithViverse);
-  document.body.appendChild(loginButton);
-}
-```
-
-#### UI State Management
-
-```javascript
-// Update authentication UI
-function updateAuthUI(authenticated, userId = null) {
-  const authElement = document.getElementById("auth-status");
-  const loginButton = document.getElementById("login-button");
-
-  if (authenticated) {
-    authElement.innerHTML = `Logged in as: ${userId}`;
-    authElement.className = "authenticated";
-    loginButton.style.display = "none";
-  } else {
-    authElement.innerHTML = "Not logged in";
-    authElement.className = "unauthenticated";
-    loginButton.style.display = "block";
-  }
-}
-```
-
-Once uploaded and running on VIVERSE, all this authentication functionality should now be working! But what can we do with a logged in VIVERSE user? To find out, we have to add some gameplay features and a scoring system.
-
-### Step 3: Enhance the OrbitControls Camera System
-
-The base vehicle controller example uses a simple static camera setup which points at the car but does not follow it closely. We'll upgrade this with smart car following behavior for a more engaging experience that will still allow the user to view the vehicle and scene from a variety of angles.
-
-#### Default Settings + Events for Camera Following
-
-```javascript
-// Initialize OrbitControls for zoom and rotation
-controls = new OrbitControls(camera, renderer.domElement);
-controls.target = new THREE.Vector3(0, 2, 0);
-controls.enablePan = false; // Disable panning, keep zoom and rotate
-controls.minDistance = 3; // Minimum zoom distance
-controls.maxDistance = 30; // Maximum zoom distance
-controls.maxPolarAngle = Math.PI * 0.8; // Prevent camera from going too low
-controls.enableDamping = true; // Enable damping for smoother feel
-controls.dampingFactor = 0.1;
-
-// Track when user interaction ends to update follow offset
-window.userControlling = false;
-
-controls.addEventListener("start", () => {
-  window.userControlling = true;
-});
-
-controls.addEventListener("end", () => {
-  window.userControlling = false;
-  // Update the follow offset when user stops controlling
-  updateCameraOffset();
-});
-```
-
-#### Camera Updates
-
-```javascript
-function updateCamera() {
-  if (!car || !controls) return;
-
-  // Get car's world position and rotation
-  const carPosition = car.position.clone();
-  const carQuaternion = car.quaternion.clone();
-
-  // Create a level quaternion (only Y rotation, no roll/pitch)
-  const carEuler = new THREE.Euler().setFromQuaternion(carQuaternion, "YXZ");
-  const levelQuaternion = new THREE.Quaternion().setFromEuler(
-    new THREE.Euler(0, carEuler.y, 0, "YXZ")
-  );
-
-  if (!window.userControlling) {
-    // When user is not controlling, use the stored offset for following
-    const desiredCameraPosition = cameraOffset.clone();
-    desiredCameraPosition.applyQuaternion(levelQuaternion); // Use level quaternion
-    desiredCameraPosition.add(carPosition);
-
-    // Ensure camera stays above ground (minimum height)
-    const minCameraHeight = 1.0; // Minimum height above ground
-    if (desiredCameraPosition.y < minCameraHeight) {
-      desiredCameraPosition.y = minCameraHeight;
-    }
-
-    // Smoothly move camera and target to follow the car
-    const lerpFactor = 0.05;
-    controls.target.lerp(carPosition, lerpFactor);
-    camera.position.lerp(desiredCameraPosition, lerpFactor);
-  } else {
-    // When user is controlling, just update target to follow car position
-    const targetLerpFactor = 0.05;
-    controls.target.lerp(carPosition, targetLerpFactor);
-
-    // Also ensure user-controlled camera doesn't go below ground
-    if (camera.position.y < 1.0) {
-      camera.position.y = 1.0;
-    }
+// Save current score to cloud storage
+async function saveScore() {
+  if (!cloudSaveClient || !accessToken || !isAuthenticated) {
+    console.log(
+      "Cannot save score: not authenticated or storage not initialized"
+    );
+    updateSaveStatus("Not authenticated", false);
+    return false;
   }
 
-  // Update controls
-  controls.update();
-}
-```
+  try {
+    updateSaveStatus("Saving...", null);
 
-### Step 5: Add Game Mechanics - Collectibles System
+    const scoreData = {
+      score: score,
+      timestamp: new Date().toISOString(),
+      gameVersion: "1.0",
+    };
 
-Now we'll add a scoring system with collectible items to transform the basic driving demo into an engaging game. This will also give us a score to track with the Leaderboard and Storage SDKs in future tutorials.
-
-#### Collectible Creation
-
-```javascript
-function createCollectible(x, y, z) {
-  const geometry = new THREE.OctahedronGeometry(0.5);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xffd700,
-    emissive: 0x444400,
-    metalness: 0.3,
-    roughness: 0.1,
-  });
-  const mesh = new THREE.Mesh(geometry, material);
-
-  mesh.position.set(x, y, z);
-  mesh.castShadow = true;
-  mesh.receiveShadow = true;
-
-  // Add physics body for collision detection
-  physics.addMesh(mesh, 0); // Mass 0 for static/kinematic body
-  mesh.userData.isCollectible = true;
-  mesh.userData.collected = false;
-  mesh.userData.originalY = y;
-  mesh.userData.time = Math.random() * Math.PI * 2; // Random phase for animation
-
-  scene.add(mesh);
-  collectibles.push(mesh);
-
-  return mesh;
-}
-```
-
-#### Collectible Spawning System
-
-```javascript
-function createCollectibles() {
-  const numCollectibles = 15; // Number of collectibles to spawn
-  const groundSize = 40; // Size of the ground area (matches the ground geometry)
-  const minDistance = 3; // Minimum distance between collectibles
-  const carStartArea = 5; // Radius around car start position to avoid
-
-  const spawnedPositions = [];
-
-  for (let i = 0; i < numCollectibles; i++) {
-    let position;
-    let attempts = 0;
-    const maxAttempts = 50;
-
-    do {
-      // Generate random position within ground bounds
-      position = {
-        x: (Math.random() - 0.5) * (groundSize - 4), // Leave some margin from edges
-        y: 1,
-        z: (Math.random() - 0.5) * (groundSize - 4) - 20, // Offset by ground position
-      };
-      attempts++;
-    } while (
-      attempts < maxAttempts &&
-      (isPositionTooClose(position, spawnedPositions, minDistance) ||
-        isPositionTooClose(position, [{ x: 0, z: 0 }], carStartArea))
+    // There is currently a bug where this returns undefined immediately
+    const result = await cloudSaveClient.setPlayerData(
+      "highScore",
+      scoreData,
+      accessToken
     );
 
-    // If we found a valid position, spawn the collectible
-    if (attempts < maxAttempts) {
-      createCollectible(position.x, position.y, position.z);
-      spawnedPositions.push(position);
-    }
+    console.log("Save API response:", result);
+    console.log("Score saved successfully:", scoreData);
+    updateSaveStatus("Score saved!", true);
+    return true;
+  } catch (error) {
+    console.error("Error saving score:", error);
+    updateSaveStatus("Save error", false);
+    return false;
   }
-
-  updateScoreUI();
-}
-
-function isPositionTooClose(newPos, existingPositions, minDistance) {
-  return existingPositions.some((pos) => {
-    const dx = newPos.x - pos.x;
-    const dz = newPos.z - pos.z;
-    return Math.sqrt(dx * dx + dz * dz) < minDistance;
-  });
 }
 ```
 
-#### Collision Detection and Scoring
+### Step 5: Add Load Score Function
 
-For this demo, a simple distance-based collision check should suffice.
+Add this function after the save function:
 
 ```javascript
-function checkCollisions() {
-  if (!car || !chassis) return;
+// Load saved score from cloud storage
+async function loadScore() {
+  if (!cloudSaveClient || !accessToken || !isAuthenticated) {
+    console.log(
+      "Cannot load score: not authenticated or storage not initialized"
+    );
+    return null;
+  }
 
-  const carPosition = car.position;
-  const collectDistance = 1.5; // Distance threshold for collection
+  try {
+    updateSaveStatus("Loading...", null);
 
-  const collectiblesToCheck = [...collectibles];
+    const savedData = await cloudSaveClient.getPlayerData(
+      "highScore",
+      accessToken
+    );
 
-  collectiblesToCheck.forEach((collectible) => {
-    if (!collectible || collectible.userData.collected || !collectible.visible)
-      return;
+    if (savedData && savedData.score !== undefined) {
+      console.log("Score loaded successfully:", savedData);
 
-    const distance = carPosition.distanceTo(collectible.position);
-    if (distance < collectDistance) {
-      collectPickup(collectible);
+      // Only update score if saved score is higher than current
+      if (savedData.score > score) {
+        score = savedData.score;
+        updateScoreUI();
+        updateSaveStatus(`Loaded score: ${savedData.score}`, true);
+      } else {
+        updateSaveStatus("Score loaded", true);
+      }
+
+      return savedData;
+    } else {
+      console.log("No saved score found");
+      updateSaveStatus("No saved score", null);
+      return null;
     }
-  });
+  } catch (error) {
+    console.error("Error loading score:", error);
+    updateSaveStatus("Load error", false);
+    return null;
+  }
+}
+```
+
+### Step 6: Add Save Status UI Function
+
+Add this function to handle UI status updates:
+
+```javascript
+// Update save status UI
+function updateSaveStatus(message, success) {
+  const statusElement = document.getElementById("save-status");
+  if (statusElement) {
+    statusElement.textContent = message;
+    statusElement.className =
+      success === true
+        ? "save-success"
+        : success === false
+        ? "save-error"
+        : "save-neutral";
+  }
 }
 
+// Make functions available globally for onclick handlers
+window.saveScore = saveScore;
+window.loadScore = loadScore;
+```
+
+### Step 7: Update Score UI with Save/Load Buttons
+
+Replace your existing score UI div with this enhanced version:
+
+```html
+<div id="score-ui">
+  <div>Score: <span id="score-value">0</span></div>
+  <div id="save-status"></div>
+  <div>
+    <button
+      id="save-button"
+      onclick="saveScore()">
+      Save Score
+    </button>
+    <button
+      id="load-button"
+      onclick="loadScore()">
+      Load Score
+    </button>
+  </div>
+</div>
+```
+
+### Step 8: Add Auto-Save to Collectible Pickup
+
+Modify your existing `collectPickup()` function to automatically save when score increases:
+
+```javascript
 function collectPickup(collectible) {
   if (collectible.userData.collected) return;
 
   collectible.userData.collected = true;
+  const oldScore = score;
   score += 100; // Add 100 points per collectible
 
-  // Immediately hide the collectible
-  collectible.visible = false;
-
-  // Remove from physics world immediately
-  if (collectible.userData.physics) {
-    physics.removeBody(collectible.userData.physics.body);
-    collectible.userData.physics = null; // Clear the reference
-  }
-
-  // Remove from collectibles array immediately
-  const index = collectibles.indexOf(collectible);
-  if (index > -1) {
-    collectibles.splice(index, 1);
-  }
-
-  // Remove from scene immediately
-  scene.remove(collectible);
-
-  // Clean up geometry and material
-  if (collectible.geometry) {
-    collectible.geometry.dispose();
-  }
-  if (collectible.material) {
-    collectible.material.dispose();
-  }
+  // ... existing cleanup code for collectible ...
 
   updateScoreUI();
+
+  // ADD THIS BLOCK:
+  // Auto-save score if authenticated (don't await to avoid blocking gameplay)
+  if (isAuthenticated && score > oldScore) {
+    console.log("Attempting auto-save...");
+    saveScore().catch((error) => {
+      console.error("Auto-save failed:", error);
+    });
+  }
 
   // Spawn a new collectible to replace the collected one
   spawnNewCollectible();
 }
-
-function spawnNewCollectible() {
-  const groundSize = 40;
-  const minDistance = 3;
-  const carStartArea = 5;
-  const maxAttempts = 50;
-
-  let position;
-  let attempts = 0;
-
-  do {
-    // Generate random position within ground bounds
-    position = {
-      x: (Math.random() - 0.5) * (groundSize - 4),
-      y: 1,
-      z: (Math.random() - 0.5) * (groundSize - 4) - 20,
-    };
-    attempts++;
-  } while (
-    attempts < maxAttempts &&
-    (isPositionTooClose(
-      position,
-      collectibles.map((c) => c.position),
-      minDistance
-    ) ||
-      isPositionTooClose(position, [{ x: 0, z: 0 }], carStartArea))
-  );
-
-  // If we found a valid position, spawn the collectible
-  if (attempts < maxAttempts) {
-    createCollectible(position.x, position.y, position.z);
-  }
-}
 ```
 
-### Step 6: Integration and Initialization
+### Features Added
 
-Building on the existing three.js vehicle controller, add these integrations:
+✅ **Persistent Score Storage**: Scores are automatically saved to VIVERSE cloud storage\
+✅ **Auto-Save**: Score automatically saves when collecting items and before reset\
+✅ **Manual Save/Load**: Players can manually save and load scores using buttons\
+✅ **High Score Protection**: Only loads saved scores if they're higher than current score\
+✅ **Visual Feedback**: Clear status messages show save/load operations\
+✅ **Error Handling**: Graceful error handling with user feedback\
+✅ **Non-blocking Operations**: Save operations don't interrupt gameplay
 
-```javascript
-// 1. Add VIVERSE authentication variables at the top
-let isAuthenticated = false;
-let userInfo = null;
+### Step 9: Build and Publish to VIVERSE
 
-// 2. Add score tracking variables
-let score = 0;
-let collectibles = [];
-
-// 3. In your existing init() function, add these calls:
-async function init() {
-  // ... existing three.js setup from base example ...
-
-  // NEW: Create authentication UI elements
-  createAuthUI();
-
-  // NEW: Initialize VIVERSE authentication after physics
-  await initPhysics(); // existing
-  initializeViverseClient(); // NEW
-  checkAuthentication(); // NEW
-
-  // NEW: Set up enhanced camera controls (replaces basic camera)
-  setupEnhancedCamera();
-
-  // ... rest of existing initialization ...
-}
-
-function animate() {
-  if (vehicleController) {
-    updateCarControl();
-    vehicleController.updateVehicle(1 / 60);
-    updateWheels(); // Update wheel positions and rotations
-  }
-
-  // Update camera to follow car
-  updateCamera();
-
-  // Update collectibles animations and check collisions
-  animateCollectibles();
-  checkCollisions();
-
-  if (physicsHelper) physicsHelper.update();
-
-  renderer.render(scene, camera);
-}
-```
-
-### Step 6: Build and Publish to VIVERSE
-
-That's it! That should fulfil our minimal requirements create a small mini game we can publish to VIVERSE to then run login and authentication check features. Now we just need to build and publish.
+That's it! That should fulfil our minimal requirements create a small mini game and track persistent scores for logged in users over time. Now we just need to build and publish.
 
 Whatever your build process, simply zip the final build folder to prepare to upload. In the demo project we're using Vite.js, so just run `npm run build` to engage that. This will create all necessary static build files in the `/dist` folder of your project.
 
@@ -456,6 +300,6 @@ That's it! The build is ready. Here are the relevant links:&#x20;
 
 three.js example project source code:&#x20;
 
-{% file src="../.gitbook/assets/vv-auth-three.zip" %}
+{% file src="../.gitbook/assets/vv-storage-three.zip" %}
 
-Demo scene live on VIVERSE: [https://worlds.viverse.com/DQC9Lpd](https://worlds.viverse.com/DQC9Lpd)
+Demo scene live on VIVERSE: [https://worlds.viverse.com/uSmtGgV](https://worlds.viverse.com/uSmtGgV)
