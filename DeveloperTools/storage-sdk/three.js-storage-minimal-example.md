@@ -6,7 +6,11 @@ description: >-
 
 # three.js Storage minimal example
 
-This guide extends the official [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) by adding persistent data storage functionality using the VIVERSE Storage SDK. This can be used to track any number of gameplay elements, from experience points, to resources, to equippable items.
+This guide extends the official [VIVERSE three.js Login & Auth minimal example](https://docs.viverse.com/developer-tools/login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example) by adding persistent data storage functionality using the VIVERSE Storage SDK. This can be used to track any number of gameplay elements, from experience points, to resources, to equip-able items. In this demo, we'll use it to track the user's score across sessions, and automatically save the score every time it's incremented.
+
+<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ### Pre-requisite:
 
