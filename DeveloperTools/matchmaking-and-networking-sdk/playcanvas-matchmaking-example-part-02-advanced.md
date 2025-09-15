@@ -1,24 +1,35 @@
 ---
 description: >-
   Learn how to integrate VIVERSE Play SDK Matchmaking into your standalone
-  PlayCanvas project using async state flow and PlayCanvas UI system
+  PlayCanvas project using async state flow and PlayCanvas UI system.
 hidden: true
 noIndex: true
 ---
 
 # PlayCanvas Matchmaking example: Part 02 - Advanced
 
-### Prerequisites
+***
+
+## About
+
+Welcome to Part 02 of the VIVERSE Play SDK Matchmaking tutorial for PlayCanvas! In this chapter we will cover multiple advanced topics:
+
+* Explore the concept of Application State and why it might be useful
+* Refactor our application to incorporate Async State Flow architecture
+* Implement UI system using built-in PlayCanvas UI and its components
+* Learn how to reference UI elements in our code using Script Attributes
+
+## Prerequisites
 
 This tutorial assumes you've completed [Part 01](playcanvas-matchmaking-example-part-01-basics.md) and already familiar with the basics of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) / [Matchmaking](../matchmaking-and-networking-sdk.md#matchmaking-api) functionality. Please feel free to revisit those if you need a quick recap!
 
 In the second part, we'll focus on adding more juice to our application, exploring architectural changes and integrating the UI system. You can follow this tutorial by forking a dedicated [PlayCanvas Project](https://playcanvas.com/project/1381603/) with all the code and assets included.
 
-### Chapter 1: App architecture and Async State Flow
+## Step 1: App architecture and Async State Flow
 
-As you might recall, we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors. In this chapter, we'll revisit that code once again and reorganize it into something more robust and future-proof.
+In the previous tutorial, we devised 4 essential methods to work with our Matchmaking Client — `initClient`, `createRoom`, `joinRoom` and `leaveRoom`, along with 2 event listeners — `onRoomListUpdate` and `onRoomActorChange` — to receive live updates about existing Rooms and connected Actors. In this chapter, we'll revisit that code once again and reorganize it into something more robust and future-proof.
 
-#### 1.1  Constructing State Flow
+### 1.1  Constructing State Flow
 
 First, let's introduce a concept of Application State - a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment. Application can only be in one State at a time, but it can instantly switch to another State once certain conditions are met.
 
@@ -26,16 +37,16 @@ Let's define 6 distinct States encapsulating the entire scope of our application
 
 * `Init State` : initialize Matchmaking client, setup user's Actor, then go to Lobby State
 * `Lobby State` : show available Rooms, handle user request to Create or Join the Room
-* &#x20;`Create State` : ask SDK to create the Room, handle response, then go to Room State
-* &#x20;`Join State` : ask SDK to join the Room, handle response, then go to Room State
-* &#x20; `Room State` : show Actors currently in the Room, handle user request to Leave the Room
-* &#x20;`Leave State` : ask SDK to leave the Room, handle response, then back to Lobby State
+* `Create State` : ask SDK to create the Room, handle response, then go to Room State
+* `Join State` : ask SDK to join the Room, handle response, then go to Room State
+* `Room State` : show Actors currently in the Room, handle user request to Leave the Room
+* `Leave State` : ask SDK to leave the Room, handle response, then back to Lobby State
 
 Now, if we organize these States in a closed directional graph, along with conditions triggering State switches — we will end up with something colloquially called State Flow:
 
 <figure><img src="../.gitbook/assets/stateflow.jpg" alt=""><figcaption></figcaption></figure>
 
-#### 1.2  Implementing State Flow&#x20;
+### 1.2  Implementing State Flow&#x20;
 
 It's time to move our State Flow into implementation! Similar to how we defined 4 essential methods in the previous steps, let's refactor them into 6 new methods — each responsible for functionality of corresponding State:
 
@@ -207,15 +218,15 @@ Notice a few things here:
 * While in the Room State, we subscribe to `onRoomActorChange` and then stay idle until user decides to leave the Room via globally exposed `leave ()` method
 * And finally, the Leave State is also transient — we unsubscribe from `onRoomActorChange`  and request Play SDK to leave current room. After that we end up in a Lobby again, and then cycle repeats
 
-#### 1.3  Testing in multiple tabs
+### 1.3  Testing in multiple tabs
 
-Alright, time to test-drive our new architecture! As previously, let's launch our PlayCanvas project in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
+Alright, time to test-drive our new architecture! Just like before, let's launch our PlayCanvas project in two or more separate tabs and use globally exposed `create ()`, `join ()` and `leave ()` methods to trigger corresponding States. If you did everything correctly you would see something like this:
 
 <div><figure><img src="../.gitbook/assets/mm4a.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mm4b.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 Nice progress so far! In the next chapter, we'll finally move beyond console testing and take a brief look at what PlayCanvas UI system has to offer.
 
-### Chapter 2: PlayCanvas UI system and final results
+## Step 2: PlayCanvas UI integration
 
 One of the strongest advantages of PlayCanvas engine is its visual editor which allows assembling scenes from imported assets in [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) fashion. And while it's technically possible to preassemble scenes in 3D apps like Blender and then export / import them in GLTF format, this idea falls apart once we try to implement a decent UI of any complexity.
 
@@ -225,7 +236,7 @@ In this chapter, we’ll get to know the PlayCanvas UI system and use it to buil
 From now on we assume you have basic familiarity with PlayCanvas UI system and its essential components like Screen, Element (Group / Image / Text) and Button. If you’d like a quick recap, please read [PlayCanvas UI User Manual](https://developer.playcanvas.com/user-manual/user-interface/user-interface-basics/)
 {% endhint %}
 
-#### 2.1  Assembling UI screens
+### 2.1  Assembling UI screens
 
 Our application has 6 possible states, but only 2 of them are steady - Lobby and Room. The other 4 states are transient - they always resolve into one of those two. For the purpose of this tutorial we can cover our entire UI functionality with just 3 screens:
 
@@ -249,11 +260,11 @@ Our application has 6 possible states, but only 2 of them are steady - Lobby and
 
 If you explore [PlayCanvas Project](https://playcanvas.com/project/1381603/) created for this tutorial, you may notice that UI screens there have specific structure — they consist of Label text, Frame group and Content group, but only contents of the Content group are visible during testing. There is no magic here — once you look closely you'll see that both Label and Frame's contents are positioned outside of Screen's \[0, 0, 1, 1] space, hence they never appear during rendering but still exist in 3D world. This is purely cosmetic touch — to make our Screens look more like Figma frames in the Editor, which may be quite welcoming for UX designers familiar with that tool.
 
-#### 2.2  Mapping UI screens to States
+### 2.2  Mapping UI screens to Application States
 
 We have all required screens now, but our app is still displaying all them simultaneously. To make it show only one Screen depending on current State, we need to link our screens to Script Attributes, and create a simple `showScreen` method switching them on and off.
 
-Let's put this idea into practise:
+Let's put this idea into practice:
 
 ```javascript
 import { Script, Entity, guid } from 'playcanvas';
@@ -358,7 +369,7 @@ And that's it! Once we parse our updated script and drag and drop screen Entitie
 You don't have to create complex interface-like attribute to link these 3 screens to your script. You could achieve similar results just by creating 3 separate attributes with Entity type instead. But our approach allows grouping Screens together in the Inspector, which is a nice convenience, especially when we decide to add new attributes later on.
 {% endhint %}
 
-#### 2.3  Dynamic UI elements and mapping Buttons to State switches
+### 2.3  Dynamic UI elements and Buttons
 
 Our app can now display a dedicated Screen when entering particular State, but UI elements in those screens are still not reactive, neither buttons are clickable. To fix this, we'll need to link a few more entities to our script:
 
@@ -538,10 +549,10 @@ We introduced some new complexity along the way, so let's unwrap it step by step
 
 * Similar to Screens, we've grouped new UI functionality into Buttons and Elements, and linked respective entities to corresponding Script Attributes. Also note that we're using array of Entities for Join button since we're going to have multiple of them in our Lobby
 * In the Lobby State, we're stripping away Create Button's `click` handler before subscribing to it again in the next line. It may look confusing, but it's a necessary cleanup to make sure that buttons don't have dead event listeners attached to them during previous State execution. As alternative, attached listeners could be cleaned up before transitioning to the next State, so either way is fine as long as you do that cleanup. You can see the same pattern for all other buttons in this demo project
-* For Join buttons, we've created two utility methods: `hideJoinButtons` and `showJoinButtons`, to map a list of available rooms received from `onRoomListUpdate` event. So each time a new Room is created or destroyed in the context of our app — the array of Join buttons will be updated respectively
+* For Join buttons, we've created two utility methods: `hideJoinButtons` and `showJoinButtons`, to map a list of available rooms received from `onRoomListUpdate` event. So each time a new Room is created or destroyed in the context of our app — the array of Join buttons is updated respectively
 * And finally, in the Room State we subscribe to `onRoomActorChange` and update Player Count each time Actors List is changed. Don't forget that we also unsubscribe from these events when leaving Room and Lobby states, but this code snippet doesn't show that explicitly
 
-#### 2.3  Final testing and further improvements
+## Step 3: Final testing and further improvements
 
 Hard to believe, but we're finally reaching the grand finale of this tutorial! Let's summarize what we've learned so far:
 
