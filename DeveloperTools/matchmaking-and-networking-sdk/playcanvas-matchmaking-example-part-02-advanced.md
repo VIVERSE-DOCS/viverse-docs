@@ -2,8 +2,6 @@
 description: >-
   Learn how to integrate VIVERSE Play SDK Matchmaking into your standalone
   PlayCanvas project using async state flow and PlayCanvas UI system.
-hidden: true
-noIndex: true
 ---
 
 # PlayCanvas Matchmaking example: Part 02 - Advanced
