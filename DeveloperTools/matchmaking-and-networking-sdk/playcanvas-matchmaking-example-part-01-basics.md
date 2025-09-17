@@ -2,8 +2,6 @@
 description: >-
   Learn how to start with VIVERSE Play SDK and implement Matchmaking basics for
   your standalone PlayCanvas project
-hidden: true
-noIndex: true
 ---
 
 # PlayCanvas Matchmaking example: Part 01 - Basics
