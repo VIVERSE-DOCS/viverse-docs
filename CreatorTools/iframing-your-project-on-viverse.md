@@ -8,7 +8,7 @@ hidden: true
 ***
 
 {% hint style="warning" %}
-**If this is your first time using VIVERSE, please create a VIVERSE account:** [**https://worlds.viverse.com/profile**](https://worlds.viverse.com/profile)
+**If this is your first time using VIVERSE, please create a VIVERSE account:** [**https://worlds.viverse.com/**](https://worlds.viverse.com/profile)
 {% endhint %}
 
 ## 1. Create a blank index.html.zip file
@@ -44,7 +44,7 @@ Replace `https://yourURL...` with the url that you would like to embed as an ifr
 
 ## 2. Upload the file to VIVERSE Studio
 
-### A. Visit [https://studio.viverse.com/upload](iframing-your-project-on-viverse.md#visit-https-studio.viverse.com-upload)
+### A. Visit [https://studio.viverse.com/upload](https://studio.viverse.com/upload)
 
 The upload page allows you to manage and add specific content to your VIVERSE account. For each world, you can manage its version status, visibility setting, and permissions.
 
@@ -88,7 +88,7 @@ Select "Submit for Review" twice to submit the project to the moderation team. O
 
 ### B. Configure World Settings
 
-Navigate to [https://worlds.viverse.com/profile](https://worlds.viverse.com/profile) and scroll down to the "My Worlds" section. Select the kebab menu next to the world and select "World Settings" to navigate to the settings page.
+Navigate to [https://worlds.viverse.com/](https://worlds.viverse.com/profile) and scroll down to the "My Worlds" section. Select the kebab menu next to the world and select "World Settings" to navigate to the settings page.
 
 <figure><img src=".gitbook/assets/Screenshot 2025-08-26 at 4.20.01 PM.png" alt="" width="563"><figcaption></figcaption></figure>
 
