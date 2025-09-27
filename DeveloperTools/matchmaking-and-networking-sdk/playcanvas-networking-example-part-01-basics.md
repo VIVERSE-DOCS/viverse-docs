@@ -2,6 +2,8 @@
 description: >-
   Learn how to start with VIVERSE Play SDK and implement Networking basics for
   your standalone PlayCanvas project
+hidden: true
+noIndex: true
 ---
 
 # PlayCanvas Networking example: Part 01 - Basics
