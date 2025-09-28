@@ -34,7 +34,12 @@ Let's create a new blank PlayCanvas project or use an already existing one. Go t
 
 ## Step 2: Create new scripts and initialize the SDK
 
-For the purpose of this tutorial we will be using recently introduced [ESM scripts](https://developer.playcanvas.com/user-manual/scripting/fundamentals/esm-scripts/), although you can still follow it with the [Classic scripting](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/classic/) as well. Let's start with creating a new script called `main.mjs` and use built-in `initialize()` method to [instantiate Play SDK client](../matchmaking-and-networking-sdk.md#initialize-the-playclient-instance):
+For the purpose of this tutorial we will be using recently introduced [ESM scripts](https://developer.playcanvas.com/user-manual/scripting/fundamentals/esm-scripts/), although you can still follow it with the [Classic scripting](https://developer.playcanvas.com/user-manual/scripting/fundamentals/script-attributes/classic/) as well. We will start with setting up a couple new classes:
+
+* `main.mjs`: defines Main class which would serve as an entry point of our application and instantiate a new Client. Main is extending PlayCanvas Script class and should be attached to some entity to work properly
+* `client.mjs`: defines Client class which would encapsulate all necessary functionality to create / join the room, start multiplayer session and send / receive messages between peers. Client is a typical ES6 class with a constructor and default export
+
+At this stage, let's proceed with [instantiating Play SDK client](../matchmaking-and-networking-sdk.md#initialize-the-playclient-instance) in Client's constructor:
 
 {% tabs %}
 {% tab title="main.mjs" %}
@@ -62,7 +67,7 @@ const { viverse } = globalThis;
 
 export default class Client
 {
-    appId = '5snkdrvvv8';
+    appId = '5snkdrvvv8'; // replace with your App ID
     play = null;
 
     constructor ()
@@ -81,9 +86,18 @@ export default class Client
 If you're new to PlayCanvas Editor and scripting system - we would strongly recommend consulting with official [PlayCanvas Scripting Guide](https://developer.playcanvas.com/user-manual/scripting/) before going any further. From now on we assume you're familiar with how scripts are added to the project, parsed and attached to Entities.
 {% endhint %}
 
-Congrats with a great start! Now if you launch your PlayCanvas project — you will see Play SDK client initialized and logged into the console. Please note that App ID is not required at this point, but we will definitely need it later!
+Congratulations with a switf start! Now if you launch your PlayCanvas project — you will see Play SDK client initialized and logged into the console. Please note that App ID is not required at this point, but we will definitely need it later!
 
-## Step 3: Initialize Matchmaking Client and setup the Room
+## Step 3: Initialize Matchmaking client and setup the Room
+
+Now let's modify our Client so that it sets up a Room where our multiplayer session will happen. For this functionality we would need to add a few extra steps:
+
+* Initialize new Matchmaking client
+* Look for currently available rooms
+* If there are available rooms - join the first one
+* If no rooms are available - create a new one
+
+> _To refresh your knowledge of VIVERSE Matchmaking functionality please feel free to consult with our_ [_Matchmaking API documentation_](../matchmaking-and-networking-sdk.md#matchmaking-api) _and take a look at_ [_PlayCanvas Matchmaking Example_](playcanvas-matchmaking-example-part-01-basics.md) _code!_
 
 {% tabs %}
 {% tab title="main.mjs" %}
@@ -132,6 +146,10 @@ export default class Client
         this.initialize ();
     }
     
+    //-------------------------------------------------------------------//
+    //                          Initialization                           //
+    //-------------------------------------------------------------------//
+    
     async initialize ()
     {
         console.log ('>>> Initializing:', this.username);
@@ -142,10 +160,6 @@ export default class Client
         await this.createJoinRoom ();
         console.log ('>>> Joined the room');
     }
-    
-    //-----------------------------------------------------------------------------//
-    //                               Initialization                                //
-    //-----------------------------------------------------------------------------//
     
     async initMatchmaking ()
     {
@@ -173,6 +187,19 @@ export default class Client
 {% endtabs %}
 
 <figure><img src="../.gitbook/assets/mu2.png" alt=""><figcaption></figcaption></figure>
+
+Here is what's happening:
+
+* The Client class defines `async initialize ()` which would be responsible for setting up our Multiplayer client and creating / joining the Room
+* Internally it calls `async initMatchmaking ()` which [instantiates new Matchmaking](../matchmaking-and-networking-sdk.md#matchmaking-api) client with provided App ID, and returns a promise when [the client is connected](../matchmaking-and-networking-sdk.md#onconnect-event). Listening to `onConnect` here is crucial since trying to create or join the Room before that would result in a error
+* After Matchmaking client is connected — we call `async createJoinRoom ()` which [sets up an Actor](../matchmaking-and-networking-sdk.md#setup-actor-info) with desired username and randomly generated session id, [scans for available rooms](../matchmaking-and-networking-sdk.md#get-available-rooms) and then [creates](../matchmaking-and-networking-sdk.md#create-and-configure-a-room) / [joins](../matchmaking-and-networking-sdk.md#join-room-by-roomid) the Room depending on result of that scan
+* Then in Main class we instantiate a new instance of that Client class with username `Player A` and call `await client.initialize ()`. If you did everything correctly — you should see Client instance logging various initializations steps into the console
+
+Great progress so far! In the next step we will \[...]
+
+{% hint style="info" %}
+Heads up! From now on we’ll be relying on **async / await** a lot. If you’d like a quick recap, please read [Async / Await JS basics](https://javascript.info/async-await)
+{% endhint %}
 
 ## Step 4: Initialize Multiplayer Client and subscribe to events
 
@@ -240,10 +267,10 @@ export default class Client
         console.log ('>>> Client ready');
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                 Initialiazation                                  //
-    //----------------------------------------------------------------------------------//
-
+    //-------------------------------------------------------------------//
+    //                          Initialization                           //
+    //-------------------------------------------------------------------//
+    
     async initMatchmaking ()
     {
         this.matchmaking = await this.play.newMatchmakingClient (this.appId);
@@ -272,11 +299,11 @@ export default class Client
         await this.multiplayer.init ();
         return new Promise (resolve => this.multiplayer.onConnected (resolve));
     }
-
-    //----------------------------------------------------------------------------------//
-    //                                     Handlers                                     //
-    //----------------------------------------------------------------------------------//
-
+    
+    //-------------------------------------------------------------------//
+    //                             Handlers                              //
+    //-------------------------------------------------------------------//
+    
     handleMessage (data)
     {
         console.log (this.username, 'received message:', data);
