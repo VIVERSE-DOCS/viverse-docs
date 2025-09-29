@@ -9,7 +9,7 @@ description: >-
 ***
 
 {% hint style="info" %}
-Please follow the provided designer guideline [here](../../optimization.md#id-3d-asset-guide) to meet performance and feasibility specifications. This guide will help ensure your scene is optimized for the VIVERSE platform.&#x20;
+Please follow the provided designer guideline [here](../../optimizing-for-the-web.md#id-3d-asset-guide) to meet performance and feasibility specifications. This guide will help ensure your scene is optimized for the VIVERSE platform.&#x20;
 {% endhint %}
 
 {% hint style="warning" %}

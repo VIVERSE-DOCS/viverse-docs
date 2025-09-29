@@ -321,7 +321,7 @@ Startup time is limited by network bandwidth in the browser. This contrasts with
 
 Research show that bounce rates [increase by 123% if an application takes more than 10 seconds to load](https://www.tooltester.com/en/blog/website-loading-time-statistics/), and 53% of users will leave a webpage if it takes more than 3 seconds to load.  Given that worldwide network bandwidth is conservatively [50 mbps](https://www.speedtest.net/global-index#mobile), developers should aim for JavaScript bundle sizes under 5 MB to achieve a 1.5 second TTID. To achieve a TTFD under 10 seconds, developers should aim for 40 MB or less of total assets (code, textures, audio, and models).
 
-Refer to [Optimizing for the Web](../optimization.md) for more details on optimizing assets for the web.&#x20;
+Refer to [Optimizing for the Web](../optimizing-for-the-web.md) for more details on optimizing assets for the web.&#x20;
 
 ### :mobile\_phone: Optimizing for Mobile Devices
 

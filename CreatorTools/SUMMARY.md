@@ -2,7 +2,7 @@
 
 * [Introduction to Creator Tools](README.md)
 * [VIVERSE Studio](publishing-with-your-viverse-account.md)
-* [Optimizing for the Web](optimization.md)
+* [Optimizing for the Web](optimizing-for-the-web.md)
 * [Monetization](monetization.md)
 
 ## Publishing From Templates
