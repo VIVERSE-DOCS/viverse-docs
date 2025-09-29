@@ -9,7 +9,7 @@ hidden: true
 
 VIVERSE provides an identity and avatar system to help users express themselves in 3D worlds, as well as several default public avatars.
 
-> BEFORE GETTING STARTED: you must [authenticate with VIVERSE](developer-tools/login-and-authentication-for-the-sdk.md) before requesting user-specific avatars. Non-authenticated users can still make requests to the public avatar list.
+> BEFORE GETTING STARTED: you must [authenticate with VIVERSE](developer-tools-old/login-and-authentication-for-the-sdk.md) before requesting user-specific avatars. Non-authenticated users can still make requests to the public avatar list.
 
 ## Getting Started
 

@@ -10,7 +10,7 @@ hidden: true
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](developer-tools/login-and-authentication-for-the-sdk.md), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](developer-tools-old/login-and-authentication-for-the-sdk.md), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`playClient\` instance
 

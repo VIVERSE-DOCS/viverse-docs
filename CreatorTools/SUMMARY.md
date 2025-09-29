@@ -26,9 +26,9 @@
 * [Godot HTML5 Example](godot-html5-example.md)
 * [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
 
-## Developer Tools
+## Developer Tools <a href="#developer-tools-old" id="developer-tools-old"></a>
 
-* [Login & Authentication for the SDK](developer-tools/login-and-authentication-for-the-sdk.md)
+* [Login & Authentication for the SDK](developer-tools-old/login-and-authentication-for-the-sdk.md)
 
 ***
 

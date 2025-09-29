@@ -9,7 +9,7 @@ hidden: true
 
 ***
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](developer-tools/login-and-authentication-for-the-sdk.md) before requesting leaderboard services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](developer-tools-old/login-and-authentication-for-the-sdk.md) before requesting leaderboard services.
 
 ### Leaderboard Setup in VIVERSE Studio
 
@@ -30,7 +30,7 @@ Before integrating the Leaderboard SDK, you must first configure the leaderboard
 
 ### Game Dashboard Client Setup
 
-To then make use of your VIVERSE Leaderboard, you must instantiate the `gameDashboardClient` [after authentication](developer-tools/login-and-authentication-for-the-sdk.md).
+To then make use of your VIVERSE Leaderboard, you must instantiate the `gameDashboardClient` [after authentication](developer-tools-old/login-and-authentication-for-the-sdk.md).
 
 ```
 // If the user is logged in, get the token; if not, return `undefined`
