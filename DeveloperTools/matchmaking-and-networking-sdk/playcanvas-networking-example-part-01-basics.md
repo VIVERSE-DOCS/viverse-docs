@@ -27,8 +27,6 @@ In order to use VIVERSE SDKs you need to create a World first and retrieve its A
 
 <div><figure><img src="../.gitbook/assets/cr1a (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/cr1b (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-We're also assuming \[... Matchmaking SDK and room creation / joining]
-
 ## Step 1: Setup PlayCanvas project and add VIVERSE SDK
 
 Let's create a new blank PlayCanvas project or use an already existing one. Go to the `SETTINGS` > `EXTERNAL SCRIPTS` and add a new script there: [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs). This will ensure the VIVERSE SDK is loaded first and your PlayCanvas logic has full access to its functionality:
@@ -41,6 +39,10 @@ For the purpose of this tutorial we will be using recently introduced [ESM scrip
 
 * `main.mjs` : defines Main class which would serve as an entry point of our application and instantiate a new Client. Main is extending PlayCanvas Script class and should be attached to some entity to work properly
 * `client.mjs` : defines Client class which would encapsulate all necessary functionality to create / join the room, start multiplayer session and send / receive messages between peers. Client is a typical ES6 class with a constructor and default export
+
+{% hint style="info" %}
+If you're new to PlayCanvas Editor and scripting system - we would strongly recommend consulting with official [PlayCanvas Scripting Guide](https://developer.playcanvas.com/user-manual/scripting/) before going any further. From now on we assume you're familiar with how scripts are added to the project, parsed and attached to Entities.
+{% endhint %}
 
 At this stage, let's proceed with [instantiating Play SDK client](../matchmaking-and-networking-sdk.md#initialize-the-playclient-instance) in the Client's constructor:
 
@@ -84,10 +86,6 @@ export default class Client
 {% endtabs %}
 
 <figure><img src="../.gitbook/assets/mu1 (3).png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-If you're new to PlayCanvas Editor and scripting system - we would strongly recommend consulting with official [PlayCanvas Scripting Guide](https://developer.playcanvas.com/user-manual/scripting/) before going any further. From now on we assume you're familiar with how scripts are added to the project, parsed and attached to Entities.
-{% endhint %}
 
 Congratulations with a great start! Now if you launch your PlayCanvas project — you will see Play SDK client initialized and logged into the console. Please note that App ID is not required at this point, but we will definitely need it later!
 
@@ -337,12 +335,16 @@ This is what we've added so far:
 * After Multiplayer client is connected, we subscribe it to incoming [messages](../matchmaking-and-networking-sdk.md#onmessage) and [actions / competition](../matchmaking-and-networking-sdk.md#oncompetition) via corresponding methods `handleMessage (data)` and `handleAction (data)`. Messages and actions are two main data structures that Multiplayer clients of different peers can exchange with each other, and we'll see them in action a bit later, during our final testing
 * Note that Multiplayer client is using `.onConnected (callback)` signature while Matchmaking client relies on `.on ('onConnect', callback)` one. This is temporary inconsistency that might be resolved in the future
 
-Alright, our Multiplayer client is all set and ready to go! In the next and the final step, we'll test it all together via browser console, see how messages are sent between peers, how actions work and how competition is resolved by Play SDK servers.
+Alright, our Client is all set and ready to go! In the next and the final step, we'll test it all together via browser console, see how messages are sent between peers, how actions work and how competition is resolved by Play SDK servers.
 
 ## Step 5: Final modifications and testing
 
+### 5.1  Preparing app for testing
+
 We're almost good to go about testing our multiplayer! But before we proceed any further, let's expose our `Main :: async initClient ()` globally by attaching it to the window object. Here is what the final result could look like:
 
+{% tabs %}
+{% tab title="main.mjs" %}
 ```javascript
 // @ts-nocheck
 import { Script } from 'playcanvas';
@@ -369,17 +371,21 @@ export class Main extends Script
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
+
+### 5.2  Broadcasting and receiving messages
 
 Now we can finally proceed to testing! Let's launch our PlayCanvas app in a new tab and open browser console. Then try the following:
 
-* Instantiate two players in a sequence
+* Instantiate two players in a sequence:
   * ```javascript
     let player1 = await init ('Player A')
     ```
   * ```javascript
     let player2 = await init ('Player B')
     ```
-* Send message from `player1` to all players in the Room
+* Send message from `player1` to all players in the Room:
   * ```javascript
     player1.multiplayer.general.sendMessage ({...}) // arbitrary data object
     ```
@@ -387,10 +393,34 @@ Now we can finally proceed to testing! Let's launch our PlayCanvas app in a new 
 
 <figure><img src="../.gitbook/assets/mu4 (1).png" alt=""><figcaption></figcaption></figure>
 
-> _**NOTE:** For the purpose of this tutorial we're testing our app in a single tab, but you can also launch it in multiple tabs or even on different devices! All the messages should still arrive as expected_
+> _**NOTE:** For the purpose of this tutorial we're testing our app in a single tab, but you can also launch it in multiple tabs or even on different devices! All multplayer functionality should still work as expected_
 
-Alright, sending and receiving messages work beautifully, but what about actions and competition? What are those even used for?
+### 5.3  Actions and competition
 
+Alright, broadcasting data between peers works beautifully, but what if player wants to trigger an event that should affect all players? What if multiple players are trying to trigger that event at the same time, but only one player should be decided as a winner?
 
+This is what [actions and competition](../matchmaking-and-networking-sdk.md#actionsync) were designed for. A typical example is collecting an item — when player moves across let's say a powerup, it sends a [competition request](../matchmaking-and-networking-sdk.md#competition) to VIVERSE Play SDK servers. If no other player sent that same request during the last server update — the server [sends a confirmation](../matchmaking-and-networking-sdk.md#oncompetition) to everyone in the room that this powerup was collected by this player. But if multiple players came across that powerup at the same time — the server decides the winner by choosing the one whose action arrived the earliest, and then notifies everyone in the room.
+
+Let's see it in practise:
+
+* First log peer ids for both players in your room:
+  * ```javascript
+    player1.multiplayer.peerId // --> '....'
+    ```
+  * ```javascript
+    player2.multiplayer.peerId // --> '....'
+    ```
+* Now trigger some action by both players simultaneously. Please note that all three params should match between actions to participate in the same competition run! Sending two actions with different params will simply result in two separate competition runs — one for each action:
+  * ```javascript
+    player1.multiplayer.actionsync.competition ('action', 'message', 'id')
+    player2.multiplayer.actionsync.competition ('action', 'message', 'id')
+    ```
+* After both actions are triggered simultaneously — observe how both players are notified about competition results. Notice that successor refers to peer id of a player that won the competiton:
 
 <figure><img src="../.gitbook/assets/mu5 (2).png" alt=""><figcaption></figcaption></figure>
+
+## Wrapping up
+
+And that's it! Now you can use essential Multiplayer functionality from VIVERSE Play SDK in your custom projects. You can initialize Multiplayer client for the current Room, broadcast and receive Messages between Players, and send Actions that would be resolved by the server via the process of Competition.
+
+In the second part of this tutorial we'll revisit our multipalyer app and redesign it to be more robust and production-ready. Stay tuned!
