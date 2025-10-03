@@ -108,11 +108,11 @@ The World URL, such as https://create.viverse.com/aBCdEfG, is the fully publishe
 
 A world's settings can be edited by clicking the kebab menu next to your world on your account page.
 
-<figure><img src=".gitbook/assets/Screenshot 2024-12-29 at 3.48.07 PM.png" alt="" width="375"><figcaption><p>Image showing to open a world's settings</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (746).png" alt="" width="375"><figcaption><p>Image showing to open a world's settings</p></figcaption></figure>
 
 With the world settings, you can configure your world's name, description, thumbnail, and accessibility settings. Both Genre and Access will influence how your world is categorized and displayed on the VIVERSE world discovery page.
 
-<figure><img src=".gitbook/assets/Screenshot 2024-12-29 at 3.48.16 PM.png" alt="" width="375"><figcaption><p>The world settings configuration panel</p></figcaption></figure>
+<figure><img src=".gitbook/assets/WorldSettings.PNG" alt="" width="358"><figcaption><p>The world settings configuration panel</p></figcaption></figure>
 
 Worlds can be set to one of three accessibility states and can be password protected to add an additional level of security.
 
@@ -122,11 +122,11 @@ Worlds can be set to one of three accessibility states and can be password prote
 
 Worlds can be assigned a genre, which impacts curation and discovery on the VIVERSE webpages.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-08 at 10.44.16 AM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Genres.PNG" alt="" width="344"><figcaption></figcaption></figure>
 
 Worlds can also be assigned a device filter, regulating which user devices are intended to experience the world based on its optimization.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-08 at 10.45.50 AM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Devices.PNG" alt=""><figcaption></figcaption></figure>
 
 ## Discovery
 
