@@ -1,12 +1,14 @@
 ---
 description: >-
   Learn how to integrate VIVERSE Play SDK Networking into your standalone
-  PlayCanvas project using [...].
+  PlayCanvas project using [...synchronized global state and snapshot system]
 hidden: true
 noIndex: true
 ---
 
 # PlayCanvas Networking example: Part 02 - Advanced
+
+***
 
 ## About
 
@@ -20,14 +22,14 @@ This tutorial assumes you've completed \[Part 01] and already familiar with the 
 
 In the second part, we'll focus on \[...]. You can follow this tutorial by forking a dedicated \[PlayCanvas Project] with all the code and assets included.
 
-## Step 1
+## Step 1: App architecture and global State
 
 \[... Intro about architecture design and state handling]
 
 Let's start by setting up a \[...main frame of our application]:
 
 * `app.mjs` : defines App class which would serve as an entry point of our application and create a new State instance. App is extending PlayCanvas Script class and should be attached to some entity to work properly
-* `state.mjs` : defines State class which would be responsible for managing global state of our application. It's based around standard Map, but implements a simple deep cloning mechanism where it's applicable, to mitigate possible issues when various scripts are mutating State objects after setting / getting them
+* `state.mjs` : defines State class which would be responsible for managing global state of our application. It's based on standard Map, but implements a simple deep cloning mechanism where it's applicable, to mitigate possible issues when various scripts are mutating State objects after setting / getting them
 
 {% tabs %}
 {% tab title="app.mjs" %}
@@ -113,9 +115,11 @@ export default class State extends Map
 
 \[...Testing via pc.app.state.set (...) and pc.app.state.get (...)]
 
-## Step 2
+<div><figure><img src="../.gitbook/assets/mu24.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mu25.png" alt=""><figcaption></figcaption></figure></div>
 
-Now let's borrow a `client.mjs` script which we created in Part 01, and refactor it to fit our new architecture. The new Client will have 4 internal variables exposed to other scripts via our global application State:
+## Step 2: Networking implementation
+
+Now let's borrow a `client.mjs` script that we created in Part 01, and refactor it to fit our new architecture. The new Client will have four internal variables exposed to other scripts via our global application State:
 
 * `status` — indicates current initialization progress and can be `init` -> `matchmaking` -> `room` -> `multiplayer` -> `ready`
 * `actor` — data related to current user's Actor. Will be updated internally by Matchmaking client (no need to listen to special events for this)
@@ -139,6 +143,11 @@ export class Client extends Script
         this.appId = '5snkdrvvv8';
         this.play = new viverse.Play ();
 
+        // We create `data` object to store internal variables
+        // That we are going to expose via global State
+        // We do that purely for stylistic reasons
+        // You can just define them as `this._xyz` if you prefer
+
         this.data =
         {
             status: 'init',
@@ -150,6 +159,10 @@ export class Client extends Script
 
     postInitialize ()
     {
+        // We popute State with our internal vars during postInitialize
+        // So we could see them in Session Storage right away
+        // It's optional but a good practice for consistency
+    
         this.app.state.set ('client.status', this.data.status);
         this.app.state.set ('client.actor', this.data.actor);
         this.app.state.set ('client.room', this.data.room);
@@ -175,18 +188,24 @@ export class Client extends Script
         this.data.status = 'ready';
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                     Handlers                                     //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                Handlers                                //
+    //------------------------------------------------------------------------//
+    
     handleMessageIn (data)
     {
+        // All our messages are expected to have `id` field
+        // Which is id of an entity that this update corresponds to
+    
         if (data.id)
             this.data.snapshot.set (data.id, data);
     }
 
     handleMessageOut (data)
     {
+        // All our messages are expected to have `id` field
+        // Which is id of an entity that this update corresponds to
+    
         if (data.id)
         {
             this.multiplayer.general.sendMessage (data);
@@ -194,30 +213,37 @@ export class Client extends Script
         }
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Update                                      //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Update                                 //
+    //------------------------------------------------------------------------//
+    
     update (dt)
     {
         this.data.actor = this.matchmaking?.getCurrentActor ();
         this.data.room = this.matchmaking?.getCurrentRoom ();
+
+        // Deletes all snapshot entries that correspond to disconnected users
+        // Not important for now, we'll expand on that later in this tutorial
 
         let ids = this.data.room?.actors.map (actor => actor.session_id) || [];
         for (let [key, data] of this.data.snapshot.entries ())
             if (!ids.includes (data.owner))
                 this.data.snapshot.delete (key);
 
+        // At the end of each Client's update
+        // We copy its internal variables to the global State
+        // So that other scripts can use them inside their updates
+        
         this.app.state.set ('client.status', this.data.status);
         this.app.state.set ('client.actor', this.data.actor);
         this.app.state.set ('client.room', this.data.room);
         this.app.state.set ('client.snapshot', this.data.snapshot);
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Utils                                       //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Utils                                  //
+    //------------------------------------------------------------------------//
+    
     async initMatchmaking ()
     {
         this.matchmaking = await this.play.newMatchmakingClient (this.appId);
@@ -228,7 +254,7 @@ export class Client extends Script
     {
         await this.matchmaking.setActor
         ({
-            name: '',
+            name: '',    // we don't need usernames for this tutorial
             session_id: guid.create (),
             properties: {}
         });
@@ -251,17 +277,30 @@ export class Client extends Script
 {% endtab %}
 {% endtabs %}
 
-Let's see what's happening in our new refactored Client:
+Let's see what's happening inside our new refactored Client:
 
 * We still have original initialization routine borrowed from the previous version, but now it's updating `status` each time the Client reaches certain initialization stage
 * At the same time, we're now extending it from PlayCanvas Script class, so we can rely on built-in `update ()` method to write all necessary internal variables to our global State, where they will be processed by other scripts down the line (which we introduce later in this tutorial)
-* And finally, we're setting up handlers for incoming and outgoing messages, tightly integrating them with Snapshot updates. So each time a new message arrives from remote peer — its data is merged into corresponding Snapshot entry, under `data.id` key. And each time some local entity broadcasts a message to remote peers via our Client — the message's `data` is also merged into corresponding entry as well. This way the `snapshot` variable always stores the latest data about all multiplayer entities in the current Room — to its best ability.
+* And finally, we're setting up handlers for incoming and outgoing messages, tightly integrating them with `snapshot` updates
+  * So each time a new message arrives from remote peer — its data is merged into corresponding `snapshot` entry under `data.id` key
+  * And each time some local entity broadcasts a message to remote peers via our Client — the message's `data` is also merged into corresponding entry as well
+  * This way the `snapshot` map always stores the latest data about all multiplayer entities in the current Room — to its best ability
 
-\[...Showing Client states in session storage]
+Once we have both `app.mjs` and `client.mjs` parsed and attached to some entities in the hierarchy, we can proceed to testing. \[...Let's launch our PlayCanvas app, go to Dev Tools > Application > Session Storage]&#x20;
 
 <figure><img src="../.gitbook/assets/mu21.gif" alt=""><figcaption></figcaption></figure>
 
-## Step 3
+## Step 3: Local Player and Input handling
+
+Now let's create a simple test scene and populate it with Player entity that we can control with WASD keys:
+
+* Since we're going to use physics for player movement and collision — we need to import Ammo library into our project first
+* Once Ammo is set up — we can proceed with adding basic geometry and static Colliders into our world. For the purpose of this tutorial we would need just a horizontal Floor and a few Walls so that our Player doesn't fall over the edge
+* And finally we add a Player entity with Collision and Rigidbody components as illustrated below:
+
+<figure><img src="../.gitbook/assets/mu23.png" alt=""><figcaption></figcaption></figure>
+
+Let's see what our `player.mjs` script could look like:
 
 {% tabs %}
 {% tab title="player.mjs" %}
@@ -278,23 +317,24 @@ export default class Player extends Script
 
     initialize () {}
 
-    //----------------------------------------------------------------------------------//
-    //                                      Update                                      //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Update                                 //
+    //------------------------------------------------------------------------//
+    
     update (dt)
     {
         let inputdir = this.processInput ();
         let movedir = new pc.Vec3 (inputdir.x, 0, -inputdir.y);
         let mass = this.entity.rigidbody.mass;
         let force = movedir.clone ().mulScalar (20 * mass);
+        
         this.entity.rigidbody.applyForce (force.x, force.y, force.z);
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Utils                                       //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Utils                                  //
+    //------------------------------------------------------------------------//
+    
     processInput ()
     {
         let dir = new Vec2 ();
@@ -315,7 +355,14 @@ export default class Player extends Script
 {% endtab %}
 {% endtabs %}
 
-\[...Testing local player movement]
+This initial implementation is pretty simple:
+
+* With each update, we are using PlayCanvas keyboard utility to check for pressed keys, and construct a 2D vector for our desired movement direction
+* Then we apply force in that direction, and let Ammo engine do the rest
+
+With a strong force and high enough friction the player movement turns out to be quite fun — let' take a look!
+
+<figure><img src="../.gitbook/assets/mu22.gif" alt=""><figcaption></figcaption></figure>
 
 ## Step 4
 
