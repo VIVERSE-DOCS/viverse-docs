@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to integrate VIVERSE Play SDK Networking into your standalone
-  PlayCanvas project using global state and snapshot system
+  PlayCanvas project using global state, data flow and snapshot system
 hidden: true
 noIndex: true
 ---
@@ -14,15 +14,21 @@ noIndex: true
 
 Welcome to Part 02 of the VIVERSE Play SDK Networking tutorial for PlayCanvas! In this chapter we will cover multiple advanced topics:
 
-* \[...]
+* Explore the concept of Application State and Data Flow, and why they might be useful
+* Refactor our Application and Networking Client to fit our new architecture
+* Implement local Player driven by keyboard input and Ammo physics
+* Implement remote Players and update them based on messages from remote peers
+* Test it all together in a minimal multiplayer example project
 
 ## Prerequisites
 
 This tutorial assumes you've completed [Part 01](playcanvas-networking-example-part-01-basics.md) and already familiar with the basics of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) / [Networking](../matchmaking-and-networking-sdk.md#multiplayer-apis) functionality. Please feel free to revisit those if you need a quick recap!
 
-In the second part, we'll focus on \[...]. You can follow this tutorial by forking a dedicated \[PlayCanvas Project] with all the code and assets included.
+In the second part, we'll focus on adding more complexity to our application, incorporating architectural changes and exploring multiplayer concepts like snapshots and local / remote entities. You can follow this tutorial by forking a dedicated [PlayCanvas Project](https://playcanvas.com/project/1400968/) with all the code and assets included.
 
-## Step 1: App architecture and global State
+## Step 1: Application State and Data Flow architecture&#x20;
+
+In our previous [Matchmaking Tutorial](playcanvas-matchmaking-example-part-02-advanced.md#step-1-app-architecture-and-async-state-flow) we've introduced a concept of Application State — a single point in discreet space of all possible configurations that can meaningfully describe our application in any given moment.&#x20;
 
 \[... Intro about architecture design and state handling]
 
@@ -101,8 +107,8 @@ export default class State extends Map
     }
     
     // Simple solution for inspecting and debugging current app state
-    // Displays all internal variables and their values in session storage
-    // I.e. Chrome > Dev Tools > Application > Session Storage
+    // Writing all internal variables and their values into session storage
+    // Chrome > Dev Tools > Application > Session Storage
     
     log ()
     {
@@ -117,7 +123,20 @@ export default class State extends Map
 {% endtab %}
 {% endtabs %}
 
-\[...Testing via pc.app.state.set (...) and pc.app.state.get (...)]
+Let's see how this Application State and Data Flow are working together:
+
+*   For starters, let's assume we have Script A that has internal state which can be represented by a key / value Map of arbitrary values. For example it could be something like this:
+
+    ```javascript
+    {
+        'some.id':    'qwe123',
+        'status':     'loaded',
+        'move_dir':    {x: 0, y: 1, z: 2},
+    }
+    ```
+* Now let's say we have Script B which relies on some of those variables to modify its own state. For example, it might not display anything until Script A's `status` is `loaded` , or might use its `move_dir` to decide where to show hint UI
+
+\[...To see it in action, let's launch our project and navigate to browser console]
 
 <div><figure><img src="../.gitbook/assets/mu24.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mu25.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -290,13 +309,17 @@ Let's see what's happening inside our new refactored Client:
   * Each time some local entity broadcasts a message to remote peers via our Client — the message's `data` is also merged into corresponding entry as well
   * This way the `snapshot` map always stores the latest data about all multiplayer entities in the current Room — to its best ability
 
-Once we have both `app.mjs` and `client.mjs` parsed and attached to some entities in the hierarchy, we can proceed to testing! Let's open a new tab, navigate to Session Storage inspector as described in Step 1, and enter our project's launch URL. If you did everything correctly — you should see Client's state changing in real time:
+Once we have both `app.mjs` and `client.mjs` parsed and attached to some entities in the hierarchy, we can proceed to testing!
+
+Let's open a new tab, navigate to Session Storage inspector as described in the previous step, and enter our project's launch URL. If you did everything correctly — you should see Client's state changing in real time:
 
 <figure><img src="../.gitbook/assets/mu21.gif" alt=""><figcaption></figcaption></figure>
 
+Great progress so far! In the next step we will start populating our scene with entities, so our Client would have \[...something to put into its Snapshot.]
+
 ## Step 3: Local Player and Input handling
 
-Now let's create a simple test scene and populate it with Player entity that we can control with WASD keys:
+We have our Networking sorted out, but our world is still empty. To bring it to life, we should create a simple Scene first and populate it with Player entity that we can control with WASD keys:
 
 * Since we're going to use physics for player movement and collision — we need to import [Ammo](https://developer.playcanvas.com/user-manual/editor/interface/settings/physics/) library into our project first
 * Once Ammo is set up — we can proceed with adding basic geometry and [static colliders](https://developer.playcanvas.com/tutorials/collision-and-triggers/) into our world. For the purpose of this tutorial we would need just a horizontal Floor and a few Walls so that our Player doesn't fall over the edge
@@ -370,10 +393,10 @@ With a strong force and high enough friction the player movement turns out to be
 
 ## Step 4: Remote Players and Multiplayer testing
 
-We have our networking Client ready, and local Player set up, so now it's finally time to \[...]
+Alright, we have Networking Client ready and local Player implemented, but there are still no remote Players in our world. To make our project truly multiplayer, we need to introduce a few more modifications:
 
-* `game.mjs` : this is crucial part of our application, serving as a Factory and Container for our Entities — both local and remote ones:
-  * With each Client's `snapshot` update our Game will go through its child Entities, and create new ones / destroy existing ones if there is any mismatch between a current list of Snapshot entries and Game's list of children. The instantiation is done via [Templates (Prefabs)](https://developer.playcanvas.com/tutorials/importing-first-model-and-animation/#adding-the-model-template-to-the-scene) — we will talk about them a bit later in this step
+* `game.mjs` : this will be crucial part of our application, serving as a Factory and Container for our Entities — both local and remote ones:
+  * With each Client's `snapshot` update our Game will go through its child Entities, and create new ones / destroy existing ones if there is any mismatch between a current list of Snapshot entries and Game's list of children. The instantiation is done via [Templates (Prefabs)](https://developer.playcanvas.com/tutorials/importing-first-model-and-animation/#adding-the-model-template-to-the-scene) — we will discuss them a bit later
   * Also, the Game is responsible for instantiating a local Player if it can't be found in Snapshot as well (which would happen exactly once by design)
   *   For the sake of this tutorial our Game is designed to handle only Player entities — whose Snapshot entries could be defined like this:
 
@@ -386,9 +409,9 @@ We have our networking Client ready, and local Player set up, so now it's finall
           velocity: [x, y, z]
       }
       ```
-* `player.mjs` : an updated version of our original Player which now supports both local and remote variations:
-  * Local Player updates its position and velocity based on keyboard input and physics, as we implemented it in the previous step. It also fires a `client:send` event to write its current position / velocity into Snapshot entry, and also to broadcast this recent update to all remote peers
-  * Remote Players update their positions and velocities based on corresponding Snapshot entries, which in turn are regularly updated by our networking Client (based on messages coming from remote peers)
+* `player.mjs` : a refactored version of our original Player which now supports both local and remote variations:
+  * Local Player updates its position and velocity based on keyboard input and physics, as we implemented it in the previous step. It also fires a `client:send` event to write its current position / velocity into Snapshot entry and broadcast this recent update to all remote peers
+  * Remote Players update their positions and velocities based on corresponding Snapshot entries, which in turn are regularly updated by our Networking Client (based on messages coming from corresponding remote peers)
 
 {% tabs %}
 {% tab title="game.mjs" %}
@@ -411,10 +434,10 @@ export class Game extends Script
 
     initialize () {}
 
-    //----------------------------------------------------------------------------------//
-    //                                      Update                                      //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Update                                 //
+    //------------------------------------------------------------------------//
+    
     update (dt)
     {
         let status = this.app.state.get ('client.status');
@@ -423,7 +446,7 @@ export class Game extends Script
 
         // Game shouldn't do anything until our Client is ready
         
-        if (!status !== 'ready')
+        if (status !== 'ready')
             return;
 
         // Create new Entity
@@ -464,10 +487,10 @@ export class Game extends Script
         } 
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Utils                                       //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Utils                                  //
+    //------------------------------------------------------------------------//
+    
     createEntity (data)
     {
         switch (data.type)
@@ -521,7 +544,7 @@ export default class Player extends Script
 
     initialize () {}
 
-    // Our Plyer is instantiated from Template by Game factory
+    // Our Player is instantiated from Template by Game factory
     // So this custom method is used to pass custom data after instantiation
     // I.e. entity.script.get ('Player').setup (data)
     
@@ -531,10 +554,10 @@ export default class Player extends Script
         this.entity.rigidbody.linearVelocity = new pc.Vec3 (...data.velocity);
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Update                                      //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Update                                 //
+    //------------------------------------------------------------------------//
+    
     update (dt)
     {
         let actor = this.app.state.get ('client.actor');
@@ -574,10 +597,10 @@ export default class Player extends Script
         this.entity.rigidbody.linearVelocity = new pc.Vec3 (...data.velocity);
     }
 
-    //----------------------------------------------------------------------------------//
-    //                                      Utils                                       //
-    //----------------------------------------------------------------------------------//
-
+    //------------------------------------------------------------------------//
+    //                                 Utils                                  //
+    //------------------------------------------------------------------------//
+    
     processInput ()
     {
         let dir = new Vec2 ();
@@ -598,7 +621,15 @@ export default class Player extends Script
 {% endtab %}
 {% endtabs %}
 
-\[...One final note before we proceed to testing!]
+Before we proceed to testing, let's prepare our Player's [Template](https://developer.playcanvas.com/tutorials/importing-first-model-and-animation/#adding-the-model-template-to-the-scene), so our Game could instantiate it for each peer currently connected to the room:
+
+* Right click on Player entity > `Template` > `New Template`
+* Drag created Template to our Game's `Templates / Player` attribute
+* You can delete existing Player entity from the scene now — we won't need it
+
+<div><figure><img src="../.gitbook/assets/mu27.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/mu28.png" alt=""><figcaption></figcaption></figure></div>
+
+And that's it! Now we can launch our project in two separate tabs, and finally see our multiplayer game in action!
 
 <figure><img src="../.gitbook/assets/mu26.gif" alt=""><figcaption></figcaption></figure>
 
