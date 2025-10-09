@@ -2,8 +2,6 @@
 description: >-
   Learn how to integrate VIVERSE Play SDK Networking into your standalone
   PlayCanvas project using global state, data flow and snapshot system
-hidden: true
-noIndex: true
 ---
 
 # PlayCanvas Networking example: Part 02 - Advanced
@@ -43,9 +41,11 @@ In our previous [Matchmaking Tutorial](playcanvas-matchmaking-example-part-02-ad
 
 The scripts in that example form an [Execution Graph](https://en.wikipedia.org/wiki/Node_graph_architecture), which might look familiar to [Unreal Blueprints](https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine) or [Unity Visual Scripting](https://unity.com/features/unity-visual-scripting). The important difference is that Unreal's / Unity's nodes usually represent atomic operations, while nodes in our graph are complex scripts encapsulating significant parts of application's functionality - i.e. Networking, Input, Game, Player, UI, etc.
 
-\[...Illustration]
+But in order for our Execution Graph to pass data from Script A to Script B and further down the line, we might want to introduce a global Store which would contain important state variables of all our scripts, available for setting and getting during execution pass (i.e. frame update):
 
-But in order for our Execution Graph to pass data from Script A to Script B and further down the line, we should introduce a global store which would contain important State variables of all our nodes, available for setting and getting during execution pass (i.e. frame update). Let's do that by introducing the main framework of our application:
+<figure><img src="../.gitbook/assets/dataflow (2).jpg" alt=""><figcaption></figcaption></figure>
+
+Let's implement that as the main framework of our application:
 
 * `app.mjs` : defines App class which would serve as an entry point of our app and create a new State instance. App is extending PlayCanvas Script class and should be attached to some entity in scene hierarchy
 * `state.mjs` : defines State class which would be responsible for managing global state of our application. It's based on standard Map, but implements a simple shallow cloning mechanism where it's applicable, to mitigate possible issues when various scripts are mutating State objects after setting / getting them
@@ -196,7 +196,7 @@ export class Client extends Script
 
     postInitialize ()
     {
-        // We popute State with our internal vars during postInitialize
+        // We populate State with our internal vars during postInitialize
         // So we could see them in Session Storage right away
         // It's optional but a good practice for consistency
     
@@ -231,8 +231,8 @@ export class Client extends Script
     
     handleMessageIn (data)
     {
-        // All our messages are expected to have `id` field
-        // Which is id of an entity that this update corresponds to
+        // All incoming messages are expected to have `id` field
+        // Which is id of an entity that this update should correspond to
     
         if (data.id)
             this.data.snapshot.set (data.id, data);
@@ -240,7 +240,7 @@ export class Client extends Script
 
     handleMessageOut (data)
     {
-        // All our messages are expected to have `id` field
+        // All outgoing messages are expected to have `id` field
         // Which is id of an entity that this update corresponds to
     
         if (data.id)
@@ -412,7 +412,7 @@ Alright, we have Networking Client ready and local Player implemented, but there
 * `game.mjs` : this will be crucial part of our application, serving as a [Factory](https://www.patterns.dev/vanilla/factory-pattern/) and Container for our Entities — both local and remote ones:
   * With each Client's `snapshot` update our Game will go through its child Entities, and create new ones / destroy existing ones if there is any mismatch between a current list of Snapshot entries and Game's list of children. The instantiation is done via [Templates (Prefabs)](https://developer.playcanvas.com/tutorials/importing-first-model-and-animation/#adding-the-model-template-to-the-scene) — we will discuss them a bit later
   * Also, the Game is responsible for instantiating a local Player if it can't be found in Snapshot as well (which would happen exactly once by design)
-  *   For the sake of this tutorial our Game is designed to handle only Player entities — whose Snapshot entries could be defined like this:
+  *   For the purpose of this tutorial our Game is designed to handle only Player entities — whose Snapshot entries could be defined like this:
 
       ```javascript
       {
@@ -437,7 +437,6 @@ import { Script, Asset, guid } from 'playcanvas';
 /** @interface */ class Templates
 {
     /** @title Player @type {Asset} @resource template */ player;
-    /**/ 
 }
 
 export class Game extends Script
@@ -656,4 +655,4 @@ And just like that, we're finally reaching the grand finale of this tutorial! Le
 * We have created Player Entity that can be used both for local and remote instances, along with Game serving as a Factory and Container
 * And finally, we've tied it all together into minimal multiplayer example
 
-Congratulations with finishing such a long read! Please feel free to fork our dedicated [PlayCanvas Project](https://playcanvas.com/project/1400968/) or \[...test it live]
+Congratulations with finishing such a long read! Please feel free to fork our dedicated [PlayCanvas Project](https://playcanvas.com/project/1400968/) or [test it live](https://app.gitbook.com/u/NfjV1SHjz6ZcIbnXVUey1X416C33).
