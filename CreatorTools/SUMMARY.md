@@ -11,6 +11,10 @@
 * [Edit Mode](publishing-from-templates/edit-mode.md)
 * [Supported Media & Settings](publishing-from-templates/supported-media-and-settings.md)
 
+## STANDALONE PUBLISHING
+
+* [Page 1](standalone-publishing/page-1.md)
+
 ***
 
 * [Publishing to VIVERSE with the CLI](publishing-to-viverse-with-the-cli.md)
