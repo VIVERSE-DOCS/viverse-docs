@@ -28,7 +28,7 @@ Login to VIVERSE platform:
 viverse-cli auth login
 ```
 
-<figure><img src="../.gitbook/assets/image (717).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (717).png" alt=""><figcaption></figcaption></figure>
 
 Or directly pass in login credentials for CI/CD integration:
 
@@ -48,7 +48,7 @@ After login, check your authentication status:
 viverse-cli auth status
 ```
 
-<figure><img src="../.gitbook/assets/image (718).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (718).png" alt=""><figcaption></figcaption></figure>
 
 And to logout:
 
@@ -66,7 +66,7 @@ You can use the VIVERSE CLI to create a new application directly:
 viverse-cli app create
 ```
 
-<figure><img src="../.gitbook/assets/image (719).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (719).png" alt=""><figcaption></figcaption></figure>
 
 Or specify a name:
 
@@ -76,9 +76,9 @@ viverse-cli app create --name <application-name>
 
 Alternately, you can use the [VIVERSE Studio](https://studio.viverse.com/) workflow to create an application ID:
 
-<figure><img src="../.gitbook/assets/image (721).png" alt=""><figcaption><p>From the Upload section, click the light blue "Create New World" button in the top right to open this modal.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (721).png" alt=""><figcaption><p>From the Upload section, click the light blue "Create New World" button in the top right to open this modal.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (722).png" alt=""><figcaption><p>Once created, your App ID will display on the world page.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (722).png" alt=""><figcaption><p>Once created, your App ID will display on the world page.</p></figcaption></figure>
 
 #### **Listing Applications**
 
