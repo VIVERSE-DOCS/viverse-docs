@@ -12,7 +12,7 @@ description: >-
 
 In this getting-started guide, we will cover the basics of setting up a ThreeJS project and publishing to VIVERSE using [the VIVERSE CLI](https://www.npmjs.com/package/@viverse/cli).
 
-{% include ".gitbook/includes/notice-upload.md" %}
+{% include "../.gitbook/includes/notice-upload.md" %}
 
 ## A. Installing Node.js
 
@@ -22,7 +22,7 @@ In this getting-started guide, we will cover the basics of setting up a ThreeJS 
 
 A. Download the latest version of **Node.js (LTS)** from http [https://nodejs.org/en](https://nodejs.org/en).
 
-<figure><img src=".gitbook/assets/image (669).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (669).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -31,7 +31,7 @@ A. Download the latest version of **Node.js (LTS)** from http [https://nodejs.or
 A. Use the defaults during the installation, but place a checkmark\
 in the **Automatically install the necessary tools** checkbox
 
-<figure><img src=".gitbook/assets/image (670).png" alt="" width="304"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (670).png" alt="" width="304"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -41,7 +41,7 @@ A. Open a command prompt and type: **node**, then click Enter.
 
 B. Confirm that Node.js is installed when the following message prints in command prompt: **Welcome to Node.js v##.##.##**.
 
-<figure><img src=".gitbook/assets/image (656).png" alt="" width="373"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (656).png" alt="" width="373"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -55,7 +55,7 @@ This guide is a walkthrough for creating an example Three.js project
 
 A. Create a new folder that will contain the project.
 
-<figure><img src=".gitbook/assets/image (671).png" alt="" width="334"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (671).png" alt="" width="334"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -81,7 +81,7 @@ A. Create the **index.html** page inside the project folder. This can be done by
 </html>
 ```
 
-<figure><img src=".gitbook/assets/image (673).png" alt="" width="371"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (673).png" alt="" width="371"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -119,7 +119,7 @@ function animate() {
 }
 ```
 
-<figure><img src=".gitbook/assets/image (674).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (674).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -129,7 +129,7 @@ A. Three.js needs to be installed in the project folder. Open command prompt and
 
 B. Type: **npm install --save three**.
 
-<figure><img src=".gitbook/assets/image (675).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (675).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -137,11 +137,11 @@ B. Type: **npm install --save three**.
 
 A. Confirm **node\_modules** folder and **package.json** have been added to the directory.
 
-<figure><img src=".gitbook/assets/image (678).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (678).png" alt="" width="375"><figcaption></figcaption></figure>
 
 B. Confirm the **three** folder folder and **.package-lock.json** have been added to the **node\_modules** directory.
 
-<figure><img src=".gitbook/assets/image (679).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (679).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -153,7 +153,7 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 
 A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: `npm install --save-dev vite`.
 
-<figure><img src=".gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -161,7 +161,7 @@ A. If choosing to use **Vite** as the build tool, it needs to be installed in th
 
 A. Confirm **Vite** has been installed by checking for additional folders in the **node\_modules** folder.
 
-<figure><img src=".gitbook/assets/image (681).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (681).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -187,7 +187,7 @@ A. Add the Vite build settings to **package.json** file.
 
 ```
 
-<figure><img src=".gitbook/assets/image (682).png" alt="" width="287"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (682).png" alt="" width="287"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -208,7 +208,7 @@ export default defineConfig({
  
 ```
 
-<figure><img src=".gitbook/assets/image (683).png" alt="" width="369"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (683).png" alt="" width="369"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -216,11 +216,11 @@ export default defineConfig({
 
 A. To create a development build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite**.
 
-<figure><img src=".gitbook/assets/image (685).png" alt="" width="369"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (685).png" alt="" width="369"><figcaption></figcaption></figure>
 
 B. Confirm the development build of the Three.js project was built successfully when Vite provides a **localhost URL** to test.
 
-<figure><img src=".gitbook/assets/image (686).png" alt="" width="320"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (686).png" alt="" width="320"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -228,7 +228,7 @@ B. Confirm the development build of the Three.js project was built successfully 
 
 A. To test a development build of the Three.js project, open the browser and navigate to the URL that was printed in the previous step. In this example, the URL is [http://localhost:5173](http://localhost:5173). Confirm the app works as expected.
 
-<figure><img src=".gitbook/assets/image (687).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (687).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -236,11 +236,11 @@ A. To test a development build of the Three.js project, open the browser and nav
 
 A. To create a production build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite build**.
 
-<figure><img src=".gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 B. Confirm the production build of the Three.js project was built successfully by confirming the **dist** folder was created and populated.
 
-<figure><img src=".gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -257,7 +257,7 @@ A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click En
 
 B. Confirm that the command line tool is installed based on screen feedback.
 
-<figure><img src=".gitbook/assets/image (688).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (688).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -273,7 +273,7 @@ B. Enter VIVERSE **email** and **password**.
 
 C. Confirm login was successful.
 
-<figure><img src=".gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -289,7 +289,7 @@ B. Enter an **Application title** and **Application description**.
 
 C. Confirm the content was published successfully.
 
-<figure><img src=".gitbook/assets/image (693).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (693).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -301,7 +301,7 @@ B. Confirm the manifest file is updated.
 
 C. Confirm the content was published successfully.
 
-<figure><img src=".gitbook/assets/image (694).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (694).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -309,6 +309,6 @@ C. Confirm the content was published successfully.
 
 A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL** that is printed in the **Publish Details**.
 
-<figure><img src=".gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
