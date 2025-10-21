@@ -16,11 +16,11 @@ B. Click on **VIVERSE Studio.**
 
 
 
-### Creating a world
+### Creating a world using VIVERSE Studio
 
 {% stepper %}
 {% step %}
-### To create a new world
+### Start the world creation process
 
 A. Click **Upload.**
 
@@ -42,11 +42,9 @@ D. Click **Create**
 
 <figure><img src="../.gitbook/assets/image (755).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
-{% endstepper %}
 
-
-
-### Overview Tab
+{% step %}
+### View the Overview Tab
 
 The **Overview** tab displays the following information
 
@@ -56,11 +54,11 @@ B. **Name**
 
 C. **World Information**.
 
-<figure><img src="../.gitbook/assets/image (756).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
 
-
-
-### Content Versions Tab (Upload a project)
+{% step %}
+### Upload a zip file on the Content Versions Tab
 
 To upload a project
 
@@ -70,25 +68,27 @@ B. Click the **Select File** button.
 
 C. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button.
 
-<figure><img src="../.gitbook/assets/image (758).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (759).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
 
-
-
+{% step %}
 ### Adding additional permissions to a project
 
-{% stepper %}
-{% step %}
 To add additional permissions to the world, from the **Content Versions** tab
 
 A. Click **Apply iframe Settings**
 
-<figure><img src="../.gitbook/assets/image (760).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt="" width="375"><figcaption></figcaption></figure>
+
+
 {% endstep %}
 
 {% step %}
-Expand the **Content Behavior Permissions** dropdown to add the following permissions
+### Adding **Content Behavior Permissions**&#x20;
+
+Expand the **Content Behavior Permissions** dropdown to add the following permissions:
 
 A. **allow-forms -** Submit forms
 
@@ -110,10 +110,12 @@ I. **allow-popups-to-escape-sandbox -** Allow popups to escape sandbox
 
 J. **allow-top-navigation-by-user-activation -** Allow top navigation by user activation
 
-<figure><img src="../.gitbook/assets/image (761).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
+### Adding Device & Sensor Access permissions
+
 Expand the **Device & Sensor Access** dropdown to add the following permissions
 
 A. **accelerometer** - Allows access to accelerometer sensor data
@@ -129,5 +131,13 @@ E. **midi** - Allows access to MIDI devices
 F. **window-management** - Allows multi-window management
 
 G. **xr-spatial-tracking** - Allows access to VR/AR features
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+###
+
+
 {% endstep %}
 {% endstepper %}

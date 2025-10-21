@@ -35,7 +35,7 @@ export class VvSwitchAvatars extends Script {
 
 Because `vrmAsset` is defined as an attribute of type `Asset`, we can then select which asset to use directly in the PlayCanvas editor once the script is added to an entity.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 When we publish to VIVERSE and load the experience, the .vrm is loaded immediately. Avatar switching for the local player is possible at any point during runtime and can be triggered with UI, trigger colliders, or with any other programmatic callback.\
 \
@@ -43,4 +43,4 @@ When we publish to VIVERSE and load the experience, the .vrm is loaded immediate
 [PlayCanvas minimal reproduction project](https://playcanvas.com/project/1350550/overview/changeavatar-demo)\
 [Live demo](https://create.viverse.com/DApMQ7h)
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
