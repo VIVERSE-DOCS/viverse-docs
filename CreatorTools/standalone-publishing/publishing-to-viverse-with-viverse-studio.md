@@ -1,10 +1,25 @@
 ---
-hidden: true
+description: >-
+  Viverse Studio is a powerful tool for creators looking to share their work. By
+  following the guidelines for uploading content, you can maximize your reach
+  and engage with a vibrant community.
 ---
 
 # Publishing to VIVERSE with VIVERSE Studio
 
-## Opening VIVERSE Studio
+
+
+***
+
+Using Viverse Studio offers several advantages:
+
+* User-Friendly Interface: The platform is designed to be intuitive, making it easy for users of all skill levels.
+* Community Engagement: Connect with other creators and receive feedback on your work.
+* Showcase Your Work: The platform provides a space to display your creations to a wider audience.
+
+
+
+### Opening VIVERSE Studio
 
 To open VIVERSE Studio from the [Viverse.com](https://viverse.com) landing page
 
@@ -136,7 +151,17 @@ G. **xr-spatial-tracking** - Allows access to VR/AR features
 {% endstep %}
 
 {% step %}
-###
+### Previewing and Submitting for Review
+
+A. Click **Preview** to view the world with a link that only the creator access.
+
+<figure><img src="../.gitbook/assets/image (762).png" alt="" width="375"><figcaption></figcaption></figure>
+
+B. Click **Guest Preview** to receive a link that can be shared with others for a limited period of time.
+
+C. Click **Submit for Review** to submit your world to be reviewed before being released for public access.
+
+<figure><img src="../.gitbook/assets/image (763).png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 {% endstep %}
