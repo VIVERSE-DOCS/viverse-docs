@@ -7,8 +7,6 @@ description: >-
 
 # Publishing to VIVERSE with VIVERSE Studio
 
-
-
 ***
 
 Using Viverse Studio offers several advantages:
@@ -63,11 +61,11 @@ D. Click **Create**
 
 The **Overview** tab displays the following information
 
-A. **App ID**
+**App ID** (A)
 
-B. **Name**
+**Name** (B)
 
-C. **World Information**.
+**World Information** (C)
 
 <figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -105,25 +103,16 @@ A. Click **Apply iframe Settings**
 
 Expand the **Content Behavior Permissions** dropdown to add the following permissions:
 
-A. **allow-forms -** Submit forms
-
-B. **allow-modals -** Open modal dialogs
-
-C. **allow-popups -** Open popup windows
-
-D. **allow-top-navigation -** Navigate top window
-
-E. **allow-pointer-lock -** Use pointer lock
-
-F. **allow-presentation -** Start presentations
-
-G. **allow-downloads -** Download files
-
-H. **allow-orientation-lock -** Allow orientation lock
-
-I. **allow-popups-to-escape-sandbox -** Allow popups to escape sandbox
-
-J. **allow-top-navigation-by-user-activation -** Allow top navigation by user activation
+* **allow-forms -** Submit forms
+* **allow-modals -** Open modal dialogs
+* **allow-popups -** Open popup windows
+* **allow-top-navigation -** Navigate top window
+* **allow-pointer-lock -** Use pointer lock
+* **allow-presentation -** Start presentations
+* **allow-downloads -** Download files
+* **allow-orientation-lock -** Allow orientation lock
+* **allow-popups-to-escape-sandbox -** Allow popups to escape sandbox
+* **allow-top-navigation-by-user-activation -** Allow top navigation by user activation
 
 <figure><img src="../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -133,19 +122,13 @@ J. **allow-top-navigation-by-user-activation -** Allow top navigation by user ac
 
 Expand the **Device & Sensor Access** dropdown to add the following permissions
 
-A. **accelerometer** - Allows access to accelerometer sensor data
-
-B. **camera** - Allows access to device camera
-
-C. **gyroscope** - Allows access to gyroscope sensor data
-
-D. **magnetometer** - Allows access to magnetometer sensor data
-
-E. **midi** - Allows access to MIDI devices
-
-F. **window-management** - Allows multi-window management
-
-G. **xr-spatial-tracking** - Allows access to VR/AR features
+* **accelerometer** - Allows access to accelerometer sensor data
+* **camera** - Allows access to device camera
+* **gyroscope** - Allows access to gyroscope sensor data
+* **magnetometer** - Allows access to magnetometer sensor data
+* **midi** - Allows access to MIDI devices
+* **window-management** - Allows multi-window management
+* **xr-spatial-tracking** - Allows access to VR/AR features
 
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
