@@ -1,6 +1,6 @@
 ---
 description: >-
-  Viverse Studio is a powerful tool for creators looking to share their work. By
+  VIVERSE Studio is a powerful tool for creators looking to share their work. By
   following the guidelines for uploading content, you can maximize your reach
   and engage with a vibrant community.
 ---
@@ -9,7 +9,7 @@ description: >-
 
 ***
 
-Using Viverse Studio offers several advantages:
+Using VIVERSE Studio offers several advantages:
 
 * User-Friendly Interface: The platform is designed to be intuitive, making it easy for users of all skill levels.
 * Community Engagement: Connect with other creators and receive feedback on your work.
@@ -39,7 +39,7 @@ A. Click **Upload.**
 
 B. Click **Create New World.**
 
-<figure><img src="../.gitbook/assets/image (750).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (750).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -130,7 +130,7 @@ Expand the **Device & Sensor Access** dropdown to add the following permissions
 * **window-management** - Allows multi-window management
 * **xr-spatial-tracking** - Allows access to VR/AR features
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
