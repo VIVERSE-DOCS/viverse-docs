@@ -79,7 +79,7 @@ A. Click on the **Content Versions** tab.
 
 B. Click the **Select File** button.
 
-C. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button.
+C. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button. Refer to the [Publishing Content](https://docs.viverse.com/standalone-publishing/publishing-to-viverse-with-the-cli#publishing-content) section for file type restrictions.
 
 <figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -142,7 +142,7 @@ A. Click **Preview** to view the world with a link that only the creator access.
 
 B. Click **Guest Preview** to receive a link that can be shared with others for a limited period of time.
 
-C. Click **Submit for Review** to submit your world to be reviewed before being released for public access.
+C. Click **Submit for Review** to submit your world to be reviewed before being released for public access. Refer to this [link](https://support.viverse.com/hc/en-us/requests/new) if you need help or if you don't receive any feedback.
 
 <figure><img src="../.gitbook/assets/image (763).png" alt="" width="375"><figcaption></figcaption></figure>
 
