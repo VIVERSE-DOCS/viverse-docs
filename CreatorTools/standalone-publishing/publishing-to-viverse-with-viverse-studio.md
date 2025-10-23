@@ -21,9 +21,9 @@ Using VIVERSE Studio offers several advantages:
 
 To open VIVERSE Studio from the [Viverse.com](https://viverse.com) landing page
 
-A. Click on your avatar in the upper-right hand corner.
+Step 1. Click on your avatar in the upper-right hand corner (A)
 
-B. Click on **VIVERSE Studio.**
+Step 2. Click on **VIVERSE Studio** (B)
 
 <figure><img src="../.gitbook/assets/image (748).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -35,9 +35,9 @@ B. Click on **VIVERSE Studio.**
 {% step %}
 ### Start the world creation process
 
-A. Click **Upload.**
+Step 1. Click **Upload** (A)
 
-B. Click **Create New World.**
+Step 2. Click **Create New World** (B)
 
 <figure><img src="../.gitbook/assets/image (750).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -45,13 +45,13 @@ B. Click **Create New World.**
 {% step %}
 ### Fill out the form
 
-A. Enter a name for the world in the **Name** field.
+Step 1. Enter a name for the world in the **Name** field (A)
 
-B. Enter an optional **Description** for the world.
+Step 2. Enter an optional **Description** for the world (B)
 
-C. Select the checkbox for the **VIVERSE PLATFORM AGREEMENT**.
+Step 3. Select the checkbox for the **VIVERSE PLATFORM AGREEMENT** (C)
 
-D. Click **Create**
+Step 4. Click **Create** (D)
 
 <figure><img src="../.gitbook/assets/image (755).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -75,11 +75,11 @@ The **Overview** tab displays the following information
 
 To upload a project
 
-A. Click on the **Content Versions** tab.
+Step 1. Click on the **Content Versions** tab (A)
 
-B. Click the **Select File** button.
+Step 2. Click the **Select File** button (B)
 
-C. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button. Refer to the [Publishing Content](https://docs.viverse.com/standalone-publishing/publishing-to-viverse-with-the-cli#publishing-content) section for file type restrictions.
+Step 3. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button (C). Refer to the [Publishing Content](https://docs.viverse.com/standalone-publishing/publishing-to-viverse-with-the-cli#publishing-content) section for file type restrictions.
 
 <figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -91,7 +91,7 @@ C. A window will be displayed that allows selection of a zip file of a project. 
 
 To add additional permissions to the world, from the **Content Versions** tab
 
-A. Click **Apply iframe Settings**
+Step 1. Click **Apply iframe Settings** (A)
 
 <figure><img src="../.gitbook/assets/image (4).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -136,13 +136,13 @@ Expand the **Device & Sensor Access** dropdown to add the following permissions
 {% step %}
 ### Previewing and Submitting for Review
 
-A. Click **Preview** to view the world with a link that only the creator access.
+Step 1. Click **Preview** (A) to view the world with a link that only the creator access.
 
 <figure><img src="../.gitbook/assets/image (762).png" alt="" width="375"><figcaption></figcaption></figure>
 
-B. Click **Guest Preview** to receive a link that can be shared with others for a limited period of time.
+Step 2. Click **Guest Preview** (B) to receive a link that can be shared with others for a limited period of time.
 
-C. Click **Submit for Review** to submit your world to be reviewed before being released for public access. Refer to this [link](https://support.viverse.com/hc/en-us/requests/new) if you need help or if you don't receive any feedback.
+Step 3. Click **Submit for Review** (C) to submit your world to be reviewed before being released for public access. Refer to this [link](https://support.viverse.com/hc/en-us/requests/new) if you need help or if you don't receive any feedback.
 
 <figure><img src="../.gitbook/assets/image (763).png" alt="" width="375"><figcaption></figcaption></figure>
 
