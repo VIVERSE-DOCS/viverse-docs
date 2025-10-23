@@ -145,8 +145,6 @@ export default class Client
     {
         this.play = new viverse.Play ();
         this.username = username;
-        
-        this.initialize ();
     }
     
     //-------------------------------------------------------------------//
