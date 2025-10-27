@@ -67,7 +67,7 @@ The **Overview** tab displays the following information
 
 **World Information** (C)
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -81,9 +81,9 @@ Step 2. Click the **Select File** button (B)
 
 Step 3. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button (C). Refer to the [Publishing Content](https://docs.viverse.com/standalone-publishing/publishing-to-viverse-with-the-cli#publishing-content) section for file type restrictions.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -93,7 +93,7 @@ To add additional permissions to the world, from the **Content Versions** tab
 
 Step 1. Click **Apply iframe Settings** (A)
 
-<figure><img src="../.gitbook/assets/image (4).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 {% endstep %}
@@ -114,7 +114,7 @@ Expand the **Content Behavior Permissions** dropdown to add the following permis
 * **allow-popups-to-escape-sandbox -** Allow popups to escape sandbox
 * **allow-top-navigation-by-user-activation -** Allow top navigation by user activation
 
-<figure><img src="../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -130,7 +130,7 @@ Expand the **Device & Sensor Access** dropdown to add the following permissions
 * **window-management** - Allows multi-window management
 * **xr-spatial-tracking** - Allows access to VR/AR features
 
-<figure><img src="../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}

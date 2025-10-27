@@ -30,3 +30,24 @@ Once media have been uploaded, you are able to control several of its properties
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-29 at 7.35.15 PM.png" alt="" width="333"><figcaption><p>The media properties editor</p></figcaption></figure>
 
+
+
+### Media Playback Settings
+
+Configuring media playback settings for **MP4s** can be done via **Audio** (A) toggle.
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Configuring media playback settings for **MP3s** can be done via **Audio** (A) toggle.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+
+
+
+### Adding Interactions to VRMs
+
+To add interactions to VRMs, click **Add** button (A) under **Interactions**. Configure the interaction  in the panel (B).
+
+<figure><img src="../.gitbook/assets/image (4).png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (5).png" alt="" width="375"><figcaption></figcaption></figure>

@@ -30,7 +30,7 @@ In order to save your customizations and have others see them, you will need to 
 
 Step 1. Click **Performance requirement** (A).
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -38,7 +38,7 @@ Step 1. Click **Performance requirement** (A).
 
 Step 1. View the **Performance Manager** report (B).
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
