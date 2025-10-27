@@ -22,6 +22,26 @@ The Edit Mode interface has three sections, the performance report in the top-le
 
 In order to save your customizations and have others see them, you will need to select the "Close edit mode" button and exit Edit Mode.
 
+## Viewing the Performance Report
+
+{% stepper %}
+{% step %}
+### Open the Performance requirement link
+
+Step 1. Click **Performance requirement** (A).
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### View the world's VRAM consumption
+
+Step 1. View the **Performance Manager** report (B).
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
 ## Adding and Handling Media
 
 Media can be added from several different sources through the toolbar in the bottom of the Edit Mode interface: Sketchfab, Marketplace assets, uploaded assets, and assets linked from external sources. For more information on the types of media you can add and their settings, see [this page](supported-media-and-settings.md).

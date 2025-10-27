@@ -9,7 +9,7 @@ hidden: true
 
 For rapid iteration during development, its helpful to use PlayCanvas' built-in "Launch" button, which will open your project on their test servers in just a few seconds. It's likely that many of your project's non-networked, non-avatar features can be tested and developed in isolation there.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 But in order to power its VIVERSE avatar and multiplayer features, we maintain our own version of the PlayCanvas engine and bundle your game with extra scripts and features whenever you publish with the VIVERSE [PlayCanvas Extension](playcanvas-extension-setup.md). This can result in subtle but important differences between the PlayCanvas development environment and VIVERSE's production site. This article will cover those differences and how to mitigate them.
 

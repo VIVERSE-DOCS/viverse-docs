@@ -67,7 +67,7 @@ The **Overview** tab displays the following information
 
 **World Information** (C)
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -81,7 +81,7 @@ Step 2. Click the **Select File** button (B)
 
 Step 3. A window will be displayed that allows selection of a zip file of a project. After selecting the zip file, click the **Upload** button (C). Refer to the [Publishing Content](https://docs.viverse.com/standalone-publishing/publishing-to-viverse-with-the-cli#publishing-content) section for file type restrictions.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
