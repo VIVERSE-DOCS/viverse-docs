@@ -12,7 +12,7 @@ Templates are starter projects that are pre-built in VIVERSE. They are available
 
 
 
-## Prerequisites
+### Prerequisites
 
 * In order to create worlds you must first create a VIVERSE account.
 
