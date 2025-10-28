@@ -8,6 +8,8 @@ description: >-
 
 ***
 
+> _**NOTE:** VIVERSE SDKs cannot be used with projects published via the_ [_PlayCanvas Create SDK extension_](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup)_, which do not have App IDs._
+
 ## How Developers Use Our Tools
 
 Our goal is to make it simple to publish rich experiences to VIVERSE. These tools help our creator community build more advanced 3D experiences, including multiplayer games, and utilize the account and avatar system to give users a more seamless experience when hopping from world to world in VIVERSE.
