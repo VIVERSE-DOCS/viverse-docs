@@ -586,9 +586,6 @@ export default class Player extends Script
             this.updateLocal (data);
         else
             this.updateRemote (data);
-        
-        // We show You tag only for Local Player
-        this.entity.findByName ('Tag').enabled = (data.owner === actor.session_id);
     }
 
     updateLocal (data)
