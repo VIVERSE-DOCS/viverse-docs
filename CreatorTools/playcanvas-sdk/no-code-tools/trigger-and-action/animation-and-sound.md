@@ -263,9 +263,9 @@ E. For the **EntityEnableById** action to work, an object needs to be added that
 
 This guide provides instructions for setting up the EntityPlaySound action. In the sample app, once the avatar enters the trigger area, a sound plays.
 
-| <img src="../../../.gitbook/assets/image (36).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (37).png" alt="" data-size="original"> |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| The avatar is outside of the blue trigger area and the sound does not play.     | The avatar enters the blue trigger area and the sound plays.                    |
+| <img src="../../../.gitbook/assets/image (36) (1).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (37) (1).png" alt="" data-size="original"> |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| The avatar is outside of the blue trigger area and the sound does not play.         | The avatar enters the blue trigger area and the sound plays.                        |
 
 In this example, a trigger is created and when triggered, an action plays a sound. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
@@ -287,7 +287,7 @@ F. Add the audio file to the **Asset** field.
 
 G. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (38).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (38) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -305,7 +305,7 @@ E. In the **sound name to play** field, add the same name that was created on th
 
 F. Add the entity with the **Sound** component to the **pick up specify execution entity**.
 
-<figure><img src="../../../.gitbook/assets/image (39).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (39) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 

@@ -9,7 +9,7 @@ hidden: true
 
 For rapid iteration during development, its helpful to use PlayCanvas' built-in "Launch" button, which will open your project on their test servers in just a few seconds. It's likely that many of your project's non-networked, non-avatar features can be tested and developed in isolation there.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 But in order to power its VIVERSE avatar and multiplayer features, we maintain our own version of the PlayCanvas engine and bundle your game with extra scripts and features whenever you publish with the VIVERSE [PlayCanvas Extension](playcanvas-extension-setup.md). This can result in subtle but important differences between the PlayCanvas development environment and VIVERSE's production site. This article will cover those differences and how to mitigate them.
 
@@ -29,9 +29,9 @@ VIVERSE injects its own avatar, input and networking scripts on export that will
 VIVERSE also injects its own custom UI into. As you design UI for your own project, be mindful that once deployed, elements may overlap, potentially blocking clicks or other input.\
 
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption><p>VIVERSE default desktop UI, including optional Quests/Missions.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt="" width="375"><figcaption><p>VIVERSE default desktop UI, including optional Quests/Missions.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt="" width="375"><figcaption><p>Audio settings within the "World preferences" tab of VIVERSE's UI.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>Audio settings within the "World preferences" tab of VIVERSE's UI.</p></figcaption></figure>
 
 This UI lives under the CSS ID `#world-root`  and can be hidden with a simple `display: none` . However, in that case, be mindful that microphone, voice chat, and avatar controls will be hidden from the user, which could impact your game if you aren't deliberately turning these features off.
 

@@ -46,7 +46,7 @@ B. Enter VIVERSE **email** and **password**.
 
 C. Confirm login was successful.
 
-<figure><img src=".gitbook/assets/image (8) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}

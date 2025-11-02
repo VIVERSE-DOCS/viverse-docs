@@ -12,9 +12,9 @@ description: >-
 
 **Adding Video And Extending Video Functionality**
 
-| <img src="../../../.gitbook/assets/image (25).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (26).png" alt="" data-size="original"> |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| The user uses the mouse to hover over the video to access the controls.         | The video is playing.                                                           |
+| <img src="../../../.gitbook/assets/image (25) (1).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (26) (1).png" alt="" data-size="original"> |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| The user uses the mouse to hover over the video to access the controls.             | The video is playing.                                                               |
 
 
 
@@ -28,7 +28,7 @@ B. Resize the video using the **Scale**.
 
 C. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (27) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -42,6 +42,6 @@ C. Add the video to the **Asset** field by selecting it within your project.
 
 D. Uncheck the **auto play** property to prevent the video from starting when the avatar enters the environment.
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

@@ -12,7 +12,7 @@ description: >-
 
 **Adding Images And Extending Image Functionality**
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 An image has been added to the scene and the image has been configured to always face the avatar
 
@@ -30,7 +30,7 @@ C. Resize the image using the **Width** and **Height**.
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (30) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -42,6 +42,6 @@ B. Select the **Image** module and add it.
 
 C. Place a checkmark by the **billboard** property to have the image always facing the avatar.
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (31) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
