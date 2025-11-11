@@ -194,35 +194,33 @@ public class LoginUIController : MonoBehaviour
    2. Clicking “Login” invokes the .jslib SSO flow.
    3. HandleLoginSuccess (on LoginManager) updates the UI and stores credentials.
 {% endstep %}
+
+{% step %}
+### Build & Deploy to VIVERSE
+
+1. Switch to WebGL (File → Build Settings → WebGL).
+2. Build the project; zip the output (index.html, Build/, TemplateData/).
+3. Upload the zip to VIVERSE Studio → Manage Content.
+4. Preview and submit for approval.
+{% endstep %}
 {% endstepper %}
 
 
 
 ***
 
-#### Optional: Cloud Save & User Storage
-
-Use the package’s CloudSaveService/CloudSaveSample to add features such as:
-
-* LoadCloudSave(), SaveToCloud(...)
-* GetUserAppLatest(), SaveUserAppData(int level, int score), GetUserAppAll(), DeleteUserAppData(long version)
-
-If you add custom TMP Input Fields (e.g., for parameterized saves):
-
-* In each field’s Inspector, assign Text Viewport, Placeholder, and Text references.
-* Call cloudSaveService.SaveToCloud(...) using values read from those fields.
-
-***
-
-#### Step 6: Build & Deploy to VIVERSE
-
-1. Switch to WebGL (File → Build Settings → WebGL).
-2. Build the project; zip the output (index.html, Build/, TemplateData/).
-3. Upload the zip to VIVERSE Studio → Manage Content.
-4. Preview and submit for approval.
-
-***
-
 #### Login Service Data Contract
 
-LoginManager deserializes login results into:\[Serializable]public class Result {    public string access\_token;    public string account\_id;    public int    expires\_in;    public string state;}Tokens and account info are stored via PlayerPrefs ("access\_token", "account\_id", "expires\_in"). Call LoginManager.ClearLoginData() when the user logs out.
+LoginManager deserializes login results into:
+
+```csharp
+[Serializable]
+public class Result {
+    public string access_token;
+    public string account_id;
+    public int    expires_in;
+    public string state;
+}
+```
+
+Tokens and account info are stored via PlayerPrefs ("access\_token", "account\_id", "expires\_in"). Call LoginManager.ClearLoginData() when the user logs out.
