@@ -4,6 +4,7 @@
 * [Login & Authentication SDK](login-and-authentication-for-the-sdk/README.md)
   * [PlayCanvas Login & Auth minimal example](login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md)
   * [three.js Login & Auth minimal example](login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example.md)
+  * [Unity Login & Authentication Minimal Example](login-and-authentication-for-the-sdk/unity-login-and-authentication-minimal-example.md)
 * [Avatar SDK](avatar-sdk.md)
 * [Leaderboard SDK](leaderboard-sdk/README.md)
   * [PlayCanvas Leaderboard minimal example](leaderboard-sdk/playcanvas-leaderboard-minimal-example.md)
