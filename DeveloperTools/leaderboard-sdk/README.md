@@ -12,14 +12,12 @@ description: Track high scores and other ranked data with the VIVERSE Leaderboar
 
 Before integrating the Leaderboard SDK, you must first configure the leaderboard metadata settings for your content in VIVERSE Studio.
 
-1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.\
+1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.\\
 
-
-    <figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 2. Click "Upload Content" for the world you want to edit, then navigate to the SDK Settings tab, and click Add New Leaderboard.\
    \
-   ![](<../.gitbook/assets/image (1) (1) (1).png>)\
-
+   ![](<../.gitbook/assets/image (1) (1) (1) (1).png>)\\
 3. In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard system.\
    \
    ![](<../.gitbook/assets/image (5) (1).png>)
@@ -161,14 +159,14 @@ Retrieves leaderboard data based on the provided configuration.
 
 **Leaderboard Config Object**
 
-| Property       | Type      | Description                                                                                     |
-| -------------- | --------- | ----------------------------------------------------------------------------------------------- |
-| `name`         | `string`  | The name of the leaderboard to retrieve.                                                        |
-| `range_start`  | `number`  | The starting rank for the query.                                                                |
-| `range_end`    | `number`  | The ending rank for the query.                                                                  |
-| `region`       | `string`  | The region for the leaderboard. Can be `"global"` or `"local"`.                                 |
-| `time_range`   | `string`  | The time range for the leaderboard. e.g., `"alltime"`.                                          |
-| `country_code` | `string`  | The language of the leaderboard name. ISO 3166-1 alpha-2 country code, now is only support 'US' |
+| Property       | Type     | Description                                                                                     |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `name`         | `string` | The name of the leaderboard to retrieve.                                                        |
+| `range_start`  | `number` | The starting rank for the query.                                                                |
+| `range_end`    | `number` | The ending rank for the query.                                                                  |
+| `region`       | `string` | The region for the leaderboard. Can be `"global"` or `"local"`.                                 |
+| `time_range`   | `string` | The time range for the leaderboard. e.g., `"alltime"`.                                          |
+| `country_code` | `string` | The language of the leaderboard name. ISO 3166-1 alpha-2 country code, now is only support 'US' |
 
 ***
 

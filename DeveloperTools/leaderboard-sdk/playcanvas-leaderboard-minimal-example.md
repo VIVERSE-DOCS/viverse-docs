@@ -24,7 +24,7 @@ After creating your world, navigate to its "SDK Settings" tab, and click Add New
 
 ### Pre-requisite #2: Clone the PlayCanvas Scrolling UI tutorial
 
-PlayCanvas already maintains many great tutorials for their engine, including a scrolling UI system with dynamic sizing. We'll click the 🍴 Fork button to clone this project to use [as a starting point](https://app.gitbook.com/s/d69no6CEQxke8g3u7ZrP/) and ensure our UI practices are standard for the engine. This already has a few scripts for adding UI entries to a list based on a PlayCanvas template.
+PlayCanvas already maintains many great tutorials for their engine, including a scrolling UI system with dynamic sizing. We'll click the 🍴 Fork button to clone this project to use [as a starting point](https://app.gitbook.com/s/d69no6CEQxke8g3u7ZrP/welcome-to-the-viverse-docs) and ensure our UI practices are standard for the engine. This already has a few scripts for adding UI entries to a list based on a PlayCanvas template.
 
 <figure><img src="../.gitbook/assets/image (18).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -162,7 +162,7 @@ To summarize, we fire `this.getHighScores()` on button click, and reference the 
   getLeaderboardButton;
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then add the click callback in the editor, anywhere within the `initialize()` lifecycle hook, to run the `this.getHighScores()` function we defined above.
 
@@ -236,7 +236,7 @@ This requires adding two more attribute references and setting them in the edito
   submitButton;
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then add another click callback in `leaderboard.mjs` — and again, it can be anywhere within the `initialize()` lifecycle hook.
 

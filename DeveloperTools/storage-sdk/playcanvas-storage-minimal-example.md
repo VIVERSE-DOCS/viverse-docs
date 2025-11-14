@@ -22,13 +22,13 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 We'll base this project on the [PlayCanvas Login & Authentication minimal example](../login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md), which already shows how to add the VIVERSE SDK to external scripts, then `checkAuth()`  and run the SSO login loop if necessary, all within the `viverse-manager.mjs` script. This will be required before we can set up and use the Storage SDK. Fork the project, and don't forget to replace the App ID in the script with the one you created in Pre-requisite #1.
 
-<div><figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-08-19 182239.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-08-19 182239.png" alt=""><figcaption></figcaption></figure></div>
 
 ### Step 1: Set Up Additional UI
 
 To start, add a two-column horizontal Layout Group with the login UI as the first child, and a new Group Element as the second child on the right. In that column we can create one UI button and three labels as shown here:
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then in `viverse-manager.mjs`, add references for a few of these like so:
 

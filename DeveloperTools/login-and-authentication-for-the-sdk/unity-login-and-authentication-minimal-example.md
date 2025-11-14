@@ -25,6 +25,8 @@ hidden: true
 1. Open Unity and your project.
 2. Assets → Import Package → Custom Package…, select the VIVERSE unitypackage, click **Import**.
 3. Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `ViverseSDK 1.jslib` are now available—no code edits needed.
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -91,6 +93,8 @@ hidden: true
   * Anchor Min/Max = (1, 0.5)
   * Pivot = (1, 0.5)
   * Pos X ≈ -110, Pos Y ≈ 0
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -204,13 +208,16 @@ hidden: true
     {% endcode %}
 
 
-3. In the Inspector, wire the serialized fields:
-   * App Id → your VIVERSE App ID
-   * Login Button → LoginButton
-   * Clear Data Button → ClearDataButton
-   * Status Text → StatusText
-   * Account Text → AccountText
-   * Token Text → TokenText
+3.  In the Inspector, wire the serialized fields:
+
+    * App Id → your VIVERSE App ID
+    * Login Button → LoginButton
+    * Clear Data Button → ClearDataButton
+    * Status Text → StatusText
+    * Account Text → AccountText
+    * Token Text → TokenText
+
+    <figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -223,6 +230,8 @@ With **LoginController** selected, add the `HttpServer` component (included in t
 ### WebGL bridge (only for WebGL builds)
 
 Confirm `Assets/Plugins/WebGL/ViverseSDK 1.jslib` exists (provided by the package). No manual wiring required—`LoginManager` detects WebGL and calls into the bridge automatically.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="198"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
