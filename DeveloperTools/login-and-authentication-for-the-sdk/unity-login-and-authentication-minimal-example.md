@@ -8,214 +8,251 @@ hidden: true
 
 # Unity Login & Authentication Minimal Example
 
-#### Prerequisites
+***
+
+### Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
-* App ID from VIVERSE Studio
+* App ID from VIVERSE Studio (https://worlds.viverse.com/)
 * VIVERSE login/auth unitypackage (e.g., SDK\_v0.92 1.unitypackage)
 
-***
+
 
 {% stepper %}
 {% step %}
-### Import the Package
+### Import the VIVERSE package
 
-1. Open Unity and your new project.
-2. Go to Assets → Import Package → Custom Package…, select the VIVERSE unitypackage, and click Import.
-3. Scripts such as LoginManager.cs, CloudSaveService.cs, HttpServer.cs, etc. are imported ready to use—no code edits required.
+1. Open Unity and your project.
+2. Assets → Import Package → Custom Package…, select the VIVERSE unitypackage, click **Import**.
+3. Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `ViverseSDK 1.jslib` are now available—no code edits needed.
 {% endstep %}
 
 {% step %}
-### Create the Login UI
+### Build the two-column login UI
 
-**2.1 Canvas & Panel**
+**Canvas & panel**
 
 1. GameObject → UI → Canvas (name it LoginCanvas).
-2. Unity automatically adds an EventSystem; leave it in the scene.
-3. Canvas settings:
-   1. Render Mode: Screen Space - Overlay
-   2. UI Scale Mode: Scale With Screen Size (e.g., Reference Resolution 1920 × 1080)
-4.  Create a centered, fixed-size panel:
+2. Leave the auto-created EventSystem in the scene.
+3. Configure LoginCanvas:
+   * Render Mode: Screen Space - Overlay
+   * Canvas Scaler → UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920×1080
+4.  Create a centered panel:
 
-    1. Right-click LoginCanvas → UI → Panel (rename to LoginPanel).
-    2. In the Inspector’s Rect Transform header (currently showing “stretch”), click the anchor preset square and choose the center preset (anchors and pivot in the middle).
-    3. Set Width = 600, Height = 300.
-    4. Set Pos X = 0, Pos Y = 0 so LoginPanel sits centered.
-    5. Optionally pick a background color for the panel.
+    * Right-click LoginCanvas → UI → Panel (rename to LoginPanel).
+    * In Rect Transform, choose the center anchor preset.
+    * Set Width ≈ 1000, Height ≈ 280, Pos X = 0, Pos Y = 0.
 
 
 
-**2.2 Buttons**
+**Left column for buttons**
 
-1. Right-click LoginPanel → UI → Button (TextMeshPro).
-2. Rename the button GameObject to LoginButton.
-3. Select its child Text (TMP) GameObject and change the displayed text to Login (font size around 24, center alignment).
-4. Select the root LoginButton object and set its Rect Transform anchored position to (Pos X = 0, Pos Y = 60)—this moves the entire button up while the child text stays centered at (0, 0).
-
-For the “Clear Data” button:
-
-1. Duplicate LoginButton.
-2. Rename the duplicate GameObject to ClearDataButton.
-3. Select its child text and change the displayed text to Clear Data.
-4. On the root ClearDataButton, set Pos X = 0, Pos Y = 0 (slightly below the login button).
-
-
-
-**2.3 Status & Info Text**
-
-1. Right-click LoginPanel → UI → Text - TextMeshPro, rename to StatusText.
-   1. Set the text to Status: Ready.
-   2. Choose a readable font size (around 20) and color.
-   3. Set Pos X = 0, Pos Y = 150 to place it above the buttons.
-2. Duplicate this text object twice:
-   1. AccountText: set text to Account: \<none>, positioned at (0, 120).
-   2. TokenText: set text to Token: \<empty>, positioned at (0, 90).
-
-\> Tip: If you prefer automatic stacking, create an empty child (e.g., InfoGroup), add a Vertical Layout Group (Padding \~10, Spacing \~10, Child Alignment = Middle Center), and make the three text labels children of InfoGroup.
+1. Right-click LoginPanel → Create Empty (rename to ButtonColumn).
+2. Add a Vertical Layout Group:
+   * Padding: all zero (leave the defaults)
+   * Spacing: 20
+   * Child Alignment: Upper Center
+   * Disable Child Force Expand Width/Height.
+3. With ButtonColumn selected, set the RectTransform anchor preset to “middle left” (Alt+Left in the anchor matrix).
+4. Right-click ButtonColumn → UI → Button (TextMeshPro) (rename to LoginButton). In the RectTransform, set Width = 180, Height = 40; set the child text to “Login”, font size \~24, color a dark gray (#333333).
+5. Duplicate LoginButton, rename to ClearDataButton, change the label text to “Clear Data”.
+6. Add a Content Size Fitter on ButtonColumn (Horizontal/Vertical Fit = Preferred Size) if you want the column to shrink-wrap the buttons.
 
 
 
-**2.4 Attach Controller Script**
+**Right column for status labels**
 
-1. Create an empty GameObject under LoginPanel (e.g., LoginController).
-2. Add LoginUIController.cs (below).
-3. In the Inspector, assign:
-   1. Login Button → LoginButton
-   2. Clear Data Button → ClearDataButton
-   3. Status Text → StatusText
-   4. Account Text → AccountText
-   5. Token Text → TokenText
+1. Right-click LoginPanel → Create Empty (rename to InfoGroup).
+2. Add a Vertical Layout Group:
+   * Padding: keep default zeros (0 on all sides)
+   * Spacing: 18
+   * Child Alignment: Upper Left
+3. Set the RectTransform anchor preset to “middle right” (Alt+Right).
+4. In the RectTransform, set Width ≈ 500 and Height ≈ 103.
+5. Right-click InfoGroup → UI → Text - TextMeshPro (rename to StatusText).
+   * Text: “Status: Ready”, font size \~20, color #000000
+   * On the TextMeshPro component, set Alignment to Upper Left.
+   * In the RectTransform, set Width ≈ 500 and Height ≈ 30.
+6. Duplicate StatusText twice:
+   * First duplicate → rename the GameObject to AccountText and set its TextMeshPro text to "Account: ".
+   * Second duplicate → rename the GameObject to TokenText and set its TextMeshPro text to "Token: ".
+   * Keep the same RectTransform Width ≈ 500 and Height ≈ 30 on each duplicate.
+7. Add a Content Size Fitter on InfoGroup
 
-```csharp
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-[RequireComponent(typeof(LoginManager))]
-public class LoginUIController : MonoBehaviour
-{
-    [Header("UI References")]
-    [SerializeField] private Button loginButton;
-    [SerializeField] private Button clearDataButton;
-    [SerializeField] private TMP_Text statusText;
-    [SerializeField] private TMP_Text accountText;
-    [SerializeField] private TMP_Text tokenText;
 
-    private LoginManager loginManager;
+**Re-position the columns inside LoginPanel**
 
-    private void Awake()
+* ButtonColumn RectTransform:
+  * Anchor Min/Max = (0, 0.5)
+  * Pivot = (0, 0.5)
+  * Pos X ≈ 110, Pos Y ≈ 0
+* InfoGroup RectTransform:
+  * Anchor Min/Max = (1, 0.5)
+  * Pivot = (1, 0.5)
+  * Pos X ≈ -110, Pos Y ≈ 0
+{% endstep %}
+
+{% step %}
+### Add the controller script
+
+1. Under LoginCanvas, create an empty GameObject named LoginController.
+2.  Add this script to LoginController (Unity also adds LoginManager because of the RequireComponent attribute):
+
+
+
+
+
+    {% code lineNumbers="true" fullWidth="false" %}
+    ```csharp
+    using UnityEngine;
+    using UnityEngine.UI;
+    using TMPro;
+    using ViverseSDK.Login;   // Import the namespace that exposes LoginManager
+
+    /// <summary>
+    /// Handles the UI layer for VIVERSE login. 
+    /// It listens to LoginManager events and updates buttons/labels accordingly.
+    /// </summary>
+    [RequireComponent(typeof(LoginManager))]
+    public class LoginUIController : MonoBehaviour
     {
-        loginManager = GetComponent<LoginManager>();
+        [Header("App Settings")]
+        [SerializeField]
+        private string appId;         // Your VIVERSE App ID (assign in Inspector)
 
-        loginButton.onClick.AddListener(() => loginManager.StartLogin());
-        clearDataButton.onClick.AddListener(() =>
+        [Header("UI References")]
+        [SerializeField] private Button loginButton;
+        [SerializeField] private Button clearDataButton;
+        [SerializeField] private TMP_Text statusText;
+        [SerializeField] private TMP_Text accountText;
+        [SerializeField] private TMP_Text tokenText;
+
+        private LoginManager loginManager;
+
+        private void Awake()
         {
-            loginManager.ClearLoginData();
-            UpdateStatus("Tokens cleared");
-        });
+            // Grab the LoginManager component and wire up button handlers
+            loginManager = GetComponent<LoginManager>();
 
-        loginManager.OnStatusUpdated += UpdateStatus;
-        loginManager.OnTokenUpdated += UpdateToken;
-        loginManager.OnUserInfoUpdated += UpdateAccount;
-        loginManager.OnLoginStateChanged += ToggleLoginButton;
-    }
+            loginButton.onClick.AddListener(() => loginManager.StartLogin());
+            clearDataButton.onClick.AddListener(() =>
+            {
+                loginManager.ClearLoginData();
+                UpdateStatus("Tokens cleared");
+            });
 
-    private void Start()
-    {
-        UpdateStatus("Ready");
-        loginManager.Initialize(loginManager.appId);
-    }
+            // Listen to LoginManager events so the UI stays in sync with auth state
+            loginManager.OnStatusUpdated += UpdateStatus;
+            loginManager.OnTokenUpdated += UpdateToken;
+            loginManager.OnUserInfoUpdated += UpdateAccount;
+            loginManager.OnLoginStateChanged += ToggleLoginButton;
+        }
 
-    private void OnDestroy()
-    {
-        loginManager.OnStatusUpdated -= UpdateStatus;
-        loginManager.OnTokenUpdated -= UpdateToken;
-        loginManager.OnUserInfoUpdated -= UpdateAccount;
-        loginManager.OnLoginStateChanged -= ToggleLoginButton;
-    }
+        private void Start()
+        {
+            // Show a default status immediately
+            UpdateStatus("Ready");
 
-    private void UpdateStatus(string message)
-    {
-        if (statusText) statusText.text = message;
-        Debug.Log("[LoginUI] " + message);
-    }
+            // Initialize login flow using the App ID specified in Inspector
+            loginManager.Initialize(appId);
+        }
 
-    private void UpdateToken(string token)
-    {
-        if (!tokenText) return;
-        tokenText.text = string.IsNullOrEmpty(token)
-            ? "Token: <empty>"
-            : $"Token: {token.Substring(0, Mathf.Min(20, token.Length))}...";
-    }
+        private void OnDestroy()
+        {
+            // Always unsubscribe from events to avoid leaks / stale references
+            loginManager.OnStatusUpdated -= UpdateStatus;
+            loginManager.OnTokenUpdated -= UpdateToken;
+            loginManager.OnUserInfoUpdated -= UpdateAccount;
+            loginManager.OnLoginStateChanged -= ToggleLoginButton;
+        }
 
-    private void UpdateAccount(string accountId)
-    {
-        if (!accountText) return;
-        accountText.text = string.IsNullOrEmpty(accountId)
-            ? "Account: <none>"
-            : $"Account: {accountId}";
-    }
+        /// <summary>Updates the status label and logs to console.</summary>
+        private void UpdateStatus(string message)
+        {
+            if (statusText) statusText.text = message;
+            Debug.Log("[LoginUI] " + message);
+        }
 
-    private void ToggleLoginButton(bool isLoggedIn)
-    {
-        if (loginButton) loginButton.interactable = !isLoggedIn;
+        /// <summary>Shows a truncated access token, to avoid dumping the entire value.</summary>
+        private void UpdateToken(string token)
+        {
+            if (!tokenText) return;
+
+            tokenText.text = string.IsNullOrEmpty(token)
+                ? "Token: <empty>"
+                : $"Token: {token.Substring(0, Mathf.Min(20, token.Length))}...";
+        }
+
+        /// <summary>Displays the account ID returned from the login result.</summary>
+        private void UpdateAccount(string accountId)
+        {
+            if (!accountText) return;
+
+            accountText.text = string.IsNullOrEmpty(accountId)
+                ? "Account: <none>"
+                : $"Account: {accountId}";
+        }
+
+        /// <summary>Disables the login button once a session is active.</summary>
+        private void ToggleLoginButton(bool isLoggedIn)
+        {
+            if (loginButton) loginButton.interactable = !isLoggedIn;
+        }
     }
-}
-```
+    ```
+    {% endcode %}
+
+
+3. In the Inspector, wire the serialized fields:
+   * App Id → your VIVERSE App ID
+   * Login Button → LoginButton
+   * Clear Data Button → ClearDataButton
+   * Status Text → StatusText
+   * Account Text → AccountText
+   * Token Text → TokenText
 {% endstep %}
 
 {% step %}
-### Add LoginManager and HttpServer
+### Attach HttpServer (Editor/Windows testing)
 
-1. Create another empty GameObject (e.g., LoginManagerGO).
-2. Add the provided LoginManager component.
-3. Set the App Id field to your VIVERSE App ID.
-4. Add an HttpServer component (either on the same GameObject or a new one) and reference it in LoginManager. The HttpServer handles localhost callbacks for Editor/Windows testing.
-5. Ensure the GameObject hosting LoginUIController also has (or references) LoginManager, satisfying \[RequireComponent(typeof(LoginManager))].
+With **LoginController** selected, add the `HttpServer` component (included in the package). `LoginManager` references it automatically for local redirect flow.
 {% endstep %}
 
 {% step %}
-### (WebGL Only): Confirm the WebGL Bridge
+### WebGL bridge (only for WebGL builds)
 
-* The package includes Assets/Plugins/WebGL/ViverseSDK 1.jslib.
-* No additional steps are required: LoginManager automatically calls into this script when building for WebGL.
-* Desktop builds rely solely on HttpServer, so .jslib isn’t used there.
+Confirm `Assets/Plugins/WebGL/ViverseSDK 1.jslib` exists (provided by the package). No manual wiring required—`LoginManager` detects WebGL and calls into the bridge automatically.
 {% endstep %}
 
 {% step %}
-### Test the Login Flow
+### Test the login flow
 
-1. Editor or Windows build
-   1. Press Play and click “Login.”
-   2. The browser opens via HttpServer; complete the VIVERSE login.
-   3. Unity UI updates with token and account info (stored in PlayerPrefs).
-2. WebGL build
-   1. Build and host the WebGL output.
-   2. Clicking “Login” invokes the .jslib SSO flow.
-   3. HandleLoginSuccess (on LoginManager) updates the UI and stores credentials.
+* **Editor / Windows**
+  1. Press **Play**.
+  2. Click **Login** → complete VIVERSE login in the browser.
+  3. Status/account/token labels update; data persists in `PlayerPrefs`.
+* **WebGL**
+  1. Build and host the WebGL player (local server or VIVERSE).
+  2. Click **Login** → the `.jslib` handles the SSO flow; the labels update when it succeeds.
 {% endstep %}
 
 {% step %}
-### Build & Deploy to VIVERSE
+### Build & deploy to VIVERSE
 
-1. Switch to WebGL (File → Build Settings → WebGL).
-2. Build the project; zip the output (index.html, Build/, TemplateData/).
-3. Upload the zip to VIVERSE Studio → Manage Content.
+1. Switch to WebGL (`File → Build Settings → WebGL`).
+2. Build; zip the output (`index.html`, `Build/`, `TemplateData/` or `StreamingAssets`).
+3. Upload the zip in VIVERSE Studio → Manage Content.
 4. Preview and submit for approval.
 {% endstep %}
 {% endstepper %}
 
-
-
-***
-
-#### Login Service Data Contract
+### Login service data contract
 
 LoginManager deserializes login results into:
 
 ```csharp
-[Serializable]
-public class Result {
+Serializable class Result {
     public string access_token;
     public string account_id;
     public int    expires_in;
@@ -223,4 +260,4 @@ public class Result {
 }
 ```
 
-Tokens and account info are stored via PlayerPrefs ("access\_token", "account\_id", "expires\_in"). Call LoginManager.ClearLoginData() when the user logs out.
+Tokens and account IDs are cached via PlayerPrefs. Clear them with LoginManager.ClearLoginData() when logging out or switching accounts.
