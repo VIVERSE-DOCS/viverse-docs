@@ -28,7 +28,7 @@ We'll base this project on the [PlayCanvas Login & Authentication minimal exampl
 
 To start, add a two-column horizontal Layout Group with the login UI as the first child, and a new Group Element as the second child on the right. In that column we can create one UI button and three labels as shown here:
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then in `viverse-manager.mjs`, add references for a few of these like so:
 

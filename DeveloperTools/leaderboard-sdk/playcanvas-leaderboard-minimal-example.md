@@ -162,7 +162,7 @@ To summarize, we fire `this.getHighScores()` on button click, and reference the 
   getLeaderboardButton;
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then add the click callback in the editor, anywhere within the `initialize()` lifecycle hook, to run the `this.getHighScores()` function we defined above.
 

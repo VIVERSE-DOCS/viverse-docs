@@ -119,164 +119,207 @@ Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `
 {% endstep %}
 {% endstepper %}
 
-
+## Step 3. Add the controller script
 
 {% stepper %}
 {% step %}
-### Add the controller script
+### Create LoginController GameObject
 
-1. Under LoginCanvas, create an empty GameObject named LoginController.
-2.  Add this script to LoginController (Unity also adds LoginManager because of the RequireComponent attribute):
-
-
-
-
-
-    <pre class="language-csharp" data-line-numbers data-full-width="false"><code class="lang-csharp">using UnityEngine;
-    using UnityEngine.UI;
-    using TMPro;
-    using ViverseSDK.Login;   // Import the namespace that exposes LoginManager
-
-    /// &#x3C;summary>
-    /// Handles the UI layer for VIVERSE login. 
-    /// It listens to LoginManager events and updates buttons/labels accordingly.
-    /// &#x3C;/summary>
-    [RequireComponent(typeof(LoginManager))]
-    public class LoginUIController : MonoBehaviour
-    {
-        [Header("App Settings")]
-        [SerializeField]
-        private string appId;         // Your VIVERSE App ID (assign in Inspector)
-
-        [Header("UI References")]
-        [SerializeField] private Button loginButton;
-        [SerializeField] private Button clearDataButton;
-        [SerializeField] private TMP_Text statusText;
-        [SerializeField] private TMP_Text accountText;
-        [SerializeField] private TMP_Text tokenText;
-
-        private LoginManager loginManager;
-
-        private void Awake()
-        {
-            // Grab the LoginManager component and wire up button handlers
-            loginManager = GetComponent&#x3C;LoginManager>();
-
-            loginButton.onClick.AddListener(() => loginManager.StartLogin());
-            clearDataButton.onClick.AddListener(() =>
-            {
-                loginManager.ClearLoginData();
-                UpdateStatus("Tokens cleared");
-            });
-
-            // Listen to LoginManager events so the UI stays in sync with auth state
-            loginManager.OnStatusUpdated += UpdateStatus;
-            loginManager.OnTokenUpdated += UpdateToken;
-            loginManager.OnUserInfoUpdated += UpdateAccount;
-            loginManager.OnLoginStateChanged += ToggleLoginButton;
-        }
-
-        private void Start()
-        {
-            // Show a default status immediately
-            UpdateStatus("Ready");
-
-            // Initialize login flow using the App ID specified in Inspector
-            loginManager.Initialize(appId);
-        }
-
-        private void OnDestroy()
-        {
-            // Always unsubscribe from events to avoid leaks / stale references
-            loginManager.OnStatusUpdated -= UpdateStatus;
-            loginManager.OnTokenUpdated -= UpdateToken;
-            loginManager.OnUserInfoUpdated -= UpdateAccount;
-            loginManager.OnLoginStateChanged -= ToggleLoginButton;
-        }
-
-        /// &#x3C;summary>Updates the status label and logs to console.&#x3C;/summary>
-        private void UpdateStatus(string message)
-        {
-            if (statusText) statusText.text = message;
-            Debug.Log("[LoginUI] " + message);
-        }
-
-        /// &#x3C;summary>Shows a truncated access token, to avoid dumping the entire value.&#x3C;/summary>
-        private void UpdateToken(string token)
-        {
-            if (!tokenText) return;
-
-            tokenText.text = string.IsNullOrEmpty(token)
-                ? "Token: &#x3C;empty>"
-                : $"Token: {token.Substring(0, Mathf.Min(20, token.Length))}...";
-        }
-
-        /// &#x3C;summary>Displays the account ID returned from the login result.&#x3C;/summary>
-        private void UpdateAccount(string accountId)
-        {
-            if (!accountText) return;
-
-            accountText.text = string.IsNullOrEmpty(accountId)
-                ? "Account: &#x3C;none>"
-                : $"Account: {accountId}";
-        }
-
-        /// &#x3C;summary>Disables the login button once a session is active.&#x3C;/summary>
-        private void ToggleLoginButton(bool isLoggedIn)
-        {
-            if (loginButton) loginButton.interactable = !isLoggedIn;
-        }
-    }
-    </code></pre>
-
-
-3.  In the Inspector, wire the serialized fields:
-
-    * App Id → your VIVERSE App ID
-    * Login Button → LoginButton
-    * Clear Data Button → ClearDataButton
-    * Status Text → StatusText
-    * Account Text → AccountText
-    * Token Text → TokenText
-
-    <figure><img src="../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure>
+Under LoginCanvas, create an empty GameObject named LoginController.
 {% endstep %}
 
 {% step %}
-### Attach HttpServer (Editor/Windows testing)
+### Add LoginUIController Script
+
+Add this script to LoginController (Unity also adds LoginManager because of the RequireComponent attribute):
+
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using ViverseSDK.Login;   // Import the namespace that exposes LoginManager
+
+/// <summary>
+/// Handles the UI layer for VIVERSE login.
+/// It listens to LoginManager events and updates buttons/labels accordingly.
+/// </summary>
+[RequireComponent(typeof(LoginManager))]
+public class LoginUIController : MonoBehaviour
+{
+    [Header("App Settings")]
+    [SerializeField]
+    private string appId;         // Your VIVERSE App ID (assign in Inspector)
+
+    [Header("UI References")]
+    [SerializeField] private Button loginButton;
+    [SerializeField] private Button clearDataButton;
+    [SerializeField] private TMP_Text statusText;
+    [SerializeField] private TMP_Text accountText;
+    [SerializeField] private TMP_Text tokenText;
+
+    private LoginManager loginManager;
+
+    private void Awake()
+    {
+        // Grab the LoginManager component and wire up button handlers
+        loginManager = GetComponent<LoginManager>();
+
+        loginButton.onClick.AddListener(() => loginManager.StartLogin());
+        clearDataButton.onClick.AddListener(() =>
+        {
+            loginManager.ClearLoginData();
+            UpdateStatus("Tokens cleared");
+        });
+
+        // Listen to LoginManager events so the UI stays in sync with auth state
+        loginManager.OnStatusUpdated += UpdateStatus;
+        loginManager.OnTokenUpdated += UpdateToken;
+        loginManager.OnUserInfoUpdated += UpdateAccount;
+        loginManager.OnLoginStateChanged += ToggleLoginButton;
+    }
+
+    private void Start()
+    {
+        // Show a default status immediately
+        UpdateStatus("Ready");
+
+        // Initialize login flow using the App ID specified in Inspector
+        loginManager.Initialize(appId);
+    }
+
+    private void OnDestroy()
+    {
+        // Always unsubscribe from events to avoid leaks / stale references
+        loginManager.OnStatusUpdated -= UpdateStatus;
+        loginManager.OnTokenUpdated -= UpdateToken;
+        loginManager.OnUserInfoUpdated -= UpdateAccount;
+        loginManager.OnLoginStateChanged -= ToggleLoginButton;
+    }
+
+    /// <summary>Updates the status label and logs to console.</summary>
+    private void UpdateStatus(string message)
+    {
+        if (statusText) statusText.text = message;
+        Debug.Log("[LoginUI] " + message);
+    }
+
+    /// <summary>Shows a truncated access token, to avoid dumping the entire value.</summary>
+    private void UpdateToken(string token)
+    {
+        if (!tokenText) return;
+
+        tokenText.text = string.IsNullOrEmpty(token)
+            ? "Token: <empty>"
+            : $"Token: {token.Substring(0, Mathf.Min(20, token.Length))}...";
+    }
+
+    /// <summary>Displays the account ID returned from the login result.</summary>
+    private void UpdateAccount(string accountId)
+    {
+        if (!accountText) return;
+
+        accountText.text = string.IsNullOrEmpty(accountId)
+            ? "Account: <none>"
+            : $"Account: {accountId}";
+    }
+
+    /// <summary>Disables the login button once a session is active.</summary>
+    private void ToggleLoginButton(bool isLoggedIn)
+    {
+        if (loginButton) loginButton.interactable = !isLoggedIn;
+    }
+}
+```
+{% endstep %}
+
+{% step %}
+### Wire Serialized Fields
+
+In the Inspector, wire the serialized fields:
+
+* App Id → your VIVERSE App ID
+* Login Button → LoginButton
+* Clear Data Button → ClearDataButton
+* Status Text → StatusText
+* Account Text → AccountText
+* Token Text → TokenText
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+
+
+## Step 4. Attach HttpServer (Editor/Windows testing)
+
+{% stepper %}
+{% step %}
+### Add HttpServer Component
 
 With **LoginController** selected, add the `HttpServer` component (included in the package). `LoginManager` references it automatically for local redirect flow.
 {% endstep %}
+{% endstepper %}
 
+## Step 5. WebGL bridge (only for WebGL builds)
+
+{% stepper %}
 {% step %}
-### WebGL bridge (only for WebGL builds)
+### Confirm WebGL Bridge File
 
 Confirm `Assets/Plugins/WebGL/ViverseSDK 1.jslib` exists (provided by the package). No manual wiring required—`LoginManager` detects WebGL and calls into the bridge automatically.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="198"><figcaption></figcaption></figure>
-{% endstep %}
-
-{% step %}
-### Test the login flow
-
-* **Editor / Windows**
-  1. Press **Play**.
-  2. Click **Login** → complete VIVERSE login in the browser.
-  3. Status/account/token labels update; data persists in `PlayerPrefs`.
-* **WebGL**
-  1. Build and host the WebGL player (local server or VIVERSE).
-  2. Click **Login** → the `.jslib` handles the SSO flow; the labels update when it succeeds.
-{% endstep %}
-
-{% step %}
-### Build & deploy to VIVERSE
-
-1. Switch to WebGL (`File → Build Settings → WebGL`).
-2. Build; zip the output (`index.html`, `Build/`, `TemplateData/` or `StreamingAssets`).
-3. Upload the zip in VIVERSE Studio → Manage Content.
-4. Preview and submit for approval.
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="198"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
+
+## Step 6. Test the login flow
+
+{% stepper %}
+{% step %}
+### Editor / Windows Testing
+
+1. Press **Play**.
+2. Click **Login** → complete VIVERSE login in the browser.
+3. Verify that status/account/token labels update; data persists in `PlayerPrefs`.
+{% endstep %}
+
+{% step %}
+### WebGL Testing
+
+1. Build and host the WebGL player (local server or VIVERSE).
+2. Click **Login** → the `.jslib` handles the SSO flow; the labels update when it succeeds.
+{% endstep %}
+{% endstepper %}
+
+## Step 7. Build & deploy to VIVERSE
+
+{% stepper %}
+{% step %}
+### Switch to WebGL
+
+Switch to WebGL (`File → Build Settings → WebGL`).
+{% endstep %}
+
+{% step %}
+### Build and Zip
+
+Build; zip the output (`index.html`, `Build/`, `TemplateData/` or `StreamingAssets`).
+{% endstep %}
+
+{% step %}
+### Upload to VIVERSE Studio
+
+Upload the zip in VIVERSE Studio → Manage Content.
+{% endstep %}
+
+{% step %}
+### Preview and Submit
+
+Preview and submit for approval.
+{% endstep %}
+{% endstepper %}
+
+***
 
 ### Login service data contract
 
