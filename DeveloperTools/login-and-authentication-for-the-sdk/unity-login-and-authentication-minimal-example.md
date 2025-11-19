@@ -3,7 +3,6 @@ description: >-
   Add VIVERSE login to a brand-new Unity project. You’ll import the VIVERSE
   package, build your own login UI, optionally enable the WebGL bridge, and test
   locally or on VIVERSE.
-hidden: true
 ---
 
 # Unity Login & Authentication Minimal Example
