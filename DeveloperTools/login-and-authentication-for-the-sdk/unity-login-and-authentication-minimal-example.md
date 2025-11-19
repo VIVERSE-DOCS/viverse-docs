@@ -10,7 +10,7 @@ hidden: true
 
 ***
 
-### Prerequisites
+## Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
 * App ID from VIVERSE Studio (https://worlds.viverse.com/)
