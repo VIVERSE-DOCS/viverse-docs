@@ -17,6 +17,8 @@
   * [PlayCanvas Storage minimal example](storage-sdk/playcanvas-storage-minimal-example.md)
   * [three.js Storage minimal example](storage-sdk/three.js-storage-minimal-example.md)
 * [Change Log](CHANGELOG.md)
+  * [November 2025](change-log/2025-11.md)
+    * [v1.3.3 - November 20](change-log/2025-11/v1.3.3.md)
   * [September 2025](change-log/2025-09.md)
     * [v1.3.2 - September 3](change-log/2025-09/v1.3.2.md)
   * [August 2025](change-log/2025-08.md)

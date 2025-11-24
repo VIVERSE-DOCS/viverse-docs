@@ -15,21 +15,31 @@ description: >-
 
 Before using any Play SDK features, you must initialize the client instance. This global reference ensures that the Play SDK is available throughout your application.
 
-```
-globalThis.playClient = new globalThis.viverse.play();
-```
+Example Code:
+
+<pre><code>globalThis.playClient = new globalThis.viverse.play();
+</code></pre>
 
 ## Matchmaking API
 
 The matchmaking and networking APIs must then be initialized individually.
 
-```
-globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId, debug);
-```
+Example Code:
 
-<figure><img src=".gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<pre><code>globalThis.matchmakingClient = await playClient.newMatchmakingClient(appId);
+</code></pre>
+
+<figure><img src=".gitbook/assets/1. MatchMakingAPI.png"  alt="" width="375"><figcaption></figcaption></figure>
 
 > **NOTE:** Support for random and ticket-based matchmaking is under development.
+
+### Disconnect
+
+Disconnect multiplayer client connection
+
+<pre><code>matchmakingClient.disconnect();
+</code></pre>
+
 
 ### Setup Actor Info
 
@@ -37,138 +47,177 @@ Set the player’s session ID, name, and custom properties in the current room.
 
 This API should be called before creating or joining a room. The SDK will store the actor information and automatically attach it to the player upon entering the room.
 
-```
-matchmakingClient.setActor({
+Example Code:
+
+<pre><code>await matchmakingClient.setActor({
     session_id: session_id,
     name: name,
-    properties: {
-        "level": 8,
-        "skill": 8
-    }
+    properties: {"level": 8,"skill": 8}
 });
 
-// Possible return values:
-// {
-//    "success": true
-// }
-//     or
-// {
-//     "success": false,
-//     "message": "error message"
-// }
-```
+// Return values:
+{
+    "session_id": session_id,
+    "name": "name",
+    "properties": {"level": 8,"skill": 8},
+    "is_master_client": false
+}
+
+//Failed Value:
+{
+    "success": false,
+    "message": "error message"
+}
+</code></pre>
+
+
+### Setup Actor Properties
+Update the player’s properties.
+
+<figure><img src=".gitbook/assets/6. Setup Actor Properties.png" alt=""><figcaption></figcaption></figure>
+
+Example code:
+
+<pre><code>await matchmakingClient.setActorProperties({"level": 8,"skill": 8, "team": "A"});
+
+// Return values:
+{
+    "level": 8,
+    "skill": 8,
+    "team": "A"
+}
+
+//Failed Value:
+{
+    "success": false,
+    "message": "error message"
+}
+</code></pre>
 
 ### Create & Configure a Room
 
 Call `createRoom()` with a configuration object like so:
 
-<figure><img src=".gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/2. create room params.png"  alt="" width="375"><figcaption></figcaption></figure>
 
 Example code:
 
-<pre><code>matchmakingClient.createRoom({
+<pre><code>await matchmakingClient.createRoom({
     name: 'Casey's room',
     mode: 'team',
     maxPlayers: 4,
     minPlayers: 2,
     properties: {
         "level": 13,
-<strong>        "skill": 21
-</strong>    }
+        "skill": 21
+    }
 });
 
 // Return values:
-//
-// {
-//    "success": true,
-//    "room": {
-//        "id": "14aa0657-3fd9-438a-a4b0-e6af349d8600",
-<strong>//        "app_id": "app_id",
-</strong><strong>//        "mode": "team",
-</strong>//        "name": "Casey's room",
-//        "actors": [
-//            {
-//                "session_id": "ac98d013-a9c5-4a5f-ab47-727d2951bd4a",
-//                "name": "Casey",
-//                "properties": {
-<strong>//                    "level": 13,
-</strong>//                    "skill": 21
-<strong>//                },
-</strong>//                "is_master_client": true
-<strong>//            }
-</strong>//         ],
-//         "max_players": 4,
-//         "min_players": 2,
-//         "is_closed": false,
-//         "properties": {},
-//         "master_client_id": "ac98d013-a9c5-4a5f-ab47-727d2951bd4a",
-//         "game_session": "14aa0657-3fd9-438a-a4b0-e6af349d8600",
-//         "created_by_me": true
-//     }
-<strong>// }
-</strong><strong>//     or
-</strong>// {
-//     "success": false,
-//     "message": "error message"
-// }
+{
+    "id": "a3c1f45e-ef7e-45b9-a0e2-60aea50dfc16",
+    "app_id": "app-29375017",
+    "mode": "Room",
+    "name": "Actor962's room55",
+    "actors": [
+        {
+            "session_id": "cc3d2a1c-34de-4b4e-9a57-f05ec6210b9c",
+            "name": "Actor962",
+            "properties": {
+                "level": 0,
+                "levelThreshold": 0
+            },
+            "is_master_client": true
+        }
+    ],
+    "max_players": 4,
+    "min_players": 2,
+    "is_closed": false,
+    "is_game_started": false,
+    "properties": {},
+    "master_client_id": "cc3d2a1c-34de-4b4e-9a57-f05ec6210b9c",
+    "game_session": "a3c1f45e-ef7e-45b9-a0e2-60aea50dfc16",
+    "created_by_me": true
+}
 
+//Failed Value:
+{
+    "success": false,
+    "message": "error message"
+}
+</code></pre>
+
+### Set Room Properties
+Set the room’s custom properties.
+
+<figure><img src=".gitbook/assets/3. Set Room Properties.png"  alt="" width="375"><figcaption></figcaption></figure>
+
+Example code:
+<pre><code>await matchmakingClient.setRoomProperties({"custom_value": "custom_value"});
+
+// Return values:
+{
+    "custom_value": "custom_value"
+}
+
+//Failed Value:
+{
+    "success": false,
+    "message": "error message"
+}
 </code></pre>
 
 ### Join Room by RoomID
 
 Join an existing room by its room ID.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-10 at 3.40.05 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/4. Join room by roomID.png"  alt="" width="375"><figcaption></figcaption></figure>
 
 Example code:
 
-```
-await matchmakingClient.joinRoom(room_id);
+<pre><code>await matchmakingClient.joinRoom(room_id);
 
 //Return Value
 {
-  "success": true,
-  "match_id": "2b05c7d2-f47b-4597-ba40-80ea3cdd25df",
-  "room": {
-    "id": "2b05c7d2-f47b-4597-ba40-80ea3cdd25df",
-    "app_id": "app_id",
-    "mode": "team",
-    "name": "Alex's room",
+    "id": "a3c1f45e-ef7e-45b9-a0e2-60aea50dfc16",
+    "mode": "Room",
+    "name": "Actor962's room55",
     "actors": [
-      {
-        "session_id": "7ca593f1-5880-4b5f-a420-d556a74d3b2d",
-        "name": "Alex",
-        "properties": {
-          "level": 8,
-          "skill": 8
+        {
+            "session_id": "cc3d2a1c-34de-4b4e-9a57-f05ec6210b9c",
+            "name": "Actor962",
+            "properties": {
+                "level": 0,
+                "levelThreshold": 0
+            },
+            "is_master_client": true
         },
-        "is_master_client": true
-      },
-      {
-        "session_id": "7f2db5de-f123-49fb-85dd-412e596a9765",
-        "name": "Morgan",
-        "properties": {
-          "level": 18,
-          "skill": 9
-        },
-        "is_master_client": false
-      }
+        {
+            "session_id": "85733119-ef17-4cd5-a02e-421f16bb5c28",
+            "name": "Actor34",
+            "properties": {
+                "level": 8,
+                "levelThreshold": 8
+            },
+            "is_master_client": false
+        }
     ],
     "max_players": 4,
     "min_players": 2,
     "is_closed": false,
     "properties": {},
-    "master_client_id": "7ca593f1-5880-4b5f-a420-d556a74d3b2d",
-    "game_session": "2b05c7d2-f47b-4597-ba40-80ea3cdd25df",
-    "created_by_me": true
-  }
+    "master_client_id": "cc3d2a1c-34de-4b4e-9a57-f05ec6210b9c",
+    "game_session": "a3c1f45e-ef7e-45b9-a0e2-60aea50dfc16",
+    "created_by_me": false,
+    "playerCount": 2
 }
-Failed Value:
+
+//Failed Value:
 {
-  "success": false,
-  "message": "error message"
+    "success": false,
+    "message": "error message"
 }
-```
+</code></pre>
 
 ### Leave Room
 
@@ -176,46 +225,47 @@ Leave the current room that the player has joined.
 
 Example Code:
 
-```
-await matchmakingClient.leaveRoom();
+<pre><code>await matchmakingClient.leaveRoom();
 
 //Return Value
 {
   "success": true
 }
 
-Failed Value:
+//Failed Value:
 {
   "success": false,
   "message": "error message"
 }
-```
+</code></pre>
 
 ### Close Room
 
 Close the current room. Only the room creator can perform this action.
 
-```
-await matchmakingClient.closeRoom();
+Example Code:
+
+<pre><code>await matchmakingClient.closeRoom();
 
 //Return Value
 {
   "success": true
 }
 
-Failed Value:
+//Failed Value:
 {
   "success": false,
   "message": "error message"
 }
-```
+</code></pre>
 
 ### Get Available Rooms
 
 Retrieve the current list ofavailable rooms that can be joined.
 
-```
-matchmakingClient.getAvailableRooms();
+Example Code:
+
+<pre><code>matchmakingClient.getAvailableRooms();
 
 //Return Value
 {
@@ -247,19 +297,20 @@ matchmakingClient.getAvailableRooms();
   ]
 }
 
-Failed Value:
+//Failed Value:
 {
   "success": false,
   "message": "error message"
 }
-```
+</code></pre>
 
 ### Get My Room Actors
 
 Get the latest list of all actors (players) currently in the room.
 
-```
-matchmakingClient.getMyRoomActors();
+Example Code:
+
+<pre><code>matchmakingClient.getMyRoomActors();
 
 //Return Value
 {
@@ -277,66 +328,192 @@ matchmakingClient.getMyRoomActors();
   ]
 }
 
-Failed Value:
+//Failed Value:
 {
   "success": false,
   "message": "error message"
 }
-```
+</code></pre>
+
+### Start Game
+
+The room master starts the game and notify all clients to begin. Room info update(is_game_started=true)
+
+<pre><code>await matchmakingClient.startGame();
+
+//Return Value
+{
+    "success": true,
+    "message": "Room game start notify"
+}
+
+//Failed Value:
+{
+    "success": false,
+    "message": "error message"
+}
+</code></pre>
 
 ## Matchmaking Event Listeners
 
 You can listen to matchmaking events using `matchmakingClient.on(eventName, callback)` . These events help you track lobby status, room lifecycle, and player activity in real time.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.33.28 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/7. Supported Events.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### onConnect Event
 
 Triggered when the client successfully connects to the SDK.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.42.12 PM.png" alt="" width="348"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onConnect", () => {
+  console.log("SDK connected.");
+});</code></pre>
 
 ### onJoinedLobby Event
 
 Triggered when client joins the lobby.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.42.57 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onJoinedLobby", () => {
+  console.log("Joined lobby.");
+});</code></pre>
 
 ### onJoinRoom Event
 
 Triggered when the client joins a room.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.43.49 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onJoinRoom", (room) => {
+  console.log("Joined room:", room);
+});
+
+//Return Value:
+{
+    "id": "5478c615-f067-4d1e-ba9a-ea44c628189c",
+    "mode": "team",
+    "name": "Jordan's room",
+    "actors": [
+        {
+            "session_id": "212187e3-a11a-4bbb-8325-9dafd895f1cb",
+            "name": "Jordan",
+            "properties": {
+                "level": 22,
+                "skill": 5
+            },
+            "is_master_client": true
+        }
+    ],
+    "max_players": 4,
+    "min_players": 2,
+    "is_closed": false,
+    "properties": {},
+    "master_client_id": "212187e3-a11a-4bbb-8325-9dafd895f1cb",
+    "game_session": "5478c615-f067-4d1e-ba9a-ea44c628189c",
+    "created_by_me": true,
+    "playerCount": 1
+}
+</code></pre>
 
 ### onRoomListUpdate Event
 
 Triggered when the list of rooms in the lobby is updated.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.48.54 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onRoomListUpdate", (rooms) => {
+  console.log("Updated room list:", rooms);
+});
+
+//Return Value:
+[
+    {
+        "id": "7c6fd350-2187-4a63-94ff-6955c40612da",
+        "app_id": "app-29375025",
+        "mode": "Room",
+        "name": "Actor488's room52",
+        "actors": [
+            {
+                "session_id": "035f6e43-e73c-4a08-aa5a-35662691928a",
+                "name": "Actor488",
+                "properties": 
+                    "level": 8,
+                    "levelThreshold": 7
+                },
+                "is_master_client": true
+            }
+        ],
+        "max_players": 4,
+        "min_players": 2,
+        "is_closed": false,
+        "is_game_started": false,
+        "properties": {},
+        "master_client_id": "035f6e43-e73c-4a08-aa5a-35662691928a",
+        "game_session": "7c6fd350-2187-4a63-94ff-6955c40612da"
+    }
+]
+</code></pre>
 
 ### onRoomActorChange Event
 
 Triggered when the list of actors in the current room changes.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.49.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onRoomActorChange", (actors) => {
+  console.log("Current room actors:", actors);
+});
+
+//Return Value:
+[
+    {
+        "session_id": "035f6e43-e73c-4a08-aa5a-35662691928a",
+        "name": "Actor488",
+        "properties": {
+            "level": 8,
+            "levelThreshold": 7
+        },
+        "is_master_client": true
+    },
+    {
+        "session_id": "5079cf88-1f8e-470b-9513-54edb38188d3",
+        "name": "Actor183",
+        "properties": {
+            "level": 5,
+            "levelThreshold": 6
+        },
+        "is_master_client": false
+    }
+]
+</code></pre>
 
 ### onRoomClosed Event
 
 Triggered whe nthe room is successfully closed by the client.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.50.12 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onRoomClosed", (room : Room) => {
+  console.log("Room closed: ", room);
+});
+</code></pre>
 
 ### onError Event
 
 Triggered when an error occurs with a client request.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.50.44 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("onError", (error) => {
+  console.error("Matchmaking error:", error.message);
+});</code></pre>
 
 ### stateChange Event
 
 Triggered when the client connection state changes.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.51.14 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>matchmakingClient.on("stateChange", (state) => {
+  console.log("Connection state changed to:", state);
+});</code></pre>
+
+
+### onGameStartNotify Event
+
+Trigger when the room master starts the game, notifying all clients to begin.
+
+<pre><code>matchmakingClient.on("onGameStartNotify", async () => {
+   console.log("Game has started! You have been assigned to a room. Preparing to join the game!");
+});
+</code></pre>
+
 
 ## Multiplayer APIs
 
@@ -350,16 +527,49 @@ Before using any Multiplayer APIs, you must:
 
 ### Initialize Multiplayer Client
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 1.53.10 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/8. Initialize Multiplayer Client Params.png"  alt="" width="375"><figcaption></figcaption></figure>
 
-```
-//initialize multiplayer client instance
+
+Example Code:
+
+<pre><code>//initialize multiplayer client instance
 const roomId = 'example_room'; //obtained from matchmaking
 const appId = 'example_game'; //App ID from VIVERSE Studio
+const userSessionId = 'cutom_userSessionID' // optional, set user session id
 
-globalThis.multiplayerClient = new globalThis.play.MultiplayerClient(roomId, appId);
-const info = await multiplayerClient.init();
-```
+// init options, optional
+const options = {
+  'modules': {
+    'networkSync': { enabled: true, desc: 'networkSync description'},
+    'actionSync': { enabled: true, desc: 'actionSync description'},
+    'leaderboard': { enabled: true, desc: 'leaderboard description'}
+  }
+}
+
+globalThis.multiplayerClient = new globalThis.play.MultiplayerClient(roomId, appId, userSessionId);
+
+const info = await globalThis.multiplayerClient.init(options);
+//Return Value:
+{
+    "session_id": "user_session_id",
+    "room_id": "example_room",
+    "app_id": "example_game"
+    "modules": [
+        {
+            "type": "network_sync",
+            "desc": "network sync description"
+        },
+        {
+            "type": "action_sync",
+            "desc": "action sync description"
+        },
+        {
+            "type": "leaderboard",
+            "desc": "leaderboard description"
+        }
+    ]
+}
+</code></pre>
 
 {% hint style="info" %}
 `MultiplayerClient` is a global class under `play` namespace and is not created via `playClient`. However, Play SDK must still be initialized first.
@@ -375,39 +585,43 @@ Handles the multiplayer client's connection lifecycle. Use these APIs to detect 
 
 Triggered when the multiplayer client establishes a connection. Use this to perform setup logic after the session is ready.
 
-```js
-multiplayerClient.onConnected(() => {
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.onConnected(() => {
   console.log("Multiplayer client connected.");
 });
-```
+</code></pre>
 
 #### Disconnect
 
 Manually disconnects the multiplayer client instance. Useful for cleanup or leaving the session before navigating away.
 
-```js
-multiplayerClient.disconnect();
-```
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.disconnect();
+</code></pre>
 
 #### Client Connect Event
 
 Invoked when a new client connects, allowing you to track who is currently online.
 
-```js
-multiplayerClient.onClientConnected(data => 
-   appendLog(`onClientConnected: ${data.user_id}`)
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.onClientConnected(userSessionID => 
+   appendLog(`onClientConnected, userSessionID: ${userSessionID}`)
 );
-```
+</code></pre>
 
 #### Client Disconnect Event
 
 Invoked when a client disconnects, allowing you to track who goes offline.
 
-```js
-multiplayerClient.onClientDisconnected(data => 
-   appendLog(`onClientDisconnected: ${data.user_id}`)
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.onClientDisconnected(userSessionID => 
+   appendLog(`onClientDisconnected, userSessionID: ${userSessionID}`)
 );
-```
+</code></pre>
 
 ### General
 
@@ -417,13 +631,17 @@ The `General` module lets creators send and receive custom messages between peer
 
 Sends message to peers.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.01.00 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/9. sendMessage.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>globalThis.multiplayerClient.general.sendMessage(message);
+</code></pre>
 
 #### onMessage
 
 Receives message from peers.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.08.41 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<pre><code>globalThis.multiplayerClient.general.onMessage((message) => {
+   console.log(`📩 onMessage: ${message}`);
+});</code></pre>
 
 ### NetworkSync
 
@@ -433,25 +651,53 @@ This module synchronizes real-time position and entity state across players. Thi
 
 Sends my position request to the server.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.10.15 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/10. updateMyPosition.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Example Code:
+
+<pre><code>const positionData = {x: 1, y: 2, z: 3, w: 4}
+globalThis.multiplayerClient.networksync.updateMyPosition(positionData);
+</code></pre>
 
 #### updateEntityPosition
 
 Sends entity's position request to the server.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.12.01 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/11. updateEntityPosition.png" alt="" width="375"><figcaption></figcaption></figure>
+
+<pre><code>const positionData = {x: 1, y: 2, z: 3, w: 4}
+globalThis.multiplayerClient.networksync.updateEntityPosition('entity_id', positionData);
+</code></pre>
 
 #### onNotifyPositionUpdate
 
 Triggered when a user or entity's position or state is updated in the scene.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.12.42 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+- Callback Payload: (data: NetworkSyncEvent)
+<pre><code>globalThis.multiplayerClient.networksync.onNotifyPositionUpdate((data: NetworkSyncEvent) => {
+   if  (data.entity_type == 1) { // User
+      console.log("networksync/notify_position/ update user: ", data.user_id, data.data);
+   } else if (data.entity_type == 2) { // Enity
+      console.log("networksync/notify_position/ update entity: ", data.entity_id, data.data);
+   } 
+});
+</code></pre>
 
 #### onNotifyRemove
 
 Tirggered when a user or an entity is removed from the scene.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.13.33 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.networksync.onNotifyRemove((data: NetworkSyncEvent) => {
+   if (data.entity_type == 1) {
+      console.log("networksync/notify_remove/ remove user: ", data.user_id);
+   }
+   else if (data.entity_type == 2) {
+      console.log("networksync/notify_remove/ remove user: ", data.user_id ," entityId: ", data.entity_id);
+   }
+});
+</code></pre>
 
 ### ActionSync
 
@@ -465,7 +711,12 @@ Sends an action request to the server for arbitration.
 All parameters must match across clients to be recognized as the same competition event.
 {% endhint %}
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.15.35 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/12. ActionSync competition.png" alt="" width="375"><figcaption></figcaption></figure>
+
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.actionsync.competition(actionName, actionMsg, actionId);
+</code></pre>
 
 #### onCompetition
 
@@ -475,7 +726,25 @@ Triggered when a competition result is returned from the server.
 Use this to determine which player won the arbitration and proceed accordingly in your game logic (e.g. only the winner picks up the item).
 {% endhint %}
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.16.52 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+- Callback Payload: (data: ActionSyncCompetitionEvent)
+  
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.actionsync.onCompetition((data) => {
+  console.log("actionsync/competition:", data);
+});
+
+//Return Value:
+{
+    "competition": {
+        "successor": "7794e184-9e3c-48f4-866d-9dc6e197ea42",
+        "action_name": "pickupExtinguisher",
+        "action_id": "4ac20fa1-a8a8-4b7a-90ad-571b89c6a10b",
+        "action_msg": "viverse",
+        "update_time": 1747645510990
+    }
+}
+</code></pre>
 
 ### Real-time Leaderboard
 
@@ -485,10 +754,34 @@ This module handles real-time score reporting and live leaderboard updates acros
 
 Submits a new score to the real-time leaderboard.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.19.02 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/13. leaderboardUpdate.png" alt="" width="375"><figcaption></figcaption></figure>
+
+<pre><code>globalThis.multiplayerClient.leaderboard.leaderboardUpdate(score);
+</code></pre>
 
 #### onLeaderboardUpdate
 
 Triggered when the leaderboard is updated and a new score ranking is available.
 
-<figure><img src=".gitbook/assets/Screenshot 2025-06-12 at 2.19.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+Example Code:
+
+<pre><code>globalThis.multiplayerClient.leaderboard.onLeaderboardUpdate((data) => {
+  console.log("leaderboard/update_record:", data);
+});
+
+// Return Value:
+{
+    "leaderboard": [
+        {
+            "user_id": "72f3a185-fbc0-4fdb-b64d-4e147de893e3",
+            "score": 92,
+            "rank": 1
+        },
+        {
+            "user_id": "a1c5faad-87ab-4b6e-a5e8-b9ae723fce78",
+            "score": 22,
+            "rank": 2
+        }
+    ]
+}
+</code></pre>
