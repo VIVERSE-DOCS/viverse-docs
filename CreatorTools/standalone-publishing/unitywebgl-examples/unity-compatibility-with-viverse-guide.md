@@ -3,6 +3,7 @@ description: >-
   Complete guide for configuring Unity projects for VIVERSE, including
   compatibility settings, render pipelines, WebGL builds, and fullscreen
   templates.
+hidden: true
 ---
 
 # Unity Compatibility with VIVERSE Guide
