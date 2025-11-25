@@ -17,6 +17,7 @@
 * [Publishing to VIVERSE with the CLI](publishing-to-viverse-with-the-cli.md)
 * [UnityWebGL Examples](unitywebgl-examples/README.md)
   * [Getting Started with Unity WebGL](unitywebgl-examples/getting-started-with-unity-webgl.md)
+  * [Unity Compatibility with VIVERSE Guide](standalone-publishing/unitywebgl-examples/unity-compatibility-with-viverse-guide.md)
   * [NIRVANA GROVE by Thorium Labs](unitywebgl-examples/nirvana-grove-by-thorium-labs.md)
   * [NIRVANA GROVE por Thorium Labs | PT](unitywebgl-examples/nirvana-grove-por-thorium-labs-or-pt.md)
 * [ThreeJS Example](three.js-with-vite-or-getting-started-tutorial.md)
