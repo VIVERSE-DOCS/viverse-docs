@@ -655,4 +655,4 @@ And just like that, we're finally reaching the grand finale of this tutorial! Le
 * We have created Player Entity that can be used both for local and remote instances, along with Game serving as a Factory and Container
 * And finally, we've tied it all together into minimal multiplayer example
 
-Congratulations with finishing such a long read! Please feel free to fork our dedicated [PlayCanvas Project](https://playcanvas.com/project/1400968/) or [test it live](https://playcanv.as/index/44aa3799).
+Congratulations with finishing such a long read! Please feel free to fork our dedicated [PlayCanvas Project](https://playcanvas.com/project/1400968/) or [test it live](https://playcanv.as/index/79434ab0).
