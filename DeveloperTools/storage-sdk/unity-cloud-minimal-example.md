@@ -10,6 +10,8 @@ hidden: true
 
 ***
 
+### &#x20;
+
 ### Overview
 
 Build a minimal Unity demo showcasing all VIVERSE Cloud SDK features. Includes simplified UI setup and complete testing workflow for Cloud Save and UserApp APIs.
@@ -104,9 +106,9 @@ A. **Create Status Bar Container:**
   * Child Alignment: Middle Left
   * Padding: Left = 20, Right = 20, Top = 10, Bottom = 10
   * Spacing: 0
-* In RectTransform, set Anchor Presets to stretch-stretch (hold Alt+Shift), then set Left = 0, Right = 0, and Height = 40
+* In RectTransform, set Height = 40
 * Add Component → Layout → Layout Element
-* Set Layout Element: Preferred Height = 40, Flexible Height = 0
+* Set Layout Element: Preferred Height = 40, Flexible Height = 0, Flexible Width = 1
 
 B. **Create Left Panel (Cloud Save Section):**
 
@@ -299,7 +301,7 @@ B. **Test Layout:**
 * Press **Play** to see your UI in the Game view
 * Verify all elements are visible and properly organized
 * Check that panels are side-by-side with proper spacing
-* Verify status bar is at the bottom
+* Verify status bar is at the top
 
 C. **Fine-tune if needed:**
 
