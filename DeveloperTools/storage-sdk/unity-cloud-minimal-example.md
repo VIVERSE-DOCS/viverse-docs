@@ -85,7 +85,7 @@ B. Add Component → Layout → Vertical Layout Group
 
 C. Set Vertical Layout Group properties:
 
-* Child Alignment: Upper Center
+* Child Alignment: Upper Left
 * Padding: Left = 20, Right = 20, Top = 20, Bottom = 60
 * Spacing: 30
 * Child Force Expand: Width = true, Height = false
@@ -96,7 +96,19 @@ D. In RectTransform, set Anchor Presets to stretch-stretch (hold Alt+Shift), the
 {% step %}
 ### Create Panels Structure
 
-A. **Create Left Panel (Cloud Save Section):**
+A. **Create Status Bar Container:**
+
+* Right-click MainContainer → Create Empty → rename to StatusBar
+* Add Component → Layout → Horizontal Layout Group
+* Set Horizontal Layout Group properties:
+  * Child Alignment: Middle Left
+  * Padding: Left = 20, Right = 20, Top = 10, Bottom = 10
+  * Spacing: 0
+* In RectTransform, set Anchor Presets to stretch-stretch (hold Alt+Shift), then set Left = 0, Right = 0, and Height = 40
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Height = 40, Flexible Height = 0
+
+B. **Create Left Panel (Cloud Save Section):**
 
 * Right-click MainContainer → Create Empty → rename to CloudSavePanel
 * Add Component → Layout → Vertical Layout Group
@@ -109,7 +121,7 @@ A. **Create Left Panel (Cloud Save Section):**
 * Add Component → Layout → Layout Element
 * Set Layout Element: Preferred Width = 450, Preferred Height = 400
 
-B. **Create Right Panel (UserApp Section):**
+C. **Create Right Panel (UserApp Section):**
 
 * Right-click MainContainer → Create Empty → rename to UserAppPanel
 * Add Component → Layout → Vertical Layout Group
@@ -122,28 +134,16 @@ B. **Create Right Panel (UserApp Section):**
 * Add Component → Layout → Layout Element
 * Set Layout Element: Preferred Width = 450, Preferred Height = 400
 
-C. **Create Horizontal Container:**
+D. **Create Horizontal Container:**
 
 * Right-click MainContainer → Create Empty → rename to ContentRow
 * Add Component → Layout → Horizontal Layout Group
 * Set Horizontal Layout Group properties:
-  * Child Alignment: Upper Center
+  * Child Alignment: Upper Left
   * Padding: All = 0
   * Spacing: 30
   * Child Force Expand: Width = false, Height = false
 * Move CloudSavePanel and UserAppPanel to be children of ContentRow (drag in Hierarchy)
-
-D. **Create Status Bar Container:**
-
-* Right-click MainContainer → Create Empty → rename to StatusBar
-* Add Component → Layout → Horizontal Layout Group
-* Set Horizontal Layout Group properties:
-  * Child Alignment: Middle Center
-  * Padding: Left = 20, Right = 20, Top = 10, Bottom = 10
-  * Spacing: 0
-* In RectTransform, set Height = 40
-* Add Component → Layout → Layout Element
-* Set Layout Element: Preferred Height = 40, Flexible Height = 0
 {% endstep %}
 
 {% step %}
@@ -257,7 +257,7 @@ C. Font Size: 14
 
 D. Alignment: Center
 
-E. In RectTransform, set Width = 800, Height = 30
+E. In the text's RectTransform, set Width = 800, Height = 30
 
 F. Add Component → Layout → Layout Element
 
@@ -273,25 +273,25 @@ A. **Check Hierarchy Structure:** Your Hierarchy should look like:
 CloudSaveCanvas
 ├── EventSystem
 └── MainContainer
-    ├── ContentRow
-    │   ├── CloudSavePanel
-    │   │   ├── CloudSaveHeader
-    │   │   ├── LoadButton
-    │   │   ├── SaveButton
-    │   │   └── CloudSaveDataText
-    │   └── UserAppPanel
-    │       ├── UserAppHeader
-    │       ├── GetLatestButton
-    │       ├── SaveUserAppButton
-    │       ├── GetAllButton
-    │       ├── DeleteButton
-    │       ├── InputFieldsContainer
-    │       │   ├── LevelInput
-    │       │   ├── ScoreInput
-    │       │   └── VersionInput
-    │       └── UserAppDataText
-    └── StatusBar
-        └── StatusText
+    ├── StatusBar
+    │   └── StatusText
+    └── ContentRow
+        ├── CloudSavePanel
+        │   ├── CloudSaveHeader
+        │   ├── LoadButton
+        │   ├── SaveButton
+        │   └── CloudSaveDataText
+        └── UserAppPanel
+            ├── UserAppHeader
+            ├── GetLatestButton
+            ├── SaveUserAppButton
+            ├── GetAllButton
+            ├── DeleteButton
+            ├── InputFieldsContainer
+            │   ├── LevelInput
+            │   ├── ScoreInput
+            │   └── VersionInput
+            └── UserAppDataText
 ```
 
 B. **Test Layout:**
