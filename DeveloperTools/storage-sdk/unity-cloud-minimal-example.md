@@ -162,20 +162,20 @@ B. **Create Buttons:**
 * Right-click CloudSavePanel → UI → Button (TextMeshPro) → rename to LoadButton
   * Change button text to "Load Cloud Save"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 * Right-click CloudSavePanel → UI → Button (TextMeshPro) → rename to SaveButton
   * Change button text to "Save to Cloud"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 
 C. **Create Data Display:**
 
 * Right-click CloudSavePanel → UI → Text - TextMeshPro → rename to CloudSaveDataText
 * Text: "No data loaded"
 * Font Size: 12
-* Alignment: Upper Left
+* Alignment: Left
 * In RectTransform, set Width = 420, Height = 250
-* Enable Word Wrap in TextMeshPro component
+* Set Text Wrapping Mode to Normal
 * Add Component → Layout → Layout Element
 * Set Layout Element: Preferred Height = 250, Flexible Height = 1
 {% endstep %}
@@ -196,19 +196,19 @@ B. **Create Buttons:**
 * Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to GetLatestButton
   * Change button text to "Get Latest"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 * Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to SaveUserAppButton
   * Change button text to "Save User Data"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 * Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to GetAllButton
   * Change button text to "Get All Records"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 * Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to DeleteButton
   * Change button text to "Delete Version"
   * Font Size: 16
-  * In RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40
 
 C. **Create Input Fields Container:**
 
@@ -224,24 +224,24 @@ D. **Create Input Fields:**
 * Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to LevelInput
   * Placeholder text: "Level"
   * Font Size: 14
-  * In RectTransform, set Height = 35
+  * In the input field's RectTransform, set Height = 35
 * Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to ScoreInput
   * Placeholder text: "Score"
   * Font Size: 14
-  * In RectTransform, set Height = 35
+  * In the input field's RectTransform, set Height = 35
 * Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to VersionInput
   * Placeholder text: "Version (for delete)"
   * Font Size: 14
-  * In RectTransform, set Height = 35
+  * In the input field's RectTransform, set Height = 35
 
 E. **Create Data Display:**
 
 * Right-click UserAppPanel → UI → Text - TextMeshPro → rename to UserAppDataText
 * Text: "No data loaded"
 * Font Size: 12
-* Alignment: Upper Left
+* Alignment: Left
 * In RectTransform, set Width = 420, Height = 200
-* Enable Word Wrap
+* Set Text Wrapping Mode to Normal
 * Add Component → Layout → Layout Element
 * Set Layout Element: Preferred Height = 200, Flexible Height = 1
 {% endstep %}
@@ -1009,4 +1009,4 @@ Cloud SDK automatically validates authentication before each operation and will 
 * Select the text field in Hierarchy
 * In Inspector, expand RectTransform
 * Increase Width and Height values
-* Enable Word Wrap for multi-line text display
+* Set Text Wrapping Mode to Normal for multi-line text display
