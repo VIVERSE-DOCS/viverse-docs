@@ -10,6 +10,10 @@ hidden: true
 
 ***
 
+### Overview
+
+Build a minimal Unity demo showcasing all VIVERSE Cloud SDK features. Includes simplified UI setup and complete testing workflow for Cloud Save and UserApp APIs.
+
 ### Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
@@ -62,85 +66,249 @@ Ensure you can successfully log in before proceeding to Cloud SDK setup.
 {% step %}
 ### Setup Canvas
 
-1. GameObject → UI → Canvas (name it CloudSaveCanvas).
-2. Leave the auto-created EventSystem in the scene.
-3. Configure CloudSaveCanvas:
-   * Render Mode: Screen Space - Overlay
-   * Canvas Scaler → UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920×1080
+A. GameObject → UI → Canvas (name it CloudSaveCanvas).
+
+B. Leave the auto-created EventSystem in the scene.
+
+C. Configure CloudSaveCanvas:
+
+* Render Mode: Screen Space - Overlay
+* Canvas Scaler → UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920×1080
 {% endstep %}
 
 {% step %}
-### Create Buttons for Cloud Save API
+### Create Main Container
 
-1. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to LoadButton
-   * Change button text to "Load Cloud Save"
-   * Position it on the left side of the screen (you can drag it in Scene view)
-2. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to SaveButton
-   * Change button text to "Save to Cloud"
-   * Position it below LoadButton
-3. Right-click CloudSaveCanvas → UI → Text - TextMeshPro → rename to CloudSaveDataText
-   * Text: "No data loaded"
-   * Position it below the buttons
-   * In RectTransform, set Width = 400, Height = 300
-   * Enable Word Wrap in TextMeshPro component
+A. Right-click CloudSaveCanvas → Create Empty → rename to MainContainer
+
+B. Add Component → Layout → Vertical Layout Group
+
+C. Set Vertical Layout Group properties:
+
+* Child Alignment: Upper Center
+* Padding: Left = 20, Right = 20, Top = 20, Bottom = 60
+* Spacing: 30
+* Child Force Expand: Width = true, Height = false
+
+D. In RectTransform, set Anchor Presets to stretch-stretch (hold Alt+Shift), then set all margins to 0
 {% endstep %}
 
 {% step %}
-### Create Buttons for UserApp API
+### Create Panels Structure
 
-1. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to GetLatestButton
-   * Change button text to "Get Latest"
-   * Position it on the right side of the screen
-2. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to SaveUserAppButton
-   * Change button text to "Save User Data"
-   * Position it below GetLatestButton
-3. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to GetAllButton
-   * Change button text to "Get All Records"
-   * Position it below SaveUserAppButton
-4. Right-click CloudSaveCanvas → UI → Button (TextMeshPro) → rename to DeleteButton
-   * Change button text to "Delete Version"
-   * Position it below GetAllButton
+A. **Create Left Panel (Cloud Save Section):**
+
+* Right-click MainContainer → Create Empty → rename to CloudSavePanel
+* Add Component → Layout → Vertical Layout Group
+* Set Vertical Layout Group properties:
+  * Child Alignment: Upper Left
+  * Padding: All = 15
+  * Spacing: 10
+  * Child Force Expand: Width = true, Height = false
+* In RectTransform, set Width = 450, Height = 400
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Width = 450, Preferred Height = 400
+
+B. **Create Right Panel (UserApp Section):**
+
+* Right-click MainContainer → Create Empty → rename to UserAppPanel
+* Add Component → Layout → Vertical Layout Group
+* Set Vertical Layout Group properties:
+  * Child Alignment: Upper Left
+  * Padding: All = 15
+  * Spacing: 10
+  * Child Force Expand: Width = true, Height = false
+* In RectTransform, set Width = 450, Height = 400
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Width = 450, Preferred Height = 400
+
+C. **Create Horizontal Container:**
+
+* Right-click MainContainer → Create Empty → rename to ContentRow
+* Add Component → Layout → Horizontal Layout Group
+* Set Horizontal Layout Group properties:
+  * Child Alignment: Upper Center
+  * Padding: All = 0
+  * Spacing: 30
+  * Child Force Expand: Width = false, Height = false
+* Move CloudSavePanel and UserAppPanel to be children of ContentRow (drag in Hierarchy)
+
+D. **Create Status Bar Container:**
+
+* Right-click MainContainer → Create Empty → rename to StatusBar
+* Add Component → Layout → Horizontal Layout Group
+* Set Horizontal Layout Group properties:
+  * Child Alignment: Middle Center
+  * Padding: Left = 20, Right = 20, Top = 10, Bottom = 10
+  * Spacing: 0
+* In RectTransform, set Height = 40
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Height = 40, Flexible Height = 0
 {% endstep %}
 
 {% step %}
-### Create Input Fields
+### Create Cloud Save Section UI
 
-1. Right-click CloudSaveCanvas → UI → Input Field - TextMeshPro → rename to LevelInput
-   * Placeholder text: "Level"
-   * Position it near the UserApp buttons
-2. Right-click CloudSaveCanvas → UI → Input Field - TextMeshPro → rename to ScoreInput
-   * Placeholder text: "Score"
-   * Position it below LevelInput
-3. Right-click CloudSaveCanvas → UI → Input Field - TextMeshPro → rename to VersionInput
-   * Placeholder text: "Version (for delete)"
-   * Position it below ScoreInput
+A. **Create Section Header:**
+
+* Right-click CloudSavePanel → UI → Text - TextMeshPro → rename to CloudSaveHeader
+* Text: "Cloud Save API"
+* Font Size: 24, Font Style: Bold
+* Alignment: Center
+* In RectTransform, set Height = 35
+
+B. **Create Buttons:**
+
+* Right-click CloudSavePanel → UI → Button (TextMeshPro) → rename to LoadButton
+  * Change button text to "Load Cloud Save"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+* Right-click CloudSavePanel → UI → Button (TextMeshPro) → rename to SaveButton
+  * Change button text to "Save to Cloud"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+
+C. **Create Data Display:**
+
+* Right-click CloudSavePanel → UI → Text - TextMeshPro → rename to CloudSaveDataText
+* Text: "No data loaded"
+* Font Size: 12
+* Alignment: Upper Left
+* In RectTransform, set Width = 420, Height = 250
+* Enable Word Wrap in TextMeshPro component
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Height = 250, Flexible Height = 1
 {% endstep %}
 
 {% step %}
-### Create Display Text Areas
+### Create UserApp Section UI
 
-1. Right-click CloudSaveCanvas → UI → Text - TextMeshPro → rename to UserAppDataText
-   * Text: "No data loaded"
-   * Position it below the UserApp buttons
-   * In RectTransform, set Width = 400, Height = 300
-   * Enable Word Wrap
-2. Right-click CloudSaveCanvas → UI → Text - TextMeshPro → rename to StatusText
-   * Text: "Status: Ready - Please login first"
-   * Position it at the bottom of the screen
-   * In RectTransform, set Width = 800, Height = 30
+A. **Create Section Header:**
+
+* Right-click UserAppPanel → UI → Text - TextMeshPro → rename to UserAppHeader
+* Text: "UserApp API"
+* Font Size: 24, Font Style: Bold
+* Alignment: Center
+* In RectTransform, set Height = 35
+
+B. **Create Buttons:**
+
+* Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to GetLatestButton
+  * Change button text to "Get Latest"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+* Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to SaveUserAppButton
+  * Change button text to "Save User Data"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+* Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to GetAllButton
+  * Change button text to "Get All Records"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+* Right-click UserAppPanel → UI → Button (TextMeshPro) → rename to DeleteButton
+  * Change button text to "Delete Version"
+  * Font Size: 16
+  * In RectTransform, set Height = 40
+
+C. **Create Input Fields Container:**
+
+* Right-click UserAppPanel → Create Empty → rename to InputFieldsContainer
+* Add Component → Layout → Vertical Layout Group
+* Set Vertical Layout Group properties:
+  * Spacing: 8
+  * Padding: Top = 5, Bottom = 5
+  * Child Force Expand: Width = true, Height = false
+
+D. **Create Input Fields:**
+
+* Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to LevelInput
+  * Placeholder text: "Level"
+  * Font Size: 14
+  * In RectTransform, set Height = 35
+* Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to ScoreInput
+  * Placeholder text: "Score"
+  * Font Size: 14
+  * In RectTransform, set Height = 35
+* Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to VersionInput
+  * Placeholder text: "Version (for delete)"
+  * Font Size: 14
+  * In RectTransform, set Height = 35
+
+E. **Create Data Display:**
+
+* Right-click UserAppPanel → UI → Text - TextMeshPro → rename to UserAppDataText
+* Text: "No data loaded"
+* Font Size: 12
+* Alignment: Upper Left
+* In RectTransform, set Width = 420, Height = 200
+* Enable Word Wrap
+* Add Component → Layout → Layout Element
+* Set Layout Element: Preferred Height = 200, Flexible Height = 1
+{% endstep %}
+
+{% step %}
+### Create Status Bar
+
+A. Right-click StatusBar → UI → Text - TextMeshPro → rename to StatusText
+
+B. Text: "Status: Ready - Please login first"
+
+C. Font Size: 14
+
+D. Alignment: Center
+
+E. In RectTransform, set Width = 800, Height = 30
+
+F. Add Component → Layout → Layout Element
+
+G. Set Layout Element: Preferred Width = 800, Flexible Width = 1
 {% endstep %}
 
 {% step %}
 ### Verify UI Setup
 
-1. Press **Play** to see your UI in the Game view.
-2. Verify all buttons and text fields are visible and positioned reasonably.
-3. You can adjust positions by:
-   * Selecting objects in Hierarchy
-   * Dragging them in Scene view
-   * Or editing RectTransform values in Inspector
-4. **Note:** Exact positioning doesn't matter—focus on having all UI elements visible and accessible.
-5. Stop Play mode before continuing to next step.
+A. **Check Hierarchy Structure:** Your Hierarchy should look like:
+
+```
+CloudSaveCanvas
+├── EventSystem
+└── MainContainer
+    ├── ContentRow
+    │   ├── CloudSavePanel
+    │   │   ├── CloudSaveHeader
+    │   │   ├── LoadButton
+    │   │   ├── SaveButton
+    │   │   └── CloudSaveDataText
+    │   └── UserAppPanel
+    │       ├── UserAppHeader
+    │       ├── GetLatestButton
+    │       ├── SaveUserAppButton
+    │       ├── GetAllButton
+    │       ├── DeleteButton
+    │       ├── InputFieldsContainer
+    │       │   ├── LevelInput
+    │       │   ├── ScoreInput
+    │       │   └── VersionInput
+    │       └── UserAppDataText
+    └── StatusBar
+        └── StatusText
+```
+
+B. **Test Layout:**
+
+* Press **Play** to see your UI in the Game view
+* Verify all elements are visible and properly organized
+* Check that panels are side-by-side with proper spacing
+* Verify status bar is at the bottom
+
+C. **Fine-tune if needed:**
+
+* Adjust spacing in Layout Groups if elements are too close/far
+* Modify panel widths if content doesn't fit
+* Adjust font sizes for better readability
+* Use RectTransform anchors for responsive positioning
+
+D. **Stop Play mode** before continuing to next step.
 {% endstep %}
 {% endstepper %}
 
