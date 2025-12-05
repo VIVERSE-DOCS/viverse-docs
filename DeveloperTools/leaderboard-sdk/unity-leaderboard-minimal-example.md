@@ -133,7 +133,7 @@ B. **Create Section Header:**
 * Text: "Leaderboard Settings"
 * Font Size: 24, Font Style: Bold
 * Alignment: Left
-* In RectTransform, set Height = 35
+* In RectTransform, set Height = 35 and Width = 300
 
 C. **Create Input Fields Container:**
 
@@ -184,14 +184,14 @@ B. **Create Section Header:**
 * Text: "Leaderboard Actions"
 * Font Size: 24, Font Style: Bold
 * Alignment: Left
-* In RectTransform, set Height = 35
+* In RectTransform, set Height = 35 and Width = 300
 
 C. **Create Buttons:**
 
 * Right-click ButtonsPanel → UI → Button (TextMeshPro) → rename to ValidateDataTypeButton
   * Change button text to "Validate Data Type"
   * Font Size: 16
-  * In the button's RectTransform, set Height = 40
+  * In the button's RectTransform, set Height = 40&#x20;
 * Right-click ButtonsPanel → UI → Button (TextMeshPro) → rename to UploadScoreButton
   * Change button text to "Upload Score"
   * Font Size: 16
@@ -223,7 +223,7 @@ B. **Create Section Header:**
 * Text: "Leaderboard Rankings"
 * Font Size: 24, Font Style: Bold
 * Alignment: Left
-* In RectTransform, set Height = 35
+* In RectTransform, set Height = 35 and Width = 300
 
 C. **Create Scroll View:**
 
@@ -255,6 +255,7 @@ E. **Create Horizontal Container for Settings and Buttons:**
   * Spacing: 30
   * Child Force Expand: Width = false, Height = false
 * Move SettingsPanel and ButtonsPanel to be children of TopRow (drag in Hierarchy)
+* In RectTransform, set Height = 200.
 {% endstep %}
 
 {% step %}
