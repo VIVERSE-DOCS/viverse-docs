@@ -9,13 +9,17 @@ description: >-
 
 ***
 
-## Prerequisites
+## Unity Login & Authentication Minimal Example (New Project)
+
+### Overview
+
+Add VIVERSE login to a brand-new Unity project: import the VIVERSE package, build a two-column login UI, optionally enable WebGL support, and test locally or on VIVERSE.
+
+### Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
 * App ID from VIVERSE Studio (https://worlds.viverse.com/)
 * VIVERSE login/auth unitypackage (e.g., SDK\_v0.92 1.unitypackage)
-
-
 
 ## Step 1. Import the VIVERSE package
 
@@ -37,7 +41,7 @@ Assets → Import Package → Custom Package…, select the VIVERSE unity packag
 
 Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `ViverseSDK 1.jslib` are now available—no code edits needed.
 
-<figure><img src="../.gitbook/assets/image (29).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -47,74 +51,95 @@ Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `
 {% step %}
 ### Setup Canvas
 
-<figure><img src="../.gitbook/assets/image (30).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (31).png" alt="" width="375"><figcaption></figcaption></figure>
 
-1. GameObject → UI → Canvas (name it LoginCanvas).
-2. Leave the auto-created EventSystem in the scene.
-3. Configure LoginCanvas:
-   * Render Mode: Screen Space - Overlay
-   * Canvas Scaler → UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920×1080
+A. GameObject → UI → Canvas (name it LoginCanvas).
+
+B. Leave the auto-created EventSystem in the scene.
+
+C. Configure LoginCanvas:
+
+* Render Mode: Screen Space - Overlay
+* Canvas Scaler → UI Scale Mode: Scale With Screen Size, Reference Resolution: 1920×1080
 {% endstep %}
 
 {% step %}
 ### Create Centered Panel
 
-1. Right-click LoginCanvas → UI → Panel (rename to LoginPanel).
-2. In Rect Transform, choose the center anchor preset.
-3. Set Width ≈ 1000, Height ≈ 280, Pos X = 0, Pos Y = 0.
+A. Right-click LoginCanvas → UI → Panel (rename to LoginPanel).
+
+B. In Rect Transform, choose the center anchor preset.
+
+C. Set Width ≈ 1000, Height ≈ 280, Pos X = 0, Pos Y = 0.
 {% endstep %}
 
 {% step %}
 ### Setup Left Column (Buttons)
 
-1. Right-click LoginPanel → Create Empty (rename to ButtonColumn).
-2. Add a Vertical Layout Group to ButtonColumn:
-   * Padding: all zero (leave the defaults)
-   * Spacing: 20
-   * Child Alignment: Upper Center
-   * Disable Child Force Expand Width/Height.
-3. With ButtonColumn selected, set the RectTransform anchor preset to "middle left" (Alt+Left in the anchor matrix).
-4. Right-click ButtonColumn → UI → Button (TextMeshPro) (rename to LoginButton). In the RectTransform, set Width = 180, Height = 40; set the child text to "Login", font size \~24, color a dark gray (#333333).
-5. Duplicate LoginButton, rename to ClearDataButton, change the label text to "Clear Data".
-6. (Optional) Add a Content Size Fitter on ButtonColumn (Horizontal/Vertical Fit = Preferred Size) if you want the column to shrink-wrap the buttons.
+A. Right-click LoginPanel → Create Empty (rename to ButtonColumn).
+
+B. Add a Vertical Layout Group to ButtonColumn:
+
+* Padding: all zero (leave the defaults)
+* Spacing: 20
+* Child Alignment: Upper Center
+* Disable Child Force Expand Width/Height.
+
+C. With ButtonColumn selected, set the RectTransform anchor preset to "middle left" (Alt+Left in the anchor matrix).
+
+D. Right-click ButtonColumn → UI → Button (TextMeshPro) (rename to LoginButton). In the RectTransform, set Width = 180, Height = 40; set the child text to "Login", font size \~24, color a dark gray (#333333).
+
+E. Duplicate LoginButton, rename to ClearDataButton, change the label text to "Clear Data".
+
+F. (Optional) Add a Content Size Fitter on ButtonColumn (Horizontal/Vertical Fit = Preferred Size) if you want the column to shrink-wrap the buttons.
 {% endstep %}
 
 {% step %}
 ### Setup Right Column (Info Group)
 
-1. Right-click LoginPanel → Create Empty (rename to InfoGroup).
-2. Add a Vertical Layout Group to InfoGroup:
-   * Padding: keep default zeros (0 on all sides)
-   * Spacing: 18
-   * Child Alignment: Upper Left
-3. Set the RectTransform anchor preset to "middle right" (Alt+Right). In the RectTransform, set Width ≈ 500 and Height ≈ 103.
-4. (Optional) Add a Content Size Fitter on InfoGroup.
+A. Right-click LoginPanel → Create Empty (rename to InfoGroup).
+
+B. Add a Vertical Layout Group to InfoGroup:
+
+* Padding: keep default zeros (0 on all sides)
+* Spacing: 18
+* Child Alignment: Upper Left
+
+C. Set the RectTransform anchor preset to "middle right" (Alt+Right). In the RectTransform, set Width ≈ 500 and Height ≈ 103.
+
+D. (Optional) Add a Content Size Fitter on InfoGroup.
 {% endstep %}
 
 {% step %}
 ### Create Status Labels
 
-1. Right-click InfoGroup → UI → Text - TextMeshPro (rename to StatusText):
-   * Text: "Status: Ready", font size \~20, color #000000
-   * On the TextMeshPro component, set Alignment to Upper Left.
-   * In the RectTransform, set Width ≈ 500 and Height ≈ 30.
-2. Duplicate StatusText twice:
-   * First duplicate → rename the GameObject to AccountText and set its TextMeshPro text to "Account: ".
-   * Second duplicate → rename the GameObject to TokenText and set its TextMeshPro text to "Token: ".
-   * Keep the same RectTransform Width ≈ 500 and Height ≈ 30 on each duplicate.
+A. Right-click InfoGroup → UI → Text - TextMeshPro (rename to StatusText):
+
+* Text: "Status: Ready", font size \~20, color #000000
+* On the TextMeshPro component, set Alignment to Upper Left.
+* In the RectTransform, set Width ≈ 500 and Height ≈ 30.
+
+B. Duplicate StatusText twice:
+
+* First duplicate → rename the GameObject to AccountText and set its TextMeshPro text to "Account: ".
+* Second duplicate → rename the GameObject to TokenText and set its TextMeshPro text to "Token: ".
+* Keep the same RectTransform Width ≈ 500 and Height ≈ 30 on each duplicate.
 {% endstep %}
 
 {% step %}
 ### Position Columns
 
-1. Set ButtonColumn RectTransform:
-   * Anchor Min/Max = (0, 0.5)
-   * Pivot = (0, 0.5)
-   * Pos X ≈ 110, Pos Y ≈ 0
-2. Set InfoGroup RectTransform:
-   * Anchor Min/Max = (1, 0.5)
-   * Pivot = (1, 0.5)
-   * Pos X ≈ -110, Pos Y ≈ 0
+A. Set ButtonColumn RectTransform:
+
+* Anchor Min/Max = (0, 0.5)
+* Pivot = (0, 0.5)
+* Pos X ≈ 110, Pos Y ≈ 0
+
+B. Set InfoGroup RectTransform:
+
+* Anchor Min/Max = (1, 0.5)
+* Pivot = (1, 0.5)
+* Pos X ≈ -110, Pos Y ≈ 0
 {% endstep %}
 {% endstepper %}
 
@@ -122,15 +147,9 @@ Scripts such as `LoginManager.cs`, `CloudSaveService.cs`, `HttpServer.cs`, and `
 
 {% stepper %}
 {% step %}
-### Create LoginController GameObject
-
-Under LoginCanvas, create an empty GameObject named LoginController.
-{% endstep %}
-
-{% step %}
 ### Add LoginUIController Script
 
-Add this script to LoginController (Unity also adds LoginManager because of the RequireComponent attribute):
+Add this script to **LoginPanel** (Unity also adds LoginManager because of the RequireComponent attribute):
 
 ```csharp
 using UnityEngine;
@@ -243,11 +262,9 @@ In the Inspector, wire the serialized fields:
 * Account Text → AccountText
 * Token Text → TokenText
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
-
-
 
 ## Step 4. Attach HttpServer (Editor/Windows testing)
 
@@ -255,7 +272,7 @@ In the Inspector, wire the serialized fields:
 {% step %}
 ### Add HttpServer Component
 
-With **LoginController** selected, add the `HttpServer` component (included in the package). `LoginManager` references it automatically for local redirect flow.
+With **LoginPanel** selected, add the `HttpServer` component (included in the package). `LoginManager` references it automatically for local redirect flow.
 {% endstep %}
 {% endstepper %}
 
@@ -267,7 +284,7 @@ With **LoginController** selected, add the `HttpServer` component (included in t
 
 Confirm `Assets/Plugins/WebGL/ViverseSDK 1.jslib` exists (provided by the package). No manual wiring required—`LoginManager` detects WebGL and calls into the bridge automatically.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="198"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt="" width="198"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -277,16 +294,19 @@ Confirm `Assets/Plugins/WebGL/ViverseSDK 1.jslib` exists (provided by the packag
 {% step %}
 ### Editor / Windows Testing
 
-1. Press **Play**.
-2. Click **Login** → complete VIVERSE login in the browser.
-3. Verify that status/account/token labels update; data persists in `PlayerPrefs`.
+A. Press **Play**.
+
+B. Click **Login** → complete VIVERSE login in the browser.
+
+C. Verify that status/account/token labels update; data persists in `PlayerPrefs`.
 {% endstep %}
 
 {% step %}
 ### WebGL Testing
 
-1. Build and host the WebGL player (local server or VIVERSE).
-2. Click **Login** → the `.jslib` handles the SSO flow; the labels update when it succeeds.
+A. Build and host the WebGL player (local server or VIVERSE).
+
+B. Click **Login** → the `.jslib` handles the SSO flow; the labels update when it succeeds.
 {% endstep %}
 {% endstepper %}
 
