@@ -10,12 +10,6 @@ hidden: true
 
 ***
 
-### &#x20;
-
-### Overview
-
-Build a minimal Unity demo showcasing all VIVERSE Cloud SDK features. Includes simplified UI setup and complete testing workflow for Cloud Save and UserApp APIs.
-
 ### Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
