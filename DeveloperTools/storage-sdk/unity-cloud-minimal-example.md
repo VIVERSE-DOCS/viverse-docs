@@ -70,6 +70,8 @@ Ensure you can successfully log in before proceeding to Cloud SDK setup. In the 
 {% step %}
 ### Setup Canvas
 
+<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+
 A. GameObject → UI → Canvas (name it CloudSaveCanvas).
 
 B. Leave the auto-created EventSystem in the scene.
@@ -217,11 +219,12 @@ B. **Create Buttons:**
 C. **Create Input Fields Container:**
 
 * Right-click UserAppPanel → Create Empty → rename to InputFieldsContainer
-* Add Component → Layout → Vertical Layout Group
-* Set Vertical Layout Group properties:
-  * Spacing: 8
-  * Padding: Top = 5, Bottom = 5
-  * Child Force Expand: Width = true, Height = false
+  * Add Component → Layout → Vertical Layout Group
+  * Set Vertical Layout Group properties:
+    * Spacing: 8
+    * Padding: Top = 5, Bottom = 5
+    * Child Force Expand: Width = true, Height = false
+  * In RectTransform, set Height = 125
 
 D. **Create Input Fields:**
 
@@ -783,7 +786,7 @@ public class CloudSaveUIController : MonoBehaviour
 
 {% stepper %}
 {% step %}
-### Test Cloud Save API (Legacy)
+### Test Cloud Save API
 
 1. Press **Play** in Unity Editor.
 2. Click **Login** (from your LoginManager setup) and complete authentication in the browser.
