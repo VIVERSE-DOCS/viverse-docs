@@ -58,7 +58,9 @@ The Cloud SDK requires authentication. Follow the Login & Authentication guide t
 * App ID configuration
 * HttpServer component (for Editor/Windows testing)
 
-Ensure you can successfully log in before proceeding to Cloud SDK setup.
+Ensure you can successfully log in before proceeding to Cloud SDK setup. In the screenshot below, we've created a prefab from the LoginPanel that gets built in the Login & Authentication guide. We've exported the prefab along with LoginUIController.cs.
+
+<figure><img src="../.gitbook/assets/image (34).png" alt="" width="221"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
