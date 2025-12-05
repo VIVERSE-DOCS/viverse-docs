@@ -159,7 +159,6 @@ D. **Create Input Fields:**
 E. **Create Data Type Dropdown:**
 
 * Right-click InputFieldsContainer → UI → Dropdown - TextMeshPro → rename to DataTypeDropdown
-  * Font Size: 14
   * In RectTransform, set Height = 35
   * Options: "Numeric (Points)", "Seconds (Time)", "Milliseconds (Time)"
 {% endstep %}
@@ -235,7 +234,7 @@ C. **Create Scroll View:**
 
 D. **Setup Scroll View Content:**
 
-* Select LeaderboardScrollView → Content (child object)
+* Select LeaderboardScrollView → Viewport → Content (child object)
 * Add Component → Layout → Vertical Layout Group
 * Set Vertical Layout Group properties:
   * Child Alignment: Upper Left
