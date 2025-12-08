@@ -279,8 +279,7 @@ The main function to create walls is `GridBuilder.prototype.createWalls`. It per
 * Calculates the world position for each potential wall around a cell (north, south, east, west).
 * Checks if the current cell is linked to a neighbor in that direction.
 * If not linked, it places a wall prefab there.
-* Occasionally (5% chance), it also places a decorative statue on that wall.\
-
+* Occasionally (5% chance), it also places a decorative statue on that wall.<br>
 
 <div><figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.49.36 AM.png" alt=""><figcaption><p>Fig 5. Variation with different wall models placed</p></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-04-13 at 9.49.32 AM.png" alt=""><figcaption><p>Fig 6. Variation with decorative statue spawning</p></figcaption></figure></div>
 

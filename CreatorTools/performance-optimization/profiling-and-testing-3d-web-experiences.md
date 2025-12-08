@@ -54,8 +54,7 @@ Focus the Developer Tools Menu and enter `ctrl/cmd + shift + P` . This opens a s
 Type "show FPS" into the search menu and hit `Enter`\
 \
 \
-\
-
+<br>
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-08-22 at 5.02.03 PM.png" alt=""><figcaption></figcaption></figure>
 
@@ -269,8 +268,7 @@ Developers can then select a device to emulate in the main browser window, and a
 {% tab title="WebXR Emulation" %}
 #### Emulating a WebXR Device
 
-For WebXR Emulation, install the [Meta Immersive Web Emulator](https://developers.meta.com/horizon/blog/webxr-development-immersive-web-emulator/). It is supported on Chrome and Edge. This allows developers to profile immersive experiences more accurately, and gives tools for manipulating the XR headset and controllers:\
-
+For WebXR Emulation, install the [Meta Immersive Web Emulator](https://developers.meta.com/horizon/blog/webxr-development-immersive-web-emulator/). It is supported on Chrome and Edge. This allows developers to profile immersive experiences more accurately, and gives tools for manipulating the XR headset and controllers:<br>
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-08-25 at 1.29.01 PM (2).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}

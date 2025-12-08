@@ -22,6 +22,7 @@
   * [NIRVANA GROVE por Thorium Labs | PT](unitywebgl-examples/nirvana-grove-por-thorium-labs-or-pt.md)
 * [ThreeJS Example](three.js-with-vite-or-getting-started-tutorial.md)
 * [Godot HTML5 Example](godot-html5-example.md)
+* [Open Brush Example](standalone-publishing/open-brush-example.md)
 * [Testing Documentation Workflow](standalone-publishing/testing-documentation-workflow.md)
 
 ***

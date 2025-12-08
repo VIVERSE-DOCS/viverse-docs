@@ -26,8 +26,7 @@ VIVERSE injects its own avatar, input and networking scripts on export that will
 
 ### VIVERSE UI
 
-VIVERSE also injects its own custom UI into. As you design UI for your own project, be mindful that once deployed, elements may overlap, potentially blocking clicks or other input.\
-
+VIVERSE also injects its own custom UI into. As you design UI for your own project, be mindful that once deployed, elements may overlap, potentially blocking clicks or other input.<br>
 
 <figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt="" width="375"><figcaption><p>VIVERSE default desktop UI, including optional Quests/Missions.</p></figcaption></figure>
 

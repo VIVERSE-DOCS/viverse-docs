@@ -27,8 +27,7 @@ globalThis.avatarClient = new globalThis.viverse.avatar({
 
 Once the avatar client is instantiated, you have access to the following methods:
 
-*   `getActiveAvatar()`: get user's default, active avatar, formatted as:\
-
+*   `getActiveAvatar()`: get user's default, active avatar, formatted as:<br>
 
     <pre><code>{
         id: string | number;
@@ -43,8 +42,7 @@ Once the avatar client is instantiated, you have access to the following methods
 
 
 * `getAvatarList()`: get user's avatar list. This will return an array of objects formatted as above.
-*   `getProfile()`: get the user's display name and active avatar. The return object is formatted as:\
-
+*   `getProfile()`: get the user's display name and active avatar. The return object is formatted as:<br>
 
     ```
     {

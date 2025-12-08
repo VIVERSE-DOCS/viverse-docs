@@ -122,8 +122,7 @@ Here are the next steps in order to have your space published to VIVERSE.
 ### Login to VIVERSE
 
 Open a terminal session and type `viverse-cli auth login` and provide your\
-credentials.\
-
+credentials.<br>
 
 <div align="left"><figure><img src="../.gitbook/assets/Login to Viverse.png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}

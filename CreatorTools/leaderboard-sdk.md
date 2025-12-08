@@ -15,16 +15,13 @@ hidden: true
 
 Before integrating the Leaderboard SDK, you must first configure the leaderboard metadata settings for your content&#x20;in VIVERSE Studio.
 
-1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.\
-
+1.  Go to the Upload section in the sidebar to open the "Manage Content" page in VIVERSE Studio.<br>
 
     <figure><img src=".gitbook/assets/image (726).png" alt=""><figcaption></figcaption></figure>
-2.  Click "Upload Content" for the world you want to edit, then navigate to the SDK Settings tab.\
-
+2.  Click "Upload Content" for the world you want to edit, then navigate to the SDK Settings tab.<br>
 
     <figure><img src=".gitbook/assets/image (724).png" alt=""><figcaption></figcaption></figure>
-3.  In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard    &#x20;system.\
-
+3.  In the Leaderboard Configuration section, define the necessary leaderboard parameters. **This configuration is required** to enable proper interaction between your content and the leaderboard    &#x20;system.<br>
 
     <figure><img src=".gitbook/assets/image (725).png" alt=""><figcaption></figcaption></figure>
 
