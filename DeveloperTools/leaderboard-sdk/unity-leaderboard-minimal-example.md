@@ -9,6 +9,12 @@ hidden: true
 
 ***
 
+## Unity Leaderboard Minimal Example
+
+### Overview
+
+Build a minimal Unity demo showcasing VIVERSE Leaderboard SDK features: query rankings, submit scores, and validate data types.
+
 ### Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
@@ -53,6 +59,8 @@ The Leaderboard SDK requires authentication. Follow the Login & Authentication g
 * HttpServer component (for Editor/Windows testing)
 
 Ensure you can successfully log in before proceeding to Leaderboard SDK setup. In the screenshot below, we've created a prefab from the LoginPanel that gets built in the Login & Authentication guide. We've exported the prefab along with LoginUIController.cs
+
+<figure><img src="../.gitbook/assets/image (37).png" alt="" width="221"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -146,12 +154,8 @@ C. **Create Input Fields Container:**
   * Child Force Expand: Width = true, Height = false
 * In RectTransform, set Height = 150
 
-D. **Create Input Fields:**
+D. **Create Input Field:**
 
-* Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to ApiNameInput
-  * Placeholder text: "API Name (Meta Name)"
-  * Font Size: 14
-  * In the input field's RectTransform, set Height = 35
 * Right-click InputFieldsContainer → UI → Input Field - TextMeshPro → rename to ScoreInput
   * Placeholder text: "Score"
   * Font Size: 14
@@ -159,9 +163,12 @@ D. **Create Input Fields:**
 
 E. **Create Data Type Dropdown:**
 
-* Right-click InputFieldsContainer → UI → Dropdown - TextMeshPro → rename to DataTypeDropdown
-  * In RectTransform, set Height = 35
-  * Options: "Numeric (Points)", "Seconds (Time)", "Milliseconds (Time)"
+*   Right-click InputFieldsContainer → UI → Dropdown - TextMeshPro → rename to DataTypeDropdown
+
+    * In RectTransform, set Height = 35
+    * Options: "Numeric (Points)", "Seconds (Time)", "Milliseconds (Time)"
+
+    <figure><img src="../.gitbook/assets/image (38).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -185,14 +192,14 @@ B. **Create Section Header:**
 * Text: "Leaderboard Actions"
 * Font Size: 24, Font Style: Bold
 * Alignment: Left
-* In RectTransform, set Height = 35 and Width = 300
+* In RectTransform, set Height = 35
 
 C. **Create Buttons:**
 
 * Right-click ButtonsPanel → UI → Button (TextMeshPro) → rename to ValidateDataTypeButton
   * Change button text to "Validate Data Type"
   * Font Size: 16
-  * In the button's RectTransform, set Height = 40&#x20;
+  * In the button's RectTransform, set Height = 40
 * Right-click ButtonsPanel → UI → Button (TextMeshPro) → rename to UploadScoreButton
   * Change button text to "Upload Score"
   * Font Size: 16
@@ -224,7 +231,7 @@ B. **Create Section Header:**
 * Text: "Leaderboard Rankings"
 * Font Size: 24, Font Style: Bold
 * Alignment: Left
-* In RectTransform, set Height = 35 and Width = 300
+* In RectTransform, set Height = 35
 
 C. **Create Scroll View:**
 
@@ -240,7 +247,7 @@ D. **Setup Scroll View Content:**
 * Set Vertical Layout Group properties:
   * Child Alignment: Upper Left
   * Padding: All = 10
-  * Spacing: 5
+  * Spacing: 20
   * Child Force Expand: Width = true, Height = false
 * Add Component → Layout → Content Size Fitter
 * Set Content Size Fitter: Vertical Fit = Preferred Size
@@ -274,7 +281,6 @@ LeaderboardCanvas
     │   ├── SettingsPanel
     │   │   ├── SettingsHeader
     │   │   └── InputFieldsContainer
-    │   │       ├── ApiNameInput
     │   │       ├── ScoreInput
     │   │       └── DataTypeDropdown
     │   └── ButtonsPanel
@@ -340,9 +346,10 @@ public class LeaderboardUIController : MonoBehaviour
     [Header("App Settings")]
     [SerializeField]
     private string appId;         // Your VIVERSE App ID (assign in Inspector)
+    [SerializeField]
+    private string apiName;        // API Name (Meta Name) - set in Inspector
 
     [Header("UI References - Settings")]
-    [SerializeField] private TMP_InputField apiNameInput;
     [SerializeField] private TMP_InputField scoreInput;
     [SerializeField] private TMP_Dropdown dataTypeDropdown;
 
@@ -353,7 +360,6 @@ public class LeaderboardUIController : MonoBehaviour
 
     [Header("UI References - Display")]
     [SerializeField] private Transform leaderboardContainer;  // Content of ScrollView
-    [SerializeField] private GameObject leaderboardEntryPrefab;  // Optional prefab for entries
     [SerializeField] private TMP_Text statusText;
 
     [Header("Sample Data")]
@@ -433,7 +439,7 @@ public class LeaderboardUIController : MonoBehaviour
         string apiName = GetApiName();
         if (string.IsNullOrEmpty(apiName))
         {
-            UpdateStatus("Error: Please enter API Name");
+            UpdateStatus("Error: Please set API Name in Inspector");
             return;
         }
 
@@ -464,7 +470,7 @@ public class LeaderboardUIController : MonoBehaviour
         string apiName = GetApiName();
         if (string.IsNullOrEmpty(apiName))
         {
-            UpdateStatus("Error: Please enter API Name");
+            UpdateStatus("Error: Please set API Name in Inspector");
             return;
         }
 
@@ -503,7 +509,7 @@ public class LeaderboardUIController : MonoBehaviour
         string apiName = GetApiName();
         if (string.IsNullOrEmpty(apiName))
         {
-            UpdateStatus("Error: Please enter API Name");
+            UpdateStatus("Error: Please set API Name in Inspector");
             return;
         }
 
@@ -579,9 +585,9 @@ public class LeaderboardUIController : MonoBehaviour
 
     private string GetApiName()
     {
-        if (apiNameInput != null && !string.IsNullOrEmpty(apiNameInput.text))
+        if (!string.IsNullOrEmpty(apiName))
         {
-            return apiNameInput.text.Trim();
+            return apiName.Trim();
         }
         return "";
     }
@@ -634,41 +640,21 @@ public class LeaderboardUIController : MonoBehaviour
 
     private void CreateLeaderboardEntry(LeaderboardRecord record)
     {
-        GameObject entryObj;
+        // Create simple text entry
+        GameObject entryObj = new GameObject($"Entry_Rank{record.rank}");
+        entryObj.transform.SetParent(leaderboardContainer);
+        var rectTransform = entryObj.AddComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(550, 40);
 
-        if (leaderboardEntryPrefab != null)
-        {
-            entryObj = Instantiate(leaderboardEntryPrefab, leaderboardContainer);
-        }
-        else
-        {
-            // Create simple text entry if no prefab
-            entryObj = new GameObject($"Entry_Rank{record.rank}");
-            entryObj.transform.SetParent(leaderboardContainer);
-            var rectTransform = entryObj.AddComponent<RectTransform>();
-            rectTransform.sizeDelta = new Vector2(550, 40);
-            
-            var tmpText = entryObj.AddComponent<TextMeshProUGUI>();
-            tmpText.fontSize = 18;
-            tmpText.color = Color.white;
-            tmpText.alignment = TextAlignmentOptions.Left;
-        }
+        var tmpText = entryObj.AddComponent<TextMeshProUGUI>();
+        tmpText.fontSize = 18;
+        tmpText.color = Color.white;
+        tmpText.alignment = TextAlignmentOptions.Left;
 
-        // Update text components
-        TMP_Text[] tmpTextComponents = entryObj.GetComponentsInChildren<TMP_Text>();
+        // Set display text
         string formattedScore = FormatScoreDisplay(record.value, currentDataType);
         string displayText = $"#{record.rank + 1} - {record.name} - {formattedScore}";
-
-        if (tmpTextComponents.Length >= 3)
-        {
-            tmpTextComponents[0].text = $"#{record.rank + 1}";
-            tmpTextComponents[1].text = record.name;
-            tmpTextComponents[2].text = formattedScore;
-        }
-        else if (tmpTextComponents.Length == 1)
-        {
-            tmpTextComponents[0].text = displayText;
-        }
+        tmpText.text = displayText;
     }
 
     private string FormatScoreDisplay(float value, LeaderboardDataType dataType)
@@ -729,8 +715,8 @@ public class LeaderboardUIController : MonoBehaviour
 1. Select LeaderboardController in Hierarchy.
 2. In Inspector, you'll see LeaderboardUIController component with many empty fields.
 3. Set App Id field → enter your VIVERSE App ID (same one used for LoginManager).
-4. Drag UI elements from Hierarchy into the corresponding fields:
-   * **Api Name Input** → drag ApiNameInput from Hierarchy
+4. Set Api Name field → enter your Leaderboard Meta Name (API Name) from VIVERSE Studio.
+5. Drag UI elements from Hierarchy into the corresponding fields:
    * **Score Input** → drag ScoreInput from Hierarchy
    * **Data Type Dropdown** → drag DataTypeDropdown from Hierarchy
    * **Validate Data Type Button** → drag ValidateDataTypeButton from Hierarchy
@@ -753,7 +739,7 @@ public class LeaderboardUIController : MonoBehaviour
 2. Click **Login** (from your LoginManager setup) and complete authentication in the browser.
 3. Wait for login to complete—StatusText should show "Logged in - Ready to use Leaderboard SDK".
 4. Test Data Type Validation:
-   * Enter your **API Name** (Meta Name) in ApiNameInput field
+   * Ensure **API Name** is set in the LeaderboardUIController Inspector (set in Step 4)
    * Select the appropriate **Data Type** from dropdown (Numeric, Seconds, or Milliseconds)
    * Click **Validate Data Type** button
    * StatusText should show "Data type validation passed" or an error message if there's a mismatch
@@ -772,7 +758,7 @@ public class LeaderboardUIController : MonoBehaviour
 ### Test Score Submission
 
 1. With user logged in, test Score Submission:
-   * Enter your **API Name** in ApiNameInput field
+   * Ensure **API Name** is set in the LeaderboardUIController Inspector (set in Step 4)
    * Select the correct **Data Type** from dropdown
    * Enter a **Score** value in ScoreInput field
      * For Numeric: Enter a number (e.g., "1000")
@@ -796,7 +782,7 @@ public class LeaderboardUIController : MonoBehaviour
 ### Test Leaderboard Query
 
 1. With user logged in, test Leaderboard Query:
-   * Enter your **API Name** in ApiNameInput field
+   * Ensure **API Name** is set in the LeaderboardUIController Inspector (set in Step 4)
    * Click **Get Leaderboard** button
    * StatusText should show "Leaderboard loaded - X players"
    * Leaderboard entries should appear in the scroll view
