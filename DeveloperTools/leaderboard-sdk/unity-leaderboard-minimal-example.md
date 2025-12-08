@@ -644,10 +644,24 @@ public class LeaderboardUIController : MonoBehaviour
         GameObject entryObj = new GameObject($"Entry_Rank{record.rank}");
         entryObj.transform.SetParent(leaderboardContainer);
         var rectTransform = entryObj.AddComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(550, 40);
+        
+        // Set anchor and pivot to top left
+        rectTransform.anchorMin = new Vector2(0, 1);
+        rectTransform.anchorMax = new Vector2(0, 1);
+        rectTransform.pivot = new Vector2(0, 1);
+        
+        // Set width to 200 and height to 20
+        rectTransform.sizeDelta = new Vector2(200, 20);
+        
+        // Add Layout Element to control preferred size
+        var layoutElement = entryObj.AddComponent<UnityEngine.UI.LayoutElement>();
+        layoutElement.preferredWidth = 200;
+        layoutElement.preferredHeight = 20;
+        layoutElement.flexibleWidth = 0;
+        layoutElement.flexibleHeight = 0;
 
         var tmpText = entryObj.AddComponent<TextMeshProUGUI>();
-        tmpText.fontSize = 18;
+        tmpText.fontSize = 14;
         tmpText.color = Color.white;
         tmpText.alignment = TextAlignmentOptions.Left;
 
