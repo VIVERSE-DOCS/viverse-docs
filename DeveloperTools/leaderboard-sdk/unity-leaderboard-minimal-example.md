@@ -251,7 +251,7 @@ D. **Setup Scroll View Content:**
   * Child Force Expand: Width = true, Height = false
 * Add Component → Layout → Content Size Fitter
 * Set Content Size Fitter: Vertical Fit = Preferred Size
-* In RectTransform, set Width = 550
+* In RectTransform, set anchor preset to top left (hold Shift and Alt to set pivot and position)
 
 E. **Create Horizontal Container for Settings and Buttons:**
 
@@ -391,11 +391,25 @@ public class LeaderboardUIController : MonoBehaviour
         if (loginManager != null)
         {
             loginManager.OnLoginStateChanged += OnLoginStateChanged;
+            
+            // Check current login state immediately (in case event was already fired)
+            bool isLoggedIn = loginManager.IsLoggedIn;
+            UpdateButtonStates(isLoggedIn);
+            if (isLoggedIn)
+            {
+                UpdateStatus("Logged in - Ready to use Leaderboard SDK");
+            }
+            else
+            {
+                UpdateStatus("Ready - Please login first");
+            }
         }
-
-        // Initialize UI state
-        UpdateStatus("Ready - Please login first");
-        UpdateButtonStates(false);
+        else
+        {
+            // Initialize UI state if no LoginManager
+            UpdateStatus("Ready - Please login first");
+            UpdateButtonStates(false);
+        }
     }
 
     private void SetupButtons()
