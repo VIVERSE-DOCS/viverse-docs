@@ -64,7 +64,7 @@ Ensure you can successfully log in before proceeding to Cloud SDK setup. In the 
 {% step %}
 ### Setup Canvas
 
-<figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 A. GameObject → UI → Canvas (name it CloudSaveCanvas).
 

@@ -66,6 +66,8 @@ Ensure you can successfully log in before proceeding to Leaderboard SDK setup. I
 
 ## Step 3. Build the Leaderboard SDK UI
 
+<figure><img src="../.gitbook/assets/image.png" alt="" width="289"><figcaption></figcaption></figure>
+
 {% stepper %}
 {% step %}
 ### Setup Canvas
