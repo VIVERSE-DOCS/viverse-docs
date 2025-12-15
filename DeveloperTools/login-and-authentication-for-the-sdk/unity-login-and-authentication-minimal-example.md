@@ -13,11 +13,30 @@ description: >-
 
 Add VIVERSE login to a brand-new Unity project: import the VIVERSE package, build a two-column login UI, optionally enable WebGL support, and test locally or on VIVERSE.
 
-### Prerequisites
+## Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
 * App ID from VIVERSE Studio (https://worlds.viverse.com/)
-* VIVERSE login/auth unitypackage (e.g., SDK\_v0.92 1.unitypackage)
+* VIVERSE login/auth unitypackage (e.g., SDK\_v0.96.unitypackage)
+
+## Quick Start: Download Pre-built Login Sample
+
+If you prefer to use a pre-configured login sample instead of building it manually, you can download a ready-to-use Unity package that includes the complete login UI setup and scene.
+
+**Download the Login Sample Package:** [Login\_Documentation\_Sample.unitypackage](https://github.com/VIVERSE-DOCS/viverse-docs/blob/467c188919118370850918da29af984ccd25e29c/samples/Unity/Login_Documentation_Sample.unitypackage)
+
+**Important Import Order:** You must import the packages in this specific order to avoid missing dependencies:
+
+1. **First:** Import the VIVERSE SDK Unity package (e.g., `SDK_v0.96.unitypackage`)
+   * Assets → Import Package → Custom Package… → Select your SDK package → Import
+2. **Second:** Import TextMeshPro (if not already in your project)
+   * Window → TextMeshPro → Import TMP Essential Resources
+3. **Third:** Import the Login Sample package
+   * Assets → Import Package → Custom Package… → Select `Login_Documentation_Sample.unitypackage` → Import
+
+After importing all three packages, open the `Login_Leaderboard_Documentation_Sample` scene from `Assets/Scenes/` to see the complete login example in action.
+
+**Note:** If you prefer to build the login UI manually step-by-step, continue with the instructions below starting from Step 1.
 
 ## Step 1. Import the VIVERSE package
 
