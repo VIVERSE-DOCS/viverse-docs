@@ -314,27 +314,9 @@ B. Click **Login** → the `.jslib` handles the SSO flow; the labels update when
 
 {% stepper %}
 {% step %}
-### Switch to WebGL
+### Publishing to Viverse
 
-Switch to WebGL (`File → Build Settings → WebGL`).
-{% endstep %}
-
-{% step %}
-### Build and Zip
-
-Build; zip the output (`index.html`, `Build/`, `TemplateData/` or `StreamingAssets`).
-{% endstep %}
-
-{% step %}
-### Upload to VIVERSE Studio
-
-Upload the zip in VIVERSE Studio → Manage Content.
-{% endstep %}
-
-{% step %}
-### Preview and Submit
-
-Preview and submit for approval.
+Publishing to Viverse documentation can be found [here](https://app.gitbook.com/o/SnIK7SeXTWk0ghDScPhF/s/4pMiThqqrBzfvP8uy5am/standalone-publishing/publishing-to-viverse-with-viverse-studio).
 {% endstep %}
 {% endstepper %}
 
