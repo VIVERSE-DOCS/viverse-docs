@@ -25,8 +25,6 @@ This comprehensive guide covers Unity project setup, compatibility, and WebGL bu
 
 ## Unity Version Compatibility
 
-{% stepper %}
-{% step %}
 ### Supported Unity Versions
 
 VIVERSE supports the following Unity versions:
@@ -36,9 +34,7 @@ VIVERSE supports the following Unity versions:
 * **Unity 2023.x** - Supported, but verify compatibility with VIVERSE SDK
 
 **Note:** Always use LTS (Long Term Support) versions for production projects targeting VIVERSE to ensure long-term compatibility and support.
-{% endstep %}
 
-{% step %}
 ### Required Unity Modules
 
 Install the following modules via Unity Hub:
@@ -48,8 +44,8 @@ Install the following modules via Unity Hub:
 3. **IL2CPP** - Required for WebGL builds (automatically included with WebGL module)
 
 Verify installation: `Edit → Preferences → External Tools` or check installed modules in Unity Hub.
-{% endstep %}
-{% endstepper %}
+
+
 
 ## Build Settings for VIVERSE
 
