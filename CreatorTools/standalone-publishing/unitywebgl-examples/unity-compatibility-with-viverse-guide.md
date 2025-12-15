@@ -21,32 +21,6 @@ This comprehensive guide covers Unity project setup, compatibility, and WebGL bu
 * Basic understanding of HTML/CSS/JavaScript (for template customization)
 * VIVERSE Studio account (for deployment)
 
-
-
-## Unity Version Compatibility
-
-### Supported Unity Versions
-
-VIVERSE supports the following Unity versions:
-
-* **Unity 2021 LTS** (2021.3.x) - Recommended for stability
-* **Unity 2022 LTS** (2022.3.x) - Recommended for newer features
-* **Unity 2023.x** - Supported, but verify compatibility with VIVERSE SDK
-
-**Note:** Always use LTS (Long Term Support) versions for production projects targeting VIVERSE to ensure long-term compatibility and support.
-
-### Required Unity Modules
-
-Install the following modules via Unity Hub:
-
-1. **WebGL Build Support** - Essential for building WebGL projects
-2. **WebGL Development Build Support** - Recommended for debugging
-3. **IL2CPP** - Required for WebGL builds (automatically included with WebGL module)
-
-Verify installation: `Edit → Preferences → External Tools` or check installed modules in Unity Hub.
-
-
-
 ## Build Settings for VIVERSE
 
 {% stepper %}
