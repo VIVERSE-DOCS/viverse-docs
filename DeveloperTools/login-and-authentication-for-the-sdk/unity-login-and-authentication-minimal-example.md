@@ -292,6 +292,18 @@ In the Inspector, wire the serialized fields:
 ### Add HttpServer Component
 
 With **LoginPanel** selected, add the `HttpServer` component (included in the package). `LoginManager` references it automatically for local redirect flow.
+
+**Why HttpServer is needed:**
+
+The `HttpServer` component is essential for testing authentication in the Unity Editor and Windows standalone builds. Here's how the authentication flow works:
+
+1. **Browser Redirect Flow:** When you click Login in Editor/Windows mode, `LoginManager` opens your default browser and navigates to the VIVERSE login page.
+2. **Callback Handling:** After successful authentication, VIVERSE redirects the browser back to a localhost URL (`http://localhost:40078/`) with the authentication tokens.
+3. **Local Server:** The `HttpServer` component runs a local HTTP server on port 40078 that listens for this redirect. It receives the authentication callback data (access token and account ID) from the browser.
+4. **Data Processing:** The server processes the callback, extracts the authentication credentials, and saves them to `PlayerPrefs` so your Unity application can access them.
+5. **Unity Integration:** The saved credentials are then used by `LoginManager` to complete the login process within Unity.
+
+**Note:** This component is only needed for Editor and Windows builds. For WebGL builds, the authentication is handled directly by the JavaScript bridge (`.jslib` file), so `HttpServer` is not required.
 {% endstep %}
 {% endstepper %}
 
