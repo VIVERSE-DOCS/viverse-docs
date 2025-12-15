@@ -2,7 +2,6 @@
 description: >-
   Build a minimal Unity demo showcasing VIVERSE Leaderboard SDK features: query
   rankings, submit scores, and validate data types.
-hidden: true
 ---
 
 # Unity Leaderboard Minimal Example
