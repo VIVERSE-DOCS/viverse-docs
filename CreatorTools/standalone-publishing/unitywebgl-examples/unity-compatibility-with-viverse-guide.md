@@ -10,18 +10,18 @@ hidden: true
 
 ***
 
-### Overview
+## Overview
 
 This comprehensive guide covers Unity project setup, compatibility, and WebGL build configuration for VIVERSE deployment. It includes Unity version compatibility, render pipeline selection, build settings optimization, fullscreen WebGL template creation, and custom loading screen implementation. The guide ensures your Unity project is properly configured for optimal performance and presentation in VIVERSE.
 
-### Prerequisites
+## Prerequisites
 
 * Unity 2021 LTS or newer (with WebGL Build Support module installed)
 * Unity project configured for WebGL builds
 * Basic understanding of HTML/CSS/JavaScript (for template customization)
 * VIVERSE Studio account (for deployment)
 
-### Unity & VIVERSE Compatibility Overview
+## Unity & VIVERSE Compatibility Overview
 
 VIVERSE supports Unity WebGL builds with specific requirements and recommendations for optimal performance and compatibility. This section covers essential settings and considerations for targeting VIVERSE.
 
