@@ -9,9 +9,7 @@ description: >-
 
 ***
 
-## Unity Login & Authentication Minimal Example (New Project)
-
-### Overview
+## Overview
 
 Add VIVERSE login to a brand-new Unity project: import the VIVERSE package, build a two-column login UI, optionally enable WebGL support, and test locally or on VIVERSE.
 
@@ -142,6 +140,8 @@ B. Set InfoGroup RectTransform:
 * Pos X ≈ -110, Pos Y ≈ 0
 {% endstep %}
 {% endstepper %}
+
+This two-column layout provides a clean, organized interface for VIVERSE authentication. The left column contains action buttons (Login and Clear Data) that trigger the authentication flow and data management. The right column displays real-time feedback including login status, account information, and token details. This separation of controls and information makes it easy for users to understand the authentication state at a glance while providing clear actions to initiate or reset the login process. The UI will be wired to the LoginUIController script in the next step, which will update these labels dynamically as the authentication flow progresses.
 
 ## Step 3. Add the controller script
 
