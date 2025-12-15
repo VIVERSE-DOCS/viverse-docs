@@ -111,6 +111,8 @@ VIVERSE supports Unity WebGL builds with specific requirements and recommendatio
 
 ## WebGL Template - Fullscreen Canvas
 
+You can download the Unity WebGL full screen template [here](https://github.com/VIVERSE-DOCS/viverse-docs/blob/e3117d551888f5feaed7c6ef094ab55f4eb9cecc/samples/Unity/WebGL_FullScreen_Template.zip). Instructions for building out the template manually are below.
+
 ### Understanding WebGL Templates
 
 WebGL templates control the HTML/CSS/JavaScript wrapper around your Unity WebGL build. They determine:
