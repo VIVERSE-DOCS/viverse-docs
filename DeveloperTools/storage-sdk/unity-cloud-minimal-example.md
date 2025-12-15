@@ -10,11 +10,11 @@ hidden: true
 
 ***
 
-### Prerequisites
+## Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
 * App ID from VIVERSE Studio (https://worlds.viverse.com/)
-* VIVERSE login/auth unitypackage (e.g., SDK\_v0.92 1.unitypackage)
+* VIVERSE login/auth unitypackage (e.g., SDK\_v0.96.unitypackage)
 * User must be logged in via LoginManager before using Cloud SDK features
 
 ## Step 1. Import the VIVERSE package
