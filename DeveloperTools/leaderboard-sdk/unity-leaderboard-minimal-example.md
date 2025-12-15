@@ -9,19 +9,40 @@ hidden: true
 
 ***
 
-## Unity Leaderboard Minimal Example
-
-### Overview
+## Overview
 
 Build a minimal Unity demo showcasing VIVERSE Leaderboard SDK features: query rankings, submit scores, and validate data types.
 
-### Prerequisites
+## Prerequisites
 
 * Unity 2021 LTS or newer (install the WebGL module if you plan to target WebGL)
 * App ID from VIVERSE Studio (https://worlds.viverse.com/)
 * VIVERSE login/auth unitypackage (e.g., SDK\_v0.92 1.unitypackage)
 * User must be logged in via LoginManager before using Leaderboard SDK features
 * Leaderboard Meta (API Name) created in VIVERSE Studio (https://studio.viverse.com/upload)
+
+## Quick Start: Download Pre-built Leaderboard Sample
+
+If you prefer to use a pre-configured leaderboard sample instead of building it manually, you can download a ready-to-use Unity package that includes the complete leaderboard UI setup and scene.
+
+**Download the Leaderboard Sample Package:** [Leaderboard\_Documentation\_Sample.unitypackage](../../samples/Unity/Leaderboard_Documentation_Sample.unitypackage)
+
+**Important Import Order:** You must import the packages in this specific order to avoid missing dependencies:
+
+1. **First:** Import the VIVERSE SDK Unity package (e.g., `SDK_v0.96.unitypackage`)
+   * Assets → Import Package → Custom Package… → Select your SDK package → Import
+2. **Second:** Import TextMeshPro (if not already in your project)
+   * Window → TextMeshPro → Import TMP Essential Resources
+3. **Third:** Set up Login (Required)
+   * The Leaderboard SDK requires authentication. You must have LoginManager set up in your project before using the leaderboard features. If you haven't set up login yet, follow the Login & Authentication Guide or import the Login Sample package first.
+4. **Fourth:** Import the Leaderboard Sample package
+   * Assets → Import Package → Custom Package… → Select `Leaderboard_Documentation_Sample.unitypackage` → Import
+
+After importing all packages, open the `Leaderboard_Documentation_Sample` scene from `Assets/Scenes/` to see the complete leaderboard example in action.
+
+**Note:** If you prefer to build the leaderboard UI manually step-by-step, continue with the instructions below starting from Step 1.
+
+
 
 ## Step 1. Import the VIVERSE package
 
