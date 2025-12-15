@@ -1,3 +1,10 @@
+---
+description: >-
+  Code examples, compatibility guides, and technical documentation for Unity
+  WebGL builds targeting VIVERSE. Includes render pipelines, WebGL templates,
+  loading screens, and deployment examples.
+---
+
 # UnityWebGL Examples
 
 ***
@@ -5,6 +12,28 @@
 ## Unity & VIVERSE Compatibility Overview
 
 VIVERSE supports Unity WebGL builds with specific requirements and recommendations for optimal performance and compatibility. This section covers essential settings and considerations for targeting VIVERSE.
+
+## Unity Version Compatibility
+
+### Supported Unity Versions
+
+VIVERSE supports the following Unity versions:
+
+* **Unity 2021 LTS** (2021.3.x) - Recommended for stability
+* **Unity 2022 LTS** (2022.3.x) - Recommended for newer features
+* **Unity 2023.x** - Supported, but verify compatibility with VIVERSE SDK
+
+**Note:** Always use LTS (Long Term Support) versions for production projects targeting VIVERSE to ensure long-term compatibility and support.
+
+### Required Unity Modules
+
+Install the following modules via Unity Hub:
+
+1. **WebGL Build Support** - Essential for building WebGL projects
+2. **WebGL Development Build Support** - Recommended for debugging
+3. **IL2CPP** - Required for WebGL builds (automatically included with WebGL module)
+
+Verify installation: `Edit → Preferences → External Tools` or check installed modules in Unity Hub.
 
 ## Render Pipeline Compatibility
 
@@ -111,7 +140,7 @@ VIVERSE supports Unity WebGL builds with specific requirements and recommendatio
 
 ## WebGL Template - Fullscreen Canvas
 
-You can download the Unity WebGL full screen template [here](https://github.com/VIVERSE-DOCS/viverse-docs/blob/e3117d551888f5feaed7c6ef094ab55f4eb9cecc/samples/Unity/WebGL_FullScreen_Template.zip). Instructions for building out the template manually are below.
+An example of a fullscreen webgl template can be found [here](../../samples/Unity/WebGL_FullScreen_Template.zip). The instructions for creating a webgl fullscreen template are below.
 
 ### Understanding WebGL Templates
 
@@ -774,3 +803,4 @@ Enhance error messages for better user experience:
 * Verify all required files are included (Build folder, etc.)
 * Check file size limits in VIVERSE Studio
 * Ensure WebGL build target is correct (not IL2CPP if not supported)
+
