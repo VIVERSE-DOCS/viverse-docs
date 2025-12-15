@@ -21,9 +21,7 @@ This comprehensive guide covers Unity project setup, compatibility, and WebGL bu
 * Basic understanding of HTML/CSS/JavaScript (for template customization)
 * VIVERSE Studio account (for deployment)
 
-## Unity & VIVERSE Compatibility Overview
 
-VIVERSE supports Unity WebGL builds with specific requirements and recommendations for optimal performance and compatibility. This section covers essential settings and considerations for targeting VIVERSE.
 
 ## Unity Version Compatibility
 
