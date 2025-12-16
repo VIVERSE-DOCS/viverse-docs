@@ -17,6 +17,25 @@ hidden: true
 * VIVERSE login/auth unitypackage (e.g., SDK\_v0.96.unitypackage)
 * User must be logged in via LoginManager before using Cloud SDK features
 
+## Quick Start: Download Pre-built Cloud SDK Sample
+
+If you prefer to use a pre-configured cloud SDK sample instead of building it manually, you can download a ready-to-use Unity package that includes the complete cloud SDK UI setup and scene.
+
+**Download the Cloud SDK Sample Package:** [Cloud\_Documentation\_Sample.unitypackage](../../samples/Unity/Cloud_Documentation_Sample.unitypackage)
+
+**Important Import Order:** You must import the packages in this specific order to avoid missing dependencies:
+
+1. **First:** Import the VIVERSE SDK Unity package (e.g., `SDK_v0.96.unitypackage`)
+   * Assets → Import Package → Custom Package… → Select your SDK package → Import
+2. **Second:** Import TextMeshPro (if not already in your project)
+   * Window → TextMeshPro → Import TMP Essential Resources
+3. **Third:** Import the Cloud SDK Sample package
+   * Assets → Import Package → Custom Package… → Select `Cloud_Documentation_Sample.unitypackage` → Import
+
+After importing all three packages, open the `Login_Leaderboard_Sample` scene from `Assets/Scenes/` to see the complete cloud SDK example in action.
+
+**Note:** If you prefer to build the cloud SDK UI manually step-by-step, continue with the instructions below starting from Step 1.
+
 ## Step 1. Import the VIVERSE package
 
 {% stepper %}
