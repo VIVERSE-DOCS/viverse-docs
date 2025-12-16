@@ -14,6 +14,10 @@ Artefact Hunt is competitive multiplayer game inspired by a family of Tag games,
 
 Each players assumes the role of a Hunter — whose goal is to grab an Artefact as quick as possible, and bring it to the Portal before other Hunters steal it from him by collision. When Artefact is picked up on the map or stolen from another Hunter, a powerful Blastwave appears, which knocks away all Hunters in proximity, also destroying the current Artefact's carrier in the process — all enhanced with slow motion / bullet time effect, synchronized across network. The Artefact take and retake continues until some Hunter finally brings it to the Portal and thus wins the round. After that the map is reset and the the new round begins.
 
+## Prerequisites
+
+\[...]
+
 ## Project Overview
 
 The project consists of 2 scenes:
@@ -78,9 +82,89 @@ The project consists of 2 scenes:
 * **Physics** script discontinues default PlayCanvas physics update and updates simulation in particular order instead — after `game:update` but before `game:postupdate` event. But its main side feature is to implement slow motion / bullet time effect during Artefact pickup or steal, by dynamically dilating update time
 * **Collider** provides special collision groups and masks for all colliders in the game. This is mostly necessary due to Local and Remote Hunters behaving differently, and how local movement prediction for Remote Hunters is implemented. See Hunter section above for more details
 
-
-
 ## Multiplayer Implementation
+
+### Snapshot
+
+Snapshot is essential concept lying at the heart of our networking implementation. It's a key-value map consisting of multiple Entries — plain JS objects with `id`, `type` and additional attributes:
+
+```javascript
+{id: 'qwe-123', type: 'game', mode: 'warmup', timer: 2.5}
+{id: 'asd-456', type: 'player', owner: '...', username: 'Blue Banana', score: 3}
+{id: 'zxc-789', type: 'hunter', owner: '...', position: [...], velocity: [...], ...}
+{id: 'rty-234', type: 'artefact', position: [...], carrier: '...'}
+```
+
+It's a minimum viable representation of our current game state — what entities currently exist in the world, what are their internal states, attribute values, and so on. Because our networking is essentially P2P, there is no single source of truth for that game state — each Client keeps its own local Snapshot, trying to meaningfully synchronize it with the Snapshots of other Clients.
+
+### Entity
+
+Where Snapshot entry is just a plain JS object, the Entity is a physical manifestation of that object in the game world. Each Entity has a corresponding script attached to it, which is responsible for processing the Snapshot entry associated with this Entity.
+
+All Entities could be divided into 2 types and 2 categories respectively:
+
+<table><thead><tr><th width="105.01171875">Entities</th><th width="90.6484375">Owner</th><th valign="middle">Local</th><th>Remote</th></tr></thead><tbody><tr><td><code>player</code><br><code>hunter</code></td><td>Client</td><td valign="middle"><sub>Update internal state of an Entity and broadcast modified Snapshot entry to other clients</sub></td><td><sub>Receive updated Snapshot entry, store it locally, and update Entity's internal state based on it</sub></td></tr><tr><td><code>game</code><br><code>artefact</code><br><code>portal</code><br><code>blastwave</code></td><td>Master</td><td valign="middle"><sub>Update internal state of an Entity and broadcast modified Snapshot entry to other clients</sub></td><td><sub>Receive updated Snapshot entry, store it locally, and update Entity's internal state based on it</sub></td></tr></tbody></table>
+
+Types by entity's owner:
+
+* Client: these entities are handled by their respective owning Clients, and they have a distinctive `owner` attribute in their Snapshot entries. In practise it means that only associated Client can modify that Snapshot entry locally, and then broadcast those updates to all other clients for synchronization
+* Master: these entities can be handled only by the Master Client, so in that sense they're implicitly owned by it. Other than that, it's the same principle — owner (Master Client) updates associated Snapshot entries, and these updates are propagated to all other clients across network
+
+```javascript
+Clients:
+>>> A: {session_id: 'abc', is_master_client: true}
+>>> B: {session_id: 'xyz', is_master_client: false}
+
+Snapshot entries:
+{id: 'qwe-123', type: 'game', mode: 'warmup', timer: 15}
+{id: 'asd-456', type: 'player', owner: 'abc', username: 'Player 01', score: 2}
+{id: 'zxc-789', type: 'player', owner: 'xyz', username: 'Player 02', score: 3}
+
+// Client A updates GAME because it's a master client
+// Client A also updates PLAYER 01 because it's the owner of it
+// Client B only updates PLAYER 02
+```
+
+Categories by network replication:
+
+* Local:&#x20;
+* Remote:
+
+```javascript
+Clients:
+>>> A: {session_id: 'abc'}
+>>> B: {session_id: 'xyz'}
+
+Snapshot entries:
+{id: 'h1', type: 'hunter', owner: 'abc', position: [...], velocity: [...], ...}
+{id: 'h2', type: 'hunter', owner: 'xyz', position: [...], velocity: [...], ...}
+
+// For Client A the 1st Hunter is Local, but the 2nd one is Remote
+// Client A updates Hunter's position / velocity from the input data
+// And broadcasts the result of that update to other clients
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
