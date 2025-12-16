@@ -3,7 +3,6 @@ description: >-
   Build a minimal Unity demo showcasing all VIVERSE Cloud SDK features. Includes
   simplified UI setup and complete testing workflow for Cloud Save and UserApp
   APIs.
-hidden: true
 ---
 
 # Unity Cloud Minimal Example
