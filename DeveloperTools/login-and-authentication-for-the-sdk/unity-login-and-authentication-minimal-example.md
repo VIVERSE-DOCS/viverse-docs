@@ -27,7 +27,7 @@ If you prefer to use a pre-configured login sample instead of building it manual
 
 **Important Import Order:** You must import the packages in this specific order to avoid missing dependencies:
 
-1. **First:** Import the VIVERSE SDK Unity package (e.g., `SDK_v0.96.unitypackage`)
+1. **First:** Import the VIVERSE SDK Unity package ([SDK\_v0.96.unitypackage](../../samples/Unity/SDK_v0.96.unitypackage))
    * Assets → Import Package → Custom Package… → Select your SDK package → Import
 2. **Second:** Import TextMeshPro (if not already in your project)
    * Window → TextMeshPro → Import TMP Essential Resources
