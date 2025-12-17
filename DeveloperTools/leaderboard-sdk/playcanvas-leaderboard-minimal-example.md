@@ -8,7 +8,7 @@ description: >-
 
 Leaderboards allow players to compare their performance against others, increasing engagement time and replayability. VIVERSE's Leaderboard SDK can be combined with PlayCanvas' powerful screen- and screen-space Element UI systems to provide an end-to-end solution for this in your game.
 
-<figure><img src="/broken/files/9zJt8N0wzdZo6wUufLrr" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### Pre-requisite #1: Create a World, App ID and Leaderboard in VIVERSE Studio&#x20;
 
@@ -16,7 +16,7 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 > _**NOTE:** because VIVERSE SDKs require an App ID, this means VIVERSE SDKs cannot be used with projects published via the PlayCanvas Create SDK extension, which do not have App IDs._
 
-<div><figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure> <figure><img src="/broken/files/wDxXGRHw7IhAZxE1VKSw" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-07-31 113911.png" alt=""><figcaption></figcaption></figure></div>
 
 After creating your world, navigate to its "SDK Settings" tab, and click Add New Leaderboard. In the Leaderboard Configuration section, define the necessary leaderboard parameters for this world.
 
@@ -32,7 +32,7 @@ PlayCanvas already maintains many great tutorials for their engine, including a 
 
 Once the project is forked, go to the new project Settings in the PlayCanvas editor, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point to [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs) as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
 
-<figure><img src="/broken/files/WwGGuTBtVkHi66aCB27h" alt="" width="153"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt="" width="153"><figcaption></figcaption></figure>
 
 Initially, we'll also increase the width of the UI column to allow for displaying names, and I'll replace the "Add Entry" UI button on top with a simple label that says "High Scores".
 

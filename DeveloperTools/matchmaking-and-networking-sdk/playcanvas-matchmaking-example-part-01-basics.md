@@ -23,7 +23,7 @@ In order to use VIVERSE SDKs you need to create a World first and retrieve its A
 
 > _**NOTE:** VIVERSE SDKs cannot be used with projects published via the_ [_PlayCanvas Create SDK extension_](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup)_, which do not have App IDs._
 
-<div><figure><img src="/broken/files/ckpFSrMdsQmvOaUgNIlp" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/cr1b (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/cr1a (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/cr1b (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ## Step 1: Setup PlayCanvas project and add VIVERSE SDK
 

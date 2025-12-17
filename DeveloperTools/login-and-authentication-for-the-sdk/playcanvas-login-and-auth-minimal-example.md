@@ -18,7 +18,7 @@ All SDK usage requires an App ID tied to a specific VIVERSE World, which can be 
 
 In a new PlayCanvas project, go to the project Settings, and in the EXTERNAL SCRIPTS menu, add one URL entry, and point it  to [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs) as in this screenshot. This will ensure the VIVERSE SDK is loaded first and that your PlayCanvas logic has full access to its global methods.
 
-<figure><img src="/broken/files/WwGGuTBtVkHi66aCB27h" alt="" width="153"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image.png" alt="" width="153"><figcaption></figcaption></figure>
 
 ### Step 2: Initialize the SDK in a new .mjs script
 
