@@ -2,41 +2,43 @@
 description: >-
   Explore our open source example multiplayer project built with PlayCanvas and
   Viverse Play SDK, and learn practical tips on developing a simple multiplayer
-  game yourself!
+  game yourself
 hidden: true
 noIndex: true
 ---
 
-# Artefact Hunt (WIP)
+# Artefact Hunt: Building multiplayer game with Viverse Play SDK
 
 ***
 
 ## Introduction
 
-Welcome to \[...]
+Welcome to the wild world of multiplayer game development! Hope you'll enjoy your stay, and eventually become a skilled adventurer yourself!
 
-### Game Concept
+In this document, we'll share some practical experience of developing a multiplayer project using PlayCanvas and Viverse Play SDK. We'll briefly go through project architecture, multiplayer implementation and \[...]
+
+If you're new to [Viverse Networking SDK](../matchmaking-and-networking-sdk.md), we strongly recommend revisiting our dedicated tutorial first — **PlayCanvas Networking Example** [Part 01](playcanvas-networking-example-part-01-basics.md) and [Part 02](playcanvas-matchmaking-example-part-02-advanced.md) respectively. Part 02 is particularly useful since it provides gradual introduction to advanced concepts used in this project — like application state, client, snapshot, messages and so on.
+
+And as usual, you can find \[...project and build links]
+
+## Game Concept
 
 Artefact Hunt is competitive multiplayer game inspired by a family of Tag games, Capture the Flag, and variety of similar game modes — like Mario Kart: Shine Thief, Halo: Oddball, Fortnite: The Getaway, and so forth.
 
-Each players assumes the role of a Hunter — whose goal is to grab an Artefact as quick as possible, and bring it to the Portal before other Hunters steal it from him by collision. When Artefact is picked up on the map or stolen from another Hunter, a powerful Blastwave appears, which knocks away all Hunters in proximity, also destroying the current Artefact's carrier in the process. When Blastwave happens it produces spectacular slow motion / bullet time effect, affecting all players on the map equally. The Artefact take and retake continues until some Hunter finally brings it to the Portal and thus wins the round. After that the map is reset and the the new round begins.
+Each players assumes the role of a Hunter — whose goal is to grab an Artefact as quick as possible, and bring it to the Portal before other Hunters steal it from him by collision. When Artefact is picked up on the map or stolen from another Hunter, a powerful Blastwave appears, which knocks away all Hunters in proximity, also destroying the current Artefact's carrier in the process. When Blastwave appears, it produces spectacular slow motion / bullet time effect, affecting all players on the map equally. The Artefact take and retake continues until some Hunter finally brings it to the Portal and thus wins the round. After that the map is reset and the the new round begins.
 
 <div><figure><img src="../.gitbook/assets/ah_1.jpg" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/ah_2.jpg" alt=""><figcaption></figcaption></figure></div>
 
-<p align="center"><sup><em><mark style="color:$info;">The original Artefact Hunt's concept document — the scope was partially reduced due to time constraints</mark></em></sup></p>
-
-### Prerequisites
-
-If you don't have practical experience with Viverse [Multiplayer](../matchmaking-and-networking-sdk.md#multiplayer-apis) and [Matchmaking](../matchmaking-and-networking-sdk.md#matchmaking-api) APIs — we strongly recommend taking a look at our dedicated tutorials first — PlayCanvas Networking Example [Part 01](playcanvas-networking-example-part-01-basics.md) and [Part 02](playcanvas-matchmaking-example-part-02-advanced.md) respectively. Part 02 is particularly useful since it provides gradual introduction to advanced concepts used in this project — like application state, client, snapshot, messages and so on.
-
-\[...With all this set, we're now ready to dive into our project!]
+<p align="center"><sup><em><mark style="color:$info;">The original game concept doc — the scope was reduced due to time constraints</mark></em></sup></p>
 
 ## Project Overview
 
 The project consists of 2 scenes:
 
 * **Main:** loaded by default and contains core functionality like App, Client, Loader, Input, Physics, View, as well as Main Screen UI
-* **Content:** contains everything related to multiplayer map and session — like graphics, lighting, colliders, Game and Player representations, Container for instantiating networked entities, and game-specific UI. It's loaded additively when user joins multiplayer game by pressing Start in the Main Screen UI (see Asset Loading for more details)
+* **Content:** contains everything related to multiplayer map and session — like graphics, lighting, colliders, Game and Player representations, Container for instantiating networked entities, and game-specific UI. It's loaded additively when user joins multiplayer game by pressing Start in the Main Screen UI (see [Asset Loading](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#asset-loading) for more details)
+
+Let's explore \[...]
 
 ### Application
 
@@ -67,7 +69,7 @@ The project consists of 2 scenes:
 `client.mjs` `snapshot.mjs`
 
 * **Client** encapsulates all functionality related to networking by implementing Viverse Matchmaking and Multiplayer SDKs. It keeps internal representation of networked game state in a form of Snapshot object, and exposes it to other scripts to read and write to, via globally accessible `this.app.snapshot` variable
-* **Snapshot** is a data structure representing networked game state, which is constantly updated by incoming and outgoing messages. For more details, please see **Multiplayer Implementation** below
+* **Snapshot** is a data structure representing networked game state, which is constantly updated by incoming and outgoing messages. For more details, please see [Multiplayer Implementation](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#multiplayer-implementation) below
 
 ### Entities
 
@@ -86,7 +88,7 @@ The project consists of 2 scenes:
   * `hunter.visual.mjs` : handles various visual aspects like blob shadow, carrier's red glow, and so on
 * **Artefact** is another important dynamic Entity in our game. Similar to the Hunter, it can be spawned and destroyed, has position on the map, but also a carrier attribute that refers to id of a Hunter that is currently carrying it. And similar to the Game, it's replicated for all clients locally, but only Master client is responsible for creating and updating it
 * **Portal** is one more dynamic Entity, but a much simpler one. It has only position, and mostly provides just a trigger area for current Carrier to collide with, in order to win the round. And similar to the Artefact, only Master client can spawn it
-* **Blastwave** is the last dynamic Entity controllable by Master client. It's created during Artefact pickup or steal, and exposes dynamically changing slowmo attribute that affects local Physics timescale for all clients in the game. See Physics section below for more details
+* **Blastwave** is the last dynamic Entity controllable by Master client. It's created during Artefact pickup or steal, and exposes dynamically changing slowmo attribute that affects local Physics timescale for all clients in the game. See [Physics](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#physics) section below for more details
 
 ### Physics
 
@@ -107,22 +109,26 @@ The project consists of 2 scenes:
 
 ### Client
 
-It all starts with a Client, which is an improved version of the one used in our previous [PlayCanvas Networking example](playcanvas-networking-example-part-02-advanced.md#step-2-networking-implementation):
+It all starts with a Client, which is an improved version of the one used in our original [PlayCanvas Networking example](playcanvas-networking-example-part-02-advanced.md#step-2-networking-implementation):
 
 * It initializes `matchmaking` and `multiplayer` systems via corresponding [Viverse SDKs](../matchmaking-and-networking-sdk.md)
 * Creates an [Actor](../matchmaking-and-networking-sdk.md#setup-actor-info) which is a container for relevant user data, in particular `session_id`&#x20;
 * Joins available [Room](../matchmaking-and-networking-sdk.md#create-and-configure-a-room) or creates one if no rooms are available
 
-In a context of a multiplayer, the Client's most important function is to exchange data with all other Clients currently the Room. For this, Viverse SDK provides two crucial communication channels:
+In a context of a multiplayer, the Client's most important function is to exchange data with all other Clients currently the Room. For this, Viverse SDK provides two mostly used communication channels:
 
-* Messages — arbitrary JSON objects that can be broadcast to all other Clients in the Room
-* Actions — specialized objects \[...]
+* [Messages](../matchmaking-and-networking-sdk.md#general) — arbitrary JSON objects that can be broadcast to all other Clients in the Room
+* [Actions](../matchmaking-and-networking-sdk.md#actionsync) — specialized objects designed to resolve a dispute between multiple Clients competing for the same outcome
 
-\[... Master Client]
+Unlike dedicated solutions like [Photon](https://www.photonengine.com/) or [Colyseus](https://colyseus.io/) which rely on authoritative servers as a source of ground truth, Viverse Multiplayer is a P2P system — it receives events from a user and broadcasts them to other users. This implementation comes a few important things to consider:
+
+* There is no global store for the current game state, so each Client should keep it's own local copy, which we call a Snapshot
+* If a new Client joins the game — it should still be able to get the current state from somewhere. That means that each connected Client should constantly broadcast updates about Entities that it owns, so other Clients can receive those updates and modify their local Snapshots accordingly
+* And finally, some Client should play a role of a Master Client — which means to handle game-related tasks on top of updating its \[...]
 
 ### Snapshot
 
-Snapshot is essential concept lying at the heart of our networking implementation. It's a key-value map consisting of multiple Entries — plain JSON objects with `id`, `type` and additional attributes:
+Snapshot is essential concept living at the heart of our networking implementation. It's a key-value map consisting of multiple Entries — plain JSON objects with `id`, `type` and additional attributes:
 
 ```javascript
 {id: 'qwe-123', type: 'game', mode: 'warmup', timer: 2.5}
@@ -133,7 +139,7 @@ Snapshot is essential concept lying at the heart of our networking implementatio
 
 It's a minimum viable representation of our current game state — what entities currently exist in the world, what are their internal states, attribute values, and so on. Because our networking is essentially P2P, there is no single source of truth for that — each Client keeps its own local Snapshot, trying to meaningfully synchronize it with other Clients in the Room.
 
-The synchronization mechanic is built around 2 atomic operations: `update` and `delete`. Please note that `create` is not used since it can be functionally replaced with updating a non-existent entry. Below is a stripped down code illustrating it with greatly simplified `snapshot.mjs` and `client.mjs` scripts:
+The synchronization mechanic is built around 2 atomic operations: `update` and `delete`. Please note that `create` is not used since it can be functionally replaced with updating a non-existent entry. Below is a stripped down code illustrating that with greatly simplified Snapshot and Client scripts:
 
 {% tabs %}
 {% tab title="snapshot.mjs" %}
@@ -256,37 +262,11 @@ From particular Client's perspective, each Snapshot Entry (and therefore associa
 // That's typical for multiplayer games due to distributed nature and network latency
 ```
 
-### Prediction
+### Local Prediction
 
-Currently Viverse Multiplayer servers are located only in US, so the average pings from Europe may reach 150ms.
 
-\[...]
 
-```javascript
-export default class Hunter extends Script
-{
-    update (dt)
-    {
-        let actor = this.app.state.get ('client.actor');
-        let data = this.app.snapshot.get (this.entity.name);
-        let local = data.owner === actor.session_id;
-    
-        if (local)
-            this.updateLocal (data, dt);
-        else
-            this.updateRemote (dt);
-    }
-    
-    updateLocal (data, dt)
-    {
-        
-    }
-}
-```
 
-## Tips and Tricks
-
-If you come from traditional multiplayer systems, with authoritative dedicated server,&#x20;
 
 
 

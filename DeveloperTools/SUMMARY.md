@@ -14,7 +14,7 @@
   * [PlayCanvas Matchmaking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-02-advanced.md)
   * [PlayCanvas Networking example: Part 01 - Basics](matchmaking-and-networking-sdk/playcanvas-networking-example-part-01-basics.md)
   * [PlayCanvas Networking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-networking-example-part-02-advanced.md)
-  * [Artefact Hunt (WIP)](matchmaking-and-networking-sdk/artefact-hunt-wip.md)
+  * [Artefact Hunt: Building multiplayer game with Viverse Play SDK](matchmaking-and-networking-sdk/artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md)
 * [Storage SDK](storage-sdk.md)
   * [PlayCanvas Storage minimal example](storage-sdk/playcanvas-storage-minimal-example.md)
   * [three.js Storage minimal example](storage-sdk/three.js-storage-minimal-example.md)
