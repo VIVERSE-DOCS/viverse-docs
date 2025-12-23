@@ -15,11 +15,11 @@ noIndex: true
 
 Welcome to the wild world of multiplayer game development! Hope you'll enjoy your stay, and eventually become a skilled adventurer yourself!
 
-In this document, we'll share some practical experience of developing a multiplayer project using PlayCanvas and Viverse Play SDK. We'll briefly go through project architecture, multiplayer implementation and \[...]
+In this document, we'll share some practical experience of developing a multiplayer project using PlayCanvas and Viverse Play SDK. We'll briefly go through the project architecture, networking implementation and decisions made along the process.
 
 If you're new to [Viverse Networking SDK](../matchmaking-and-networking-sdk.md), we strongly recommend revisiting our dedicated tutorial first — **PlayCanvas Networking Example** [Part 01](playcanvas-networking-example-part-01-basics.md) and [Part 02](playcanvas-matchmaking-example-part-02-advanced.md) respectively. Part 02 is particularly useful since it provides gradual introduction to advanced concepts used in this project — like application state, client, snapshot, messages and so on.
 
-And as usual, you can find \[...project and build links]
+And as usual, you can find \[...project and build links below]
 
 ## Game Concept
 
@@ -33,12 +33,12 @@ Each players assumes the role of a Hunter — whose goal is to grab an Artefact 
 
 ## Project Overview
 
-The project consists of 2 scenes:
+Alright, so with all that foundation in place, we're now ready to dive deep into our project structure! We can see it's divided into 2 scenes:
 
 * **Main:** loaded by default and contains core functionality like App, Client, Loader, Input, Physics, View, as well as Main Screen UI
-* **Content:** contains everything related to multiplayer map and session — like graphics, lighting, colliders, Game and Player representations, Container for instantiating networked entities, and game-specific UI. It's loaded additively when user joins multiplayer game by pressing Start in the Main Screen UI (see [Asset Loading](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#asset-loading) for more details)
+* **Content:** holds together everything related to multiplayer map and session — like graphics, lighting, colliders, Game and Player representations, Container for instantiating networked entities, and game-specific UI. It's loaded additively when user joins multiplayer game by pressing Start in the Main Screen UI (see [Asset Loading](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#asset-loading) for more details)
 
-Let's explore \[...]
+Let's explore all these systems one by one:
 
 ### Application
 
@@ -120,15 +120,15 @@ In a context of a multiplayer, the Client's most important function is to exchan
 * [Messages](../matchmaking-and-networking-sdk.md#general) — arbitrary JSON objects that can be broadcast to all other Clients in the Room
 * [Actions](../matchmaking-and-networking-sdk.md#actionsync) — specialized objects designed to resolve a dispute between multiple Clients competing for the same outcome
 
-Unlike dedicated solutions like [Photon](https://www.photonengine.com/) or [Colyseus](https://colyseus.io/) which rely on authoritative servers as a source of ground truth, Viverse Multiplayer is a P2P system — it receives events from a user and broadcasts them to other users. This implementation comes a few important things to consider:
+Unlike dedicated solutions like [Photon](https://www.photonengine.com/) or [Colyseus](https://colyseus.io/) which rely on authoritative servers as a source of ground truth, Viverse Multiplayer is a P2P system — it receives events from a user and broadcasts them to other users. This implementation comes with a few important considerations:
 
 * There is no global store for the current game state, so each Client should keep it's own local copy, which we call a Snapshot
-* If a new Client joins the game — it should still be able to get the current state from somewhere. That means that each connected Client should constantly broadcast updates about Entities that it owns, so other Clients can receive those updates and modify their local Snapshots accordingly
-* And finally, some Client should play a role of a Master Client — which means to handle game-related tasks on top of updating its \[...]
+* If a new Client joins the game — it should still be able to derive the current game state from somewhere. That means that each connected Client should constantly broadcast updates about Entities it owns, so other Clients could pick up those updates and modify their local game states accordingly. In Artefact Hunt we do that on each frame tick — so 60 times per second
+* And finally, some Client should play a role of a Master Client on top of its regular Client's duties. Master Client is responsible for updating game-level logic and handling various administrative tasks — for example, when and where to spawn an Artefact or a Portal, how to handle "abandoned" Entities owned by a suddenly disconnected Client, and so on. In Viverse Multiplayer, `is_master_client` is assigned to Actor automatically, and in case of disconnect — is reassigned to another one as well
 
 ### Snapshot
 
-Snapshot is essential concept living at the heart of our networking implementation. It's a key-value map consisting of multiple Entries — plain JSON objects with `id`, `type` and additional attributes:
+Snapshot is essential concept placed at the heart of our networking implementation. It's a key-value map consisting of multiple Entries — plain JSON objects with `id`, `type` and additional attributes:
 
 ```javascript
 {id: 'qwe-123', type: 'game', mode: 'warmup', timer: 2.5}
@@ -262,33 +262,8 @@ From particular Client's perspective, each Snapshot Entry (and therefore associa
 // That's typical for multiplayer games due to distributed nature and network latency
 ```
 
-### Local Prediction
+## Final words
 
+This project is less about one specific game and more about exploring the best dev practices with a given set of constrains. If you’re building your own multiplayer game — the biggest takeaway here is to keep your game state **simple, observable, and reproducible.** A clear core loop, a shared Snapshot model, and a small set of message types (update / delete) can go a long way — especially when paired with a single Master Client responsibility for spawning and cleanup.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The project is open source and licensed under MIT. Please feel free to build on top of it and share your results back with the community. Hope it will be you who brings us the next Web Multiplayer Game of the Year — and Viverse is definitely the right place to assist you with that!
