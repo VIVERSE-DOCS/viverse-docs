@@ -46,33 +46,15 @@ The repository contains the following directories and files:
 * `tsconfig.json` - TypeScript configuration
 * `viversecli.wlp` - VIVERSE CLI configuration file
 
-## Quick Setup (Editor)&#x20;
+## Quick Setup (Editor)## Open the viversePublishPlugin
 
-{% stepper %}
-{% step %}
-## Open the `viversePublishPlugin` inside the Wonderland Editor.
-{% endstep %}
+Open the viversePublishPlugin inside the Wonderland Editor.
 
-{% step %}
-### **Log in** with your VIVERSE credentials.
+\## Log In with VIVERSE Credentials
 
+Log in with your VIVERSE credentials.
 
-{% endstep %}
-
-{% step %}
-### Create Application
-
-
-{% endstep %}
-{% endstepper %}
-
-
-
-
-
-
-
-\##&#x20;
+\## Create Application
 
 Click **Create Application** — this redirects to VIVERSE Studio.
 
@@ -88,99 +70,99 @@ Paste the App ID into the `appid` field of the plugin.
 
 {% stepper %}
 {% step %}
-\## Navigate to Avatar Component
+### Navigate to Avatar Component
 
 In the Wonderland Editor hierarchy, navigate to: `Avatar -> VrmDynamic` and select the `VrmDynamic` object.
 {% endstep %}
 
 {% step %}
-\## Expand VIVERSE Provider Component
+### Expand VIVERSE Provider Component
 
 In the Inspector, expand the **Viverse Provider** component (or `viverse-provider-component`).
 {% endstep %}
 
 {% step %}
-\## Paste the App ID
+### Paste the App ID
 
 Locate the `appid` field in the component properties and paste the **App ID** that you copied from VIVERSE Studio.
 {% endstep %}
 
 {% step %}
-\## Verify Configuration
+### Verify Configuration
 
 Double-check that the App ID is correctly set in both the VIVERSE Publish Plugin and the `VrmDynamic -> Viverse Provider` component, then save the scene to preserve your changes.
 {% endstep %}
 {% endstepper %}
 
-\# Networking Setup (Wonderland Cloud)
+## Networking Setup (Wonderland Cloud)
 
 {% stepper %}
 {% step %}
-\## Access Wonderland Cloud
+### Access Wonderland Cloud
 
 Open your web browser and navigate to: `https://cloud.wonderland.dev/create-server`. Log in with your Wonderland Cloud credentials if required.
 {% endstep %}
 
 {% step %}
-\## Locate Server Package
+### Locate Server Package
 
 Locate the server package in your project: `server/wonderland-cloud-example-simple-1.0.0.tgz` and verify the file exists and is not corrupted.
 {% endstep %}
 
 {% step %}
-\## Upload Server Package
+### Upload Server Package
 
 In the Wonderland Cloud interface, click **Upload** or **Create Server**, select the file: `server/wonderland-cloud-example-simple-1.0.0.tgz`, and wait for the upload to complete. Wonderland Cloud will process and deploy your server.
 {% endstep %}
 
 {% step %}
-\## Copy Server Path
+### Copy Server Path
 
 After the server is created, Wonderland Cloud will display server information. **Copy the server path** that is provided (typically looks like: `wss://your-server-id.wonderland.dev`).
 {% endstep %}
 
 {% step %}
-\## Configure Client Component
+### Configure Client Component
 
 Return to the Wonderland Editor, select the `Player` object in the hierarchy, locate the `simple-example-client` component in the Inspector, find the `serverPath` field, paste the **server path** you copied from Wonderland Cloud, and save the scene.
 {% endstep %}
 {% endstepper %}
 
-\# Publish & Preview
+## Publish & Preview
 
 {% stepper %}
 {% step %}
-\## Open VIVERSE CLI Plugin
+### Open VIVERSE CLI Plugin
 
 In the Wonderland Editor, open the VIVERSE CLI plugin.
 {% endstep %}
 
 {% step %}
-\## Publish Project
+### Publish Project
 
 Click **Publish** to build and upload your project. Wait for the publishing process to complete. The plugin will show the status of the upload.
 {% endstep %}
 
 {% step %}
-\## Preview Your Project
+### Preview Your Project
 
 After publishing, click **Preview URL** in the plugin. This will open a preview build in your browser. Test all functionality including avatar spawning, multiplayer connectivity, spatial audio, and user interactions.
 {% endstep %}
 
 {% step %}
-\## Submit for Review
+### Submit for Review
 
 In the VIVERSE CLI plugin, click **Submit for Review**. This will open the VIVERSE Creator page for your application. Complete any required information in the VIVERSE Creator interface and review your application settings before submission.
 {% endstep %}
 
 {% step %}
-\## Guest Preview Testing
+### Guest Preview Testing
 
 From the VIVERSE Creator page, use the **Guest Preview** link. Share this link with others for testing. Test multiplayer functionality with multiple devices/accounts, verify that avatars appear correctly for all users, and test spatial audio and networking in production-like conditions.
 {% endstep %}
 
 {% step %}
-\## Final Submission
+### Final Submission
 
 Once testing is complete and you're satisfied with the build, submit the app for review to list it publicly. Wait for VIVERSE approval. After approval, your application will be available in VIVERSE.
 {% endstep %}
@@ -303,7 +285,7 @@ If you need help setting up this template for your project:
 
 ### Contributing
 
-Pull requests are welcome for improvements to this template:
+Pull requests are welcome for improvements to this template: [https://github.com/WonderlandEngine/viverse-example/tree/main](https://github.com/WonderlandEngine/viverse-example/tree/main)
 
 * Keep changes small and well-documented
 * Open an issue for feature requests or bugs
