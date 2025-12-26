@@ -23,7 +23,6 @@
 * [ThreeJS Example](three.js-with-vite-or-getting-started-tutorial.md)
 * [Godot HTML5 Example](godot-html5-example.md)
 * [Open Brush Example](standalone-publishing/open-brush-example.md)
-* [Testing Documentation Workflow](standalone-publishing/testing-documentation-workflow.md)
 * [Wonderland Engine VIVERSE Example](standalone-publishing/wonderland-engine-viverse-example.md)
 
 ***

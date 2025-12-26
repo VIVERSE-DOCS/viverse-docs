@@ -46,15 +46,33 @@ The repository contains the following directories and files:
 * `tsconfig.json` - TypeScript configuration
 * `viversecli.wlp` - VIVERSE CLI configuration file
 
-## Quick Setup (Editor)## Open the viversePublishPlugin
+## Quick Setup (Editor)&#x20;
 
-Open the viversePublishPlugin inside the Wonderland Editor.
+{% stepper %}
+{% step %}
+## Open the `viversePublishPlugin` inside the Wonderland Editor.
+{% endstep %}
 
-\## Log In with VIVERSE Credentials
+{% step %}
+### **Log in** with your VIVERSE credentials.
 
-Log in with your VIVERSE credentials.
 
-\## Create Application
+{% endstep %}
+
+{% step %}
+### Create Application
+
+
+{% endstep %}
+{% endstepper %}
+
+
+
+
+
+
+
+\##&#x20;
 
 Click **Create Application** — this redirects to VIVERSE Studio.
 
