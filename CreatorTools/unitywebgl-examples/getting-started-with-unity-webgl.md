@@ -107,7 +107,7 @@ Navigate to the preview url created for the world. You can also access the world
 {% step %}
 ### Submit for Curation and Discovery
 
-By default, worlds uploaded will only be accessible via preview urls. For placement and curation on our webpages, meaning your experience will be easier to share, please [submit for review](../publishing-with-your-viverse-account.md#upload).
+By default, worlds uploaded will only be accessible via preview urls. For placement and curation on our webpages, meaning your experience will be easier to share, please [submit for review](../publishing-with-your-viverse-account/#upload).
 {% endstep %}
 
 {% step %}

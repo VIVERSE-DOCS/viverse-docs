@@ -13,7 +13,7 @@ This guide is designed to help creators integrate VIVERSE SDKs when uploading We
 
 > BEFORE GETTING STARTED:
 >
-> 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](../publishing-with-your-viverse-account.md) for this information.
+> 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](../publishing-with-your-viverse-account/) for this information.
 > 2.  The VIVERSE SDK is hosted at this URL and must be integrated into your JavaScript/WebGL project and target engine:
 >
 >     [`https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js`>     ](https://www.viverse.com/static-assets/viverse-sdk/1.2.9/viverse-sdk.umd.js)

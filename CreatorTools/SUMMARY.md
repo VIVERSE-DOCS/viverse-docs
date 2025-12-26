@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Introduction to Creator Tools](README.md)
-* [VIVERSE Studio](publishing-with-your-viverse-account.md)
+* [VIVERSE Studio](publishing-with-your-viverse-account/README.md)
+  * [VIVERSE Share Button Functionality](publishing-with-your-viverse-account/viverse-share-button-functionality.md)
 * [Optimizing for the Web](optimizing-for-the-web.md)
 * [Monetization](monetization.md)
 

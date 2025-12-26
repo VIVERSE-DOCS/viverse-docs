@@ -46,7 +46,7 @@ After uploading, a web browser window will open with studio.viverse.com. From he
 
 <summary>What should I do after publishing?</summary>
 
-After publishing, we encourage all creators to curate their [world settings](../publishing-with-your-viverse-account.md#world-settings) and [creator profile](../publishing-with-your-viverse-account.md#profile-settings). These help with discoverability on VIVERSE.&#x20;
+After publishing, we encourage all creators to curate their [world settings](../publishing-with-your-viverse-account/#world-settings) and [creator profile](../publishing-with-your-viverse-account/#profile-settings). These help with discoverability on VIVERSE.&#x20;
 
 We also encourage creators to take advantage of the easy sharing of your work on VIVERSE. You can quickly share your VIVERSE url with anyone and even embed it on your artistic website. If you post your world, tag @VIVERSEOfficial on all platforms and we will help share!
 

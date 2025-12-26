@@ -12,7 +12,7 @@ hidden: true
 
 ## Device Filtering on VIVERSE
 
-Although any VIVERSE world can theoretically be accessed across all devices, the detail of the assets and rendering pipeline used may limit the ability of the world to run on lower powered devices. Creators building with VIVERSE may select which device(s) their world is capable of running on in the [World Settings](publishing-with-your-viverse-account.md#world-settings) dashboard. If a user attempts to access the world on a device that is not included in the selected device filters, they will receive a notice that they cannot join on their existing device.
+Although any VIVERSE world can theoretically be accessed across all devices, the detail of the assets and rendering pipeline used may limit the ability of the world to run on lower powered devices. Creators building with VIVERSE may select which device(s) their world is capable of running on in the [World Settings](publishing-with-your-viverse-account/#world-settings) dashboard. If a user attempts to access the world on a device that is not included in the selected device filters, they will receive a notice that they cannot join on their existing device.
 
 <figure><img src=".gitbook/assets/Screenshot 2025-06-08 at 10.36.40 AM.png" alt="" width="375"><figcaption><p>Device compatibility warning.</p></figcaption></figure>
 
