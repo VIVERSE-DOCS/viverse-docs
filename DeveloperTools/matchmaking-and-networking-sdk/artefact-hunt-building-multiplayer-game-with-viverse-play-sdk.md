@@ -15,11 +15,18 @@ noIndex: true
 
 Welcome to the wild world of multiplayer game development! Hope you'll enjoy your stay, and eventually become a skilled adventurer yourself!
 
-In this document, we'll share some practical experience of developing a multiplayer project using PlayCanvas and Viverse Play SDK. We'll briefly go through the project architecture, networking implementation and decisions made along the process.
+In this document, we'll share practical experience of developing a multiplayer project using PlayCanvas and Viverse Play SDK. We'll briefly go through the project architecture, networking implementation and decisions made along the process.
 
 If you're new to [Viverse Networking SDK](../matchmaking-and-networking-sdk.md), we strongly recommend revisiting our dedicated tutorial first — **PlayCanvas Networking Example** [Part 01](playcanvas-networking-example-part-01-basics.md) and [Part 02](playcanvas-matchmaking-example-part-02-advanced.md) respectively. Part 02 is particularly useful since it provides gradual introduction to advanced concepts used in this project — like application state, client, snapshot, messages and so on.
 
-And as usual, you can find \[...project and build links below]
+{% hint style="info" %}
+You can find full project source and published build below:
+
+* PlayCanvas project: [https://playcanvas.com/project/1409351/](https://playcanvas.com/project/1409351/)
+* Published build: \[...]
+
+To test multiplayer locally feel free to launch it in 2 separate tabs!
+{% endhint %}
 
 ## Game Concept
 
@@ -33,19 +40,23 @@ Each players assumes the role of a Hunter — whose goal is to grab an Artefact 
 
 ## Project Overview
 
-Alright, so with all that foundation in place, we're now ready to dive deep into our project structure! We can see it's divided into 2 scenes:
+### Scenes
+
+The project consists of 2 scenes:
 
 * **Main:** loaded by default and contains core functionality like App, Client, Loader, Input, Physics, View, as well as Main Screen UI
 * **Content:** holds together everything related to multiplayer map and session — like graphics, lighting, colliders, Game and Player representations, Container for instantiating networked entities, and game-specific UI. It's loaded additively when user joins multiplayer game by pressing Start in the Main Screen UI (see [Asset Loading](artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md#asset-loading) for more details)
 
-Let's explore all these systems one by one:
+{% hint style="warning" %}
+NOTE: The project can be launched only from the **Main** scene. When building your custom version — don't forget to mark this scene as primary with the orange ribbon on the left
+{% endhint %}
 
 ### Application
 
 `app.mjs` `state.mjs`
 
-* We start with the **App** script which is the entry point of our application. Its main purpose is to emit update-specific events (like `input:update`, `game:update`, `physics:update` and so on) —  so other scripts would update their internal states in particular order. Unlike traditional PlayCanvas approach, where each script uses built-in `update` method — our implementation helps to enforce execution order, which is crucial for eliminating all sorts of possible issues down the road
-*   During its initialization, the App instantiates **State** object — which is a convenient global store map that helps to pass data between scripts in immutable way where it's needed. In a nutshell, one script may write some value under specific key as a result of its update, and another script will read that value and use it for updating its own internal state, like so:<br>
+* **App** is the entry point of our application. Its main purpose is to emit update-specific events (like `input:update`, `game:update`, `physics:update` and so on) —  so other scripts would update their internal states in particular order. Unlike traditional PlayCanvas approach, where each script uses built-in `update` method — our implementation helps to enforce execution order, which is crucial for eliminating all sorts of possible issues down the road
+*   **State** is convenient global store which helps to pass data between scripts in immutable way where it's needed. It's based on similar implementation from our Networking Example, and is instantiated by the App during its initialization. In a nutshell, one script may write some value under specific key as a result of its update, and another script will read that value and use it for updating its own internal state, like so:<br>
 
     ```javascript
     /* Script A */  this.app.state.set ('unique.key', 1);
@@ -109,7 +120,7 @@ Let's explore all these systems one by one:
 
 ### Client
 
-It all starts with a Client, which is an improved version of the one used in our original [PlayCanvas Networking example](playcanvas-networking-example-part-02-advanced.md#step-2-networking-implementation):
+It all starts with a Client, which is an improved version of the one used in our original Networking Example:
 
 * It initializes `matchmaking` and `multiplayer` systems via corresponding [Viverse SDKs](../matchmaking-and-networking-sdk.md)
 * Creates an [Actor](../matchmaking-and-networking-sdk.md#setup-actor-info) which is a container for relevant user data, in particular `session_id`&#x20;
@@ -123,8 +134,8 @@ In a context of a multiplayer, the Client's most important function is to exchan
 Unlike dedicated solutions like [Photon](https://www.photonengine.com/) or [Colyseus](https://colyseus.io/) which rely on authoritative servers as a source of ground truth, Viverse Multiplayer is a P2P system — it receives events from a user and broadcasts them to other users. This implementation comes with a few important considerations:
 
 * There is no global store for the current game state, so each Client should keep it's own local copy, which we call a Snapshot
-* If a new Client joins the game — it should still be able to derive the current game state from somewhere. That means that each connected Client should constantly broadcast updates about Entities it owns, so other Clients could pick up those updates and modify their local game states accordingly. In Artefact Hunt we do that on each frame tick — so 60 times per second
-* And finally, some Client should play a role of a Master Client on top of its regular Client's duties. Master Client is responsible for updating game-level logic and handling various administrative tasks — for example, when and where to spawn an Artefact or a Portal, how to handle "abandoned" Entities owned by a suddenly disconnected Client, and so on. In Viverse Multiplayer, `is_master_client` is assigned to Actor automatically, and in case of disconnect — is reassigned to another one as well
+* If a new Client joins the game — it should still be able to derive the current game state from somewhere. That means that each connected Client should constantly broadcast updates about Entities it owns, so other Clients could pick up those updates and reconstruct their local game states accordingly. In Artefact Hunt we do that on each frame tick — so 60 times per second
+* And finally, some Client should play a role of a Master on top of its regular Client's duties. Master Client is responsible for updating game-level logic and handling various administrative tasks — for example, when and where to spawn an Artefact or a Portal, how to handle abandoned Entities owned by a suddenly disconnected Client, and so on. In Viverse Multiplayer, `is_master_client` is assigned to Actor automatically, and in case of one's disconnect — reassigned to another one as well
 
 ### Snapshot
 
@@ -187,7 +198,7 @@ export class Client extends Script
     setupHandlers ()
     {
         // broadcast messages to other clients
-        // `client:message` are fired each time a local snapshot entry is changed
+        // `client:message` is fired each time a local snapshot entry is changed
         this.app.on ('client:message', (message) =>
         {
             this.multiplayer.general.sendMessage (message);
@@ -220,7 +231,7 @@ Where each Snapshot Entry is just a plain JSON object, the Entity is a physical 
 
 All Entities could be divided into 2 types and 2 categories respectively:
 
-<table><thead><tr><th width="105.01171875">Entities</th><th width="92.44140625">Owner</th><th valign="middle">Local</th><th>Remote</th></tr></thead><tbody><tr><td><code>player</code><br><code>hunter</code></td><td>Client</td><td valign="middle"><sub>Updates internal state of an Entity and broadcasts modified Snapshot entry to other clients</sub></td><td><sub>Receives updated Snapshot entry, stores it locally, and updates Entity's internal state based on it</sub></td></tr><tr><td><code>game</code><br><code>artefact</code><br><code>portal</code><br><code>blastwave</code></td><td>Master</td><td valign="middle"><sub>Updates internal state of an Entity and broadcasts modified Snapshot entry to other clients</sub></td><td><sub>Receives updated Snapshot entry, stores it locally, and updates Entity's internal state based on it</sub></td></tr></tbody></table>
+<table><thead><tr><th width="105.01171875">Entities</th><th width="92.44140625">Owner</th><th valign="middle">Local</th><th>Remote</th></tr></thead><tbody><tr><td><code>player</code><br><code>hunter</code></td><td>Client</td><td valign="middle"><sub>Updates internal state of an Entity and broadcasts modified Snapshot entry to other clients</sub></td><td><sub>Receives updated Snapshot entry, stores it locally, and updates Entity's internal state based on it</sub></td></tr><tr><td><code>game</code><br><code>artefact</code><br><code>portal</code><br><code>blastwave</code></td><td>Master</td><td valign="middle"><sub>Updates internal state of an Entity and broadcasts modified Snapshot entry to other clients</sub></td><td><sub>Receives updated Snapshot entry, stores it locally, and updates Entity's internal state based on it</sub></td></tr><tr><td></td><td></td><td valign="middle"></td><td></td></tr></tbody></table>
 
 Types by ownership:
 
