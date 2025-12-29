@@ -3,6 +3,7 @@ description: >-
   Nirvana Grove é uma tranquila floresta de bambu projetada para o máximo
   bem-estar, desenvolvida com Unity 6 para a plataforma Viverse pela Thorium
   Labs.Nirvana Grove é uma tranquila floresta de bambu
+hidden: true
 ---
 
 # NIRVANA GROVE por Thorium Labs | PT
