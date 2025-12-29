@@ -5,15 +5,125 @@ description: >-
   loading screens, and deployment examples.
 ---
 
-# UnityWebGL Examples
+# UnityWebGL Example
 
 ***
+
+## Introduction
+
+Anyone can publish their WebGL-compatible Unity project to VIVERSE in a few simple steps. In this guide, we'll walk through the process of creating an new Unity project, making sure it is compatible with WebGL, and publishing to VIVERSE using the [VIVERSE CLI](https://www.npmjs.com/package/@viverse/cli).
+
+{% include "../.gitbook/includes/notice-upload.md" %}
+
+While VIVERSE is a great place for multiplayer games with networked avatars — and we have a number of services that can help you implement these features — it is not required to implement networked avatars to publish to VIVERSE.
+
+## Prerequisites
+
+* Unity Hub and Unity installed on your device.
+* [Node](https://nodejs.org/en) and [npm](https://www.npmjs.com/package/@viverse/cli) installed on your device. Please use at least Node v22 - **Only required if using the CLI, not VIVERSE Studio**
+
+{% hint style="warning" %}
+In this tutorial, we will be using Unity v6.1, however any WebGL-compatible version of Unity should be supported.
+{% endhint %}
+
+## A. Configure Your Unity Project
+
+{% stepper %}
+{% step %}
+### Create a Unity Project
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.19.18 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Install the Unity Plugin
+
+Navigate to Window > Package Manager > Unity Registry and search for "WebGL Publisher". Add the module to your project.
+
+<p align="center"> <img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.21.24 PM.png" alt=""></p>
+{% endstep %}
+
+{% step %}
+### (Optional) Enable Decompression Fallback
+
+Compression is supported on VIVERSE, however you can enable fallback if you are encountering errors or would like to have it included. Navigate to Edit > Project Settings > Player > Web Settings > Publishing Settings and check "Decompression Fallback".
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.40.56 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
+
+## B. Build and Publish to VIVERSE
+
+{% stepper %}
+{% step %}
+### Build your project
+
+Navigate to Publish and select "WebGL Publish". In the pop-up, click "Build and Publish", selecting the desired folder for your build. When doing this for the first time, Unity will automatically publish to their web-servers for testing. For future builds, you can disable this behavior to just the builds without publishing.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.24.49 PM.png" alt="" width="317"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Install the VIVERSE CLI
+
+In a terminal session, run `npm install -g @viverse/cli` to install the CLI globally. Make sure you are using at least node v22.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.34.52 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Login to VIVERSE
+
+In the terminal session, run `viverse-cli auth login` and enter your VIVERSE account email and password.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.35.19 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Create VIVERSE App
+
+In the terminal session, run `viverse-cli app create` . Once complete, copy the app ID to be used when publishing.
+
+<figure><img src="../.gitbook/assets/Image 6-12-25 at 1.06 PM.jpg" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Publish to VIVERSE
+
+In the terminal session, run `viverse-cli app publish {path/to/unity/webgl/build} --app-id {your app id from step 4}` referencing folder containing the index.html of your Unity build.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.35.45 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Test & Configure World Settings
+
+Navigate to the preview url created for the world. You can also access the world and its settings in [studio.viverse.com/content](https://studio.viverse.com/content).&#x20;
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 7.45.53 PM.png" alt="" width="375"><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-06-09 at 8.04.00 PM.png" alt="" width="316"><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Submit for Curation and Discovery
+
+By default, worlds uploaded will only be accessible via preview urls. For placement and curation on our webpages, meaning your experience will be easier to share, please [submit for review](../publishing-with-your-viverse-account/#upload).
+{% endstep %}
+
+{% step %}
+### Iterate, Learn, Explore!
+
+In addition to the sample scenes, the rough flow of api usage can be reviewed at [https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity\_Viverse\_SDK\_Developer\_Guide.md](https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity_Viverse_SDK_Developer_Guide.md)\
+\
+And overview of the current version of the sdk with additional hints and tips at\
+[https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl](https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl)
+{% endstep %}
+{% endstepper %}
 
 ## Unity & VIVERSE Compatibility Overview
 
 VIVERSE supports Unity WebGL builds with specific requirements and recommendations for optimal performance and compatibility. This section covers essential settings and considerations for targeting VIVERSE.
-
-## Unity Version Compatibility
 
 ### Supported Unity Versions
 
@@ -34,8 +144,6 @@ Install the following modules via Unity Hub:
 3. **IL2CPP** - Required for WebGL builds (automatically included with WebGL module)
 
 Verify installation: `Edit → Preferences → External Tools` or check installed modules in Unity Hub.
-
-## Render Pipeline Compatibility
 
 ### Supported Render Pipelines
 
@@ -138,7 +246,7 @@ Verify installation: `Edit → Preferences → External Tools` or check installe
 * WebGL 2.0 supports most modern shader features, but not HDRP-specific features
 * WebGL is sensitive to shader complexity - optimize for performance
 
-## WebGL Template - Fullscreen Canvas
+## Unity Formatting and Custom Loading Screens
 
 An example of a fullscreen webgl template can be found [here](../../samples/Unity/WebGL_FullScreen_Template.zip). The instructions for creating a webgl fullscreen template are below.
 
@@ -192,17 +300,17 @@ Custom loading screens enhance user experience by:
 * Optional loading text or animations
 * Styled with CSS for custom appearance
 
-## Step 1. Create the WebGL Template Folder Structure
+### Step 1. Create the WebGL Template Folder Structure
 
 {% stepper %}
 {% step %}
-### Navigate to Assets Folder
+#### Navigate to Assets Folder
 
 In Unity, open your project and navigate to the `Assets` folder in the Project window.
 {% endstep %}
 
 {% step %}
-### Create WebGLTemplates Directory
+#### Create WebGLTemplates Directory
 
 1. Right-click in the `Assets` folder → Create → Folder
 2. Name the folder `WebGLTemplates` (exact name required by Unity)
@@ -210,7 +318,7 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 {% endstep %}
 
 {% step %}
-### Create FullScreen Template Folder
+#### Create FullScreen Template Folder
 
 1. Right-click on `WebGLTemplates` → Create → Folder
 2. Name it `FullScreen` (this will be the template name visible in Build Settings)
@@ -218,11 +326,11 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 {% endstep %}
 {% endstepper %}
 
-## Step 2. Create the Fullscreen HTML Template
+### Step 2. Create the Fullscreen HTML Template
 
 {% stepper %}
 {% step %}
-### Create index.html File
+#### Create index.html File
 
 1. Right-click on the `FullScreen` folder → Show in Explorer (Windows) or Reveal in Finder (Mac)
 2. Create a new text file named `index.html` (not `index.html.txt`)
@@ -230,7 +338,7 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 {% endstep %}
 
 {% step %}
-### Add Fullscreen HTML Structure
+#### Add Fullscreen HTML Structure
 
 Open `index.html` and add the following fullscreen template code:
 
@@ -425,7 +533,7 @@ Open `index.html` and add the following fullscreen template code:
 {% endstep %}
 
 {% step %}
-### Refresh Unity Project
+#### Refresh Unity Project
 
 1. Return to Unity Editor
 2. The `index.html` file should appear in the Project window under `Assets/WebGLTemplates/FullScreen/`
@@ -433,11 +541,11 @@ Open `index.html` and add the following fullscreen template code:
 {% endstep %}
 {% endstepper %}
 
-## Step 3. Customize the Loading Screen
+### Step 3. Customize the Loading Screen
 
 {% stepper %}
 {% step %}
-### Understanding the Loading Screen Elements
+#### Understanding the Loading Screen Elements
 
 The template includes several customizable elements:
 
@@ -450,7 +558,7 @@ All elements are centered on screen using CSS transforms.
 {% endstep %}
 
 {% step %}
-### Replace Default Loading Images
+#### Replace Default Loading Images
 
 1. In the `FullScreen` folder, replace the default Unity loading images with your custom assets:
    * `unity-logo-dark.png` (154×130px recommended) - Your logo/branding
@@ -460,7 +568,7 @@ All elements are centered on screen using CSS transforms.
 {% endstep %}
 
 {% step %}
-### Custom Loading Screen with HTML/CSS
+#### Custom Loading Screen with HTML/CSS
 
 To create a fully custom loading screen without images, modify the `#unity-loading-bar` section:
 
@@ -492,7 +600,7 @@ createUnityInstance(canvas, config, (progress) => {
 {% endstep %}
 
 {% step %}
-### Add Custom Loading Animations
+#### Add Custom Loading Animations
 
 Enhance the loading screen with CSS animations. Add to the `<style>` section:
 
@@ -519,11 +627,11 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 {% endstep %}
 {% endstepper %}
 
-## Step 4. Configure Build Settings
+### Step 4. Configure Build Settings
 
 {% stepper %}
 {% step %}
-### Open Build Settings
+#### Open Build Settings
 
 1. In Unity, go to `File → Build Settings...`
 2. Select `WebGL` from the Platform list
@@ -531,7 +639,7 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 {% endstep %}
 
 {% step %}
-### Select the FullScreen Template
+#### Select the FullScreen Template
 
 1. Click `Player Settings...` (or go to `Edit → Project Settings → Player`)
 2. In the Player Settings window, expand the `Publishing Settings` section
@@ -540,7 +648,7 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 {% endstep %}
 
 {% step %}
-### Configure Additional WebGL Settings
+#### Configure Additional WebGL Settings
 
 For optimal VIVERSE deployment, configure these settings:
 
@@ -563,11 +671,11 @@ For optimal VIVERSE deployment, configure these settings:
 {% endstep %}
 {% endstepper %}
 
-## Step 5. Build the WebGL Project
+### Step 5. Build the WebGL Project
 
 {% stepper %}
 {% step %}
-### Prepare for Build
+#### Prepare for Build
 
 1. Ensure your scene is saved (`Ctrl+S` / `Cmd+S`)
 2. In Build Settings, verify the scenes you want to include are checked
@@ -575,7 +683,7 @@ For optimal VIVERSE deployment, configure these settings:
 {% endstep %}
 
 {% step %}
-### Build the Project
+#### Build the Project
 
 1. Click `Build` in the Build Settings window
 2. Choose or create an output folder (e.g., `Builds/WebGL`)
@@ -585,7 +693,7 @@ For optimal VIVERSE deployment, configure these settings:
 {% endstep %}
 
 {% step %}
-### Verify Build Output
+#### Verify Build Output
 
 Your build folder should contain:
 
@@ -598,11 +706,11 @@ The `index.html` should be your custom fullscreen template with the loading scre
 {% endstep %}
 {% endstepper %}
 
-## Step 6. Test the Fullscreen Build Locally
+### Step 6. Test the Fullscreen Build Locally
 
 {% stepper %}
 {% step %}
-### Set Up Local Server
+#### Set Up Local Server
 
 WebGL builds require a web server to run (cannot open `index.html` directly due to CORS restrictions).
 
@@ -627,7 +735,7 @@ http-server -p 8000
 {% endstep %}
 
 {% step %}
-### Test Fullscreen Functionality
+#### Test Fullscreen Functionality
 
 1. Open the build in your browser
 2. Verify the loading screen appears and progress bar animates
@@ -638,7 +746,7 @@ http-server -p 8000
 {% endstep %}
 
 {% step %}
-### Test Mobile Responsiveness
+#### Test Mobile Responsiveness
 
 1. Open browser developer tools (`F12`)
 2. Enable device emulation mode
@@ -648,11 +756,11 @@ http-server -p 8000
 {% endstep %}
 {% endstepper %}
 
-## Step 7. Deploy to VIVERSE
+### Step 7. Deploy to VIVERSE
 
 {% stepper %}
 {% step %}
-### Prepare Build for Upload
+#### Prepare Build for Upload
 
 1. Navigate to your build output folder
 2. Select all files and folders (`index.html`, `Build/`, `StreamingAssets/` if present)
@@ -662,7 +770,7 @@ http-server -p 8000
 {% endstep %}
 
 {% step %}
-### Upload to VIVERSE Studio
+#### Upload to VIVERSE Studio
 
 1. Log in to VIVERSE Studio (https://worlds.viverse.com/)
 2. Navigate to `Manage Content` or your project dashboard
@@ -672,7 +780,7 @@ http-server -p 8000
 {% endstep %}
 
 {% step %}
-### Configure VIVERSE Settings
+#### Configure VIVERSE Settings
 
 1. In VIVERSE Studio, configure your content settings:
    * Set appropriate title and description
@@ -683,7 +791,7 @@ http-server -p 8000
 {% endstep %}
 
 {% step %}
-### Preview and Publish
+#### Preview and Publish
 
 1. Use VIVERSE Studio's preview feature to test your content
 2. Verify fullscreen behavior works correctly in VIVERSE environment
@@ -693,11 +801,11 @@ http-server -p 8000
 {% endstep %}
 {% endstepper %}
 
-## Step 8. Advanced Customization
+### Step 8. Advanced Customization
 
 {% stepper %}
 {% step %}
-### Customize Background Color
+#### Customize Background Color
 
 Modify the canvas background in the CSS:
 
@@ -711,7 +819,7 @@ Modify the canvas background in the CSS:
 {% endstep %}
 
 {% step %}
-### Add Splash Screen or Branding
+#### Add Splash Screen or Branding
 
 Add custom HTML before the canvas loads:
 
@@ -737,7 +845,7 @@ Then hide it in JavaScript after Unity loads:
 {% endstep %}
 
 {% step %}
-### Implement Custom Error Handling
+#### Implement Custom Error Handling
 
 Enhance error messages for better user experience:
 
@@ -756,7 +864,7 @@ Enhance error messages for better user experience:
 {% endstep %}
 
 {% step %}
-### Optimize Loading Performance
+#### Optimize Loading Performance
 
 1. **Enable Compression:** In Player Settings → Publishing Settings, use Gzip or Brotli compression
 2. **Reduce Build Size:** Enable code stripping and remove unused assets
