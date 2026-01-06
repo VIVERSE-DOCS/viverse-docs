@@ -2,7 +2,6 @@
 description: >-
   Integration example of VIVERSE Avatar SDK with Wonderland Cloud networking for
   multiplayer VR experiences.
-hidden: true
 ---
 
 # Wonderland Engine VIVERSE Example
