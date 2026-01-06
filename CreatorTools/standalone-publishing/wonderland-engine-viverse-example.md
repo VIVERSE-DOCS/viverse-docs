@@ -9,6 +9,12 @@ hidden: true
 
 ***
 
+## Introduction
+
+In November 2025, VIVERSE and the Wonderland Engine team collaborated to develop a plugin allowing developers to publish to VIVERSE from directly within the Wonderland Engine editor. In addition, we developed examples of using the VIVERSE Avatar and Account SDKs with Wonderland's multiplayer SDK.
+
+This document is a copy of the Wonderland Engine document covering the plugin: [https://github.com/WonderlandEngine/viverse-example/tree/main](https://github.com/WonderlandEngine/viverse-example/tree/main)
+
 ## Overview
 
 This repository is a template project that demonstrates how to integrate the **VIVERSE Avatar SDK** with **Wonderland Cloud** networking. It provides a compact, production-minded workflow to:
