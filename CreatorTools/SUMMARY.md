@@ -48,6 +48,7 @@
 
 ## PlayCanvas SDK
 
+* [\[WIP\] Starting with PlayCanvas Toolkit](playcanvas-sdk/wip-starting-with-playcanvas-toolkit.md)
 * [PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
 * [Publishing to VIVERSE](playcanvas-sdk/publishing-to-viverse.md)
 * [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-sdk/playcanvas-to-viverse-development-best-practices.md)
