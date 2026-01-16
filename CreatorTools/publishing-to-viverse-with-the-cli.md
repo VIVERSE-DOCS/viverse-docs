@@ -2,6 +2,7 @@
 description: >-
   The VIVERSE command-line tool provides simple yet powerful functionality to
   manage your VIVERSE content
+hidden: true
 ---
 
 # Publishing to VIVERSE with the CLI

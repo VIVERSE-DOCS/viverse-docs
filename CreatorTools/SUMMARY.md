@@ -4,41 +4,22 @@
 * [VIVERSE Studio](publishing-with-your-viverse-account/README.md)
   * [VIVERSE Share Button Functionality](publishing-with-your-viverse-account/viverse-share-button-functionality.md)
 * [Optimizing for the Web](optimizing-for-the-web.md)
+* [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
 * [Monetization](monetization.md)
-
-## Publishing From Templates
-
-* [Creating From Templates](publishing-from-templates/creating-from-templates.md)
-* [Edit Mode](publishing-from-templates/edit-mode.md)
-* [Supported Media & Settings](publishing-from-templates/supported-media-and-settings.md)
 
 ## STANDALONE PUBLISHING
 
-* [Publishing to VIVERSE with VIVERSE Studio](standalone-publishing/publishing-to-viverse-with-viverse-studio.md)
+* [Publishing to VIVERSE](standalone-publishing/publishing-to-viverse.md)
 * [Publishing to VIVERSE with the CLI](publishing-to-viverse-with-the-cli.md)
-* [Unity WebGL Example](unitywebgl-examples/README.md)
+* [Unity WebGL](unitywebgl-examples/README.md)
   * [Getting Started with Unity WebGL](unitywebgl-examples/getting-started-with-unity-webgl.md)
   * [Unity Compatibility with VIVERSE Guide](standalone-publishing/unitywebgl-examples/unity-compatibility-with-viverse-guide.md)
   * [NIRVANA GROVE by Thorium Labs](unitywebgl-examples/nirvana-grove-by-thorium-labs.md)
   * [NIRVANA GROVE por Thorium Labs | PT](unitywebgl-examples/nirvana-grove-por-thorium-labs-or-pt.md)
-* [ThreeJS Example](three.js-with-vite-or-getting-started-tutorial.md)
-* [Godot HTML5 Example](godot-html5-example.md)
-* [Open Brush Example](standalone-publishing/open-brush-example.md)
-* [Wonderland Engine VIVERSE Example](standalone-publishing/wonderland-engine-viverse-example.md)
-
-***
-
-* [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
-
-## Developer Tools <a href="#developer-tools-old" id="developer-tools-old"></a>
-
-* [Login & Authentication for the SDK](developer-tools-old/login-and-authentication-for-the-sdk.md)
-
-***
-
-* [Avatar SDK](avatar-sdk.md)
-* [Leaderboard SDK](leaderboard-sdk.md)
-* [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
+* [ThreeJS](three.js-with-vite-or-getting-started-tutorial.md)
+* [Godot HTML5](godot-html5-example.md)
+* [Open Brush](standalone-publishing/open-brush.md)
+* [Wonderland Engine](standalone-publishing/wonderland-engine.md)
 
 ## Performance Optimization
 
@@ -91,6 +72,12 @@
   * [Create Your First Quest](playcanvas-sdk/tutorials/create-your-first-quest.md)
 * [Overview](playcanvas-sdk/overview.md)
 
+## Publishing From Templates
+
+* [Creating From Templates](publishing-from-templates/creating-from-templates.md)
+* [Edit Mode](publishing-from-templates/edit-mode.md)
+* [Supported Media & Settings](publishing-from-templates/supported-media-and-settings.md)
+
 ## Unity SDK
 
 * [Porting from Unity to PlayCanvas](unity-sdk/porting-from-unity-to-playcanvas.md)
@@ -108,3 +95,7 @@
 * [Examples](javascript-sdk/examples.md)
 
 ## Godot SDK
+
+## Developer Tools <a href="#developer-tools-old" id="developer-tools-old"></a>
+
+* [Login & Authentication for the SDK](developer-tools-old/login-and-authentication-for-the-sdk.md)

@@ -89,4 +89,4 @@ window.addEventListener('load', async () => {
 });
 ```
 
-If `result` has valid authorization credentials, you can then utilize features like the [Avatar SDK](../avatar-sdk.md), Leaderboard SDK and Matchmaking SDK.
+If `result` has valid authorization credentials, you can then utilize features like the [Avatar SDK](/broken/pages/b8vyJPZYcTzdQK06Uhph), Leaderboard SDK and Matchmaking SDK.
