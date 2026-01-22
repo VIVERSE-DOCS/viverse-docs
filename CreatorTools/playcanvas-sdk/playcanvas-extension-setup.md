@@ -2,9 +2,13 @@
 description: >-
   This tutorial guides you through the process of setting up a PlayCanvas
   account and installing the VIVERSE Playcanvas Extension...
+hidden: true
+noIndex: true
 ---
 
-# PlayCanvas Extension Setup
+# \[DEL] PlayCanvas Extension Setup
+
+
 
 ***
 

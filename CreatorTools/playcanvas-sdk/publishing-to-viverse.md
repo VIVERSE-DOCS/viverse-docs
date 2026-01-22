@@ -1,4 +1,9 @@
-# Publishing to VIVERSE
+---
+hidden: true
+noIndex: true
+---
+
+# \[DEL] Publishing to VIVERSE
 
 ***
 

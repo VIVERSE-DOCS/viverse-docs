@@ -2,8 +2,6 @@
 description: >-
   Get download link to the latest version of VIVERSE Extension and explore the
   changelog
-hidden: true
-noIndex: true
 ---
 
 # \[WIP] PlayCanvas Toolkit Changelog

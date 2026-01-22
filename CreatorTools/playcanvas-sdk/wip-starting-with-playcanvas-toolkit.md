@@ -2,8 +2,6 @@
 description: >-
   Learn how to install VIVERSE Chrome Extension for PlayCanvas Editor, create
   your first world and publish it to VIVERSE for everyone to see
-hidden: true
-noIndex: true
 ---
 
 # \[WIP] Starting with PlayCanvas Toolkit
@@ -108,8 +106,9 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 #### Final: Create a VIVERSE World for your project
 
 * After confirming everything is working correctly in preview mode, you can publish your project to production environment!
-* In preview mode, click "**Create World**" button and, give your World a name and click the "**Create**" button to publish it to the VIVERSE Create platform
+* In preview mode, click "**Create World**" button, give your World a name and click the "**Create**" button to publish it to the VIVERSE Create platform
 * The resulting URL is the public link to your World. You can return back to your project any time and republish an updated version as you see fit
+* Feel free to configure your [World Settings](../publishing-with-your-viverse-account/#world-settings) as well
 {% endstep %}
 {% endstepper %}
 {% endcolumn %}
