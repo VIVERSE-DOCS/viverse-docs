@@ -29,8 +29,8 @@
 
 ## PlayCanvas SDK
 
-* [\[WIP\] Starting with PlayCanvas Toolkit](playcanvas-sdk/wip-starting-with-playcanvas-toolkit.md)
-* [\[WIP\] PlayCanvas Toolkit Changelog](playcanvas-sdk/wip-playcanvas-toolkit-changelog.md)
+* [Starting with PlayCanvas Toolkit](playcanvas-sdk/starting-with-playcanvas-toolkit.md)
+* [PlayCanvas Toolkit Changelog](playcanvas-sdk/playcanvas-toolkit-changelog.md)
 * [\[DEL\] PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
 * [\[DEL\] Publishing to VIVERSE](playcanvas-sdk/publishing-to-viverse.md)
 * [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-sdk/playcanvas-to-viverse-development-best-practices.md)

@@ -4,7 +4,7 @@ description: >-
   your first world and publish it to VIVERSE for everyone to see
 ---
 
-# \[WIP] Starting with PlayCanvas Toolkit
+# Starting with PlayCanvas Toolkit
 
 ***
 
@@ -24,7 +24,7 @@ Below is a useful set of tutorials to help you get started with VIVERSE PlayCanv
 {% step %}
 #### Get the latest Extension from VIVERSE
 
-* [Download](wip-playcanvas-toolkit-changelog.md) the latest version of Playcanvas Extension
+* [Download](playcanvas-toolkit-changelog.md) the latest version of Playcanvas Extension
 * Unzip downloaded file on your computer
 {% endstep %}
 
