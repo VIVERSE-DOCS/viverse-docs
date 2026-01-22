@@ -109,7 +109,7 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 
 * After confirming everything is working correctly in preview mode, you can publish your project to production environment!
 * In preview mode, click "**Create World**" button and, give your World a name and click the "**Create**" button to publish it to the VIVERSE Create platform
-* The resulting URL is the public link to your World. You can return back to your World any time and republish an updated version as you see fit
+* The resulting URL is the public link to your World. You can return back to your project any time and republish an updated version as you see fit
 {% endstep %}
 {% endstepper %}
 {% endcolumn %}
