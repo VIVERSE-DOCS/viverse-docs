@@ -16,7 +16,7 @@ This guide provides instructions for setting up the post effect to your Scene. C
 {% step %}
 ### To configure the Post effects, click on the **VIVERSE Scene Settings** button.
 
-<figure><img src="../../.gitbook/assets/image (74).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (74).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -28,6 +28,6 @@ B. Click the **plus sign** beside the **Add quest** field.
 
 C. Adjust brightness and contrast settings.
 
-<figure><img src="../../.gitbook/assets/image (397).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (397).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

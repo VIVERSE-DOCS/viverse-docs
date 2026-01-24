@@ -10,9 +10,9 @@ description: >-
 
 ## Introduction&#x20;
 
-The VIVERSE scene settings interface is used to control several settings for your entire VIVERSE world. The interface can be opened by clicking on the triangle button that is added to the left-hand toolbar when the extension is enabled:  <img src="../.gitbook/assets/Screenshot 2025-02-10 at 8.07.33 PM.png" alt="" data-size="line">
+The VIVERSE scene settings interface is used to control several settings for your entire VIVERSE world. The interface can be opened by clicking on the triangle button that is added to the left-hand toolbar when the extension is enabled:  <img src="../../.gitbook/assets/Screenshot 2025-02-10 at 8.07.33 PM.png" alt="" data-size="line">
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-02-10 at 8.03.29 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-02-10 at 8.03.29 PM.png" alt=""><figcaption></figcaption></figure>
 
 ## Polygon Streaming
 

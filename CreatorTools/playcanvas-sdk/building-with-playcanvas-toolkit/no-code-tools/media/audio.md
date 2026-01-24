@@ -10,7 +10,7 @@ description: >-
 
 **Adding Audio And Extending Audio Functionality**
 
-<figure><img src="../../../.gitbook/assets/image (511).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (511).png" alt="" width="375"><figcaption></figcaption></figure>
 
 An audio clip has been added to the scene.
 
@@ -24,7 +24,7 @@ A. Create a new entity.
 
 B. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (512).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (512).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -38,6 +38,6 @@ C. Add the audio to the **Asset** field.
 
 D. Uncheck the **auto play** property to prevent the audio from starting when the avatar enters the environment.
 
-<figure><img src="../../../.gitbook/assets/image (513).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (513).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

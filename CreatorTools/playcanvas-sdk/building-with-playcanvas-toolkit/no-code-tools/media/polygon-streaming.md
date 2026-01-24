@@ -18,9 +18,9 @@ For Polygon Streaming using the PlayCanvas Extension, you must use the Polygon S
 
 
 
-| <img src="../../../.gitbook/assets/image (32) (1).png" alt="" data-size="original">  | <img src="../../../.gitbook/assets/image (33) (1).png" alt="" data-size="original"> |
-| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| The 3D models are visible in the PlayCanvas editor when utilizing Polygon Streaming. | The 3D model streaming into the environment with the avatar.                        |
+| <img src="../../../../.gitbook/assets/image (32) (1).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (33) (1).png" alt="" data-size="original"> |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| The 3D models are visible in the PlayCanvas editor when utilizing Polygon Streaming.   | The 3D model streaming into the environment with the avatar.                           |
 
 
 
@@ -34,7 +34,7 @@ B. Change the size of the model using the **Scale**.
 
 C. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (34) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (34) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -46,6 +46,6 @@ B. Select the **PolygonStreaming** module and add it.
 
 C. Add the **polygon streaming url.** The URL should be in the following format: **https://stream-stage.viverse.com/polygon\_file/b9e62012-11e5-49cb-8ede-de596eec537e/aee7496b-b459-4e5d-87fe-2658955eb4f0/model.xrg**
 
-<figure><img src="../../../.gitbook/assets/image (35) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (35) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

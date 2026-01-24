@@ -15,9 +15,9 @@ description: >-
 
 This guide provides instructions for setting up the **EntityCheckPoint** action. In the sample app, once the avatar enters one of the green trigger areas, the area becomes the new spawn location.
 
-| <img src="../../../.gitbook/assets/image (489).png" alt="" data-size="original">              | <img src="../../../.gitbook/assets/image (488).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (490).png" alt="" data-size="original"> |
-| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| The avatar enters the green trigger area and the trigger area becomes the new spawn location. | The avatar has fallen off the map and needs to be respawned.                     | When the avatar respawns, it is spawned at the new location.                     |
+| <img src="../../../../.gitbook/assets/image (489).png" alt="" data-size="original">           | <img src="../../../../.gitbook/assets/image (488).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (490).png" alt="" data-size="original"> |
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| The avatar enters the green trigger area and the trigger area becomes the new spawn location. | The avatar has fallen off the map and needs to be respawned.                        | When the avatar respawns, it is spawned at the new location.                        |
 
 In this example, a trigger area is created and when triggered, an action sets a new spawn location. Any object can be used as a trigger, as long as the object has a collision component.&#x20;
 
@@ -33,7 +33,7 @@ C. Adding a material is optional. A transparent material has been added so that 
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (491).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (491).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -49,7 +49,7 @@ D. Add an **Action** and select **EntityCheckPoint.**
 
 E. Add an entity that has a position that will be used for the new spawn location. **SpawnLocation1** has been added to the **pick up an entity id**.
 
-<figure><img src="../../../.gitbook/assets/image (492).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (492).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -63,9 +63,9 @@ E. Add an entity that has a position that will be used for the new spawn locatio
 
 This guide provides instructions for setting up the **TeleportAvatar** action. In the sample app, once the avatar enters one of the green cylinder trigger areas, the avatar is teleported to another location.
 
-| <img src="../../../.gitbook/assets/image (496).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (497).png" alt="" data-size="original">     |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| The avatar enters the green trigger area.                                        | After entering the green trigger area, the avatar is teleported to another location. |
+| <img src="../../../../.gitbook/assets/image (496).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (497).png" alt="" data-size="original">  |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| The avatar enters the green trigger area.                                           | After entering the green trigger area, the avatar is teleported to another location. |
 
 In this example, a trigger is created and when the avatar or other objects enter the trigger area, an action teleports the avatar to a specific location. Any object can be used as a trigger, as long as the object has a collision component.&#x20;
 
@@ -81,7 +81,7 @@ C. Adding a material is optional. A transparent material has been added so that 
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (498).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (498).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -97,6 +97,6 @@ D. Add an **Action** and select **EntityTeleportAvatar.**
 
 E. Add an entity that has a position that will be used for the teleport location. **TeleportLocation2** has been added to the **Specify the Entity whose location you want to teleport to**.
 
-<figure><img src="../../../.gitbook/assets/image (499).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (499).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

@@ -25,7 +25,7 @@ C. Setup render component
 
 D. Setup rigidbody and select "Dynamic" in Type
 
-<figure><img src="../../.gitbook/assets/截圖 2025-02-05 下午3.17.24.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/截圖 2025-02-05 下午3.17.24.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -37,6 +37,6 @@ B. click "+" button
 
 C. adjust throwing force level
 
-<figure><img src="../../.gitbook/assets/截圖 2025-02-05 下午3.32.20.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/截圖 2025-02-05 下午3.32.20.png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

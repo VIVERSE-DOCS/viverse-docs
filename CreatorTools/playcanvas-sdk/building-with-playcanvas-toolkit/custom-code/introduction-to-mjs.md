@@ -143,7 +143,7 @@ export class Debug extends Script {
 
 With the project running in Chrome, pressing **F12** will bring up the Chrome DevTools window. **Refresh** the page with the DevTools window open and the project will stop at the debugger statement.
 
-<figure><img src="../../.gitbook/assets/image (632).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (632).png" alt=""><figcaption></figcaption></figure>
 
 When testing your project in PlayCanvas Launch mode, the Chrome Dev Tools can also be opened by right-clicking on the screen and selecting Inspect.
 
@@ -153,13 +153,13 @@ When testing your project in PlayCanvas Launch mode, the Chrome Dev Tools can al
 
 
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="368"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="368"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Select Inspect
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -169,19 +169,19 @@ Open up Chrome DevTools through browser menu
 {% step %}
 ### Click the Customize and control Google Chrome Button in the browser
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Click More Tools
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="356"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="356"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
 ### Click Developer Tools
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}
 
@@ -189,17 +189,17 @@ Keyboard shortcut for DevTools window
 
 {% tabs %}
 {% tab title="Windows" %}
-<div align="left"><figure><img src="../../.gitbook/assets/WindowsChromeDevTools (1).jpg" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/WindowsChromeDevTools (1).jpg" alt=""><figcaption></figcaption></figure></div>
 {% endtab %}
 
 {% tab title="Mac" %}
-<div align="left"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="443"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="443"><figcaption></figcaption></figure></div>
 {% endtab %}
 {% endtabs %}
 
 Breakpoints can also be set manually by clicking on the line code number in the margin. The line code number will be highlighted in blue when a breakpoint is set.
 
-<figure><img src="../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
 
 ## MJS file with custom properties and methods example
 

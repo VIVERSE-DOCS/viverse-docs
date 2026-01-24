@@ -66,5 +66,5 @@ export class ViverseXrManager extends Script {
 
 After defining the `vrControllerAssetL` and `vrControllerAssetR` attributes of type `Asset` in the above script, we then reference custom 3D controller assets in the editor, which our script instantiates at runtime in VR.
 
-<figure><img src="../../.gitbook/assets/image (744).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (744).png" alt=""><figcaption></figcaption></figure>
 

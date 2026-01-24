@@ -85,7 +85,7 @@ Let's say we want to give our players the ability to click on an object and when
 
 A. Select the object that the player will click on and add the **NotificationCenterSubscribeEntityPicking** trigger using the PlayCanvas extension. No need to add an action.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (618).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (618).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -167,7 +167,7 @@ A. Test the functionality by publishing to VIVERSE and clicking on the object th
 
 B. Confirm the event was fired by checking in the browser debug console.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (619).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (619).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 {% endstepper %}
 
@@ -229,11 +229,11 @@ export class ClickableObject extends Script {
 
 A. Add the **DoorRotator:rotateDoor** text to the **Event To Fire** attribute text field.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (622).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (622).png" alt=""><figcaption></figcaption></figure></div>
 
 B. If we added **ClickableObject.mjs** to a 2nd object and wanted to fire a different method, it could look like the following screenshot.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (621).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (621).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -243,7 +243,7 @@ A. Test the functionality by publishing to VIVERSE and clicking on the object th
 
 B. Confirm the event was fired by checking in the browser debug console. It should yield the same results as in the previous example.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (623).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (623).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 {% endstepper %}
 
@@ -259,7 +259,7 @@ Another common scenario that creators may face is firing an event when a player 
 
 A. Select the trigger area that the player will walk through and add the **EntitySubscribeTriggerEnter** trigger using the PlayCanvas extension. No need to add an action.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (624).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (624).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -307,7 +307,7 @@ A. Test the functionality by publishing to VIVERSE and walking through the trigg
 
 B. Confirm the event was fired by checking in the browser debug console. It should yield the following results.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (626).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (626).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 {% endstepper %}
 
@@ -323,7 +323,7 @@ Let's say we want to give our players the ability to click on an object and when
 
 A .Select the trigger area that the player will walk through and add the **EntitySubscribeTriggerEnter** trigger along with the EntityDisable action using the PlayCanvas extension.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (627).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (627).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -363,7 +363,7 @@ export class DisabledObject extends Script {
 
 B. Add **DisabledObject.mjs** script to trigger area that the player will walk through. In this example the **DisabledObject.mjs** script was added to the trigger area in the previous example. Be sure to disable or remove the **TriggerArea.mjs** script from the previous example.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (629).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (629).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
@@ -373,6 +373,6 @@ A. Test the functionality by publishing to VIVERSE and walking through the trigg
 
 B. Confirm the event was fired by checking in the browser debug console. It should yield the following results.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (628).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (628).png" alt=""><figcaption></figcaption></figure></div>
 {% endstep %}
 {% endstepper %}

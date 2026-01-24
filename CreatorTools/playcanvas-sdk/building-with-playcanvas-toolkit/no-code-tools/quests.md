@@ -20,11 +20,11 @@ This guide provides instructions for setting up the Quest system. In the sample 
 
 
 
-| <img src="../../.gitbook/assets/image (524).png" alt="" data-size="original">                                    | <img src="../../.gitbook/assets/image (525).png" alt="" data-size="original">                                              | <img src="../../.gitbook/assets/image (526).png" alt="" data-size="original"> |
-| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| The avatar enters the trigger area and the Quest system dialog appears.                                          | With the Quest system started, the user clicks on the red box and the first task is completed.                             | When the user clicks each green box, progress is added to the second task.    |
-| <img src="../../.gitbook/assets/image (527).png" alt="" data-size="original">                                    | <img src="../../.gitbook/assets/image (528).png" alt="" data-size="original">                                              |                                                                               |
-| Once the user clicks on the final green box, the second task is complete and the Quest system dialog disappears. | If the user clicks on a blue box before both tasks are completed, the Quest system resets and needs to be triggered again. |                                                                               |
+| <img src="../../../.gitbook/assets/image (524).png" alt="" data-size="original">                                 | <img src="../../../.gitbook/assets/image (525).png" alt="" data-size="original">                                           | <img src="../../../.gitbook/assets/image (526).png" alt="" data-size="original"> |
+| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| The avatar enters the trigger area and the Quest system dialog appears.                                          | With the Quest system started, the user clicks on the red box and the first task is completed.                             | When the user clicks each green box, progress is added to the second task.       |
+| <img src="../../../.gitbook/assets/image (527).png" alt="" data-size="original">                                 | <img src="../../../.gitbook/assets/image (528).png" alt="" data-size="original">                                           |                                                                                  |
+| Once the user clicks on the final green box, the second task is complete and the Quest system dialog disappears. | If the user clicks on a blue box before both tasks are completed, the Quest system resets and needs to be triggered again. |                                                                                  |
 
 {% stepper %}
 {% step %}
@@ -32,7 +32,7 @@ This guide provides instructions for setting up the Quest system. In the sample 
 
 A. Click on the Viverse Scene Settings button.
 
-<figure><img src="../../.gitbook/assets/image (514).png" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (514).png" alt="" width="188"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -52,7 +52,7 @@ F. Set the **Task type** to **progressBar**.
 
 G. Add the value **4** to the **Progress Steps** field.
 
-<figure><img src="../../.gitbook/assets/image (515).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (515).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -66,7 +66,7 @@ C. Adding a material is optional. A transparent material has been added so that 
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../.gitbook/assets/image (516).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (516).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -84,7 +84,7 @@ E. In the **selected quest** field, choose **Find the boxes!**
 
 F. In the **quest response** field, choose **startQuest**.
 
-<figure><img src="../../.gitbook/assets/image (517).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (517).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -98,7 +98,7 @@ C. Add a material. Red has been added because this will be the box that will be 
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../.gitbook/assets/image (518).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (518).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -116,7 +116,7 @@ E. In the **quest response** field, choose **completeTask**.
 
 F. In the **selected task field,** choose **Click on the red box.**
 
-<figure><img src="../../.gitbook/assets/image (519).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (519).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -130,7 +130,7 @@ C. Add a material. Green has been added because these will be the boxes that wil
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../.gitbook/assets/image (520).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (520).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -150,7 +150,7 @@ E. In the **quest response** field, choose **addTaskProgress**.
 
 F. In the **selected task field,** choose **Click on the green boxes.**
 
-<figure><img src="../../.gitbook/assets/image (521).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (521).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -164,7 +164,7 @@ C. Add a material. Blue has been added because these will be the boxes that will
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../.gitbook/assets/image (522).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (522).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -182,6 +182,6 @@ D. In the **selected quest** field, choose **Find the boxes!**
 
 E. In the **quest response** field, choose **resetQuest**.
 
-<figure><img src="../../.gitbook/assets/image (523).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (523).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

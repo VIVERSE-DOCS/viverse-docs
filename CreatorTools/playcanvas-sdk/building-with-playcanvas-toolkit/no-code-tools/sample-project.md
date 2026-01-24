@@ -14,7 +14,7 @@ We created a PlayCanvas sample project that contains examples of how to utilize 
 
 This project is separated into different stations. Each station has **Tags** added to help identify the VIVERSE functionality the station is demonstrating.
 
-<figure><img src="../../.gitbook/assets/image (24) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 
 

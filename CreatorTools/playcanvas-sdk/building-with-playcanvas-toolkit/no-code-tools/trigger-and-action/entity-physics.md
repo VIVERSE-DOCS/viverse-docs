@@ -15,9 +15,9 @@ description: >-
 
 This guide provides instructions for setting up the **EntityRigidbodyAddForceInPhysics** action. In the sample app, once the avatar enters the blue trigger area, a force is applied to the sphere.
 
-| <img src="../../../.gitbook/assets/image (56).png" alt="" data-size="original"> | <img src="../../../.gitbook/assets/image (57).png" alt="" data-size="original">                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| The sphere is not moving before the avatar enters the trigger area.             | Once the avatar enters the trigger area, a force is applied to the sphere in the direction based on the parameters. |
+| <img src="../../../../.gitbook/assets/image (56).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (57).png" alt="" data-size="original">                                  |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| The sphere is not moving before the avatar enters the trigger area.                | Once the avatar enters the trigger area, a force is applied to the sphere in the direction based on the parameters. |
 
 In this example, a trigger is created and when the avatar or other objects enters the trigger area, an action adds force to an object. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
@@ -33,7 +33,7 @@ C. Adding a material is optional. A transparent material has been added so that 
 
 D. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (58).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (58).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -49,7 +49,7 @@ D. Add an **Action** and select **NotificationCenterPublish.**
 
 E. Create a unique name for the notification and add it to the **notification name to publish** field. In this example, the **AddForce** name is added.
 
-<figure><img src="../../../.gitbook/assets/image (59).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (59).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -65,7 +65,7 @@ D. Set the **Collision Type** to **Dynamic**.
 
 E. Click the **Edit Viverse Extension** button.
 
-<figure><img src="../../../.gitbook/assets/image (60).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (60).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -81,6 +81,6 @@ D. Add an **Action** and select **EntityRigidbodyAddForceInPhysics.**
 
 E. In the **X Force**, **Y Force** and **Z Force** fields, add values for the amount of force to apply in each direction.
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (61).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 {% endstepper %}

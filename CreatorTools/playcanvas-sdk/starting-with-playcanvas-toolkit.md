@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn how to install VIVERSE Chrome Extension for PlayCanvas Editor, create
-  your first world and publish it to VIVERSE for everyone to see
+  your first world and publish it to VIVERSE Create platform
 ---
 
 # Starting with PlayCanvas Toolkit
