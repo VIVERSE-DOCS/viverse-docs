@@ -3,6 +3,7 @@ description: >-
   This document provides a guide for creating a sample app in Unity, building
   the app for WebGL, and deploying the app to VIVERSE.
 hidden: true
+noIndex: true
 ---
 
 # Getting Started with Unity WebGL

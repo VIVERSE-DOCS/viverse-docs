@@ -3,6 +3,7 @@ description: >-
   An overview of why developers should build for the web, how optimizing
   experiences for the web is different from native, and what characteristics
   define an optimized experience.
+noIndex: true
 ---
 
 # Introduction to Optimizing for the Web

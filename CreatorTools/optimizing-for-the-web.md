@@ -4,6 +4,7 @@ description: >-
   creators publishing on VIVERSE, regardless of which platform they are
   publishing from.
 hidden: true
+noIndex: true
 ---
 
 # Optimizing for the Web

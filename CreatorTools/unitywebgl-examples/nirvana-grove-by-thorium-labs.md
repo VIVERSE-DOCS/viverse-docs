@@ -3,6 +3,7 @@ description: >-
   Nirvana Grove is a tranquil bamboo forest designed for ultimate wellness
   developed with Unity 6 for the Viverse Platform by Thorium Labs.
 hidden: true
+noIndex: true
 ---
 
 # NIRVANA GROVE by Thorium Labs

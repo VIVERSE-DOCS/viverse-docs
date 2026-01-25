@@ -4,6 +4,7 @@ description: >-
   compatibility settings, render pipelines, WebGL builds, and fullscreen
   templates.
 hidden: true
+noIndex: true
 ---
 
 # Unity Compatibility with VIVERSE Guide

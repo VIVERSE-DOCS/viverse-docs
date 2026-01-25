@@ -3,6 +3,7 @@ description: >-
   Learn how to navigate the differences between PlayCanvas' test servers and
   VIVERSE's production environment.
 hidden: true
+noIndex: true
 ---
 
 # PlayCanvas-to-VIVERSE: Development Best Practices

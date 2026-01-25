@@ -1,6 +1,7 @@
 ---
 description: This page details how to publish an iframe of your game on VIVERSE.
 hidden: true
+noIndex: true
 ---
 
 # iFraming Your Project on VIVERSE
