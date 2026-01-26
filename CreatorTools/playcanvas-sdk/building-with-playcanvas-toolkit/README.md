@@ -6,6 +6,3 @@ description: >-
 
 # Building with PlayCanvas Toolkit
 
-* [Scene Settings](scene-settings.md)
-* [No Code Tools](no-code-tools/)
-* [Custom Code](custom-code/)
