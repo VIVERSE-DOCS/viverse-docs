@@ -2,9 +2,11 @@
 description: >-
   This page outlines the usage of the custom shader components contributed by
   ShuShu VR and Niko Lang as part of their commission for VIVERSE.
+hidden: true
+noIndex: true
 ---
 
-# SHADEART | Custom Shader
+# \[MOV] SHADEART | Custom Shader
 
 ***
 

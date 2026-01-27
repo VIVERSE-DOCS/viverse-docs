@@ -1,8 +1,10 @@
 ---
 description: This document provides a guide for creating a Pet Rescue replica project.
+hidden: true
+noIndex: true
 ---
 
-# Pet Rescue Template Project
+# \[MOV] Pet Rescue Template Project
 
 ***
 

@@ -2,9 +2,13 @@
 description: >-
   This page houses the links for utilizing Dan Greenheck's FPS demo on
   PlayCanvas, which utilizes his open-source library for mesh destruction.
+hidden: true
+noIndex: true
 ---
 
-# First Person Shooter with Destruction
+# \[MOV] First Person Shooter with Destruction
+
+
 
 ***
 

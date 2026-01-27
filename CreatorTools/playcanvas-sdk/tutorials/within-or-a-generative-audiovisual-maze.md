@@ -3,11 +3,13 @@ description: >-
   This project is an interactive, generative audiovisual maze experience created
   using PlayCanvas and Tone.js for the VIVERSE platform created by Enrique
   Garcia-Alcalá.
+hidden: true
+noIndex: true
 cover: ../../.gitbook/assets/Screenshot 2025-04-13 at 9.18.57 AM.png
 coverY: 0
 ---
 
-# WITHIN | A Generative Audiovisual Maze
+# \[MOV] WITHIN | A Generative Audiovisual Maze
 
 ***
 
