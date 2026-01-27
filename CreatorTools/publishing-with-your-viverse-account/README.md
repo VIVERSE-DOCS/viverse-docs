@@ -48,9 +48,9 @@ The upload page can also be used to create and upload new worlds to VIVERSE.&#x2
 {% step %}
 ### Select "Create New World"
 
-Enter a title and description for your world and select "Create".
+Enter a title and description for your world and select "Create". Upon creation your world will receive a unique App ID that can be used with VIVERSE SDKs later
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 2.43.59 PM.png" alt="" width="266"><figcaption></figcaption></figure>
+<div><figure><img src="../.gitbook/assets/Screenshot 2025-06-10 at 2.43.59 PM.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2026-01-27 at 19.18.22.png" alt="" width="563"><figcaption></figcaption></figure></div>
 {% endstep %}
 
 {% step %}
