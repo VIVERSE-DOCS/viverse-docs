@@ -66,7 +66,7 @@
 * [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-sdk/playcanvas-to-viverse-development-best-practices.md)
 * [Examples](playcanvas-sdk/tutorials/README.md)
   * [Create Your First PlayCanvas Project](playcanvas-sdk/tutorials/create-your-first-playcanvas-project.md)
-  * [\[MOV\] SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader.md)
+  * [\[MOV\] SHADEART | Custom Shader](playcanvas-sdk/tutorials/shadeart-or-custom-shader-1.md)
   * [\[MOV\] WITHIN | A Generative Audiovisual Maze](playcanvas-sdk/tutorials/within-or-a-generative-audiovisual-maze.md)
   * [\[MOV\] First Person Shooter with Destruction](playcanvas-sdk/tutorials/first-person-shooter-with-destruction.md)
   * [\[MOV\] Pet Rescue Template Project](playcanvas-sdk/tutorials/pet-rescue-template-project.md)

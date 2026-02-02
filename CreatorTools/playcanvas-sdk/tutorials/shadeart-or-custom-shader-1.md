@@ -26,10 +26,10 @@ You may use the Shaders, Models, Materials, cube Maps, Seamless Textures and Equ
 
 ### Custom shaders included in this project
 
-1. [EquiProjection](shadeart-or-custom-shader.md#equiprojection) (Skybox shader for Equirectangular Map)
-2. [EquiProjectionDistort](shadeart-or-custom-shader.md#equiprojectiondistort) (Skybox shader for Equirectangular Map, with Distortion Map and Additive Equirectangular Map)
-3. [EquiProjectionUVDistort](shadeart-or-custom-shader.md#equiprojectionuvdistort) (Projection Shader for seamless textures).
-4. [Water Shader](shadeart-or-custom-shader.md#water-shader) (Amplify Water)
+1. [EquiProjection](shadeart-or-custom-shader-1.md#equiprojection) (Skybox shader for Equirectangular Map)
+2. [EquiProjectionDistort](shadeart-or-custom-shader-1.md#equiprojectiondistort) (Skybox shader for Equirectangular Map, with Distortion Map and Additive Equirectangular Map)
+3. [EquiProjectionUVDistort](shadeart-or-custom-shader-1.md#equiprojectionuvdistort) (Projection Shader for seamless textures).
+4. [Water Shader](shadeart-or-custom-shader-1.md#water-shader) (Amplify Water)
 
 {% embed url="https://1140075852-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4pMiThqqrBzfvP8uy5am%2Fuploads%2Fn9wTC8qa8qOKVTTirmlV%2FUntitled.mp4?alt=media&token=9ff76f93-c871-4f42-8633-b5ee9398d172" %}
 
