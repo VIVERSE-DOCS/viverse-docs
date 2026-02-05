@@ -3,6 +3,7 @@
 * [Introduction to Creator Tools](README.md)
 * [VIVERSE Studio](publishing-with-your-viverse-account/README.md)
   * [VIVERSE Share Button Functionality](publishing-with-your-viverse-account/viverse-share-button-functionality.md)
+  * [\[TEMP\] Video Content](publishing-with-your-viverse-account/temp-video-content.md)
 * [Optimizing for the Web](optimizing-for-the-web.md)
 * [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
 * [Monetization](monetization.md)
