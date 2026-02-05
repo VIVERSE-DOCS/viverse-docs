@@ -15,7 +15,7 @@ noIndex: true
 
 Open **VIVERSE Studio**, navigate to **Videos** section, and drag-n-drop your video file to start uploading. As alternative, click **Upload** button at the right upper corner.
 
-Please make sure your video is authored in [correct format](temp-video-content.md#input-specifications), otherwise the uploading process will return a error
+Please make sure your video is authored in [correct format](temp-video-content.md#input-specifications), otherwise the uploading process will return an error
 {% endstep %}
 
 {% step %}
@@ -40,7 +40,7 @@ The visibility is set to **Private** by default, so you can keep adjusting your 
 {% step %}
 ### Publish
 
-When you're ready to publish, click **Edit** to open **Content Details** your video, find **Visibility** dropdown at the top of the page, and select **Public**.
+When you're ready to publish, click **Edit** to open **Content Details** of your video, find **Visibility** dropdown at the top of the page, and select **Public**.
 
 Congratulations, your video is now live and can be viewed by entire VIVERSE community!
 
