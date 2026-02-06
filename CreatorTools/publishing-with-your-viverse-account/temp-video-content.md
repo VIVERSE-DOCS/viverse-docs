@@ -21,7 +21,7 @@ Please make sure your video is authored in [correct format](temp-video-content.m
 {% step %}
 ### Fill in content details
 
-While the video is uploading, feel free to fill in content details:
+While the video is processing, feel free to fill in content details:
 
 * Video title
 * Description (optional)
@@ -32,17 +32,23 @@ While the video is uploading, feel free to fill in content details:
 {% step %}
 ### Preview your content
 
-Once the video is uploaded and processed it is available for preview! Click **Preview** button to start playing your video, and switch between various **Quality Settings** to check how it was [transcoded](temp-video-content.md#transcoding-matrix).
+Once the video is uploaded and processed, it is available for preview!
 
-The visibility is set to **Private** by default, so you can keep adjusting your content settings and exploring video in preview mode
+Click **View** button to see your video in a new tab. You can adjust **Quality Settings** on the fly to check how it was [transcoded](temp-video-content.md#transcoding-matrix) into different resolutions.
 {% endstep %}
 
 {% step %}
-### Publish
+### Adjust visibility
 
-When you're ready to publish, click **Edit** to open **Content Details** of your video, find **Visibility** dropdown at the top of the page, and select **Public**.
+The visibility is set to **Private** by default, but you can always set it to **Public** or **Unlisted** in the dropdown at the top of the page
+{% endstep %}
 
-Congratulations, your video is now live and can be viewed by entire VIVERSE community!
+{% step %}
+### Save and publish
+
+When you're happy with everything, click **Create** button at the top right corner — this will save your video with the **Visibility Settings** you adjusted earlier.
+
+And when you're ready to publish — just click **Edit** and set your video to **Public.** Congratulations, it's now live and can be viewed by entire VIVERSE community!
 
 Please note that you can always hide your video later by setting its **Visibility** back to **Private**
 {% endstep %}
@@ -50,13 +56,23 @@ Please note that you can always hide your video later by setting its **Visibilit
 {% endcolumn %}
 
 {% column width="33.33333333333334%" %}
-<figure><img src="../.gitbook/assets/UI_Videos 3.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/vid1.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/UI_Videos 2.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/vid2b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Content settings_Video.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/vid4a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/UI_Videos.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/vid4b.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/vid4c.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/vid5.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/viverse_thumbnail.jpg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/vid6.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/vid7.png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
