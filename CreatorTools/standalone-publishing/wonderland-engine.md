@@ -4,17 +4,17 @@ description: >-
   multiplayer VR experiences.
 ---
 
-# Wonderland Engine VIVERSE Example
+# Wonderland Engine
 
 ***
 
-## Introduction
+### Introduction
 
 In November 2025, VIVERSE and the Wonderland Engine team collaborated to develop a plugin allowing developers to publish to VIVERSE from directly within the Wonderland Engine editor. In addition, we developed examples of using the VIVERSE Avatar and Account SDKs with Wonderland's multiplayer SDK.
 
 This document is a copy of the Wonderland Engine document covering the plugin: [https://github.com/WonderlandEngine/viverse-example/tree/main](https://github.com/WonderlandEngine/viverse-example/tree/main)
 
-## Overview
+### Overview
 
 This repository is a template project that demonstrates how to integrate the **VIVERSE Avatar SDK** with **Wonderland Cloud** networking. It provides a compact, production-minded workflow to:
 
@@ -26,7 +26,7 @@ This repository is a template project that demonstrates how to integrate the **V
 
 **Live Demo:** [https://worlds.viverse.com/k99xkYZ](https://worlds.viverse.com/k99xkYZ)
 
-## Features
+### Features
 
 The example project includes the following key features:
 
@@ -36,7 +36,7 @@ The example project includes the following key features:
 * **Example Components:** Pre-configured components showing where to place `appid` and server path
 * **Spatial Audio:** Avatar position replication with spatial audio for medium-scale sessions
 
-## Project Structure
+### Project Structure
 
 The repository contains the following directories and files:
 
@@ -51,143 +51,143 @@ The repository contains the following directories and files:
 * `tsconfig.json` - TypeScript configuration
 * `viversecli.wlp` - VIVERSE CLI configuration file
 
-## Quick Setup (Editor)
+### Quick Setup (Editor)
 
 {% stepper %}
 {% step %}
-### Open the plugin
+#### Open the plugin
 
 Open the `viversePublishPlugin` inside the Wonderland Editor.
 {% endstep %}
 
 {% step %}
-### Log In with VIVERSE Credentials
+#### Log In with VIVERSE Credentials
 {% endstep %}
 
 {% step %}
-### Create Application
+#### Create Application
 
 Click **Create Application** — this redirects to VIVERSE Studio.
 {% endstep %}
 
 {% step %}
-### Copy the App ID
+#### Copy the App ID
 
 In VIVERSE Studio create an app and copy the App ID.
 {% endstep %}
 
 {% step %}
-### Paste the App ID
+#### Paste the App ID
 
 Paste the App ID into the `appid` field of the plugin.
 {% endstep %}
 {% endstepper %}
 
-## Scene Configuration
+### Scene Configuration
 
 {% stepper %}
 {% step %}
-### Navigate to Avatar Component
+#### Navigate to Avatar Component
 
 In the Wonderland Editor hierarchy, navigate to: `Avatar -> VrmDynamic` and select the `VrmDynamic` object.
 {% endstep %}
 
 {% step %}
-### Expand VIVERSE Provider Component
+#### Expand VIVERSE Provider Component
 
 In the Inspector, expand the **Viverse Provider** component (or `viverse-provider-component`).
 {% endstep %}
 
 {% step %}
-### Paste the App ID
+#### Paste the App ID
 
 Locate the `appid` field in the component properties and paste the **App ID** that you copied from VIVERSE Studio.
 {% endstep %}
 
 {% step %}
-### Verify Configuration
+#### Verify Configuration
 
 Double-check that the App ID is correctly set in both the VIVERSE Publish Plugin and the `VrmDynamic -> Viverse Provider` component, then save the scene to preserve your changes.
 {% endstep %}
 {% endstepper %}
 
-## Networking Setup (Wonderland Cloud)
+### Networking Setup (Wonderland Cloud)
 
 {% stepper %}
 {% step %}
-### Access Wonderland Cloud
+#### Access Wonderland Cloud
 
 Open your web browser and navigate to: `https://cloud.wonderland.dev/create-server`. Log in with your Wonderland Cloud credentials if required.
 {% endstep %}
 
 {% step %}
-### Locate Server Package
+#### Locate Server Package
 
 Locate the server package in your project: `server/wonderland-cloud-example-simple-1.0.0.tgz` and verify the file exists and is not corrupted.
 {% endstep %}
 
 {% step %}
-### Upload Server Package
+#### Upload Server Package
 
 In the Wonderland Cloud interface, click **Upload** or **Create Server**, select the file: `server/wonderland-cloud-example-simple-1.0.0.tgz`, and wait for the upload to complete. Wonderland Cloud will process and deploy your server.
 {% endstep %}
 
 {% step %}
-### Copy Server Path
+#### Copy Server Path
 
 After the server is created, Wonderland Cloud will display server information. **Copy the server path** that is provided (typically looks like: `wss://your-server-id.wonderland.dev`).
 {% endstep %}
 
 {% step %}
-### Configure Client Component
+#### Configure Client Component
 
 Return to the Wonderland Editor, select the `Player` object in the hierarchy, locate the `simple-example-client` component in the Inspector, find the `serverPath` field, paste the **server path** you copied from Wonderland Cloud, and save the scene.
 {% endstep %}
 {% endstepper %}
 
-## Publish & Preview
+### Publish & Preview
 
 {% stepper %}
 {% step %}
-### Open VIVERSE CLI Plugin
+#### Open VIVERSE CLI Plugin
 
 In the Wonderland Editor, open the VIVERSE CLI plugin.
 {% endstep %}
 
 {% step %}
-### Publish Project
+#### Publish Project
 
 Click **Publish** to build and upload your project. Wait for the publishing process to complete. The plugin will show the status of the upload.
 {% endstep %}
 
 {% step %}
-### Preview Your Project
+#### Preview Your Project
 
 After publishing, click **Preview URL** in the plugin. This will open a preview build in your browser. Test all functionality including avatar spawning, multiplayer connectivity, spatial audio, and user interactions.
 {% endstep %}
 
 {% step %}
-### Submit for Review
+#### Submit for Review
 
 In the VIVERSE CLI plugin, click **Submit for Review**. This will open the VIVERSE Creator page for your application. Complete any required information in the VIVERSE Creator interface and review your application settings before submission.
 {% endstep %}
 
 {% step %}
-### Guest Preview Testing
+#### Guest Preview Testing
 
 From the VIVERSE Creator page, use the **Guest Preview** link. Share this link with others for testing. Test multiplayer functionality with multiple devices/accounts, verify that avatars appear correctly for all users, and test spatial audio and networking in production-like conditions.
 {% endstep %}
 
 {% step %}
-### Final Submission
+#### Final Submission
 
 Once testing is complete and you're satisfied with the build, submit the app for review to list it publicly. Wait for VIVERSE approval. After approval, your application will be available in VIVERSE.
 {% endstep %}
 {% endstepper %}
 
-## Component Configuration Details
+### Component Configuration Details
 
-### VIVERSE Provider Component
+#### VIVERSE Provider Component
 
 The `Viverse Provider` component (or `viverse-provider-component`) handles authentication and avatar management:
 
@@ -195,7 +195,7 @@ The `Viverse Provider` component (or `viverse-provider-component`) handles authe
 * **Avatar Spawning:** Automatically spawns user avatars based on VIVERSE account
 * **User Metadata:** Retrieves and stores user name and avatar data
 
-### Simple Example Client Component
+#### Simple Example Client Component
 
 The `simple-example-client` component manages networking:
 
@@ -204,9 +204,9 @@ The `simple-example-client` component manages networking:
 * **Avatar Replication:** Syncs avatar positions and states across clients
 * **Presence State:** Manages user presence in the multiplayer session
 
-## Troubleshooting
+### Troubleshooting
 
-### Avatars Not Appearing
+#### Avatars Not Appearing
 
 **Problem:** Avatars don't spawn or appear in the scene.
 
@@ -220,7 +220,7 @@ The `simple-example-client` component manages networking:
 * Check browser console (F12) for authentication errors
 * Verify CORS settings in VIVERSE Studio if using custom domains
 
-### Networking Failures
+#### Networking Failures
 
 **Problem:** Multiplayer connectivity issues or connection errors.
 
@@ -233,7 +233,7 @@ The `simple-example-client` component manages networking:
 * Review browser console (F12) for WebSocket connection errors
 * Ensure firewall/network settings allow WebSocket connections
 
-### Preview URL Issues
+#### Preview URL Issues
 
 **Problem:** Preview URL doesn't work or shows errors.
 
@@ -245,7 +245,7 @@ The `simple-example-client` component manages networking:
 * Clear browser cache and try again
 * Test in different browsers (Chrome, Firefox, Edge)
 
-### Browser Console Errors
+#### Browser Console Errors
 
 **Problem:** Errors appear in browser console (F12).
 
@@ -284,15 +284,15 @@ The `simple-example-client` component manages networking:
 * Try rebuilding the project from scratch
 * Check Wonderland Editor console for errors
 
-## Additional Resources
+### Additional Resources
 
-### Documentation Links
+#### Documentation Links
 
 * **Wonderland Engine Documentation:** [https://wonderlandengine.com/](https://wonderlandengine.com/)
 * **VIVERSE Documentation:** [https://docs.viverse.com/](https://docs.viverse.com/)
 * **Wonderland Cloud:** [https://cloud.wonderland.dev/](https://cloud.wonderland.dev/)
 
-### Support
+#### Support
 
 If you need help setting up this template for your project:
 
@@ -300,7 +300,7 @@ If you need help setting up this template for your project:
 * Check the GitHub repository for issues and discussions
 * Review the example code in the repository for implementation details
 
-### Contributing
+#### Contributing
 
 Pull requests are welcome for improvements to this template: [https://github.com/WonderlandEngine/viverse-example/tree/main](https://github.com/WonderlandEngine/viverse-example/tree/main)
 
@@ -308,9 +308,9 @@ Pull requests are welcome for improvements to this template: [https://github.com
 * Open an issue for feature requests or bugs
 * Follow the existing code style and structure
 
-## Technical Details
+### Technical Details
 
-### Project Dependencies
+#### Project Dependencies
 
 The project uses the following key technologies:
 
@@ -319,7 +319,7 @@ The project uses the following key technologies:
 * **Wonderland Cloud:** Multiplayer networking infrastructure
 * **TypeScript/JavaScript:** Application logic and components
 
-### File Structure Details
+#### File Structure Details
 
 * `js/` - Contains component scripts and application logic
 * `models/` - 3D models and avatar assets
@@ -328,14 +328,14 @@ The project uses the following key technologies:
 * `static/` - Static web assets (images, fonts, etc.)
 * `shaders/` - Custom shader code for rendering
 
-### Build Process
+#### Build Process
 
 1. **Development:** Edit scenes and components in Wonderland Editor
 2. **Configuration:** Set App ID and server path in components
 3. **Publishing:** Use VIVERSE CLI plugin to build and upload
 4. **Deployment:** Preview and submit through VIVERSE Creator
 
-### Multiplayer Architecture
+#### Multiplayer Architecture
 
 The example uses a client-server architecture:
 

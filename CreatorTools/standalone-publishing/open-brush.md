@@ -1,22 +1,22 @@
 ---
 description: >-
   This page details how to publish to VIVERSE from the VR illustration tool Open
-  Brush...
+  Brush.
 ---
 
-# Open Brush Example
+# Open Brush
 
 ***
 
-## Introduction
+### Introduction
 
 In December 2025, VIVERSE and the Icosa Foundation, Open Brush's steward, teamed up with digital artist SUTU to create a publishing pipeline for Open Brush creators to host, distribute, and monetize their work on VIVERSE. When publishing to VIVERSE, creators are able to share their work on Mobile, Desktop, and VR through the web browser, complete with networked VRM avatars and real-time chat. The publishing process is a simple and powerful way for Open Brush creators to expand their audiences and make their work more accessible!
 
-## Publishing Tutorial
+### Publishing Tutorial
 
 {% stepper %}
 {% step %}
-### Sign into VIVERSE from Open Brush
+#### Sign into VIVERSE from Open Brush
 
 Within the Open Brush application in VR, navigate to the "Accounts" toolbar and select "VIVERSE" to open the browser window. Enter your VIVERSE account credentials and complete the sign in process, closing the browser window when prompted.
 
@@ -24,7 +24,7 @@ Within the Open Brush application in VR, navigate to the "Accounts" toolbar and 
 {% endstep %}
 
 {% step %}
-### Upload to VIVERSE
+#### Upload to VIVERSE
 
 Navigate to the "Upload" tab and select VIVERSE. Wait for the uploading process to complete.
 
@@ -32,7 +32,7 @@ Navigate to the "Upload" tab and select VIVERSE. Wait for the uploading process 
 {% endstep %}
 
 {% step %}
-### Test and Finish Publishing on VIVERSE Studio
+#### Test and Finish Publishing on VIVERSE Studio
 
 After uploading, a web browser window will open with studio.viverse.com. From here, sign into VIVERSE if necessary, and finish accessing and testing your world.
 
@@ -40,7 +40,7 @@ After uploading, a web browser window will open with studio.viverse.com. From he
 {% endstep %}
 {% endstepper %}
 
-## Tips & Troubleshooting
+### Tips & Troubleshooting
 
 <details>
 

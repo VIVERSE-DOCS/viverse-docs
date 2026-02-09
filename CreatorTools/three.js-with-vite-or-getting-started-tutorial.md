@@ -4,21 +4,21 @@ description: >-
   the app with Vite and deploying the app to VIVERSE.
 ---
 
-# ThreeJS Example
+# ThreeJS
 
 ***
 
-## Introduction
+### Introduction
 
 In this getting-started guide, we will cover the basics of setting up a ThreeJS project and publishing to VIVERSE using [the VIVERSE CLI](https://www.npmjs.com/package/@viverse/cli).
 
 {% include ".gitbook/includes/notice-upload.md" %}
 
-## A. Installing Node.js
+### Installing Node.js
 
 {% stepper %}
 {% step %}
-### Download Node.js
+#### Download Node.js
 
 A. Download the latest version of **Node.js (LTS)** from http [https://nodejs.org/en](https://nodejs.org/en).
 
@@ -26,7 +26,7 @@ A. Download the latest version of **Node.js (LTS)** from http [https://nodejs.or
 {% endstep %}
 
 {% step %}
-### Automatically install the necessary tools
+#### Automatically install the necessary tools
 
 A. Use the defaults during the installation, but place a checkmark\
 in the **Automatically install the necessary tools** checkbox
@@ -35,7 +35,7 @@ in the **Automatically install the necessary tools** checkbox
 {% endstep %}
 
 {% step %}
-### Confirm Node.js is installed with at least v22
+#### Confirm Node.js is installed with at least v22
 
 A. Open a command prompt and type: **node**, then click Enter.
 
@@ -45,13 +45,13 @@ B. Confirm that Node.js is installed when the following message prints in comman
 {% endstep %}
 {% endstepper %}
 
-## B. Installing Three.js and making an example project
+### Installing Three.js and making an example project
 
 This guide is a walkthrough for creating an example Three.js project
 
 {% stepper %}
 {% step %}
-### Create project folder
+#### Create project folder
 
 A. Create a new folder that will contain the project.
 
@@ -59,7 +59,7 @@ A. Create a new folder that will contain the project.
 {% endstep %}
 
 {% step %}
-### Create the index.html
+#### Create the index.html
 
 A. Create the **index.html** page inside the project folder. This can be done by creating a text file, pasting the code and saving it as a **.HTML** page or using an IDE, such as Visual Studio Code.
 
@@ -85,7 +85,7 @@ A. Create the **index.html** page inside the project folder. This can be done by
 {% endstep %}
 
 {% step %}
-### Create the main.js
+#### Create the main.js
 
 A. Create the **main.js** page inside the project folder. This can be done by creating a text file, pasting the code and saving it as a **.JS** file or using an IDE, such as Visual Studio Code.
 
@@ -123,7 +123,7 @@ function animate() {
 {% endstep %}
 
 {% step %}
-## Install Three.js framework
+#### Install Three.js framework
 
 A. Three.js needs to be installed in the project folder. Open command prompt and change directories to your Three.js project.
 
@@ -133,7 +133,7 @@ B. Type: **npm install --save three**.
 {% endstep %}
 
 {% step %}
-### Confirm Three.js framework is installed
+#### Confirm Three.js framework is installed
 
 A. Confirm **node\_modules** folder and **package.json** have been added to the directory.
 
@@ -145,11 +145,11 @@ B. Confirm the **three** folder folder and **.package-lock.json** have been adde
 {% endstep %}
 {% endstepper %}
 
-## C. Installing Vite and using it to build your project
+### Installing Vite and using it to build your project
 
 {% stepper %}
 {% step %}
-### Install the build tool Vite
+#### Install the build tool Vite
 
 A. If choosing to use **Vite** as the build tool, it needs to be installed in the Three.js project folder also. With command prompt opened and the directory set to your Three.js project, type the command: `npm install --save-dev vite`.
 
@@ -157,7 +157,7 @@ A. If choosing to use **Vite** as the build tool, it needs to be installed in th
 {% endstep %}
 
 {% step %}
-### Confirm Vite has been installed
+#### Confirm Vite has been installed
 
 A. Confirm **Vite** has been installed by checking for additional folders in the **node\_modules** folder.
 
@@ -165,7 +165,7 @@ A. Confirm **Vite** has been installed by checking for additional folders in the
 {% endstep %}
 
 {% step %}
-### Add the Vite build settings
+#### Add the Vite build settings
 
 A. Add the Vite build settings to **package.json** file.
 
@@ -191,7 +191,7 @@ A. Add the Vite build settings to **package.json** file.
 {% endstep %}
 
 {% step %}
-### Add the vite.config.js file
+#### Add the vite.config.js file
 
 A. Add the **vite.config.js** file to the root of the project.
 
@@ -212,7 +212,7 @@ export default defineConfig({
 {% endstep %}
 
 {% step %}
-### Create a development build of the Three.js project
+#### Create a development build of the Three.js project
 
 A. To create a development build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite**.
 
@@ -224,7 +224,7 @@ B. Confirm the development build of the Three.js project was built successfully 
 {% endstep %}
 
 {% step %}
-### Test development build
+#### Test development build
 
 A. To test a development build of the Three.js project, open the browser and navigate to the URL that was printed in the previous step. In this example, the URL is [http://localhost:5173](http://localhost:5173). Confirm the app works as expected.
 
@@ -232,7 +232,7 @@ A. To test a development build of the Three.js project, open the browser and nav
 {% endstep %}
 
 {% step %}
-### Create production build
+#### Create production build
 
 A. To create a production build of the Three.js project, type the following command inside command prompt under the Three.js project directory: **npx vite build**.
 
@@ -244,11 +244,11 @@ B. Confirm the production build of the Three.js project was built successfully b
 {% endstep %}
 {% endstepper %}
 
-## D. Installing the VIVERSE CLI
+### Installing the VIVERSE CLI
 
 {% stepper %}
 {% step %}
-### Install the VIVERSE (CLI) command-line tool
+#### Install the VIVERSE (CLI) command-line tool
 
 A. Inside a command prompt, type: **npm install -g @viverse/cli**, then click Enter. Installing a package with **-g** installs the package globally. The location of globally installed packages depends on your operating system and npm configuration:
 
@@ -261,11 +261,11 @@ B. Confirm that the command line tool is installed based on screen feedback.
 {% endstep %}
 {% endstepper %}
 
-## E. Logging in with the VIVERSE CLI
+### Logging in with the VIVERSE CLI
 
 {% stepper %}
 {% step %}
-### Login to VIVERSE platform
+#### Login to VIVERSE platform
 
 A. Open a command prompt and type: **viverse-cli auth login**, then click Enter.
 
@@ -277,11 +277,11 @@ C. Confirm login was successful.
 {% endstep %}
 {% endstepper %}
 
-## F. Publishing from VIVERSE
+### Publishing from VIVERSE
 
 {% stepper %}
 {% step %}
-### Publish content
+#### Publish content
 
 A. To publish content to VIVERSE type the following command with the project path to the project's production build folder: **viverse-cli publish \<path>**, then click Enter.
 
@@ -293,7 +293,7 @@ C. Confirm the content was published successfully.
 {% endstep %}
 
 {% step %}
-### Re-publishing content
+#### Re-publishing content
 
 A. To re-publish content to VIVERSE when a project is already published, type the following command with the project path to the project's production build folder: **viverse-cli publish \<path>**, then click Enter.
 
@@ -305,7 +305,7 @@ C. Confirm the content was published successfully.
 {% endstep %}
 
 {% step %}
-### Test project
+#### Test project
 
 A. Confirm project was published successfully and working properly in VIVERSE by visiting the **URL** that is printed in the **Publish Details**.
 

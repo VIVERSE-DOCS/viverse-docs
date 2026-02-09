@@ -8,25 +8,21 @@ description: >-
 
 ***
 
-## Media Polygon Streaming
+### Media Polygon Streaming
 
-**Streaming 3D Models into The Environment**
+#### Streaming 3D Models into The Environment
 
 {% hint style="info" %}
 For Polygon Streaming using the PlayCanvas Extension, you must use the Polygon Streaming Asset ID url, not the link url.
 {% endhint %}
 
-
-
 | <img src="../../../../.gitbook/assets/image (32) (1).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (33) (1).png" alt="" data-size="original"> |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | The 3D models are visible in the PlayCanvas editor when utilizing Polygon Streaming.   | The 3D model streaming into the environment with the avatar.                           |
 
-
-
 {% stepper %}
 {% step %}
-### Create the entity that will stream in the 3D model
+#### Create the entity that will stream in the 3D model
 
 A. Create a new entity.
 
@@ -38,7 +34,7 @@ C. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-## Add the PolygonStreaming module
+#### Add the PolygonStreaming module
 
 A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown.
 

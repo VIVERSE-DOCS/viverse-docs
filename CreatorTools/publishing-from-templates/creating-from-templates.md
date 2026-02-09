@@ -4,15 +4,11 @@ description: This document details the process of creating a world from a templa
 
 # Creating From Templates
 
-
-
 ***
 
 Templates are starter projects that are pre-built in VIVERSE. They are available on the profile page of your VIVERSE account.
 
-
-
-### Prerequisites
+**Prerequisites**
 
 * In order to create worlds you must first create a VIVERSE account.
 

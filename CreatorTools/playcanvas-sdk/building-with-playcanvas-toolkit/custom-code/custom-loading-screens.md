@@ -1,10 +1,12 @@
 ---
 description: >-
   Learn how to create a custom loading screen on VIVERSE during asset
-  pre-loading
+  pre-loading.
 ---
 
 # Custom Loading Screens
+
+***
 
 ### Default Loading Experience
 

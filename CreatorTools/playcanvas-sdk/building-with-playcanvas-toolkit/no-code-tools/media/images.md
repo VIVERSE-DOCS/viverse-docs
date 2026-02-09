@@ -8,9 +8,9 @@ description: >-
 
 ***
 
-## Media Images
+### Media Images
 
-**Adding Images And Extending Image Functionality**
+#### Adding Images And Extending Image Functionality
 
 <figure><img src="../../../../.gitbook/assets/image (29) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -20,7 +20,7 @@ An image has been added to the scene and the image has been configured to always
 
 {% stepper %}
 {% step %}
-### Setup image
+#### Setup image
 
 A. Create a new **Image Element**.
 
@@ -34,7 +34,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the Image module
+#### Add the Image module
 
 A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown.
 

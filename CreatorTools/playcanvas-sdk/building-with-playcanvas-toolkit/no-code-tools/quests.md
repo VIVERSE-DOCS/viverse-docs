@@ -1,24 +1,28 @@
 ---
 description: >-
-  This document provides a guide that can be used to setup a quest system in a
-  VIVERSE project.
+  This document provides a guide that can be used to setup a Quest-based system
+  in a VIVERSE project.
 ---
 
 # Quests
 
 ***
 
-## Quest System
+### Quest System
 
-**Create A Quest System**
+#### **Understanding the Quest System**
 
 {% hint style="info" %}
 Currently, the Quest system is unavailable for testing in Preview mode and can only be seen after clicking the Create World button in Preview mode.
 {% endhint %}
 
-This guide provides instructions for setting up the Quest system. In the sample app, the trigger area is outlined in blue. Once the avatar enters into the trigger area, the Quest system starts. The first task requires the user to click on the red box. Once the user clicks on the red box, the first task is completed and the Quest system updates. The second task requires the user to click on multiple green boxes. Each green box that is clicked adds progress to completing the Quest task. Once all of the green boxes have been clicked, the task is completed and the Quest is completed. If the user clicks on a blue box during the quest, the quest system resets and needs to be triggered again in order to restart the quest.
+In the sample app below, the trigger area is outlined in blue. Once the avatar enters the trigger area, the Quest system starts.
 
+The first task requires the user to click the red box. Once the user clicks the red box, the first task is completed and the Quest system updates.
 
+The second task requires the user to click multiple green boxes. Each green box that is clicked adds progress toward completing the task. Once all green boxes have been clicked, the task is completed and the Quest is finished.
+
+If the user clicks a blue box during the quest, the Quest system resets. The user will need to re-enter the trigger area to restart the quest.
 
 | <img src="../../../.gitbook/assets/image (524).png" alt="" data-size="original">                                 | <img src="../../../.gitbook/assets/image (525).png" alt="" data-size="original">                                           | <img src="../../../.gitbook/assets/image (526).png" alt="" data-size="original"> |
 | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -26,9 +30,11 @@ This guide provides instructions for setting up the Quest system. In the sample 
 | <img src="../../../.gitbook/assets/image (527).png" alt="" data-size="original">                                 | <img src="../../../.gitbook/assets/image (528).png" alt="" data-size="original">                                           |                                                                                  |
 | Once the user clicks on the final green box, the second task is complete and the Quest system dialog disappears. | If the user clicks on a blue box before both tasks are completed, the Quest system resets and needs to be triggered again. |                                                                                  |
 
+### How to Create a Quest System
+
 {% stepper %}
 {% step %}
-### Open Viverse Scene Settings
+#### Open Viverse Scene Settings
 
 A. Click on the Viverse Scene Settings button.
 
@@ -36,7 +42,7 @@ A. Click on the Viverse Scene Settings button.
 {% endstep %}
 
 {% step %}
-### Create the quest
+#### Create the quest
 
 A. Give the quest a name in the **Quest name** field. The text: **Find the boxes!** was added.
 
@@ -56,7 +62,7 @@ G. Add the value **4** to the **Progress Steps** field.
 {% endstep %}
 
 {% step %}
-### Create the trigger area that will start the quest
+#### Create the trigger area that will start the quest
 
 A. Create a new **3D Box** entity.
 
@@ -70,7 +76,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Starting the quest
+#### Starting the quest
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -88,7 +94,7 @@ F. In the **quest response** field, choose **startQuest**.
 {% endstep %}
 
 {% step %}
-### Create an object that can be clicked to complete the first task
+#### Create an object that can be clicked to complete the first task
 
 A. Create a 3D object.
 
@@ -102,7 +108,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Completing the first task
+#### Completing the first task
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -120,7 +126,7 @@ F. In the **selected task field,** choose **Click on the red box.**
 {% endstep %}
 
 {% step %}
-### Create multiple objects that can be clicked to complete the second task
+#### Create multiple objects that can be clicked to complete the second task
 
 A. Create multiple 3D objects.
 
@@ -134,7 +140,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Completing the second task
+#### Completing the second task
 
 The following steps are completed for all green boxes.
 
@@ -154,7 +160,7 @@ F. In the **selected task field,** choose **Click on the green boxes.**
 {% endstep %}
 
 {% step %}
-### Create multiple objects that can be clicked to reset the quest
+#### Create multiple objects that can be clicked to reset the quest
 
 A. Create multiple 3D objects.
 
@@ -168,7 +174,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Resetting the quest
+#### Resetting the quest
 
 The following steps are completed for all blue boxes.
 

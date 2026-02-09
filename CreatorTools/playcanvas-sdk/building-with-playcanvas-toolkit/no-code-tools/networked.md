@@ -8,13 +8,13 @@ description: >-
 
 ***
 
-## Overview
+### Overview
 
 The Networked plugin allows local updates to certain properties of an entity's components to be sent to other connected avatars.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-02-10 at 8.19.59 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 
-### Transform
+#### Transform
 
 By adding the Transform component, an entity's position and rotation will be networked across clients.
 
@@ -22,13 +22,13 @@ By adding the Transform component, an entity's position and rotation will be net
 At this time, Transform does not network the Scale property of the entity.
 {% endhint %}
 
-### Anim
+#### Anim
 
 By adding the Anim component, an entity's animation state will be networked across clients.
 
 
 
-## Networking Example
+### Networking Example
 
 In this video, we have created an arena with a floor, four walls and a ball. The networking module has been added to the ball. After publishing and creating the world in VIVERSE, multiple players can join in the environment. The location of the ball is tracked across all player sessions.
 
@@ -38,7 +38,7 @@ To create the arena and ball in the video, you can follow the [Create Your First
 
 {% stepper %}
 {% step %}
-### Create the entity
+#### Create the entity
 
 A. We have already created the **Ball** entity in the tutorial linked above. Here's a screenshot of the  **Ball** entity.
 
@@ -46,7 +46,7 @@ A. We have already created the **Ball** entity in the tutorial linked above. Her
 {% endstep %}
 
 {% step %}
-### Add the Networking module
+#### Add the Networking module
 
 A. In the VIVERSE extension, select the **Networking** plugin for the **Select plugins** dropdown.
 
@@ -58,7 +58,7 @@ C. Confirm the **enabled** checkbox is checked.
 {% endstep %}
 
 {% step %}
-### Publish and create world
+#### Publish and create world
 
 A. To test the project, publish to VIVERSE and create the world.
 
@@ -66,7 +66,7 @@ A. To test the project, publish to VIVERSE and create the world.
 {% endstep %}
 
 {% step %}
-### Share and play
+#### Share and play
 
 A. Share the world link with another player and have them join the environment. We the other player interacts with the ball, you should be able to see the ball movement in your session. When you move the ball, the other player should be able to see the ball movement in their session.
 

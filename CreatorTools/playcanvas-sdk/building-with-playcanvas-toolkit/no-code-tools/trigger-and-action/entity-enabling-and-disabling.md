@@ -9,9 +9,7 @@ description: >-
 
 ***
 
-## EntityDisable
-
-**Create An Action That Disables An Object**
+### EntityDisable
 
 This guide provides instructions for setting up the **EntityDisable** action. In the sample app, once the avatar collides with the gold coin, the gold coin is disabled.
 
@@ -21,9 +19,11 @@ This guide provides instructions for setting up the **EntityDisable** action. In
 
 In this example, a trigger is created and when triggered, an action disables an object.&#x20;
 
+#### **Create an action that disables an object**
+
 {% stepper %}
 {% step %}
-### Create the 3D Object that will be disabled
+**Create the 3D Object that will be disabled**
 
 A. Add 3D object to the scene.
 
@@ -37,7 +37,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the EntityDisable action
+**Add the EntityDisable action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -51,13 +51,7 @@ D. Add an **Action** and select **EntityDisable.**
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityEnableById
-
-**Create An Action That Enables A Single Object**
+### EntityEnableById
 
 This guide provides instructions for setting up the **EntityEnableById** action. In the sample app, once the avatar enters the trigger area, the gold coin is enabled.
 
@@ -67,9 +61,11 @@ This guide provides instructions for setting up the **EntityEnableById** action.
 
 In this example, a trigger is created and when triggered, an action enables an object. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create an action that enables a single object**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -83,7 +79,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the **EntityEnableById** action
+**Add the** _EntityEnableById_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -99,13 +95,7 @@ E. Add an object that will be enabled when the avatar enters the trigger area. T
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityDisableById
-
-**Create An Action That Disables A Single Object**
+### EntityDisableById
 
 This guide provides instructions for setting up the **EntityDisableById** action. In the sample app, once the avatar leaves the trigger area, the gold coin is disabled.
 
@@ -115,9 +105,11 @@ This guide provides instructions for setting up the **EntityDisableById** action
 
 In this example, a trigger is created and when triggered, an action disables an object. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create an action that disables a single object**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -129,7 +121,7 @@ C. Adding a material is optional. A transparent material has been added so that 
 {% endstep %}
 
 {% step %}
-Add the **EntityDisableById** action
+**Add the** _EntityDisableById_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -145,13 +137,7 @@ E. Add an object that will be disabled when the avatar leaves the trigger area. 
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityEnableByTag
-
-**Create An Action That Enables Multiple Objects**
+### EntityEnableByTag
 
 This guide provides instructions for setting up the **EntityEnableByTag** action. In the sample app, once the avatar enters the trigger area, multiple balls are enabled.
 
@@ -161,9 +147,11 @@ This guide provides instructions for setting up the **EntityEnableByTag** action
 
 In this example, a trigger is created and when triggered, an action enables multiple objects. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create an action that enables multiple objects**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -177,7 +165,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the **EntityEnableByTag** action
+**Add the** _EntityEnableByTag_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -193,7 +181,7 @@ E. Create a unique **Tag** and add it to the **enable entity with tag** field. I
 {% endstep %}
 
 {% step %}
-### Add Tag to multiple objects
+**Add Tag to multiple objects**
 
 A. Multiple objects can be enabled using the **EntityEnableByTag** action. Create multiple objects in the scene.
 
@@ -203,13 +191,7 @@ B. In the **Tags** field, add the same tag from the **enable entity with tag** f
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityDisableByTag
-
-**Create An Action That Disables Multiple Objects**
+### EntityDisableByTag
 
 This guide provides instructions for setting up the **EntityDisableByTag** action. In the sample app, once the avatar leaves the trigger area, multiple balls are disabled.
 
@@ -219,9 +201,11 @@ This guide provides instructions for setting up the **EntityDisableByTag** actio
 
 In this example, a trigger is created and when triggered, an action disables multiple objects. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create an action that disables multiple objects**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -235,7 +219,7 @@ Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the **EntityDisableByTag** action
+**Add the** _EntityDisableByTag_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -251,7 +235,7 @@ E. Create a unique **Tag** and add it to the **enable entity with tag** field. I
 {% endstep %}
 
 {% step %}
-### Add Tag to multiple objects
+**Add** _EntityEnableByTag_ **to multiple objects**
 
 A. Multiple objects can be enabled using the **EntityEnableByTag** action. Create multiple objects in the scene.
 
@@ -261,13 +245,7 @@ B. In the **Tags** field, add the same tag from the **enable entity with tag** f
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityFadeIn
-
-**Create An Action That Fades In An Object**
+### EntityFadeIn
 
 This guide provides instructions for setting up the **EntityFadeIn** action. In the sample app, once the avatar starts colliding with the red platform, the red platform will fade in.
 
@@ -277,9 +255,11 @@ This guide provides instructions for setting up the **EntityFadeIn** action. In 
 
 In this example, a trigger is created and when triggered, an action fades in the object it has been added to. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create an action that fades in an object**
+
 {% stepper %}
 {% step %}
-### Create the 3D object that will fade in
+**Create the 3D object that will fade in**
 
 A. Add a 3D object to the scene.
 
@@ -293,7 +273,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-## Add the EntityFadeIn action
+**Add the** _EntityFadeIn_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -307,13 +287,7 @@ D. Add an **Action** and select **EntityFadeIn**. To customize how long before t
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityFadeOut
-
-**EntityFadeOut** - Create An Action That Fades Out An Object
+### EntityFadeOut
 
 This guide provides instructions for setting up the **EntityFadeOut** action. In the sample app, once the avatar stops colliding with the red platform, the red platform will fade out.
 
@@ -321,11 +295,13 @@ This guide provides instructions for setting up the **EntityFadeOut** action. In
 | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | The avatar is colliding with the red platform.                                      | Once the avatar stops colliding with the red platform, the red platform begins to fade out. |
 
-In this example, a trigger is created and when triggered, an action fades an object. Any object can be used as a trigger, as long as the object has a collision component.&#x20;
+In this example, a trigger is created and when triggered, an action fades an object. Any object can be used as a trigger, as long as the object has a collision component.
+
+#### Create an action that fades out an object
 
 {% stepper %}
 {% step %}
-### Create the 3D object that will fade out
+**Create the 3D object that will fade out**
 
 A. Add a 3D object to the scene.
 
@@ -339,7 +315,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the EntityFadeOut action
+**Add the** _EntityFadeOut_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -353,13 +329,7 @@ D. Add an **Action** and select **EntityFadeOut**. To customize how long before 
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntityToggleEnabled
-
-**Create An Action That Toggles An Object's Enabled State**
+### EntityToggleEnabled
 
 This guide provides instructions for setting up the **EntityToggleEnabled** action. In the sample app, every time the avatar enters the blue trigger area, a notification is sent to the purple box to toggle it’s enabled state.
 
@@ -367,9 +337,11 @@ This guide provides instructions for setting up the **EntityToggleEnabled** acti
 
 In this example, a trigger is created and when the avatar or other objects enter the trigger area, an action sends a notification to toggle another object's enabled state. Any object can be used as a trigger, as long as the object has a collision component.
 
+#### **Create an action that toggles an object's enabled state**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -383,7 +355,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the NotificationCenterPublish action
+**Add the** _NotificationCenterPublish_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -399,7 +371,7 @@ E. Create a unique name for the notification and add it to the **notification na
 {% endstep %}
 
 {% step %}
-### Create a 3D object that will have it's enabled state toggled
+**Create a 3D object that will have it's enabled state toggled**
 
 A. Add a 3D object to the scene.
 
@@ -409,7 +381,7 @@ B. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the NotificationCenterSubscribe trigger
+**Add the** _NotificationCenterSubscribe_ **trigger**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 

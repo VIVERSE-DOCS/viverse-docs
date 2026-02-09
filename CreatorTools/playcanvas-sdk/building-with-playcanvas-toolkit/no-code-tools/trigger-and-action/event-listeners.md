@@ -1,29 +1,29 @@
 ---
 description: >-
-  This document provides several guides that can be used to setup event
-  listeners in a VIVERSE project. The event listeners use triggers. Triggers can
-  be configured to perform actions once activated.
+  This page provides several guides that can be used to setup event listeners in
+  a VIVERSE project. The event listeners use triggers. Triggers can be
+  configured to perform actions once activated.
 ---
 
 # Event Listeners
 
 ***
 
-## EntitySubscribeTriggerEnter
+### EntitySubscribeTriggerEnter
 
-**Create A Trigger Based On When An Object Enters An Area**
-
-This guide provides instructions for setting up the **EntitySubscribeTriggerEnter** trigger. In the sample app, the trigger areas are outlined in blue. Once the avatar enters into the blue area, an action occurs.
+This guide provides instructions for setting up the **EntitySubscribeTriggerEnter** trigger. In the sample app below, the trigger areas are outlined in blue. Once the avatar enters into the blue area, an action occurs.
 
 | <img src="../../../../.gitbook/assets/image (400).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (401).png" alt="" data-size="original"> |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | The avatar is outside the blue trigger area and the gold coin is not visible.       | The avatar has entered the blue trigger area and the gold coin is visible.          |
 
-In this example, a trigger area is created and when the avatar enters the trigger area, an action is initiated. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
+In our example above, a trigger area is created. When the avatar enters the trigger area, an action is then initiated. Any object can be used as a trigger, as long as the object has a collision component. Our example uses a 3D box as the trigger area.
+
+#### **Create a trigger for when an object enters an area**
 
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -37,7 +37,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the **EntitySubscribeTriggerEnter** trigger
+**Add the** _EntitySubscribeTriggerEnter_ **trigger**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -53,13 +53,7 @@ E. Add an object that will be enabled when the avatar enters the trigger area. T
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntitySubscribeTriggerLeave
-
-**Create A Trigger Based On When An Object Leaves An Area**
+### EntitySubscribeTriggerLeave
 
 This guide provides instructions for setting up the **EntitySubscribeTriggerLeave** trigger. In the sample app, the trigger areas are outlined in blue. Once the avatar leaves the blue area, an action occurs.
 
@@ -69,9 +63,11 @@ This guide provides instructions for setting up the **EntitySubscribeTriggerLeav
 
 In this example, a trigger area is created and when the avatar leaves the trigger area, an action is initiated. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
 
+#### **Create a trigger for when an object leaves an area**
+
 {% stepper %}
 {% step %}
-### Create a trigger area
+**Create a trigger area**
 
 A. Create a new **3D Box** entity.
 
@@ -85,7 +81,7 @@ D. Adding a material is optional. A transparent material has been added so that 
 {% endstep %}
 
 {% step %}
-### Add the **EntitySubscribeTriggerLeave** trigger
+**Add the** _EntitySubscribeTriggerLeave_ **trigger**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -101,13 +97,7 @@ E. Add an object that will be disabled when the avatar leaves the trigger area. 
 {% endstep %}
 {% endstepper %}
 
-
-
-
-
-## EntitySubscribeCollisionStart
-
-**Create A Trigger Based On When An Object Collides With Another Object**
+### EntitySubscribeCollisionStart
 
 This guide provides instructions for setting up the **EntitySubscribeCollisionStart** trigger. In the sample app, the **golden\_coin** is a trigger. Once the avatar collides with the **golden\_coin**, an action occurs.
 
@@ -117,9 +107,11 @@ This guide provides instructions for setting up the **EntitySubscribeCollisionSt
 
 In this example, a trigger is created and when the avatar collides with the trigger, an action is initiated. Any object can be used as a trigger, as long as the object has a collision component. Because this specific example uses a 3D object that the avatar can collide with, a **RigidBody** component needs to be added. In this example, the object **golden\_coin** is used, but a simple cube will suffice.
 
+#### **Create a trigger for when an object collides with another object**
+
 {% stepper %}
 {% step %}
-### Create the 3D object that the avatar will collide with
+**Create the 3D object that the avatar will collide with**
 
 A. Add 3D object to the scene.
 
@@ -133,7 +125,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the EntitySubscribeCollisionStart trigger
+**Add the** _EntitySubscribeCollisionStart_ **trigger**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -147,11 +139,7 @@ D. Add an **Action** and select **EntityDisable.**
 {% endstep %}
 {% endstepper %}
 
-
-
-## EntitySubscribeCollisionEnd&#x20;
-
-**Create A Trigger Based On When An Object Stops Colliding With Another Object**
+### EntitySubscribeCollisionEnd&#x20;
 
 This guide provides instructions for setting up the **EntitySubscribeCollisionEnd** trigger. In the sample app, a flattened 3D cube is a trigger. Once the avatar stops colliding with the cube, an action occurs.
 
@@ -161,9 +149,11 @@ This guide provides instructions for setting up the **EntitySubscribeCollisionEn
 
 In this example, a trigger is created and when the avatar or other objects collide with the trigger, an action is initiated. Any object can be used as a trigger, as long as the object has a collision component. Because this specific example uses a 3D object that the avatar can collide with, a **RigidBody** component needs to be added.
 
+#### **Create A Trigger Based On When An Object Stops Colliding With Another Object**
+
 {% stepper %}
 {% step %}
-### Create the 3D object that the avatar will collide with
+**Create the 3D object that the avatar will collide with**
 
 A. Add 3D object to the scene.
 
@@ -177,7 +167,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the EntitySubscribeCollisionEnd trigger
+**Add the** _EntitySubscribeCollisionEnd_ **trigger**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -191,11 +181,7 @@ D. Add an **Action** and select **EntityFadeOut.**
 {% endstep %}
 {% endstepper %}
 
-
-
-## NotificationCenterSubscribeEntityPicking
-
-**Create A Trigger Based On When A User Clicks An Object**
+### NotificationCenterSubscribeEntityPicking
 
 This guide provides instructions for setting up the **NotificationCenterSubscribeEntityPicking** trigger. In the sample app, the user clicks on the buttons to show and hide the whale.
 
@@ -203,11 +189,13 @@ This guide provides instructions for setting up the **NotificationCenterSubscrib
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | The whale is visible.                                                               | When the user clicks on the whale, the whale is disabled.                           |
 
-In this example, a trigger area is created on a button. When the user clicks on the trigger area, an action causes the 3D model to be disabled. Any object can be used as a trigger, as long as the object has a collision component. &#x20;
+In this example, a trigger area is created on a button. When the user clicks on the trigger area, an action causes the 3D model to be disabled. Any object can be used as a trigger, as long as the object has a collision component.
+
+#### **Create a trigger for when a user clicks an object**
 
 {% stepper %}
 {% step %}
-### Create the 3D object that the user will click on
+**Create the 3D object that the user will click on**
 
 A. Add a 3D object to the scene. In this example, a button is used, but any 3D object will work.
 
@@ -219,7 +207,7 @@ C. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the NotificationCenterSubscribeEntityPicking trigger&#x20;
+**Add the** _NotificationCenterSubscribeEntityPicking_ **trigger**&#x20;
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -235,9 +223,7 @@ C. Add an **Action** and select **EntityDisable.** Add an object that will be di
 
 
 
-## NotificationCenterPublish & NotificationCenterSubscribe
-
-**An Action And Trigger Combination That Allows An Object To Send A Notification And Another Object Receives The Notification**
+### NotificationCenterPublish & NotificationCenterSubscribe
 
 This guide provides instructions for setting up the **NotificationCenterPublish** action and the **NotificationCenterSubscribe** trigger. In the sample app, every time the avatar enters the green trigger area, a notification is sent to the wall and the collider on the wall is toggled on/off. The wall is green when the avatar can pass through and red when the avatar can not pass through.
 
@@ -247,9 +233,11 @@ This guide provides instructions for setting up the **NotificationCenterPublish*
 
 In this example, a trigger is created and when the avatar enters the trigger area, an action sends a notification to another object. The other object receives the notification via trigger, then initiates an action.&#x20;
 
+#### **Action and Trigger combination to send a notification from one object to another**
+
 {% stepper %}
 {% step %}
-### Create the 3D object that will send the notification
+**Create the 3D object that will send the notification**
 
 A. Add a 3D object to the scene.
 
@@ -261,7 +249,7 @@ C. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the NotificationCenterPublish action
+**Add the** _NotificationCenterPublish_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 
@@ -277,7 +265,7 @@ E. Create a unique notification name and add it to the **notification name to pu
 {% endstep %}
 
 {% step %}
-### Create the 3D object that will receive the notification
+**Create the 3D object that will receive the notification**
 
 A. Add a 3D object to the scene.
 
@@ -291,7 +279,7 @@ D. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the NotificationCenterSubscribe action
+**Add the** _NotificationCenterSubscribe_ **action**
 
 A. In the VIVERSE extension, select the **TriggerAndAction** plugin for the **Select plugins** dropdown.
 

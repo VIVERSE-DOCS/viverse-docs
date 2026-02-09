@@ -6,6 +6,8 @@ description: >-
 
 # Camera Management: Settings and Switching
 
+***
+
 VIVERSE provides a powerful camera system alongside its player controller and input scripting that allows developers to switch between different views and control various camera behaviors. This guide will show you how to implement camera switching in your VIVERSE project.
 
 ### Basic Camera Switching

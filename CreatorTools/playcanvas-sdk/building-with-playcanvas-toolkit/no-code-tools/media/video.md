@@ -8,9 +8,9 @@ description: >-
 
 ***
 
-## Media Video
+### Media Video
 
-**Adding Video And Extending Video Functionality**
+#### Adding Video And Extending Video Functionality
 
 | <img src="../../../../.gitbook/assets/image (25) (1).png" alt="" data-size="original"> | <img src="../../../../.gitbook/assets/image (26) (1).png" alt="" data-size="original"> |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -20,7 +20,7 @@ description: >-
 
 {% stepper %}
 {% step %}
-### Setup video
+#### Setup video
 
 A. Create a new entity
 
@@ -32,7 +32,7 @@ C. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the video module
+#### Add the video module
 
 A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown.
 

@@ -10,7 +10,7 @@ description: >-
 
 Modular JavaScript is an evolved form of JavaScript in which related functionality is kept in a single file or module and that functionality is exposed when required using import and export functionality.&#x20;
 
-## CommonJS (NodeJS) example
+### CommonJS (NodeJS) example
 
 Here's a comparison between MJS and CommonJS. The latter requires node.js, and relies on `require()`  statements to import other scripts/modules:
 
@@ -44,7 +44,7 @@ export const greet = (name) => {
 };
 ```
 
-## MJS PlayCanvas Script Structure
+### MJS PlayCanvas Script Structure
 
 Further, MJS is now supported by PlayCanvas and the VIVERSE Create SDK, to make script imports easier and mroe modern. Here's an example of a script called `GameManager.mjs` (critically, the file extension is `.mjs`, not just `.js` as usual) created for PlayCanvas, extending its built-in `Script` class:
 
@@ -68,7 +68,7 @@ export class GameManager extends Script {
 }
 ```
 
-## Accessing a function in a MJS(.mjs) file from regular JavaScript (.js) code example
+### Accessing a function in a MJS(.mjs) file from regular JavaScript (.js) code example
 
 **DoorRotator.mjs** can can be added to a PlayCanvas entity. This allows functions to be executed on that entity such as a door that needs to be opened. After adding additional code inside the rotateDoor function, this function can be called from another script to open the door.
 
@@ -114,9 +114,7 @@ TriggerArea.prototype.onTriggerEnter = function(entity) {
 }
 ```
 
-
-
-## Debugging MJS files
+### Debugging MJS files
 
 The process for debugging MJS files is simple. You can add the `debugger;` statement to any of the methods.
 
@@ -149,7 +147,7 @@ When testing your project in PlayCanvas Launch mode, the Chrome Dev Tools can al
 
 {% stepper %}
 {% step %}
-### Right-click on the viewing area of the project
+#### Right-click on the viewing area of the project
 
 
 
@@ -157,7 +155,7 @@ When testing your project in PlayCanvas Launch mode, the Chrome Dev Tools can al
 {% endstep %}
 
 {% step %}
-### Select Inspect
+#### Select Inspect
 
 <figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -167,19 +165,19 @@ Open up Chrome DevTools through browser menu
 
 {% stepper %}
 {% step %}
-### Click the Customize and control Google Chrome Button in the browser
+#### Click the Customize and control Google Chrome Button in the browser
 
 <figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### Click More Tools
+#### Click More Tools
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="356"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
-### Click Developer Tools
+#### Click Developer Tools
 
 <figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
@@ -201,7 +199,7 @@ Breakpoints can also be set manually by clicking on the line code number in the 
 
 <figure><img src="../../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
 
-## MJS file with custom properties and methods example
+### MJS file with custom properties and methods example
 
 **GameManager.mjs** - GameManager script can be used to control the different game states of the project. This example script has multiple properties of different types added (including arrays), some with default values. In addition to the properties, there are multiple functions added that show how these properties can be utilized and their values are printed to the console.
 
@@ -391,7 +389,7 @@ class CustomObject {
 
 
 
-## Key Examples
+### Key Examples
 
 <details>
 

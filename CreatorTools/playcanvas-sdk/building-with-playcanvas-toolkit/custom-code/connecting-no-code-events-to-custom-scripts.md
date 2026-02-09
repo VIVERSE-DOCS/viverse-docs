@@ -73,15 +73,15 @@ export const ActionTypes = {
 
 
 
-## Trigger usage
+### Trigger usage
 
-**Calling custom code from script when the player clicks on an object**
+#### Calling custom code from script when the player clicks on an object
 
 Let's say we want to give our players the ability to click on an object and when that object is clicked, we want to call a method from a custom script. This is a good use-case for the **NotificationCenterSubscribeEntityPicking** trigger. In this example, when the user clicks on the specific object, a door opens.
 
 {% stepper %}
 {% step %}
-### Add the NotificationCenterSubscribeEntityPicking trigger
+#### Add the NotificationCenterSubscribeEntityPicking trigger
 
 A. Select the object that the player will click on and add the **NotificationCenterSubscribeEntityPicking** trigger using the PlayCanvas extension. No need to add an action.
 
@@ -89,7 +89,7 @@ A. Select the object that the player will click on and add the **NotificationCen
 {% endstep %}
 
 {% step %}
-### Create the ClickableObject.mjs script
+#### Create the ClickableObject.mjs script
 
 A. Create the following script and name it **ClickableObject.mjs**.
 
@@ -127,7 +127,7 @@ B. Add **ClickableObject.mjs** script to the object that the player will click o
 {% endstep %}
 
 {% step %}
-### Create the DoorRotator.mjs script
+#### Create the DoorRotator.mjs script
 
 A. Create the following script and name it **DoorRotator.mjs**.
 
@@ -161,7 +161,7 @@ B. Add the **DoorRotator.mjs** script to an object or entity.
 {% endstep %}
 
 {% step %}
-### Confirm the event is being fired
+#### Confirm the event is being fired
 
 A. Test the functionality by publishing to VIVERSE and clicking on the object that has the **ClickableObject.mjs** script added to it.&#x20;
 
@@ -171,17 +171,15 @@ B. Confirm the event was fired by checking in the browser debug console.
 {% endstep %}
 {% endstepper %}
 
+### Tigger usage with more flexibility
 
-
-## Tigger usage with more flexibility
-
-**Calling custom code from script when the player clicks on an object and making the script more flexible**
+#### Calling custom code from script when the player clicks on an object and making the script more flexible
 
 In the previous example, we created a custom script called **ClickableObject.mjs.** The script added functionality that rotates a door whenever a specific object is clicked.  Let's say there was another scenario where we wanted to have a 2nd object that the user could click on, but we wanted to fire a different event other than the rotateDoor method. We could easily copy our **ClickableObject.mjs** script, give it a different name and change the rotateDoor call inside the script. The downside here is that we now have 2 scripts that we have to maintain. As alternative, we can remove the rotateDoor event call, add an attribute to our script for the event name and then add the different event names through the PlayCanvas editor.
 
 {% stepper %}
 {% step %}
-### Update the ClickableObject.mjs script
+#### Update the ClickableObject.mjs script
 
 A. Modify the code in **ClickableObject.mjs** script to the following.
 
@@ -225,7 +223,7 @@ export class ClickableObject extends Script {
 {% endstep %}
 
 {% step %}
-### Add the event name in to the script inside the PlayCanvas editor
+#### Add the event name in to the script inside the PlayCanvas editor
 
 A. Add the **DoorRotator:rotateDoor** text to the **Event To Fire** attribute text field.
 
@@ -237,7 +235,7 @@ B. If we added **ClickableObject.mjs** to a 2nd object and wanted to fire a diff
 {% endstep %}
 
 {% step %}
-### Confirm the event is being fired
+#### Confirm the event is being fired
 
 A. Test the functionality by publishing to VIVERSE and clicking on the object that has the **ClickableObject.mjs** script added to it.&#x20;
 
@@ -247,7 +245,7 @@ B. Confirm the event was fired by checking in the browser debug console. It shou
 {% endstep %}
 {% endstepper %}
 
-## Additional trigger usage
+### Additional trigger usage
 
 **Calling custom code from script when a player enters a trigger area**
 
@@ -255,7 +253,7 @@ Another common scenario that creators may face is firing an event when a player 
 
 {% stepper %}
 {% step %}
-### Add the EntitySubscribeTriggerEnter trigger
+#### Add the EntitySubscribeTriggerEnter trigger
 
 A. Select the trigger area that the player will walk through and add the **EntitySubscribeTriggerEnter** trigger using the PlayCanvas extension. No need to add an action.
 
@@ -263,7 +261,7 @@ A. Select the trigger area that the player will walk through and add the **Entit
 {% endstep %}
 
 {% step %}
-### Create the TriggerArea.mjs script
+#### Create the TriggerArea.mjs script
 
 A. Create the following script and name it **TriggerArea.mjs**.
 
@@ -301,7 +299,7 @@ B. Add **TriggerArea.mjs** script to trigger area that the player will walk thro
 {% endstep %}
 
 {% step %}
-### Confirm the event is being fired
+#### Confirm the event is being fired
 
 A. Test the functionality by publishing to VIVERSE and walking through the trigger area that has the **TriggerArea.mjs** script added to it.&#x20;
 
@@ -311,15 +309,15 @@ B. Confirm the event was fired by checking in the browser debug console. It shou
 {% endstep %}
 {% endstepper %}
 
-## Action usage
+### Action usage
 
-**Calling custom code from script when an action executed**
+#### Calling custom code from script when an action executed
 
 Let's say we want to give our players the ability to click on an object and when that object is clicked, we want to call a method from a custom script. This is a good use-case for the **NotificationCenterSubscribeEntityPicking** trigger. In this example, when the user clicks on the specific object, a door opens.
 
 {% stepper %}
 {% step %}
-### Add the EntitySubscribeTriggerEnter trigger and the EntityDisable action
+#### Add the EntitySubscribeTriggerEnter trigger and the EntityDisable action
 
 A .Select the trigger area that the player will walk through and add the **EntitySubscribeTriggerEnter** trigger along with the EntityDisable action using the PlayCanvas extension.
 
@@ -327,7 +325,7 @@ A .Select the trigger area that the player will walk through and add the **Entit
 {% endstep %}
 
 {% step %}
-### Create the DisabledObject.mjs script
+#### Create the DisabledObject.mjs script
 
 A. Create the following script and name it **DisableObject.mjs**.
 
@@ -367,7 +365,7 @@ B. Add **DisabledObject.mjs** script to trigger area that the player will walk t
 {% endstep %}
 
 {% step %}
-### Confirm the event is being fired
+#### Confirm the event is being fired
 
 A. Test the functionality by publishing to VIVERSE and walking through the trigger area that has the **DisabledObject.mjs** script added to it.&#x20;
 

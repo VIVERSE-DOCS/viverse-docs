@@ -9,9 +9,7 @@ description: >-
 
 ***
 
-## EntityToggleCollision
-
-**An Action That Toggles An Object's Collider On/Off**
+### EntityToggleCollision
 
 This guide provides instructions for setting up the **EntityToggleCollision** action. In the sample app, every time the avatar enters the green trigger area, a notification is sent to the wall and the collider on the wall is toggled on/off. The wall is green when the avatar can pass through and red when the avatar can not pass through.
 
@@ -19,11 +17,13 @@ This guide provides instructions for setting up the **EntityToggleCollision** ac
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Before the avatar enters the green trigger area, the wall is red and the avatar can not pass through it. | Once the avatar enters the green trigger area, the collider on the wall is toggled to be disabled. The wall is green and the avatar can pass through it. |
 
-In this example, a trigger is created and when the avatar enters the trigger area, an action sends a notification to toggle another object's collider on/off. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.&#x20;
+In this example, a trigger is created and when the avatar enters the trigger area, an action sends a notification to toggle another object's collider on/off. Any object can be used as a trigger, as long as the object has a collision component. This example uses a 3D box as the trigger area.
+
+#### **An action that toggles an object's collider on/off**
 
 {% stepper %}
 {% step %}
-### Create the 3D object that will send the notification
+**Create the 3D object that will send the notification**
 
 A. Add a 3D object to the scene.
 

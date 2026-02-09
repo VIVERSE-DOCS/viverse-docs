@@ -6,7 +6,7 @@ description: This page details the basics of Edit Mode for decorating your world
 
 ***
 
-## Getting Started with Edit Mode
+### Getting Started with Edit Mode
 
 Edit Mode is available on all worlds you own or where you have been added as a co-owner/moderator.  If you are a world owner or co-owner, you will have access to the "Edit Mode" button when you join the world.
 
@@ -22,11 +22,11 @@ The Edit Mode interface has three sections, the performance report in the top-le
 
 In order to save your customizations and have others see them, you will need to select the "Close edit mode" button and exit Edit Mode.
 
-## Viewing the Performance Report
+### Viewing the Performance Report
 
 {% stepper %}
 {% step %}
-### Open the Performance requirement link
+#### Open the Performance requirement link
 
 Step 1. Click **Performance requirement** (A).
 
@@ -34,7 +34,7 @@ Step 1. Click **Performance requirement** (A).
 {% endstep %}
 
 {% step %}
-### View the world's VRAM consumption
+#### View the world's VRAM consumption
 
 Step 1. View the **Performance Manager** report (B).
 
@@ -42,7 +42,7 @@ Step 1. View the **Performance Manager** report (B).
 {% endstep %}
 {% endstepper %}
 
-## Adding and Handling Media
+### Adding and Handling Media
 
 Media can be added from several different sources through the toolbar in the bottom of the Edit Mode interface: Sketchfab, Marketplace assets, uploaded assets, and assets linked from external sources. For more information on the types of media you can add and their settings, see [this page](supported-media-and-settings.md).
 
@@ -52,7 +52,7 @@ When media are added to your world, you can access and update their properties t
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-29 at 4.31.24 PM.png" alt="" width="375"><figcaption><p>The Edit Mode object list</p></figcaption></figure>
 
-## Adding Collaborators
+### Adding Collaborators
 
 You can add five additional VIVERSE accounts as co-owners of your world. By promoting these users, you are giving them full control over Edit Mode, moderation tools, and world settings for your world. Co-owners can be removed and will not be able to delete the world on your behalf. Co-owners can be added outside of Edit Mode by going to the hamburger settings button in the top-right of your world, selecting the "Permissions" tab, and adding Co-Owners by their user id or display name.
 

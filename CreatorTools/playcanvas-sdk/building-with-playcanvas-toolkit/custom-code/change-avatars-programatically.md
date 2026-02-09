@@ -1,10 +1,12 @@
 ---
 description: >-
   Control how users see and express themselves with the .changeAvatar() method
-  on LocalPlayer
+  on LocalPlayer.
 ---
 
 # Change Avatars Programatically
+
+***
 
 If you don't want to use default VIVERSE avatars for your world, the PlayCanvas SDK features a simple method to swap to any .vrm avatar asset in your project.
 

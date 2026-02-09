@@ -1,22 +1,22 @@
 ---
 description: >-
-  Learn how to install VIVERSE Chrome Extension for PlayCanvas Editor, create
-  your first world and publish it to VIVERSE Create platform
+  Learn how to install the VIVERSE Chrome Extension for PlayCanvas Editor,
+  create your first world, then publish it to VIVERSE.
 ---
 
 # Starting with PlayCanvas Toolkit
 
 ***
 
-## Introduction
+### Introduction
 
-PlayCanvas is an open-source game engine designed to advance the development of 3D web games, interactive content and rich multimedia. Unlike similar WebGL engines like Three.js or Babylon, PlayCanvas comes with sophisticated in-browser Editor (inspired by early Unity 2.x - 3.x), which provides its users with a rich set of tools — allowing to assemble scenes from imported assets, setup realtime and baked lighting, write custom scripts, create animation graphs, and much much more.
+PlayCanvas is an open-source game engine designed to advance the development of 3D web games, interactive content and rich multimedia. Unlike similar WebGL engines like Three.js or Babylon, PlayCanvas comes with sophisticated in-browser Editor (inspired by early Unity 2.x - 3.x), which provides its users with a rich set of tools — allowing to assemble scenes from imported assets, setup real-time and baked lighting, write custom scripts, create animation graphs, and much much more.
 
 To make creator experience even smoother, VIVERSE has developed a special Extension for Chrome browsers which extends PlayCanvas Editor functionality with additional set of no-code tools and publishing options. It provides common building blocks like Triggers, Actions and Quests, enables Player locomotion and Avatar system in your project, and allows one-click testing and publishing right from the Editor.
 
 Below is a useful set of tutorials to help you get started with VIVERSE PlayCanvas Extension. We assume you're already familiar with PlayCanvas Editor itself and have PlayCanvas account. If not, please feel free to explore [PlayCanvas User Manual](https://developer.playcanvas.com/user-manual/) first!
 
-## Install PlayCanvas Extension
+### Install PlayCanvas Extension
 
 {% columns %}
 {% column width="66.66666666666666%" %}
@@ -60,7 +60,7 @@ Below is a useful set of tutorials to help you get started with VIVERSE PlayCanv
 {% endcolumn %}
 {% endcolumns %}
 
-## Create and publish your first project
+### Create and publish your first project
 
 {% hint style="info" %}
 Before proceeding any further, we assume you're familiar with the basics of PlayCanvas Editor. If you're looking for a comprehensive introduction to it — please refer to a dedicated [PlayCanvas Editor Manual](https://developer.playcanvas.com/user-manual/editor/) first!
@@ -138,7 +138,7 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 
 {% embed url="https://www.youtube.com/watch?v=w3MFHo4v69E" %}
 
-## "Factory Reset" PlayCanvas Extension
+### "Factory Reset" PlayCanvas Extension
 
 > Sometimes issues in the installation process can produce persistent bugs that are only fixed by fully resetting the Extension. If you're experiencing these bugs please follow the steps below
 

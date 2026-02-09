@@ -8,7 +8,7 @@ description: >-
 
 ***
 
-## Adding Media
+### Adding Media
 
 Media are added to VIVERSE worlds in Edit Mode using the toolbar at the bottom of the screen. Detailed below are the categories of assets that correspond with the buttons in this toolbar.
 
@@ -19,7 +19,7 @@ Media are added to VIVERSE worlds in Edit Mode using the toolbar at the bottom o
 | Search for and embed assets from [Sketchfab's 3D asset catalog](https://sketchfab.com/3d-models). Please note that not all assets may be optimized for webXR and properties, such as animations, might not transfer. | Import assets associated with your account which you have uploaded to or purchased from the VIVERSE marketplace. | Upload files to your world from your computer.    | Embed assets hosted on servers external to VIVERSE.                             |
 | GLB/glTF 2.0 files                                                                                                                                                                                                   | GLB/glTF 2.0 files                                                                                               | JPG, PNG, GIF, PDF, MP4, MP3, GLB/glTF, VRM files | Websites, Images, Videos, Audio files, PDFs, .m3u8, YouTube videos/live streams |
 
-## Media Settings
+### Media Settings
 
 Once media have been uploaded, you are able to control several of its properties through the asset's details:
 
@@ -32,7 +32,7 @@ Once media have been uploaded, you are able to control several of its properties
 
 
 
-### Media Playback Settings
+#### Media Playback Settings
 
 Configuring media playback settings for **MP4s** can be done via **Audio** (A) toggle.
 
@@ -44,7 +44,7 @@ Configuring media playback settings for **MP3s** can be done via **Audio** (A) t
 
 
 
-### Adding Interactions to VRMs
+#### Adding Interactions to VRMs
 
 To add interactions to VRMs, click **Add** button (A) under **Interactions**. Configure the interaction  in the panel (B).
 

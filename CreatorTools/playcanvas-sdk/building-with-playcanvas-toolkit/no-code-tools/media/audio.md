@@ -6,9 +6,11 @@ description: >-
 
 # Audio
 
-## Media Audio
+***
 
-**Adding Audio And Extending Audio Functionality**
+### Media Audio
+
+#### **Adding Audio and Extending Audio Functionality**
 
 <figure><img src="../../../../.gitbook/assets/image (511).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -18,7 +20,7 @@ An audio clip has been added to the scene.
 
 {% stepper %}
 {% step %}
-### Setup audio
+#### Setup audio
 
 A. Create a new entity.
 
@@ -28,7 +30,7 @@ B. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the audio module
+#### Add the audio module
 
 A. In the VIVERSE extension, select the **Media** plugin for the **Select plugins** dropdown.
 

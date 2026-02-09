@@ -8,9 +8,9 @@ description: >-
 
 ***
 
-## Seat
+### Seat
 
-**Add functionality to allow avatar to sit down**
+#### Add functionality to allow avatar to sit down
 
 | <img src="../../../.gitbook/assets/image (544).png" alt="" data-size="original">                                            | <img src="../../../.gitbook/assets/image (545).png" alt="" data-size="original">                                          |
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -20,7 +20,7 @@ description: >-
 
 {% stepper %}
 {% step %}
-### Add the chair&#x20;
+#### Add the chair&#x20;
 
 A. In this example, the chairs and table have been created in the scene under a single entity.
 
@@ -30,7 +30,7 @@ B. Click the **Edit Viverse Extension** button.
 {% endstep %}
 
 {% step %}
-### Add the Seat module
+#### Add the Seat module
 
 A. In the VIVERSE extension, select the **Seat** plugin for the **Select plugins** dropdown.
 
@@ -42,7 +42,7 @@ C. Add a value to the **number of seats** field.
 {% endstep %}
 
 {% step %}
-### Adjust the sitting boundary
+#### Adjust the sitting boundary
 
 A. The **Seat** is automatically generated.
 
@@ -52,7 +52,7 @@ B. Adjust the **Radius** on the **Collision** component to modify the sitting bo
 {% endstep %}
 
 {% step %}
-### View the SeatHintFarAway icon
+#### View the SeatHintFarAway icon
 
 A. The **SeatHintFarAway** icon is a white dot that is automatically generated and hovers above each seat.
 
@@ -60,7 +60,7 @@ A. The **SeatHintFarAway** icon is a white dot that is automatically generated a
 {% endstep %}
 
 {% step %}
-### Adjust the boundary for the SeatHintFarAway icon
+#### Adjust the boundary for the SeatHintFarAway icon
 
 A. The **SeatHintFarAwayTriggerSphere** is automatically generated.
 
@@ -70,7 +70,7 @@ B. Adjust the **Radius** on the **Collision** component to modify the distance a
 {% endstep %}
 
 {% step %}
-### View the SeatHint button
+#### View the SeatHint button
 
 A. The **SeatHint** button has an icon of a sitting person. The button is automatically generated and hovers above each seat. When clicked, the avatar will sit.
 
@@ -78,7 +78,7 @@ A. The **SeatHint** button has an icon of a sitting person. The button is automa
 {% endstep %}
 
 {% step %}
-### Adjust the boundary for the SeatHint button
+#### Adjust the boundary for the SeatHint button
 
 A. The **SeatHintTriggerSphere** is automatically generated.
 

@@ -1,7 +1,7 @@
 ---
 description: >-
   Get download link to the latest version of VIVERSE Extension and explore the
-  changelog
+  changelog.
 ---
 
 # PlayCanvas Toolkit Changelog

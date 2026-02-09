@@ -5,7 +5,7 @@ description: >-
   loading screens, and deployment examples.
 ---
 
-# UnityWebGL Example
+# Unity WebGL
 
 ***
 
@@ -26,7 +26,7 @@ While VIVERSE is a great place for multiplayer games with networked avatars — 
 In this tutorial, we will be using Unity v6.1, however any WebGL-compatible version of Unity should be supported.
 {% endhint %}
 
-### Step 1. Configure Your Unity Project
+### Configure Your Unity Project
 
 {% stepper %}
 {% step %}
@@ -52,7 +52,7 @@ Compression is supported on VIVERSE, however you can enable fallback if you are 
 {% endstep %}
 {% endstepper %}
 
-### Step 2. Build and Publish to VIVERSE
+### Build and Publish to VIVERSE
 
 {% stepper %}
 {% step %}
@@ -239,7 +239,7 @@ Verify installation: `Edit → Preferences → External Tools` or check installe
 
 ## Unity Formatting and Custom Loading Screens
 
-An example of a fullscreen webgl template can be found [here](../../samples/Unity/WebGL_FullScreen_Template.zip). The instructions for creating a webgl fullscreen template are below.
+An example of a fullscreen WebGL template can be found [here](../../samples/Unity/WebGL_FullScreen_Template.zip). The instructions for creating a WebGL fullscreen template are below.
 
 ### Understanding WebGL Templates
 
@@ -291,7 +291,7 @@ Custom loading screens enhance user experience by:
 * Optional loading text or animations
 * Styled with CSS for custom appearance
 
-### Step 1. Create the WebGL Template Folder Structure
+### Create the WebGL Template Folder Structure
 
 {% stepper %}
 {% step %}
@@ -309,21 +309,21 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 {% endstep %}
 
 {% step %}
-#### Create FullScreen Template Folder
+#### Create Fullscreen Template Folder
 
 1. Right-click on `WebGLTemplates` → Create → Folder
-2. Name it `FullScreen` (this will be the template name visible in Build Settings)
+2. Name it `Fullscreen` (this will be the template name visible in Build Settings)
 3. Unity will automatically detect this folder as a WebGL template
 {% endstep %}
 {% endstepper %}
 
-### Step 2. Create the Fullscreen HTML Template
+### Create the Fullscreen HTML Template
 
 {% stepper %}
 {% step %}
 #### Create index.html File
 
-1. Right-click on the `FullScreen` folder → Show in Explorer (Windows) or Reveal in Finder (Mac)
+1. Right-click on the `Fullscreen` folder → Show in Explorer (Windows) or Reveal in Finder (Mac)
 2. Create a new text file named `index.html` (not `index.html.txt`)
 3. This file will serve as the main HTML template for your WebGL build
 {% endstep %}
@@ -527,12 +527,12 @@ Open `index.html` and add the following fullscreen template code:
 #### Refresh Unity Project
 
 1. Return to Unity Editor
-2. The `index.html` file should appear in the Project window under `Assets/WebGLTemplates/FullScreen/`
+2. The `index.html` file should appear in the Project window under `Assets/WebGLTemplates/Fullscreen/`
 3. If not visible, right-click in Project window → Refresh, or press `Ctrl+R` (Windows) / `Cmd+R` (Mac)
 {% endstep %}
 {% endstepper %}
 
-### Step 3. Customize the Loading Screen
+### Customize the Loading Screen
 
 {% stepper %}
 {% step %}
@@ -551,7 +551,7 @@ All elements are centered on screen using CSS transforms.
 {% step %}
 #### Replace Default Loading Images
 
-1. In the `FullScreen` folder, replace the default Unity loading images with your custom assets:
+1. In the `Fullscreen` folder, replace the default Unity loading images with your custom assets:
    * `unity-logo-dark.png` (154×130px recommended) - Your logo/branding
    * `progress-bar-empty-dark.png` (141×18px) - Progress bar background
    * `progress-bar-full-dark.png` (141×18px) - Progress bar fill image
@@ -618,7 +618,7 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 {% endstep %}
 {% endstepper %}
 
-### Step 4. Configure Build Settings
+### Configure Build Settings
 
 {% stepper %}
 {% step %}
@@ -630,11 +630,11 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 {% endstep %}
 
 {% step %}
-#### Select the FullScreen Template
+#### Select the Fullscreen Template
 
 1. Click `Player Settings...` (or go to `Edit → Project Settings → Player`)
 2. In the Player Settings window, expand the `Publishing Settings` section
-3. Under `WebGL Template`, select `FullScreen` from the dropdown
+3. Under `WebGL Template`, select `Fullscreen` from the dropdown
 4. The template you created should now be available in this list
 {% endstep %}
 
@@ -662,7 +662,7 @@ For optimal VIVERSE deployment, configure these settings:
 {% endstep %}
 {% endstepper %}
 
-### Step 5. Build the WebGL Project
+### Build the WebGL Project
 
 {% stepper %}
 {% step %}
@@ -697,7 +697,7 @@ The `index.html` should be your custom fullscreen template with the loading scre
 {% endstep %}
 {% endstepper %}
 
-### Step 6. Test the Fullscreen Build Locally
+### Test the Fullscreen Build Locally
 
 {% stepper %}
 {% step %}
@@ -792,7 +792,7 @@ http-server -p 8000
 {% endstep %}
 {% endstepper %}
 
-### Step 8. Advanced Customization
+### Advanced Customization
 
 {% stepper %}
 {% step %}

@@ -2,20 +2,20 @@
 description: >-
   This document provides a guide that can be used to setup an entity that can be
   picked up and threw out. Users in the World can pick the object with "G",
-  Throw it with "T", and put it down with "H"
+  Throw it with "T", and put it down with "H".
 ---
 
 # Pick and Throw
 
 ***
 
-## Pick and Throw
+### Pick and Throw
 
 This guide provides instructions for setting up the pick and throw object your Scene.
 
 {% stepper %}
 {% step %}
-### Create an entity that you wish to implement pick and throw.
+#### Create an entity that you wish to implement pick and throw.
 
 A. Create an new entity
 
@@ -29,7 +29,7 @@ D. Setup rigidbody and select "Dynamic" in Type
 {% endstep %}
 
 {% step %}
-### Setup Pick and Throw mechanism
+#### Setup Pick and Throw mechanism
 
 A. Select "PickAndThrow" in Select plugins
 

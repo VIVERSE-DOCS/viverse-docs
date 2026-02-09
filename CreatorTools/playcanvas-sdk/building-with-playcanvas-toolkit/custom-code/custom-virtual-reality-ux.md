@@ -1,8 +1,10 @@
 ---
-description: Use `XrService` to interact with virtual reality devices and controllers
+description: Use `XrService` to interact with virtual reality devices and controllers.
 ---
 
 # Custom Virtual Reality UX
+
+***
 
 WebXR experiences can run on desktop, mobile and virtual reality devices alike. Utilizing the `XrService` in the Create SDK, you can write custom code to manage VR controllers, locomotion settings, and XR session callbacks.
 

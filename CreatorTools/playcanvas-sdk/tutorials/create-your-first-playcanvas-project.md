@@ -1,7 +1,7 @@
 ---
 description: >-
   This document provides a guide for creating a project in PlayCanvas that can
-  be published to VIVERSE
+  be published to VIVERSE.
 ---
 
 # Create Your First PlayCanvas Project
@@ -16,9 +16,9 @@ Please follow the provided designer guideline [here](../../optimizing-for-the-we
 Make sure to disable any camera/character control entity in the scene. As it might conflict with VIVERSE avatar system.
 {% endhint %}
 
-| <div><figure><img src="../../.gitbook/assets/image (651).png" alt="" width="375"><figcaption></figcaption></figure></div> |
-| :-----------------------------------------------------------------------------------------------------------------------: |
-|                        Create a game with floor and walls. Use your avatar to move the ball around.                       |
+| <img src="../../.gitbook/assets/image (651).png" alt="" data-size="original"> |
+| :---------------------------------------------------------------------------: |
+|  Create a game with floor and walls. Use your avatar to move the ball around. |
 
 {% stepper %}
 {% step %}
