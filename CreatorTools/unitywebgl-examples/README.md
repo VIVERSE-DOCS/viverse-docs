@@ -747,7 +747,7 @@ http-server -p 8000
 {% endstep %}
 {% endstepper %}
 
-### Step 7. Deploy to VIVERSE
+### Deploy to VIVERSE
 
 {% stepper %}
 {% step %}
