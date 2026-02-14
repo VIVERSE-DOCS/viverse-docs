@@ -62,6 +62,7 @@
     * [Change Avatars Programatically](playcanvas-sdk/building-with-playcanvas-toolkit/custom-code/change-avatars-programatically.md)
     * [Custom Virtual Reality UX](playcanvas-sdk/building-with-playcanvas-toolkit/custom-code/custom-virtual-reality-ux.md)
 * [PlayCanvas Toolkit Changelog](playcanvas-sdk/playcanvas-toolkit-changelog.md)
+* [Starting with PlayCanvas Toolkit (v4)](playcanvas-sdk/starting-with-playcanvas-toolkit-v4.md)
 * [\[DEL\] PlayCanvas Extension Setup](playcanvas-sdk/playcanvas-extension-setup.md)
 * [\[DEL\] Publishing to VIVERSE](playcanvas-sdk/publishing-to-viverse.md)
 * [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-sdk/playcanvas-to-viverse-development-best-practices.md)
