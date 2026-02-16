@@ -1,12 +1,12 @@
 ---
-description: >-
-  Learn how to install VIVERSE Extension for PlayCanvas Editor, and create your
-  first world
+description: Learn how to install PlayCanvas Extension and create your first VIVERSE World
 hidden: true
 noIndex: true
 ---
 
-# Starting with PlayCanvas Toolkit (v4)
+# \[V4] Starting with PlayCanvas Toolkit
+
+***
 
 ### Introduction
 
