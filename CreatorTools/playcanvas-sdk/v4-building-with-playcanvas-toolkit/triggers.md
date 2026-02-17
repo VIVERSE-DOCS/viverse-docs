@@ -2,7 +2,7 @@
 
 ***
 
-## Introduction
+## Reference
 
 What is the role of Triggers in VIVERSE Framework?
 
@@ -39,7 +39,7 @@ Activates when another **Rigidbody** interacts with this Trigger. Supported inte
 * `CollisionStart` / `CollisionEnd` \
   Requires both **Collision** and **Rigidbody Components**
 
-It's possible to allow interactions only with the Player or some Entity with specific Tag. See **Collision Filter** for available options
+You can allow interactions only with the Player or some Entity with specific Tag. See **Collision Filter** for available options
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -97,7 +97,7 @@ Activates when this Seat Entity changes its state. Works in tandem with **Seat C
 {% endcolumn %}
 
 {% column width="50%" %}
-Activates when another Entity with **Action Component** fires `PublishNotification` event with particular `Event Name` matching the one in this Trigger. Frequently used to send / receive custom Notification Events between different Entities in your Scene
+Activates when another Entity with **Action Component** fires `PublishNotification` event with particular `Event Name` matching the one in this Trigger. You can use it to send / receive custom Notification Events between different Entities in your Scene
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -125,7 +125,7 @@ Some description
 
 ***
 
-## Usage Examples
+## Examples
 
 \[...]
 
