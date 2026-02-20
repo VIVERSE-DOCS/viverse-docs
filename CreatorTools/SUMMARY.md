@@ -65,6 +65,7 @@
 * [\[V4\] Starting with PlayCanvas Toolkit](playcanvas-toolkit/v4-starting-with-playcanvas-toolkit.md)
 * [\[V4\] Building with PlayCanvas Toolkit](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/README.md)
   * [Triggers](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/triggers.md)
+  * [Conditions](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/conditions.md)
   * [Actions](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/actions.md)
 * [\[DEL\] PlayCanvas Extension Setup](playcanvas-toolkit/playcanvas-extension-setup.md)
 * [\[DEL\] Publishing to VIVERSE](playcanvas-toolkit/publishing-to-viverse.md)
