@@ -25,21 +25,21 @@ To make creator's experience even richer, VIVERSE has developed a special Toolki
 {% column width="66.66666666666666%" %}
 {% stepper %}
 {% step %}
-#### Get the latest Extension from VIVERSE
+### Get the latest Extension from VIVERSE
 
 * [Download](playcanvas-toolkit-changelog.md) the latest version of Playcanvas Extension
 * Unzip downloaded file on your computer
 {% endstep %}
 
 {% step %}
-#### Navigate to Chrome Extensions manager
+### Navigate to Extensions manager
 
 * Click **Extensions** icon in Chrome toolbar and open the Extensions Popup
 * Click **Manage Extensions** at the bottom and open the Extensions Manager in a new tab
 {% endstep %}
 
 {% step %}
-#### Install the Extension
+### Install the Extension
 
 * Enable **Developer Mode** at the top right corner
 * Click **Load Unpacked** and select the folder with unpacked Extension you downloaded previously
