@@ -8,7 +8,7 @@ noIndex: true
 
 ***
 
-### Introduction
+## Introduction
 
 [PlayCanvas](https://playcanvas.com/) is an open-source game engine designed to advance the development of 3D web games, interactive content and rich multimedia. Unlike similar WebGL engines like Three.js or Babylon, PlayCanvas comes with sophisticated in-browser Editor (inspired by early [Unity 2.x - 3.x](https://www.elmundotech.com/2010/09/27/unity-3-game-dev-platform-available-now/)), which provides its users with a rich set of tools — allowing to assemble scenes from imported assets, setup real-time and baked lighting, write custom scripts, create animation graphs, and much much more.
 
@@ -19,7 +19,7 @@ To make creator's experience even richer, VIVERSE has developed a special Toolki
 
 \[...Please welcome this collection of essential tutorials to help you get started with the Toolkit. We assume you're already familiar with PlayCanvas Editor itself and have PlayCanvas account. If not, please feel free to explore [PlayCanvas User Manual](https://developer.playcanvas.com/user-manual/) first!]
 
-### Install PlaayCanvas Extension
+## Install PlayCanvas Extension
 
 {% columns %}
 {% column width="66.66666666666666%" %}
@@ -34,15 +34,15 @@ To make creator's experience even richer, VIVERSE has developed a special Toolki
 {% step %}
 #### Navigate to Chrome Extensions manager
 
-* Click Extensions icon in Chrome toolbar and open the Extensions Popup
-* Click Manage Extensions at the bottom and open the Extensions Manager in a new tab
+* Click **Extensions** icon in Chrome toolbar and open the Extensions Popup
+* Click **Manage Extensions** at the bottom and open the Extensions Manager in a new tab
 {% endstep %}
 
 {% step %}
 #### Install the Extension
 
-* Enable Developer Mode at the top right corner
-* Click Load Unpacked and select the folder with unpacked Extension you downloaded previously
+* Enable **Developer Mode** at the top right corner
+* Click **Load Unpacked** and select the folder with unpacked Extension you downloaded previously
 * Verify the Extension is now present in Extensions Manager tab
 {% endstep %}
 {% endstepper %}
@@ -63,10 +63,14 @@ To make creator's experience even richer, VIVERSE has developed a special Toolki
 {% endcolumn %}
 {% endcolumns %}
 
-### Create and publish your first World
+## Create and publish your first World
 
 {% hint style="info" %}
 Before proceeding any further, we assume you're familiar with the basics of PlayCanvas Editor. If you're looking for a comprehensive introduction to it — please refer to a dedicated [PlayCanvas Editor Manual](https://developer.playcanvas.com/user-manual/editor/) first!
 {% endhint %}
+
+\[...Stepper]
+
+## Update PlayCanvas Toolkit
 
 \[...Stepper]
