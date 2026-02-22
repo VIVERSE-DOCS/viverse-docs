@@ -12,7 +12,7 @@ description: >-
 
 In this getting-started guide, we will cover the basics of setting up a [Godot HTML5](https://docs.godotengine.org/en/latest/tutorials/export/exporting_for_web.html) project and publishing to VIVERSE using [the VIVERSE CLI](https://www.npmjs.com/package/@viverse/cli).
 
-{% include ".gitbook/includes/notice-upload.md" %}
+{% include "../.gitbook/includes/notice-upload.md" %}
 
 ### Project Settings for Godot
 
@@ -22,19 +22,19 @@ Web support for Godot currently requires the engine version to be Godot 4.1 or h
 Godot 3 web exports are technically supported but not focused on future support.
 {% endhint %}
 
-<figure><img src=".gitbook/assets/image (714).png" alt="" width="366"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (714).png" alt="" width="366"><figcaption></figcaption></figure>
 
 ### Export Setting for Godot
 
 Select the desired platform for export. For web exporting, choose `HTML5`. Also **make sure that the export path is set to Build/index.html**. This will lower your packaged build size and rename project exported .html to index.html so VIVERSE can easily find and run the project.&#x20;
 
-<figure><img src=".gitbook/assets/image (713).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (713).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### Publish to VIVERSE
 
 From here you can publish the project using the CLI tool just like any other platform.&#x20;
 
-<figure><img src=".gitbook/assets/image (715).png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (715).png" alt="" width="563"><figcaption></figcaption></figure>
 
 {% stepper %}
 {% step %}
@@ -46,7 +46,7 @@ B. Enter VIVERSE **email** and **password**.
 
 C. Confirm login was successful.
 
-<figure><img src=".gitbook/assets/image (8) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -58,7 +58,7 @@ B. Enter an **Application title** and **Application description**.
 
 C. Confirm the content was published successfully.
 
-<figure><img src=".gitbook/assets/image (693).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (693).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}
@@ -70,7 +70,7 @@ B. Confirm the manifest file is updated.
 
 C. Confirm the content was published successfully.
 
-<figure><img src=".gitbook/assets/image (694).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (694).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endstep %}
 
 {% step %}

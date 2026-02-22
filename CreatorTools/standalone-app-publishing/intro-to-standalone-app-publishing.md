@@ -1,0 +1,33 @@
+---
+description: >-
+  This page overviews the requirements, tools, and process for building
+  applications on VIVERSE.
+---
+
+# Intro to Standalone App Publishing
+
+***
+
+## Publishing Apps to VIVERSE
+
+3D experiences and web applications are the foundation of VIVERSE's creator community. We invest heavily in the development of amazing interactive content and are always expanding our support for new tools and frameworks where the best experiences are being crafted for the web.
+
+While VIVERSE supports custom publishing pipelines for a few platforms, any platform can publish to VIVERSE using [Studio](../how-to-publish.md) by **uploading a .zip file with an index.html file at the top level of its file tree**.&#x20;
+
+## Supported Tools & Frameworks
+
+<table><thead><tr><th width="185.38433837890625">Platform</th><th>Description</th></tr></thead><tbody><tr><td>HTML5 &#x26; WebGL</td><td>Creators can generally publish any project compatible with HTML5. See <a data-mention href="../how-to-publish.md">how-to-publish.md</a>for details on requesting advanced features, such as user microphone permissions.</td></tr><tr><td>WebGL &#x26; WebGPU</td><td>Creators can generally publish any WebGL project on VIVERSE. Certain features for WebGPU, such as support for multi-threading, may need to be approved manually. See <a data-mention href="intro-to-standalone-app-publishing.md#bringing-your-own-game-servers-and-analytics">#bringing-your-own-game-servers-and-analytics</a>for how to submit requests for these permissions.</td></tr><tr><td>PlayCanvas</td><td>VIVERSE supports publishing from PlayCanvas through <a href="../how-to-publish.md">VIVERSE Studio</a> and with the <a href="../playcanvas-toolkit/toolkit-setup.md">VIVERSE Toolkit</a>, which adds multiplayer avatars, UI, and a cross-device character controller by default.</td></tr><tr><td>ThreeJS</td><td>VIVERSE supports most ThreeJS projects, as well as the many tools and frameworks that have been built on top of the library, such as React-Three-Fibre (R3F)nd AFRAME.<br><br>VIVERSE sponsors the development of an open source ThreeJS and R3F-compatible avatar system called <a href="https://pmndrs.github.io/viverse/getting-started/index">pmndrs/viverse</a>. </td></tr><tr><td>Unity WebGL</td><td>Creators can publish projects built with Unity's WebGL export pipeline, and we recommend they upgrade to the latest version of Unity to benefit from the recent upgrades for web optimization made in Unity 6. We have written multiple examples in <a data-mention href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/">Introduction to Developer Tools</a> for how to utilize our SDKs in your Unity Projects.</td></tr><tr><td>Open Brush</td><td>In December 2025, VIVERSE worked with the Icosa Foundation, to build a pipeline for publishing from Open Brush to VIVERSE with multiplayer avatars.</td></tr><tr><td>Wonderland Engine</td><td>In November 2025, VIVERSE worked with the Wonderland Engine team to develop a <a href="https://github.com/WonderlandEngine/viverse-example/tree/main">plug-in for Wonderland Engine</a>, including examples of a cross-device character controller and one-click publishing to VIVERSE.</td></tr><tr><td>Godot HTML5</td><td>VIVERSE supports publishing from Godot using their HTML5 publishing pipeline.</td></tr><tr><td>BabylonJS</td><td>VIVERSE supports publishing Babylon projects.</td></tr><tr><td>Unreal Engine</td><td>Unfortunately, there is no 1st-party pipeline for publishing from Unreal Engine to web. VIVERSE is open to discussing support for any 3rd party publishing/streaming pipelines from Unreal Engine to the web.</td></tr></tbody></table>
+
+_Don't see your platform or want to request new features? Join our_ [_Discord Server_](https://discord.gg/viversecreators) _and let us know if you would like more support._
+
+## Developer Tools
+
+Along with our platform integrations that allow you to publish to VIVERSE, we also have a number of standalone developer tools that can be utilized in experiences hosted on _and_ off of VIVERSE. These tools help creators get the most out of their 3D experience and make the difficult parts of online development easier.
+
+> _**NOTE:** VIVERSE SDKs cannot be used with projects published via the_ [_PlayCanvas Create SDK extension_](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup)_, which do not have App IDs._
+
+<table><thead><tr><th>Tool</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Polygon Streaming</td><td>Upload and embed high quality 3D assets in web-based experiences. Polygon Streaming's innovative technology makes highly-detailed, large assets accessible to billions of devices through the web browser!</td><td><a href="https://app.gitbook.com/o/SnIK7SeXTWk0ghDScPhF/s/Y3WbwobASVOf4RiqnLEI/">See here</a></td></tr><tr><td>Avatar &#x26; Account SDK</td><td>Utilize our avatar and virtual identity system to bring multiplayer to your 3D experience.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/login-and-authentication-for-the-sdk">See here</a></td></tr><tr><td>Leaderboard SDK</td><td>Add a leaderboard to single and multiplayer gaming experiences. Our leaderboard system allows you to keep track of player performance between sessions.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/leaderboard-sdk">See here</a></td></tr><tr><td>Matchmaking &#x26; Networking SDK</td><td>Add persistent data to single and multiplayer gaming experiences.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/matchmaking-and-networking-sdk">See here</a></td></tr><tr><td>Storage SDK</td><td>Persist data between sessions for users associated with their VIVERSE account.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/storage-sdk">See here</a></td></tr></tbody></table>
+
+## Bringing Your Own Game Servers & Analytics
+
+While VIVERSE provides free services and SDKs for creators to integrate into their projects, developers may also provision and connect with their own servers/analytics on VIVERSE. This process does require manual approval by the VIVERSE team, but we are able to quickly approve these requests. Please [email the VIVERSE team](mailto:michael_morran@htc.com?cc=brooke_chen@htc.com\&subject=Request%20for%20external%20API%20approval\&body=Hello%20VIVERSE%20Team%2C%0A%0AI%20would%20like%20to%20request%20that%20%7BVIVERSE%20url%7D%20be%20allowed%20to%20connect%20to%20%7Bexternal%20URL%7D.%20This%20is%20the%20URL%20for%20%7Bdescription%20of%20the%20external%20service%20you%20would%20like%20to%20connect%20to%7D.) with your request and a description of the external server you would like to connect to.

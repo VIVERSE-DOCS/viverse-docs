@@ -1,35 +1,68 @@
 ---
 description: >-
-  This page is a starting point if you are interested in learning about
-  VIVERSE's tools for artists, creators, and developers.
+  This page is the starting point for creators interested in learning about
+  building on VIVERSE.
 ---
 
 # Introduction to Creator Tools
 
 ***
 
-## What are the Creator Tools?
+## The Best on the Web
 
-VIVERSE includes a robust series of tools for artists and developers to build engaging 3D experiences. These tools are sorted into two main categories:
+{% columns %}
+{% column valign="middle" %}
+VIVERSE is home to the **best content on the internet** that can be shared with audiences around the world through the **web browser**. Whether you are building engaging 3D experiences, web applications, or videos, your work can easily be hosted on and shared through VIVERSE. Our goal is to help creators distribute and monetize their work through VIVERSE's easy hosting and content distribution.
+{% endcolumn %}
 
-* Integrations with development platforms, such as PlayCanvas and Unity, that allow creators to **publish directly to VIVERSE.**
-* **Developer tools and SDKs**, such as Polygon Streaming, which can either be used in creations published to VIVERSE or hosted elsewhere.
+{% column valign="middle" %}
+<p align="center"><img src=".gitbook/assets/banner.0c4fdf8e.avif" alt="" data-size="original"></p>
+{% endcolumn %}
+{% endcolumns %}
 
-## Tools for Publishing to VIVERSE
+## Publishing to VIVERSE
 
-VIVERSE is a web-based platform for 3D content where creators can showcase their work to the VIVERSE user-base and monetize. Our goal is to help you publish from the platform that works best for you and leverage your chosen tools. Whether you are hosting a meetup, creating an engaging narrative, or building a full length multiplayer game, there are several options for you to publish your work on VIVERSE.
+Creators can host web-compatible content of all kinds on VIVERSE using [Studio](publishing-with-your-viverse-account.md), the one-stop-shop for managing content on VIVERSE. Through Studio, creators can upload new experiences, apps, and videos, and monitor the performance of content already on VIVERSE. In addition to Studio, we also offer a [Command Line Interface](standalone-app-publishing/publishing-to-viverse-with-the-cli.md) for creators uploading 3D experiences and applications to publish from the terminal (and even [integrate publishing to VIVERSE directly into their tools](https://news.viverse.com/post/wonderland-engine-viverse-integration)).
 
-<table><thead><tr><th>Platform</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Create from Templates</td><td>Create from our library of world templates and add 3D elements and media directly in VIVERSE. World decoration is great for meetup hosts and beginners looking to customize their first world from a wide range of template environments.</td><td><a href="publishing-from-templates/edit-mode.md">See here</a></td></tr><tr><td>Standalone Publishing</td><td>Developers may publish to VIVERSE using any platform that can build for WebGL/HTML5. Publish from UnityWebGL, Godot, ThreeJS, Babylon, AFRAME, and more!</td><td><a href="/broken/pages/PjUyrVxMlu9Uyxu6Yq6a">See here</a></td></tr><tr><td>PlayCanvas</td><td>PlayCanvas is an open source game engine with a web-based editor. We have created an extension of the PlayCanvas editor that allows creators to publish to VIVERSE with automatic support for multiplayer VIVERSE avatars.</td><td><a href="playcanvas-toolkit/playcanvas-extension-setup.md">See here</a></td></tr></tbody></table>
+{% hint style="info" %}
+Learn [how to publish your project](how-to-publish.md) on VIVERSE!
+{% endhint %}
 
-Don't see your platform? Join our [Community Discord Server](https://discord.gg/viversecreators) and let us know how you would like to be able to publish to VIVERSE.
+**Engaging 3D experiences are the bread and butter of VIVERSE.** As part of [HTC](https://www.htc.com/us/), the VIVERSE team has a rich legacy of empowering creators building in 3D and XR. As such, we have implemented several tools to help creators building 3D experiences.
 
-## Standalone Developer Tools
+<table><thead><tr><th>Platform</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Standalone App Publishing</td><td>Developers may publish to VIVERSE using any platform that can build for WebGL/HTML5. Publish from UnityWebGL, Godot, ThreeJS, Babylon, AFRAME, and more!</td><td><a href="standalone-app-publishing/intro-to-standalone-app-publishing.md">See here</a></td></tr><tr><td>PlayCanvas Toolkit</td><td>PlayCanvas is an open source game engine with a web-based editor. We have created a toolkit for the PlayCanvas editor that allows creators to publish to VIVERSE with automatic support for multiplayer VIVERSE avatars.</td><td><a href="playcanvas-toolkit/toolkit-setup.md">See here</a></td></tr><tr><td>Create from Templates</td><td>Create from our library of world templates and add 3D elements and media directly in VIVERSE. World decoration is great for meetup hosts and beginners looking to customize their first world from a wide range of template environments.</td><td><a href="publishing-from-templates/creating-from-templates.md">See here</a></td></tr></tbody></table>
 
-Along with our platform integrations that allow you to publish to VIVERSE, we also have a number of standalone developer tools that can be utilized in experiences hosted on _and_ off of VIVERSE. These tools help creators get the most out of their 3D experience and make the difficult parts of online development easier.
+## Sharing Content
 
-> _**NOTE:** VIVERSE SDKs cannot be used with projects published via the_ [_PlayCanvas Create SDK extension_](https://docs.viverse.com/playcanvas-sdk/playcanvas-extension-setup)_, which do not have App IDs._
+{% columns %}
+{% column %}
+VIVERSE makes it easy for creators to share  work with audiences both on and outside of VIVERSE. After uploading their creations to VIVERSE, creators may select from multiple visibility levels, participate in content curation and discovery, and embed their VIVERSE-hosted content on any webpage of their choosing.
 
-<table><thead><tr><th>Tool</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Polygon Streaming</td><td>Upload and embed high quality 3D assets in web-based experiences. Polygon Streaming's innovative technology makes highly-detailed, large assets accessible to billions of devices through the web browser!</td><td><a href="https://app.gitbook.com/o/SnIK7SeXTWk0ghDScPhF/s/Y3WbwobASVOf4RiqnLEI/">See here</a></td></tr><tr><td>Avatar &#x26; Account SDK</td><td>Utilize our avatar and virtual identity system to bring multiplayer to your 3D experience.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/login-and-authentication-for-the-sdk">See here</a></td></tr><tr><td>Leaderboard SDK</td><td>Add a leaderboard to single and multiplayer gaming experiences. Our leaderboard system allows you to keep track of player performance between sessions.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/leaderboard-sdk">See here</a></td></tr><tr><td>Matchmaking &#x26; Networking SDK</td><td>Add persistent data to single and multiplayer gaming experiences.</td><td><a href="https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/matchmaking-and-networking-sdk">See here</a></td></tr></tbody></table>
+{% hint style="info" %}
+[Check out our documentation](sharing-content.md) on how to share your work on VIVERSE!
+{% endhint %}
+{% endcolumn %}
+
+{% column valign="middle" %}
+<p align="center"><img src=".gitbook/assets/Screenshot 2026-02-20 at 2.42.58 PM.png" alt="" data-size="original"></p>
+{% endcolumn %}
+{% endcolumns %}
+
+## Monetization
+
+At VIVERSE, our goal is not only to help creators share their work, but also to **help creators earn from their creations**! We offer a variety of tools for creators to earn on VIVERSE, including engagement-based compensation, channel subscriptions, paid titles, and in-app purchases. Additionally, we frequently host competitions and programs where creators can participate and receive rewards and funding for building with VIVERSE.
+
+{% hint style="info" %}
+Learn more about how you can earn on VIVERSE!
+{% endhint %}
+
+## Optimization
+
+The web browser is the most accessible platform for content to be shared across the internet. Billions of devices, from mobile phones, to desktop computers, and VR headsets, have access to the browser and an internet connection! However, with so many potential users and devices, it is imperative to ensure that your content performs well on all of your intended users' devices. Even if you do not have experience building for the web browser, we are here to help and pride ourselves in empowering creators to bring their work to the web for the first time!
+
+{% hint style="info" %}
+Learn more about [optimizing your work for the web](https://app.gitbook.com/s/fftOtn5BNeroGvlbe5W9/#why-build-for-the-web)!
+{% endhint %}
 
 ## The Creator Community & Getting Support
 
@@ -37,4 +70,4 @@ VIVERSE is proud to support the work many of the most innovative artists, develo
 
 In the Discord Server, the community and VIVERSE team would love to hear your questions, bug reports, and ideas for making a more accessible platform. Simply create a new post in the #get-help channel when you land.
 
-For issues related to your VIVERSE / HTC account, we recommend reaching out to the company-wide support channel: [https://support.viverse.com/hc/en-us](https://support.viverse.com/hc/en-us)
+For issues related to your VIVERSE account, we recommend reaching out to the company-wide support channel: [https://support.viverse.com/hc/en-us](https://support.viverse.com/hc/en-us)

@@ -1,5 +1,7 @@
 ---
 description: Learn how you can earn by building on VIVERSE...
+hidden: true
+noIndex: true
 ---
 
 # Monetization
