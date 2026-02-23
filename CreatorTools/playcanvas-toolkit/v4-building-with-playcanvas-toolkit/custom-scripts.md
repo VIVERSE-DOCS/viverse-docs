@@ -1,12 +1,19 @@
-# Scripting
+# Custom Scripts
 
 ***
 
+## Introduction
 
-
-
+While VIVERSE Toolkit provides a huge range of no-code tools covering a lot of typical use cases, it doesn't stop you from writing [Custom Scripts](https://developer.playcanvas.com/user-manual/scripting/) and using full [PlayCanvas API](https://api.playcanvas.com/engine/) to your advantage! Below is a collection of recipes designed to help you create a bridge between Toolkit's Framework and PlayCanvas Scripting API.
 
 ## Using Triggers to execute Custom Code
+
+One of the most useful integrations is to have a Custom Script that can execute some function when particular Trigger is activated. Here is how it can be done:
+
+* Create a new [Trigger](triggers.md) Entity of desired type, or use an already existing one. Make sure it has unique `Name` since it will be called inside our Custom Script
+* Create a new .mjs Script, parse it and attach to some Entity in your Scene. **It doesn't have to be** our Trigger Entity — any other Entity will do
+* Use the boilerplate below to link Custom Script function to your Trigger. Replace `some.trigger.name` in our example with your own unique Trigger's `Name`&#x20;
+* Add your custom code inside `onTriggerActivated ()` handler, then launch your Scene and test!
 
 {% tabs %}
 {% tab title="script.mjs" %}
@@ -28,7 +35,7 @@ export class TriggerHandler extends Script
         // Note how full event id is retrieved via .getTriggerEventName first
         this.dispatcher.on
         (
-            this.dispatcher.getTriggerEventName ('portal.entered'),
+            this.dispatcher.getTriggerEventName ('some.trigger.name'),
             this.onTriggerActivated,
             this
         );
@@ -44,9 +51,14 @@ export class TriggerHandler extends Script
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Executing Actions from Custom Code
+
+Another widely used integration is to execute some Action from inside your Custom Script, under certain conditions — for example when user pressed some keyboard key. Here is how it can be done:
+
+* Create a new [Action](actions.md) Entity of desired type, or use an already existing one. Make sure it has unique `Name` since it will be called inside our Custom Script
+* Create a new .mjs Script, parse it and attach to some Entity in your Scene. Unlike Trigger example above, **this script has to be attached** to our Action Entity in order to work prolery
+* Use the boilerplate below to execute this Action inside your Custom Script function. Replace `some.action.name` in our example with your own unique Action's `Name`&#x20;
+* Launch your Scene and test! Feel free to replace our keyboard activator by any other logic of your choice, and just keep `executeAction`&#x20;
 
 {% tabs %}
 {% tab title="script.mjs" %}
@@ -69,9 +81,9 @@ export class ActionExec extends Script
     {
         switch (event.key)
         {
-            // Execute Action with `portal.toggle` name by pressing P on keyboard
+            // Execute Action with `some.action.name` name by pressing P on keyboard
             case pc.KEY_P:
-                this.executeAction ('portal.toggle')
+                this.executeAction ('some.action.name')
                 break;
         }
     }
@@ -88,10 +100,3 @@ export class ActionExec extends Script
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
