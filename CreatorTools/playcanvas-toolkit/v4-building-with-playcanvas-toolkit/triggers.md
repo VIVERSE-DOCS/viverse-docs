@@ -2,11 +2,17 @@
 
 ***
 
+## About
+
+Triggers are fundamental part of VIVERSE Framework, allowing creators to handle a wide range of player- and game-specific events without writing a single line of code! Whenever Player interacts with some Entity — be it a click, or collision, or seat taking — a corresponding event is generated, and any Trigger, associated with this event, also gets activated.
+
+## Usage
+
+Triggers don't do anything on their own — they're typically paired with Actions or Custom Scripts to produce desired effects on their activation. Here is a simple example of using Trigger with an Action:
+
+\[...Stepper]
+
 ## Reference
-
-What is the role of Triggers in VIVERSE Framework?
-
-## Trigger Types
 
 ***
 
@@ -124,12 +130,3 @@ Some description
 {% endcolumns %}
 
 ***
-
-## Examples
-
-\[...]
-
-
-
-
-

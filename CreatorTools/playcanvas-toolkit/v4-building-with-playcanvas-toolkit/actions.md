@@ -2,11 +2,24 @@
 
 ***
 
+## About
+
+Actions is another fundamental part of VIVERSE Framework, allowing creators to devise a wide range of possible "verbs" that their experience can do, without writing a single line of code. The typical examples are:
+
+* Enable / Disable / Toggle Entity or a group of Entities
+* Teleport Player to a new location
+* Fade In or Fade Out some Entity
+* Play Animation / Particle Effect or Sound
+* Initialize Quest or advance particular Quest Task
+* And so on, and so forth
+
+## Usage
+
+Actions are typically paired with Triggers, where one Trigger can execute multiple Actions in parallel, or one Action can be executed by any Trigger matching its name. It's also possible to execute Actions from your Custom Scripts, opens up even more possibilities for interactivity!
+
+\[...Example]
+
 ## Reference
-
-What is the role of Actions in VIVERSE Framework?
-
-## Action Types
 
 ***
 
@@ -281,15 +294,4 @@ Open a URL with a given `Link`
 {% endcolumn %}
 {% endcolumns %}
 
-
-
-
-
-## Examples
-
-\[...]
-
-
-
-
-
+***

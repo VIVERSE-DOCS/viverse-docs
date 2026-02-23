@@ -2,11 +2,11 @@
 
 ***
 
-## Reference
+## About
 
 What is the role of Conditions in VIVERSE Framework?
 
-## Condition Types
+## Reference
 
 ***
 
@@ -41,7 +41,3 @@ Activates when either **Trigger A** or **Trigger B** is activated within a given
 {% endcolumns %}
 
 ***
-
-## Examples
-
-\[...]

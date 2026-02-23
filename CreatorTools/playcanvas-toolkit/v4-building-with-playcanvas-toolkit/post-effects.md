@@ -2,11 +2,11 @@
 
 ***
 
-## Reference
+## About
 
 About Post Effects
 
-## Post Effects Types
+## Reference
 
 ***
 
@@ -249,20 +249,3 @@ Adds subtle darkening to screen corners, simulating real world camera lenses
 {% endcolumns %}
 
 ***
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
