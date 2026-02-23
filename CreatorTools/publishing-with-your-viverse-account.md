@@ -14,7 +14,7 @@ The [VIVERSE studio](https://studio.viverse.com/) is the one-stop-shop for manag
 
 ## Studio Dashboard
 
-The main dashboard of the VIVERSE studio includes metrics on how users engage with your content. With an adjustable timeframe and content filer, you may explore the number of vistors, both new and unique, as well as the number of views and likes your content receives.
+The main dashboard of the VIVERSE studio includes metrics on how users engage with your content. With an adjustable timeframe and content filer, you may explore the number of visitors, both new and unique, as well as the number of views and likes your content receives.
 
 <figure><img src=".gitbook/assets/Screenshot 2026-02-20 at 5.04.38 PM.png" alt=""><figcaption></figcaption></figure>
 

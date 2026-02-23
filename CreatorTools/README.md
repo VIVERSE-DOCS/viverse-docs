@@ -58,7 +58,7 @@ Learn more about how you can earn on VIVERSE!
 
 ## Optimization
 
-The web browser is the most accessible platform for content to be shared across the internet. Billions of devices, from mobile phones, to desktop computers, and VR headsets, have access to the browser and an internet connection! However, with so many potential users and devices, it is imperative to ensure that your content performs well on all of your intended users' devices. Even if you do not have experience building for the web browser, we are here to help and pride ourselves in empowering creators to bring their work to the web for the first time!
+The web browser is the most accessible platform for content sharing across the internet. Billions of devices, from mobile phones, to desktop computers, and VR headsets, have access to the browser! However, with so many potential users and devices, it is important to ensure that your content performs well for all of your intended users. Even if you do not have experience building for the web browser, we are here to help creators bring their work to the web for the first time!
 
 {% hint style="info" %}
 Learn more about [optimizing your work for the web](https://app.gitbook.com/s/fftOtn5BNeroGvlbe5W9/#why-build-for-the-web)!

@@ -1,7 +1,7 @@
 ---
 description: >-
   This page details the two methods to publish to VIVERSE: VIVERSE Studio and
-  our command line interface...
+  our command line interface.
 ---
 
 # How to Publish
@@ -18,7 +18,7 @@ While 3D experiences and applications can be uploaded using either VIVERSE Studi
 
 ## Publishing with VIVERSE Studio
 
-The VIVERSE Studio offers a user-friendly interface that makes it easy for creators of all skill levels to upload and manage content on VIVERSE. While very similar, you can learn the process for uploading [APPLICATIONS](how-to-publish.md#publishing-apps-with-viverse-studio) or [VIDEOS](how-to-publish.md#publishing-videos-with-viverse-studio) below.
+The VIVERSE Studio offers a user-friendly interface that makes it easy for creators of all skill levels to upload and manage content on VIVERSE. You can learn the process for uploading [APPLICATIONS](how-to-publish.md#publishing-apps-with-viverse-studio) or [VIDEOS](how-to-publish.md#publishing-videos-with-viverse-studio) below.
 
 ### Publishing Apps with VIVERSE Studio
 
