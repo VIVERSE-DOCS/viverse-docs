@@ -62,6 +62,7 @@
   * [Conditions](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/conditions.md)
   * [Post Effects](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/post-effects.md)
   * [Video Playback](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/video-playback.md)
+  * [Scripting](playcanvas-toolkit/v4-building-with-playcanvas-toolkit/scripting.md)
 * [\[DEL\] PlayCanvas Extension Setup](playcanvas-toolkit/playcanvas-extension-setup.md)
 * [\[DEL\] Publishing to VIVERSE](playcanvas-toolkit/publishing-to-viverse.md)
 * [PlayCanvas-to-VIVERSE: Development Best Practices](playcanvas-toolkit/playcanvas-to-viverse-development-best-practices.md)
