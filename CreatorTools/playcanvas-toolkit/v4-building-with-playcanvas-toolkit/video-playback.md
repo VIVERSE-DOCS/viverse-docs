@@ -1,8 +1,20 @@
+---
+description: >-
+  Learn how to add a Video Entity to your VIVERSE World, and enable playback
+  controls with a Media Control component
+---
+
 # Video Playback
 
 ***
 
-## Setting Up
+## About
+
+PlayCanvas Toolkit comes with an integrated Video Player, allowing creators to place Videos inside their VIVERSE Worlds — both as flat screens and 360 spheres! The Video file can be hosted both inside PlayCanvas project or external URL, and supports autoplay, looping and muting, as well as positional sound. In addition, the Toolkit comes with convenient Media Control component, which enables the Player to control Video playback while experiencing your 3D World.
+
+## Usage
+
+Please refer to instructions below to setup a Video Entity in your VIVERSE World, with optional Media Control component:
 
 {% columns %}
 {% column width="66.66666666666666%" %}

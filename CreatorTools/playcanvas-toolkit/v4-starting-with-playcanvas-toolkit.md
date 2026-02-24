@@ -15,7 +15,7 @@ noIndex: true
 To make creator's experience even richer, VIVERSE has developed a special Toolkit, which consists of two parts complementing each other — the Extension and the Framework:
 
 * **The Extension** lives in your Chrome browser, and its main goal is to add extra functionality to vanilla PlayCanvas Editor, not achievable otherwise — like initializing your project, creating new VIVERSE World, setting up Local Player, Quests and Post Effects, and of course providing convenient ways to Publish to VIVERSE!
-* **The Framework** is a collection of scripts and assets that Extension adds to your project during initialization, under `.viverse` folder. It provides important runtime systems for Avatars, Player Locomotion, Networking and so forth, and common building blocks like Triggers and Actions, that you can use to create custom no-code logic for your worlds
+* **The Framework** is a collection of scripts and assets that Extension adds to your project during initialization, under `.viverse` folder. It provides important runtime systems for Avatars, Player Locomotion, Networking and so forth, and common building blocks like Triggers and Actions, that you can use to create custom no-code logic in your Worlds
 
 \[...Please welcome this collection of essential tutorials to help you get started with the Toolkit. We assume you're already familiar with PlayCanvas Editor itself and have PlayCanvas account. If not, please feel free to explore [PlayCanvas User Manual](https://developer.playcanvas.com/user-manual/) first!]
 
@@ -71,6 +71,8 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 
 \[...Stepper]
 
-## Update PlayCanvas Toolkit
+## Update / Reset the Toolkit
+
+PlayCanvas Toolkit is in active development right now, so new versions are coming out every month! But if you already initialized your project with particular Toolkit version in the past — would it be possible to upgrade it without breaking changes or creating a new PlayCanvas project from scratch? The answer is **yes**, and here is how:
 
 \[...Stepper]

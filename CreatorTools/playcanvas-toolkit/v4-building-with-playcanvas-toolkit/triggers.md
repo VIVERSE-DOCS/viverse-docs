@@ -121,7 +121,7 @@ Activates when another Entity with **Action Component** fires `PublishNotificati
 {% endcolumn %}
 
 {% column width="50%" %}
-Some description
+\[...Some description]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}

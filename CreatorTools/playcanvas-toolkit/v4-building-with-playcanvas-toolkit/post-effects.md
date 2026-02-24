@@ -18,8 +18,6 @@ About Post Effects
 
 {% column width="50%" %}
 Adds a fullscreen transparent overlay on top of your experience. Typically used for vignettes, dirty camera effects, and so on
-
-\[...Doesn't do anything]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -54,8 +52,6 @@ Adds soft fringe of light around bright areas in your world, simulating imaging 
 
 {% column width="50%" %}
 Adds Depth of Field effect, blurring out of focus areas, similar to how cinematic cameras behave in the real world
-
-\[...Hard to adjust, focus not working properly?]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -74,8 +70,6 @@ Adds Depth of Field effect, blurring out of focus areas, similar to how cinemati
 
 {% column width="50%" %}
 Adjusts Brightness and Contrast of your experience, similar to Photoshop image adjustment with the same name
-
-\[...Very harsh at extremes]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -94,8 +88,6 @@ Adjusts Brightness and Contrast of your experience, similar to Photoshop image a
 
 {% column width="50%" %}
 Extracts edges from rendered frame and draws them on top of your experience in an overlay
-
-\[...Error: this.color.toArray is not a function]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -166,8 +158,6 @@ Adjusts Hue and Saturation of your experience, similar to Photoshop image adjust
 
 {% column width="50%" %}
 Renders your experience in black and white mode, based on per-pixel luminosity values
-
-\[...Not needed, can be replaced with 0 saturation]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -185,8 +175,6 @@ Renders your experience in black and white mode, based on per-pixel luminosity v
 
 {% column width="50%" %}
 Applies Sepia filter to your experience, similar to Photoshop filter with the same name
-
-\[...Should be general colorization]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -204,8 +192,6 @@ Applies Sepia filter to your experience, similar to Photoshop filter with the sa
 
 {% column width="50%" %}
 Adds Screen-Space Ambient Occlusion to your scene. This is a computationally expensive effect, so consider using it in desktop-only experiences
-
-\[...Very unoptimized]
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
