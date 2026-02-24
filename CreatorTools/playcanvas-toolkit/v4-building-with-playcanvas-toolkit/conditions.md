@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how use Conditions in your VIVERSE Worlds, and how to link them to
+  Triggers
+---
+
 # Conditions
 
 ***
@@ -5,6 +11,10 @@
 ## About
 
 What is the role of Conditions in VIVERSE Framework?
+
+## Usage
+
+
 
 ## Reference
 

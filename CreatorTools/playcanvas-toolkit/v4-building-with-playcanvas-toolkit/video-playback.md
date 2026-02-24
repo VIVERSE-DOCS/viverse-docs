@@ -1,7 +1,7 @@
 ---
 description: >-
-  Learn how to add a Video Entity to your VIVERSE World, and enable playback
-  controls with a Media Control component
+  Learn how to add playable Videos to your VIVERSE Worlds, and to show optional
+  Media Controls
 ---
 
 # Video Playback
