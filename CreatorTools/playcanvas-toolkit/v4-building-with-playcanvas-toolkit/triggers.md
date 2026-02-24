@@ -1,3 +1,9 @@
+---
+description: >-
+  Learn how use Triggers in your VIVERSE Worlds, and how to link them to Actions
+  and / or Custom Scripts
+---
+
 # Triggers
 
 ***
@@ -8,9 +14,63 @@ Triggers are fundamental part of VIVERSE Framework, allowing creators to handle 
 
 ## Usage
 
-Triggers don't do anything on their own — they're typically paired with Actions or Custom Scripts to produce desired effects on their activation. Here is a simple example of using Trigger with an Action:
+Triggers don't do anything on their own — they're typically paired with [Actions](actions.md) or [Custom Scripts](custom-scripts.md) to produce desired effects of their activations.
 
-\[...Stepper]
+Here is a simple example of using Trigger with an Action:
+
+{% columns %}
+{% column width="66.66666666666666%" %}
+{% stepper %}
+{% step %}
+### Setup Trigger
+
+* Create a new empty Entity in your Scene
+* Add **3D > Render Component** of type `Box`. Your Entity should be visible in your Scene now
+* Add **Physics > Collision Component** of type `Box` as well. Adjust its params if necessary
+* Click **Add Viverse Component** button and select **Rule > Trigger**. The `viverseTrigger` script will be added to your Entity
+* In Trigger Component, add a new entry to the Trigger List, by entering 1
+* Leave Trigger type at `OnSelect` (default), and give it a unique `Name`, for example `box.clicked`
+{% endstep %}
+
+{% step %}
+### Setup Action
+
+* With your Entity selected, click **Add Viverse Component** button once again, and select **Rule > Action**. The `viverseAction` script will be added to your Entity
+* In Action Component, add a new entry to the Action List, by entering 1
+* Populate `Trigger / Condition` field with your Trigger Name, which is `box.clicked` in our case
+* Leave all other params at their defaults - `ToggleEntities`, `Toggle`, `Self`&#x20;
+{% endstep %}
+
+{% step %}
+### Test and verify
+
+* Now we can test our Trigger / Action pair!
+* Launch your Scene in a new tab, walk towards white box Entity and click it
+* If you set up everything correctly — the Entity should disappear on your click
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column width="33.33333333333334%" %}
+<figure><img src="../../.gitbook/assets/tr1a.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tr2.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tr5.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tr3.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tr4.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tr6.png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+{% hint style="info" %}
+It's not really necessary to have both **Trigger** and **Action** Components on the same Entity! For the purpose of your experience you can have as many Entities as you like, each with its own Trigger or Action, or a combination of those.
+
+The only important rule is that Trigger's `Name` param should match an Action's `Trigger / Condition` one if you want them to be linked together
+{% endhint %}
 
 ## Reference
 
@@ -45,7 +105,7 @@ Activates when another **Rigidbody** interacts with this Trigger. Supported inte
 * `CollisionStart` / `CollisionEnd` \
   Requires both **Collision** and **Rigidbody Components**
 
-You can allow interactions only with the Player or some Entity with specific Tag. See **Collision Filter** for available options
+You can allow interactions with only the Player and / or some Entity with specific Tag. See **Collision Filter** for available options
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -121,7 +181,7 @@ Activates when another Entity with **Action Component** fires `PublishNotificati
 {% endcolumn %}
 
 {% column width="50%" %}
-\[...Some description]
+Activates when another Entity with **Action Component** starts executing an Action with a given `Action Name`. You can use it to sequentially chain multiple Triggers and Actions together, for example `Trigger A` → `Action A` → `Trigger B` → `Action B`
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
