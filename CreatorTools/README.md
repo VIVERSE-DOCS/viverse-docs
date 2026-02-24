@@ -53,7 +53,7 @@ VIVERSE makes it easy for creators to share  work with audiences both on and out
 At VIVERSE, our goal is not only to help creators share their work, but also to **help creators earn from their creations**! We offer a variety of tools for creators to earn on VIVERSE, including engagement-based compensation, channel subscriptions, paid titles, and in-app purchases. Additionally, we frequently host competitions and programs where creators can participate and receive rewards and funding for building with VIVERSE.
 
 {% hint style="info" %}
-Learn more about how you can earn on VIVERSE!
+Learn more about [how you can earn on VIVERSE](https://app.gitbook.com/s/afgm1G3eXMPwhCOFkGpZ/)!
 {% endhint %}
 
 ## Optimization
