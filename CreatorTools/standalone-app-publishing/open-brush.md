@@ -56,7 +56,7 @@ We also encourage creators to take advantage of the easy sharing of your work on
 
 <summary>How can I monetize my Open Brush work?</summary>
 
-We want to help Open Brush creators earn from their awesome work on VIVERSE! Consult our [Monetization Docs](../monetization.md) and contact our team if you have any questions.
+We want to help Open Brush creators earn from their awesome work on VIVERSE! Consult our [Monetization Docs](/broken/pages/SykyJuZBUJRWAKDzk6j6) and contact our team if you have any questions.
 
 </details>
 

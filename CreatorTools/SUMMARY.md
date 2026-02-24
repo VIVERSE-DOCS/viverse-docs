@@ -5,7 +5,6 @@
 * [VIVERSE Studio](publishing-with-your-viverse-account.md)
 * [Sharing Content](sharing-content.md)
 * [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
-* [Monetization](monetization.md)
 
 ## STANDALONE APP PUBLISHING
 
