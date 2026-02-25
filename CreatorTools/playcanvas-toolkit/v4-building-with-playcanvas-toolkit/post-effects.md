@@ -1,10 +1,55 @@
+---
+description: Learn how add Post Effects to your VIVERSE Worlds, and explore their settings
+---
+
 # Post Effects
 
 ***
 
 ## About
 
-About Post Effects
+PlayCanvas Toolkit offers a rich collecion of Post Effects, allowing creators to customize look and feel of their Worlds without touching any shader code! Below is a list of Post Effect you can add to your experience:
+
+* Overlays and vignettes
+* Bloom, Depth of Field (Bokeh) and Tilt Shift
+* Hue / Saturation and Brightness / Contrast
+* Sepia and Luminosity (Black and White)
+* Screen Space Ambient Occlusion
+
+## Usage
+
+The Post Effects section can be found under <img src="../../.gitbook/assets/viverse-icon.png" alt="" data-size="line"> VIVERSE Menu, which is located in the left sidebar. You can stack multiple effects on top of each other, but please be mindful of possible performance impact! Here is an example of adding two effects to your Scene — Sepia and Vignette:
+
+{% columns %}
+{% column width="66.66666666666666%" %}
+{% stepper %}
+{% step %}
+### Effect 01: Sepia
+
+* Navigate to Post Effects section and click **Edit**, then **Add Post Effect**
+* Click on **Type** selector and find `Sepia`
+* You'll see bright yellow prompt informing you about unsaved changes. Click **Save** button to save your current Post Effect configuration
+* Launch your Scene — you should see it in Sepia tone now!
+{% endstep %}
+
+{% step %}
+### Effect 02: Vignette
+
+* Go through the same steps and add another **Post Effect** on top your current one, but this time choose `Vignette` at the end of the list
+* As previously, save your changes and launch your Scene. Now you have both Sepia and Vignette applied!
+* Try adding more if you like! You can have as much effects as you like, as long as rendering performance is not hindered
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column width="33.33333333333334%" %}
+<figure><img src="../../.gitbook/assets/pe01.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/pe03.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/pe05.png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
 
 ## Reference
 
