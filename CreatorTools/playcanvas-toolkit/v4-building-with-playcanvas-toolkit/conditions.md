@@ -10,11 +10,16 @@ description: >-
 
 ## About
 
-What is the role of Conditions in VIVERSE Framework?
+Conditions is additional convenience layer on top of Triggers, allowing creators to string multiple Triggers together, either in parallel or in sequential mode. Conditions can be used with Triggers interchangeably, for example when linking them to Actions.
 
 ## Usage
 
+Conditions support 2 types of configuration:
 
+* **Sequential (AND)** — creates an activation only when **both** input Triggers were activated within a given **Time Window**
+* **Parallel (OR)** — creates an activation when at **any** input Trigger is activated. The **Time Window** here helps to prevent or control **double activation** when both inputs are triggered one after another
+
+For practical usage examples, please refer to [Triggers](triggers.md#usage) or [Actions](actions.md#usage) respectively!
 
 ## Reference
 
