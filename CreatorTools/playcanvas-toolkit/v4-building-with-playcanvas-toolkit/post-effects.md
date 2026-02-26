@@ -48,6 +48,8 @@ The Post Effects section can be found under <img src="../../.gitbook/assets/vive
 <figure><img src="../../.gitbook/assets/pe03.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/pe05.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/pe06.png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
@@ -167,7 +169,7 @@ Applies Fast Approximate Anti-Aliasing to your rendering pipeline. Particularly 
 {% endcolumn %}
 
 {% column width="50%" %}
-\[...Barely noticeable]
+Adds subtle Horizontal Tilt Shift to Depth of Field effect, blurring out left and right portions of the screen
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}
@@ -254,7 +256,7 @@ Adds Screen-Space Ambient Occlusion to your scene. This is a computationally exp
 {% endcolumn %}
 
 {% column width="50%" %}
-\[...Barely noticeable]
+Adds subtle Vertical Tilt Shift to Depth of Field effect, blurring out top and bottom portions of the screen
 {% endcolumn %}
 
 {% column width="24.999999999999986%" %}

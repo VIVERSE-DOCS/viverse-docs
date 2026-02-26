@@ -65,6 +65,8 @@ Please refer to instructions below to setup a Video Entity in your VIVERSE World
 <figure><img src="../../.gitbook/assets/vid04.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/vid05.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/vid06b.png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
