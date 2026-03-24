@@ -44,7 +44,7 @@ Step 1. View the **Performance Manager** report (B).
 
 ### Adding and Handling Media
 
-Media can be added from several different sources through the toolbar in the bottom of the Edit Mode interface: Sketchfab, Marketplace assets, uploaded assets, and assets linked from external sources. For more information on the types of media you can add and their settings, see [this page](supported-media-and-settings.md).
+Media can be added from several different sources through the toolbar in the bottom of the Edit Mode interface: Marketplace assets, uploaded assets, and assets linked from external sources. For more information on the types of media you can add and their settings, see [this page](supported-media-and-settings.md).
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-12-29 at 4.48.59 PM.png" alt="" width="338"><figcaption><p>The media upload toolbar</p></figcaption></figure>
 
