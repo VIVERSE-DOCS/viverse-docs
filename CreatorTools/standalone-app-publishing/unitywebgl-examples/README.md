@@ -341,9 +341,11 @@ Open `index.html` and add the following fullscreen template code:
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | {{{ PRODUCT_NAME }}}</title>
     <style>
-      body {
-        padding: 0;
+      html, body {
+        width: 100%;
+        height: 100%;
         margin: 0;
+        padding: 0;
         overflow: hidden;
       }
       #unity-container {
@@ -351,6 +353,18 @@ Open `index.html` and add the following fullscreen template code:
         width: 100%;
         height: 100%;
         overflow: hidden;
+      }
+      #unity-container.unity-mobile {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .unity-mobile #unity-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
       #unity-canvas {
         background: #231F20;
@@ -486,6 +500,7 @@ Open `index.html` and add the following fullscreen template code:
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
+        config.devicePixelRatio = 1;
       } else {
         canvas.style.width = "100%";
         canvas.style.height = "100%";
@@ -516,11 +531,11 @@ Open `index.html` and add the following fullscreen template code:
 
 **Key Features:**
 
-* `body` and `#unity-container` set to 100% width/height with `overflow: hidden` for true fullscreen
-* Canvas fills entire viewport (`width: 100%`, `height: 100%`)
+* `html`, `body`, and `#unity-container` fill the viewport with `overflow: hidden` for true fullscreen
+* **Desktop:** canvas `style` width/height set to `100%` in JavaScript
+* **Mobile (VIVERSE-friendly):** full-viewport fixed container, canvas `100%` via CSS, viewport meta tag, and `config.devicePixelRatio = 1` to reduce high-DPI backing-store cost
 * Loading bar centered on screen during asset loading
 * Footer hidden by default (can be shown if needed)
-* Mobile-responsive viewport meta tag
 {% endstep %}
 
 {% step %}
@@ -785,7 +800,7 @@ http-server -p 8000
 #### Preview and Publish
 
 1. Use VIVERSE Studio's preview feature to test your content
-2. Verify fullscreen behavior works correctly in VIVERSE environment
+2. Verify fullscreen behavior works correctly in VIVERSE environment (test on **mobile** as well as desktop; layout and GPU memory behave differently on phones)
 3. Test loading screen appearance and timing
 4. Once satisfied, submit for approval/publishing
 5. After approval, your content will be available in VIVERSE
@@ -883,8 +898,9 @@ Enhance error messages for better user experience:
 
 **Fullscreen Not Working:**
 
-* Verify canvas CSS has `width: 100%` and `height: 100%`
-* Check that `body` and container have `overflow: hidden`
+* **Desktop:** verify canvas has `width`/`height` `100%` (set in JS in this template) and `html`/`body`/`#unity-container` fill the viewport
+* **Mobile:** ensure `#unity-container.unity-mobile` and `.unity-mobile #unity-canvas` rules are present (small canvas or black bars usually mean mobile layout CSS is missing)
+* If WebGL fails or stutters on high-DPI phones, confirm `config.devicePixelRatio = 1` runs in the mobile branch
 * Test in different browsers (Chrome, Firefox, Edge)
 * Some browsers require user interaction before allowing fullscreen API
 
