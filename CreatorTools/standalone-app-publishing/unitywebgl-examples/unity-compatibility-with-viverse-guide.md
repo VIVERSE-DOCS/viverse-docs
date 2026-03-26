@@ -105,6 +105,11 @@ Under `Player Settings → Publishing Settings`:
 * Increase to **512 MB** or **1024 MB** for larger projects
 * Monitor memory usage and adjust based on your content
 * **Note:** Larger memory = longer initial load time
+
+**Web GL Template (fullscreen):**
+
+* Set **Web GL Template** to **FullScreen** (custom template under `Assets/WebGLTemplates/FullScreen/` with `index.html`)
+* Use the VIVERSE fullscreen package or the updated template that includes mobile layout CSS and `devicePixelRatio = 1` on mobile for stable presentation in VIVERSE on phones
 {% endstep %}
 
 {% step %}
@@ -116,7 +121,7 @@ Under `Player Settings → Resolution and Presentation`:
 
 * Set to your target resolution (e.g., 1920×1080 for desktop)
 * VIVERSE supports various resolutions; consider responsive design
-* Fullscreen template will scale to fit viewport
+* A proper **FullScreen** `index.html` scales the page to the viewport on desktop (JS canvas sizing) and on mobile (CSS + viewport meta + optional DPR clamp in the template); resolution here is the Unity player default, not the browser wrapper
 
 **Run In Background:**
 
