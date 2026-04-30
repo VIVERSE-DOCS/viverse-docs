@@ -500,7 +500,9 @@ Open `index.html` and add the following fullscreen template code:
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
-        config.devicePixelRatio = 1;
+        // Use native device pixel ratio for sharp rendering on high-DPI screens.
+        // Cap at 2 to avoid excessive GPU load on 3x devices.
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
       } else {
         canvas.style.width = "100%";
         canvas.style.height = "100%";
@@ -527,6 +529,8 @@ Open `index.html` and add the following fullscreen template code:
     </script>
   </body>
 </html>
+
+
 ```
 
 **Key Features:**
