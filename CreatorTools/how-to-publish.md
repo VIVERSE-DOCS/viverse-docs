@@ -1,7 +1,8 @@
 ---
 description: >-
-  This page details the two methods to publish to VIVERSE: VIVERSE Studio and
-  our command line interface.
+  Step-by-step guide for publishing content to VIVERSE Studio. Covers all
+  creation paths: New Experience (Game Engine, Web Builder, Open Brush), New
+  Game, and New Video.
 ---
 
 # How to Publish
@@ -16,231 +17,553 @@ You can upload to VIVERSE from all web-compatible frameworks, including 3D exper
 While 3D experiences and applications can be uploaded using either VIVERSE Studio or the CLI, **currently videos can only be uploaded via Studio, not the CLI.**
 {% endhint %}
 
-## Publishing with VIVERSE Studio
-
 The VIVERSE Studio offers a user-friendly interface that makes it easy for creators of all skill levels to upload and manage content on VIVERSE. You can learn the process for uploading [APPLICATIONS](how-to-publish.md#publishing-apps-with-viverse-studio) or [VIDEOS](how-to-publish.md#publishing-videos-with-viverse-studio) below.
-
-### Publishing Apps with VIVERSE Studio
 
 {% hint style="info" %}
 Learn more about [specifications for applications and 3D experiences](standalone-app-publishing/intro-to-standalone-app-publishing.md), including supported file types, requirements, and integrations with our SDKs.
 {% endhint %}
 
+### Prerequisites
+
+* VIVERSE account
+* Signed in at https://worlds.viverse.com/
+
+***
+
+## Open VIVERSE Studio
+
 {% columns %}
-{% column width="66.66666666666666%" %}
+{% column %}
 {% stepper %}
 {% step %}
-### Begin Upload
+#### Access VIVERSE Studio
 
-Open **VIVERSE Studio**, navigate to the **Worlds** section, select the **Upload** tab, and click **Create New World.**
+* Sign in to VIVERSE.
+* Select your profile avatar in the upper-right corner.
+* Select **VIVERSE Studio**.
 
-**Worlds** are containers for content on VIVERSE and, once created, you can upload your 3D experience or application to your World.
-{% endstep %}
 
-{% step %}
-### Complete Upload Details
-
-Enter a **Name** and **Description** for your project and agree to VIVERSE's Platform Agreement.
-
-Once completed, select **Create**.
-{% endstep %}
-
-{% step %}
-### View the Overview Tab
-
-Once your World is created, you can view and adjust settings for your content in the **Overview Tab, such as its Name and App ID.**&#x20;
-
-The **App ID** is an important piece of information for anyone [integrating VIVERSE SDKs](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/) into their project.
-{% endstep %}
-
-{% step %}
-### Upload a .zip File
-
-Within the **Content Versions Tab,** drag-and-drop or click the **Select File** button to begin the upload process.
-
-Select your .zip file and click Upload.
-{% endstep %}
-
-{% step %}
-### (Optional) Add Additional Permissions
-
-Many projects may want additional permissions, allowing access to advanced features, such as the ability to download content from your application or open a new tab:
-
-**Content Behavior Permissions**
-
-* **allow-forms -** Submit forms
-* **allow-modals -** Open modal dialogs
-* **allow-popups -** Open popup windows
-* **allow-top-navigation -** Navigate top window
-* **allow-pointer-lock -** Use pointer lock
-* **allow-presentation -** Start presentations
-* **allow-downloads -** Download files
-* **allow-orientation-lock -** Allow orientation lock
-* **allow-popups-to-escape-sandbox -** Allow popups to escape sandbox
-* **allow-top-navigation-by-user-activation -** Allow top navigation by user activation
-
-**Device and Sensor Access Permissions**
-
-* **accelerometer** - Allows access to accelerometer sensor data
-* **camera** - Allows access to device camera
-* **gyroscope** - Allows access to gyroscope sensor data
-* **magnetometer** - Allows access to magnetometer sensor data
-* **midi** - Allows access to MIDI devices
-* **window-management** - Allows multi-window management
-* **xr-spatial-tracking** - Allows access to VR/AR features
-
-Select **Apply iframe Settings** to apply your desired settings.
-{% endstep %}
-
-{% step %}
-### Preview and Test Content
-
-Select **Preview** for a link that is only accessible to the account that created the world.
-
-Select **Guest Preview** for a 15-minute link that you may share with any other testers.
-{% endstep %}
-
-{% step %}
-### Submitting for Review
-
-Once you are satisfied with your creation, select **Submit for Review** to submit your world for moderation. Moderation usually takes less than 48 hours. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
 {% endstep %}
 {% endstepper %}
 {% endcolumn %}
 
-{% column width="33.33333333333334%" %}
-<figure><img src=".gitbook/assets/image (750).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-
-
-<figure><img src=".gitbook/assets/image (755).png" alt="" width="375"><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (2) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-<figure><img src=".gitbook/assets/image (2) (1) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-<figure><img src=".gitbook/assets/image (4) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (5) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure><img src=".gitbook/assets/image (6) (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure><img src=".gitbook/assets/image (762).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
-<figure><img src=".gitbook/assets/image (763).png" alt="" width="375"><figcaption></figcaption></figure>
-
-
+{% column %}
+<figure><img src=".gitbook/assets/image (801).png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
-### Publishing Videos with VIVERSE Studio
+***
+
+## Create A Game
+
+{% columns %}
+{% column width="50%" %}
+{% stepper %}
+{% step %}
+#### Games can be created using the following menus:
+
+A. Select **Create** from the VIVERSE Studio navigation bar > **New Game**&#x20;
+
+or
+
+B. Select **Create** from the VIVERSE Studio navigation bar > **New Experience** > **Game Engine**.
+
+
+
+
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column width="50%" %}
+<figure><img src=".gitbook/assets/image (775).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (776).png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+***
+
+### Option 1: Create Game - Uploading the game zip file
+
+{% columns %}
+{% column %}
+{% stepper %}
+{% step %}
+Upload Your Game Build
+
+* In the **Upload game file** dialog, use **Option A**.
+* Drag and drop a ZIP file into the upload area, or select **Select file** and choose a ZIP file.
+
+
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Enter Basic Details
+
+On **Content settings → General**, configure **Basic info**:
+
+* **A:** Verify your uploaded game file, or use **Re-upload** if needed.
+* Enter a **Name**.
+* **B:** Enter a **Description** (optional).
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Configure Discoverability
+
+On **Content settings → General**, configure **Thumbnail** and **Discoverability**:
+
+* **C:** Upload a **Thumbnail**.
+* **D:** Select **Content type**.
+* **E:** Choose **Categories**.
+* **F:** Select additional **Genres** (optional).
+* **G:** Add **Tags**.
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Set Language, Audience, and Permissions
+
+On **Content settings → General**:
+
+* **H:** Set **Content language**.
+* **I:** Configure **Audience & Age restriction**.
+*   **J:** Review **Content headers & permissions**.
+
+    **Content Behavior Permissions**
+
+    * `allow-forms` — Submit forms
+    * `allow-modals` — Open modal dialogs
+    * `allow-popups` — Open popup windows
+    * `allow-top-navigation` — Navigate top window
+    * `allow-pointer-lock` — Use pointer lock
+    * `allow-presentation` — Start presentations
+    * `allow-downloads` — Download files
+    * `allow-orientation-lock` — Allow orientation lock
+    * `allow-popups-to-escape-sandbox` — Allow popups to escape sandbox
+    * `allow-top-navigation-by-user-activation` — Allow top navigation by user activation
+
+    **Device and Sensor Access Permissions**
+
+    * `accelerometer` — Allows access to accelerometer sensor data
+    * `camera` — Allows access to device camera
+    * `gyroscope` — Allows access to gyroscope sensor data
+    * `magnetometer` — Allows access to magnetometer sensor data
+    * `midi` — Allows access to MIDI devices
+    * `window-management` — Allows multi-window management
+    * `xr-spatial-tracking` — Allows access to VR/AR features
+{% endstep %}
+
+{% step %}
+#### Configure Media
+
+On **Content settings → Media**:
+
+* **K:** Configure **Device** support.
+* **L:** Upload a **Trailer** (optional).
+* **M:** Upload **Gallery** images (optional).
+
+
+
+
+
+
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Configure Display Settings
+
+On **Content settings → Display settings**:
+
+* **N:** Configure **Branding overlay appearance**.
+* **O:** Configure the **Fullscreen feature**.
+* **P:** Add **Share your code** (optional).
+
+.
+
+.
+
+
+{% endstep %}
+
+{% step %}
+#### Configure SDK and Access
+
+On **Content settings → Access & Security**:
+
+* **Q:** Configure **SDK settings**.
+* **R:** Configure **Entry** access (optional).
+* **S:** Add **Co-owners** if needed.
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Submit for Review
+
+* Select **Submit for Review**.
+* Confirm the content permissions.
+* Select **Submit**. Moderation usually takes less than 48 hours. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
+
+
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/image (778).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (779).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (780).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (781).png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure><img src=".gitbook/assets/image (782).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (783).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (784).png" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src=".gitbook/assets/image (785).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (786).png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+***
+
+### Option 2: Create Game - Create an App ID
+
+{% columns %}
+{% column %}
+{% stepper %}
+{% step %}
+#### Select Viverse SDK Integration
+
+* Select Option B. **Create App ID**. The **App ID** is an important piece of information for anyone [integrating VIVERSE SDKs](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/) into their project.
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Create SDK Content
+
+* Enter an Experience Name.
+* Accept the Platform Agreement.
+* Select **Create Content**.
+
+
+
+
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Copy the Generated App ID
+
+* Copy the generated App ID.
+* Select **Done**.
+
+
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/image (797).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (798).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (799).png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+***
+
+### Option 3: New Game - Use CLI Upload Tools
+
+{% columns %}
+{% column %}
+{% stepper %}
+{% step %}
+#### View CLI Documentation
+
+* Select **Manual**.
+* Follow the [CLI upload documentation](how-to-publish.md#publishing-with-the-cli).
+
+
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/image (800).png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+***
+
+## Create A Video
 
 {% hint style="info" %}
 Learn more about [specifications for video content](how-to-publish.md#specifications-for-video-content), including upload limits, output specs, and our transcoding matrix.
 {% endhint %}
 
 {% columns %}
-{% column width="66.66666666666666%" %}
+{% column %}
 {% stepper %}
 {% step %}
-#### Upload your video file
+#### Start a New Video
 
-Open **VIVERSE Studio**, navigate to **Videos** section, and drag-n-drop your video file to start uploading. As alternative, click **Upload** button at the right upper corner.
+Select **Create** from the VIVERSE Studio navigation bar > **New Video**
 
-Please make sure your video is authored in [correct format](how-to-publish.md#input-specifications), otherwise the uploading process will return an error
+
 {% endstep %}
 
 {% step %}
-#### Fill in content details
+#### Upload and Publish a Video
 
-While the video is processing, feel free to fill in content details:
+Upload a video file.
 
-* Video title
-* Description (optional)
-* Thumbnail image
-* Genre tags
+
+
+
+
+
+
+
 {% endstep %}
 
 {% step %}
-#### Preview your content
+#### Add Info
 
-Once the video is uploaded and processed, it is available for preview!
+A. Video File Name
 
-Click **View** button to see your video in a new tab. You can adjust **Quality Settings** on the fly to check how it was [transcoded](how-to-publish.md#transcoding-matrix) into different resolutions.
+B. Enter a Name and Description.
+
+C. Upload a Thumbnail.
+
+D. Configure Category, Genres, and Tags.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endstep %}
 
 {% step %}
-#### Adjust visibility
+#### Add Access & Security
 
-The visibility is set to **Private** by default, but you can always set it to **Public** or **Unlisted** in the dropdown at the top of the page
-{% endstep %}
+E. Select the Content Language.
 
-{% step %}
-#### Save and publish
+F. Configure Audience & Age Restriction.
 
-When you're happy with everything, click **Create** button at the top right corner — this will save your video with the **Visibility Settings** you adjusted earlier.
+G. Configure Access Settings.
 
-And when you're ready to publish — just click **Edit** and set your video to **Public.** Congratulations, it's now live and can be viewed by entire VIVERSE community!
+H. Add Passcode
 
-Please note that you can always hide your video later by setting its **Visibility** back to **Private**
+I. Add Collaborators
 {% endstep %}
 {% endstepper %}
 {% endcolumn %}
 
-{% column width="33.33333333333334%" %}
-<figure><img src=".gitbook/assets/vid1.png" alt=""><figcaption></figcaption></figure>
+{% column %}
+<figure><img src=".gitbook/assets/image (802).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/vid2b.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (803).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/vid4a.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (804).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/vid4b.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/vid4c.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/vid5.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/viverse_thumbnail.jpg" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/vid6.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/vid7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (805).png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
+
+***
+
+## Create An Open Brush Experience
+
+{% columns %}
+{% column %}
+{% stepper %}
+{% step %}
+#### Open Brush experiences can be created using the following menu:
+
+Select **Create** from the VIVERSE Studio navigation bar > **New Experience**&#x20;
+{% endstep %}
+
+{% step %}
+#### View Open Brush Documentation
+
+* Select **View Docs**.
+* Follow the Open Brush publishing instructions.
+
+
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/image (795).png" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src=".gitbook/assets/image (796).png" alt=""><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+***
+
+## Create An Experience Using A Template
+
+{% columns %}
+{% column %}
+{% stepper %}
+{% step %}
+#### Experiences can be created using the following menu:
+
+Select **Create** from the VIVERSE Studio navigation bar > **New Experience**&#x20;
+
+
+{% endstep %}
+
+{% step %}
+#### Choose Web Builder
+
+* Select Option B. **Web Builder**.
+
+
+
+
+{% endstep %}
+
+{% step %}
+#### Follow Creating From Templates documentation
+
+Documentation for Creating From Templates can be found here: [https://docs.viverse.com/publishing-from-templates/creating-from-templates](https://docs.viverse.com/publishing-from-templates/creating-from-templates)
+{% endstep %}
+{% endstepper %}
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/image (787).png" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src=".gitbook/assets/image (788).png" alt=""><figcaption></figcaption></figure>
+
+
+{% endcolumn %}
+{% endcolumns %}
+
+
 
 ***
 
@@ -357,6 +680,8 @@ viverse-cli app publish --app-id <your-app-id>
 > **Important:** After uploading content successfully, you'll need to visit the Creator Studio website to complete the review and publishing process.
 
 > **Warning:** The `<path>` parameter MUST point to your **build output folder** and NOT your source code folder. Publishing source code folders (containing `src/`, `node_modules/`, or development files like `.tsx`, `.jsx`, `.vue`, `.unity`, etc.) will result in non-functional content and deployment failures.
+
+
 
 ***
 

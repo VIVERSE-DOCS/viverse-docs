@@ -31,7 +31,7 @@ VIVERSE also injects its own custom UI into. As you design UI for your own proje
 
 <figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt="" width="375"><figcaption><p>VIVERSE default desktop UI, including optional Quests/Missions.</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt="" width="375"><figcaption><p>Audio settings within the "World preferences" tab of VIVERSE's UI.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (44).png" alt="" width="375"><figcaption><p>Audio settings within the "World preferences" tab of VIVERSE's UI.</p></figcaption></figure>
 
 This UI lives under the CSS ID `#world-root`  and can be hidden with a simple `display: none` . However, in that case, be mindful that microphone, voice chat, and avatar controls will be hidden from the user, which could impact your game if you aren't deliberately turning these features off.
 

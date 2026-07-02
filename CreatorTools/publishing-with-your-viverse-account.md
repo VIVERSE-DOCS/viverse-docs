@@ -1,7 +1,8 @@
 ---
 description: >-
-  This page details important information about using the VIVERSE Creator Studio
-  to publish and manage settings for content associated with your account.
+  Overview of the VIVERSE Studio creator dashboard. Covers channel analytics on
+  the Dashboard, Partner Program information, and content management for
+  experiences, games, and videos.
 ---
 
 # VIVERSE Studio
@@ -12,87 +13,263 @@ description: >-
 
 The [VIVERSE studio](https://studio.viverse.com/) is the one-stop-shop for managing all content associated with your VIVERSE account and profile. Studio includes analytics about the performance of your content and tools to manage both video and application content.
 
-## Studio Dashboard
+### Prerequisites
 
-The main dashboard of the VIVERSE studio includes metrics on how users engage with your content. With an adjustable timeframe and content filer, you may explore the number of visitors, both new and unique, as well as the number of views and likes your content receives.
+* VIVERSE account
+* Signed in at https://worlds.viverse.com/
 
-<figure><img src=".gitbook/assets/Screenshot 2026-02-20 at 5.04.38 PM.png" alt=""><figcaption></figcaption></figure>
+***
 
-## Worlds
-
-The worlds page includes tabs for managing existing content and uploading new content. The **Content Management** page contains links to edit a project's settings, including its visibility, description, and associated media. The **Upload** tab allows you to create new Worlds, upload and update files for existing worlds.&#x20;
-
-<figure><img src=".gitbook/assets/Screenshot 2026-02-20 at 5.09.22 PM.png" alt=""><figcaption></figcaption></figure>
-
-When updating content through the **Upload** tab, you will see a new, testable version with a unique link that can be merged into the main version/link for your content after submitting for review. You may also delete or hide Worlds through these settings.
-
-<figure><img src=".gitbook/assets/Screenshot 2026-02-20 at 5.09.06 PM.png" alt=""><figcaption></figcaption></figure>
-
-## Videos
-
-The **Videos** tab allows you to explore, upload, and manage settings of uploaded videos. Currently, it is not possible to upload a new version of a video to an existing link; you must delete the current version and upload a new file.
-
-<figure><img src=".gitbook/assets/Screenshot 2026-02-20 at 5.12.39 PM.png" alt=""><figcaption></figcaption></figure>
-
-## Content Settings
-
-Your content's settings can be edited by clicking the kebab menu next to your world/video.
-
-<figure><img src=".gitbook/assets/image (746).png" alt="" width="375"><figcaption><p>Image showing to open a world's settings</p></figcaption></figure>
+## Open VIVERSE Studio
 
 {% columns %}
 {% column %}
-<figure><img src=".gitbook/assets/WorldSettings.PNG" alt="" width="358"><figcaption><p>The world settings configuration panel</p></figcaption></figure>
+{% stepper %}
+{% step %}
+#### Access VIVERSE Studio
+
+* Sign in to VIVERSE.
+* Select your profile avatar in the upper-right corner.
+* Select **VIVERSE Studio**.
 
 
-
-Worlds can be assigned a genre, which impacts curation and discovery on the VIVERSE webpages.
-
-
-
-
-
-<figure><img src=".gitbook/assets/Devices.PNG" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+{% endstepper %}
 {% endcolumn %}
 
 {% column %}
-With the world settings, you can configure your world's name, description, thumbnail, and accessibility settings. Both Genre and Access will influence how your world is categorized and displayed on the VIVERSE world discovery page.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure><img src=".gitbook/assets/Genres.PNG" alt="" width="344"><figcaption></figcaption></figure>
-
-
-
-
-
-Worlds can also be assigned a device filter, regulating which user devices are intended to experience the world based on its optimization.
+<figure><img src=".gitbook/assets/image (806).png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
-Worlds can be set to one of three accessibility states and can be password protected to add an additional level of security.
 
-|                                                                                                  |                                                                                             |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| ![Options for accessibility settings](<.gitbook/assets/Screenshot 2024-12-29 at 3.48.35 PM.png>) | ![Configuring password settings](<.gitbook/assets/Screenshot 2024-12-29 at 3.53.50 PM.png>) |
+
+***
+
+## Dashboard
+
+{% columns %}
+{% column %}
+The **Dashboard** provides a summary of channel activity for the selected world and date range.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_35_29 AM.png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+### Dashboard Sections
+
+| Label | Section                      | Description                                                                                                                                                 |
+| ----- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A     | Turn views into revenue card | Promotional card for the Partner Program. This area encourages creators to learn about monetization options in VIVERSE.                                     |
+| B     | New Visitors metric box      | Shows the number of first-time visitors within the selected world filter and date range. The percentage indicates change compared with the previous period. |
+| C     | Unique Visitors metric box   | Shows how many unique visitors reached the selected scope during the selected date range.                                                                   |
+| D     | Views metric box             | Shows the total number of views for the selected scope and date range. When available, it also shows views over 30 seconds as a secondary metric.           |
+| E     | Likes metric box             | Shows the total number of likes received during the selected scope and date range.                                                                          |
+| F     | World filter dropdown        | Filters dashboard data by a specific world or by **All Worlds**. Use this when you only want to review analytics for one published world.                   |
+| G     | Date range dropdown          | Filters dashboard data by date range. Use this to compare recent performance, campaign windows, or activity over a specific time period.                    |
+| H     | Visitors chart section       | Trend chart showing visitor activity over time for the selected world filter and date range.                                                                |
+| I     | Views chart section          | Trend chart showing view activity over time for the selected world filter and date range.                                                                   |
+
+{% stepper %}
+{% step %}
+#### Open the Dashboard
+
+* Select **Dashboard** from the left navigation.
+{% endstep %}
+
+{% step %}
+#### Set the world filter
+
+* Use the **World filter** dropdown to choose **All Worlds** or one specific world.
+{% endstep %}
+
+{% step %}
+#### Set the date range
+
+* Use the **Date range** dropdown to select the reporting window.
+{% endstep %}
+
+{% step %}
+#### Review metric totals
+
+* Review the **New Visitors**, **Unique Visitors**, **Views**, and **Likes** metric boxes for quick totals.
+{% endstep %}
+
+{% step %}
+#### Review trend charts
+
+* Review the **Visitors** and **Views** charts to understand activity trends over time.
+{% endstep %}
+{% endstepper %}
+
+***
+
+## Partner Program
+
+{% columns %}
+{% column %}
+The **Partner Program** page introduces monetization options available in VIVERSE.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_43_23 AM (1).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+### Partner Program Sections
+
+| Label | Section                 | Description                                                                                                                                                    |
+| ----- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A     | Learn more button       | Opens more information about the Partner Program. Select this button to learn how monetization works and what requirements may apply.                          |
+| B     | Partner Program section | Main overview area for the Partner Program. This section explains that creators may be able to monetize video content and reach a broader audience in VIVERSE. |
+
+***
+
+## Content Management
+
+{% columns %}
+{% column %}
+The **Content** page is where you manage uploaded videos, games, and experiences. The page includes tabs for switching between content categories, a search button, a filter button, list columns, and action buttons.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_43_24 AM (2).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+### Content Page Section
+
+| Label | Section             | Description                                                                                                                  |
+| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| A     | All tab             | Shows all content across videos, experiences, and games.                                                                     |
+| B     | Experiences tab     | Filters the list to show only experience content.                                                                            |
+| C     | Games tab           | Filters the list to show only game content.                                                                                  |
+| D     | Videos tab          | Filters the list to show only video content.                                                                                 |
+| E     | Search button       | Opens search so you can find content by title or keyword.                                                                    |
+| F     | Filter button       | Opens filters to refine the content list.                                                                                    |
+| G     | Thumbnail column    | Displays the preview image or video thumbnail for each content item.                                                         |
+| H     | Title column        | Shows the title of each content item.                                                                                        |
+| I     | Content type column | Indicates whether each item is a video, game, or experience.                                                                 |
+| J     | Visibility column   | Shows the visibility status, such as private or unlisted.                                                                    |
+| K     | Last updated column | Shows the most recent status and date for each content item, such as published, draft, uploaded, submitted, or under review. |
+| L     | Views column        | Shows the number of views for published content.                                                                             |
+| M     | Edit button         | Opens a published content item so you can make changes.                                                                      |
+| N     | View button         | Opens the published content item for viewing.                                                                                |
+| O     | Edit draft button   | Opens draft content so you can continue editing.                                                                             |
+| P     | Preview button      | Opens a preview of draft or submitted content.                                                                               |
+
+{% stepper %}
+{% step %}
+#### Browse all content
+
+* Select **Content** from the left navigation.
+* Use the **All** tab to review every content item in one list.
+{% endstep %}
+
+{% step %}
+#### Filter by content type
+
+* Select **Experiences**, **Games**, or **Videos** to focus on one content type.
+{% endstep %}
+
+{% step %}
+#### Search and filter
+
+* Use the **Search** button to quickly find a specific title.
+* Use the **Filter** button to narrow the list.
+{% endstep %}
+
+{% step %}
+#### Manage published content
+
+* Select **Edit** to update published content.
+* Select **View** to open published content.
+{% endstep %}
+
+{% step %}
+#### Manage drafts and submitted content
+
+* Select **Edit draft** to continue working on an unpublished draft.
+* Select **Preview** to review a draft or submitted item before it is published.
+{% endstep %}
+{% endstepper %}
+
+***
+
+### Experiences Tab
+
+Use this tab when you want to manage spatial environments, art, apps, or other experience-based content.
+
+{% columns %}
+{% column %}
+The **Experiences** tab is active when the tab label is highlighted. This view shows experience content only.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_43_24 AM (4).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+| Label | Section                  | Description                                                    |
+| ----- | ------------------------ | -------------------------------------------------------------- |
+| A     | Experiences tab          | Indicates the Experiences filter is active.                    |
+| B     | Experiences content list | Shows all experience content available in your Studio account. |
+
+***
+
+### Games Tab
+
+Use this tab when you want to manage game projects separately from experiences and videos.
+
+{% columns %}
+{% column %}
+The **Games** tab is active when the tab label is highlighted. This view shows game content only.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_43_24 AM (3).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+| Label | Section            | Description                                              |
+| ----- | ------------------ | -------------------------------------------------------- |
+| A     | Games tab          | Indicates the Games filter is active.                    |
+| B     | Games content list | Shows all game content available in your Studio account. |
+
+***
+
+### Videos Tab
+
+Use this tab when you want to manage video clips, trailers, and captures.
+
+{% columns %}
+{% column %}
+The **Videos** tab is active when the tab label is highlighted. This view shows video content only.
+{% endcolumn %}
+
+{% column %}
+<figure><img src=".gitbook/assets/ChatGPT Image Jun 25, 2026, 10_43_25 AM (5).png" alt="" width="375"><figcaption></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+
+
+| Label | Section             | Description                                               |
+| ----- | ------------------- | --------------------------------------------------------- |
+| A     | Videos tab          | Indicates the Videos filter is active.                    |
+| B     | Videos content list | Shows all video content available in your Studio account. |
+
+***
 
 ## Review & Content Moderation
 

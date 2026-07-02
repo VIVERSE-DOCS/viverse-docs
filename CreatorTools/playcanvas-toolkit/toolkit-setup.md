@@ -1,45 +1,54 @@
 ---
 description: >-
-  Learn how to install the VIVERSE Chrome Extension for PlayCanvas Editor,
-  create your first world, then publish it to VIVERSE.
+  Learn how to install the VIVERSE Toolkit for the PlayCanvas Editor, create
+  your first project, then publish it to VIVERSE.
 ---
 
 # Toolkit Setup
 
 ***
 
-### Introduction
+{% hint style="warning" %}
+This documentation covers building with v4 and newer of the VIVERSE PlayCanvas Toolkit. [See here](toolkit-setup-legacy-v3.md) for legacy documentation on v3 setup.
+{% endhint %}
 
-PlayCanvas is an open-source game engine designed to advance the development of 3D web games, interactive content and rich multimedia. Unlike similar WebGL engines like Three.js or Babylon, PlayCanvas comes with sophisticated in-browser Editor (inspired by early Unity 2.x - 3.x), which provides its users with a rich set of tools — allowing to assemble scenes from imported assets, setup real-time and baked lighting, write custom scripts, create animation graphs, and much much more.
+## Introduction
 
-To make creator experience even smoother, VIVERSE has developed a special Extension for Chrome browsers which extends PlayCanvas Editor functionality with additional set of no-code tools and publishing options. It provides common building blocks like Triggers, Actions and Quests, enables Player locomotion and Avatar system in your project, and allows one-click testing and publishing right from the Editor.
+[PlayCanvas](https://playcanvas.com/) is an open-source game engine designed to advance the development of 3D web games, interactive content and rich multimedia. Unlike similar WebGL engines like Three.js or Babylon, PlayCanvas comes with sophisticated in-browser Editor (inspired by early [Unity 2.x - 3.x](https://www.elmundotech.com/2010/09/27/unity-3-game-dev-platform-available-now/)), which provides its users with a rich set of tools — allowing to assemble scenes from imported assets, setup real-time and baked lighting, write custom scripts, create animation graphs, and much much more.
 
-Below is a useful set of tutorials to help you get started with VIVERSE PlayCanvas Extension. We assume you're already familiar with PlayCanvas Editor itself and have PlayCanvas account. If not, please feel free to explore [PlayCanvas User Manual](https://developer.playcanvas.com/user-manual/) first!
+To make creator's experience even richer, VIVERSE has developed a special Toolkit, which consists of two parts complementing each other — the Extension and the Framework:
 
-### Install PlayCanvas Extension
+* **The Extension** lives in your Chrome browser, and its main goal is to add extra functionality to vanilla PlayCanvas Editor, not achievable otherwise — like initializing your project, creating new VIVERSE projects, setting up Local Player, Quests and Post Effects, and of course providing convenient ways to Publish to VIVERSE!
+* **The Framework** is a collection of scripts and assets that the Extension adds to your project during initialization, under the `.viverse` folder. It provides important runtime systems for Avatars, Player Locomotion, Networking and so forth, and common building blocks like Triggers and Actions, that you can use to create custom no-code logic in your Worlds
+
+{% hint style="info" %}
+Please see [the full collection of documents](building-with-playcanvas-toolkit/) to help you get started with the Toolkit. We assume you're already familiar with PlayCanvas Editor itself and have PlayCanvas account. If not, please feel free to explore [PlayCanvas User Manual](https://developer.playcanvas.com/user-manual/) first!
+{% endhint %}
+
+## Install PlayCanvas Extension
 
 {% columns %}
 {% column width="66.66666666666666%" %}
 {% stepper %}
 {% step %}
-#### Get the latest Extension from VIVERSE
+### Get the latest Extension from VIVERSE
 
 * [Download](playcanvas-toolkit-changelog.md) the latest version of Playcanvas Extension
 * Unzip downloaded file on your computer
 {% endstep %}
 
 {% step %}
-#### Navigate to Chrome Extensions manager
+### Navigate to Extensions manager
 
-* Click Extensions icon in Chrome toolbar and open the Extensions Popup
-* Click Manage Extensions at the bottom and open the Extensions Manager in a new tab
+* Click **Extensions** icon in Chrome toolbar and open the Extensions Popup
+* Click **Manage Extensions** at the bottom and open the Extensions Manager in a new tab
 {% endstep %}
 
 {% step %}
-#### Install the Extension
+### Install the Extension
 
-* Enable Developer Mode at the top right corner
-* Click Load Unpacked and select the folder with unpacked Extension you downloaded previously
+* Enable **Developer Mode** at the top right corner
+* Click **Load Unpacked** and select the folder with unpacked Extension you downloaded previously
 * Verify the Extension is now present in Extensions Manager tab
 {% endstep %}
 {% endstepper %}
@@ -60,7 +69,7 @@ Below is a useful set of tutorials to help you get started with VIVERSE PlayCanv
 {% endcolumn %}
 {% endcolumns %}
 
-### Create and publish your first project
+## Create, Test, and Publish your first project
 
 {% hint style="info" %}
 Before proceeding any further, we assume you're familiar with the basics of PlayCanvas Editor. If you're looking for a comprehensive introduction to it — please refer to a dedicated [PlayCanvas Editor Manual](https://developer.playcanvas.com/user-manual/editor/) first!
@@ -70,117 +79,91 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 {% column width="66.66666666666666%" %}
 {% stepper %}
 {% step %}
-#### Initialize your new project
+### Enter a PlayCanvas Project
 
-* Create a new PlayCanvas project or open an already existing one
-* Make sure VIVERSE Extension is properly initialized — you should see **ExtensionEntity** in your scene hierarchy and `@viverse` folder added to your project. Refresh the page if it's not the case
-* Login into VIVERSE via dedicated button in the left toolbar. Once logged in, you should see **VIVERSE Scene Settings** button there
+* Enter the editor of an existing PlayCanvas project or create a new one
+
+
 {% endstep %}
 
 {% step %}
-#### Setup 3D environment
+### Enable the extension
 
-* First, delete default **Camera** in Scene Hierarchy. The Extension will provide its own Camera system that will be added to your Scene at runtime
-* Import **Ammo** physics library and add a Floor plane with **Collision** component and static **Rigidbody**. This is crucial because VIVERSE Player system relies on built-in PlayCanvas physics engine for moving around. Without a floor, your player will be simply falling through
-* Add additional geometry and lights if want!
+* Click **Extensions** icon in Chrome toolbar and open the Extensions Popup
+* Select the **VIVERSE PlayCanvas Toolkit** button
+
+
 {% endstep %}
 
 {% step %}
-#### Create a Spawn Point
+### Sign In to VIVERSE
 
-* In order for a Player to appear in your world, it should be spawned somewhere first. VIVERSE Extension provides a convenient way to control that!
-* Simply create a new empty **Entity** in your scene and add `spawn-point` tag to it
-* Make sure it's positioned at the floor level or above. Feel free to rotate it to change the initial orientation of your Player
+* Select the **Log In to VIVERSE** button that is now in the left-hand toolbar
+* **Complete the VIVERSE SSO process** to sign in to your account
 {% endstep %}
 
 {% step %}
-#### Preview your project
+### Create VIVERSE Application
 
-* Once you have a walkable floor and a spawn point, it's time to test your project live!
-* Go to the **Publish / Download** menu and open the **Builds** popup window. In that window, click **Publish to Viverse** button and wait until your project is successfully uploaded
-* Once it's uploaded and ready, the **Preview** button should appear. Clicking it will open your project in a new tab, in preview mode. This preview URL is public and you can share it with your friends and colleagues to test the current version of your work
-* Return back to PlayCanvas Editor and modify your project as you see fit. Keep publishing and previewing to see your most recent changes live in VIVERSE environment
+* Select the **VIVERSE PlayCanvas Toolkit Settings** button in your left-hand toolbar
+* Select **Create New World** and wait for the toolkit to upload all scripts to your project.
+
+
+
+
 {% endstep %}
 
 {% step %}
-#### Final: Create a VIVERSE World for your project
+### Test Scene Locally
 
-* After confirming everything is working correctly in preview mode, you can publish your project to production environment!
-* In preview mode, click "**Create World**" button, give your World a name and click the "**Create**" button to publish it to the VIVERSE Create platform
-* The resulting URL is the public link to your World. You can return back to your project any time and republish an updated version as you see fit
-* Feel free to configure your [World Settings](../publishing-with-your-viverse-account.md#world-settings) as well
+* After creating an application, you will notice that a number of files and entities have been added to your project, including a template for VIVERSE avatars.
+* Make sure to **add a collidable object** for the VIVERSE avatar to interact with. This process will **import** **ammo.js**, which is the required default for the VIVERSE toolkit.
+* Select **Launch** in the PlayCanvas editor. This will start a local session where you can test all features, including multiplayer audio.
+
+
+{% endstep %}
+
+{% step %}
+### Export and Upload
+
+* When you are ready to upload, you must first create a new build in PlayCanvas. This can be completed in **Publish and Download** in the left-hand toolbar.
+* Once you have generated a build, **download its .zip file**.
+* **Navigate to studio.viverse.com** and [complete the upload process](../how-to-publish.md#publishing-apps-with-viverse-studio). PLEASE NOTE, when you created your VIVERSE application, a project was automatically generated in studio.viverse.com under your account. You should use this project when uploading your files.
 {% endstep %}
 {% endstepper %}
 {% endcolumn %}
 
 {% column width="33.33333333333334%" %}
-<figure><img src="../.gitbook/assets/im1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.36.07 PM.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.40.53 PM.png" alt=""><figcaption></figcaption></figure>
 
-<div><figure><img src="../.gitbook/assets/im3a.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/im3b.png" alt=""><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/im4.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.07.52 PM.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im5a.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im5b.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.08.31 PM.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im9a.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.08.04 PM.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/im9b.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.08.56 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.15.08 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.43.38 PM.png" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.16.44 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.17.10 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Screenshot 2026-06-16 at 5.44.27 PM.png" alt=""><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
-{% embed url="https://www.youtube.com/watch?v=w3MFHo4v69E" %}
 
-### "Factory Reset" PlayCanvas Extension
 
-> Sometimes issues in the installation process can produce persistent bugs that are only fixed by fully resetting the Extension. If you're experiencing these bugs please follow the steps below
-
-{% stepper %}
-{% step %}
-#### Sign in and out of VIVERSE
-
-Sign out of your account on viverse.com and then sign back in. **MAKE SURE** you are using the same email account as the one associated with your PlayCanvas account
-{% endstep %}
-
-{% step %}
-#### Delete VIVERSE entities from PlayCanvas project
-
-Go back to your PlayCanvas project and delete:
-
-* The `Extension` Entity from your scene hierarchy
-* The `@viverse` folder from your project assets
-* The `extension-image` folder from your project assets
-* The `extension-script` folder from your project assets
-{% endstep %}
-
-{% step %}
-#### Clear Application Storage
-
-Open the [Developer Tools](https://elfsight.com/blog/how-to-work-with-developer-console/) in your Chrome brower, go to "Application", select "Storage" in the left hand toolbar and click the "Delete Site Data" button
-{% endstep %}
-
-{% step %}
-#### Refresh the page
-
-Refresh your PlayCanvas project page with the VIVERSE extension enabled
-{% endstep %}
-
-{% step %}
-#### Sign in back to PlayCanvas
-
-Sign in to PlayCanvas when prompted. **MAKE SURE** you are using the same email account as the one associated with your VIVERSE account
-{% endstep %}
-
-{% step %}
-#### Sign in back to VIVERSE
-
-Sign in to VIVERSE from within your PlayCanvas project using the VIVERSE Scene Settings
-{% endstep %}
-{% endstepper %}
+{% include "../.gitbook/includes/factory-reset-playcanvas-....md" %}
