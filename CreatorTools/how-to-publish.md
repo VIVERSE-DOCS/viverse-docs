@@ -230,7 +230,7 @@ On **Content settings → Access & Security**:
 
 * Select **Submit for Review**.
 * Confirm the content permissions.
-* Select **Submit**. Moderation usually takes less than 48 hours. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
+* Select **Submit**. Moderation usually takes 2-14 day to review your submission. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
 
 
 {% endstep %}
