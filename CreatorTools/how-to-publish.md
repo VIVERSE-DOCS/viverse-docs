@@ -14,52 +14,42 @@ description: >-
 You can upload to VIVERSE from all web-compatible frameworks, including 3D experiences, web applications, and videos! No matter what you are building with, you can upload and manage your builds easily using [VIVERSE Studio](publishing-with-your-viverse-account.md) or our command-line interface (CLI). Once uploaded, VIVERSE content is associated with your VIVERSE account and profile located at [https://worlds.viverse.com/profile](https://worlds.viverse.com/profile). This page guides you through the uploading process using both methods!
 
 {% hint style="warning" %}
-While 3D experiences and applications can be uploaded using either VIVERSE Studio or the CLI, **currently videos can only be uploaded via Studio, not the CLI.**
+While 3D experiences and applications can be uploaded using either VIVERSE Studio or the CLI, **currently videos can only be uploaded via Studio, not the CLI.** Learn more about [specifications for applications and 3D experiences](standalone-app-publishing/intro-to-standalone-app-publishing.md), including supported file types, requirements, and integrations with our SDKs.
 {% endhint %}
 
-The VIVERSE Studio offers a user-friendly interface that makes it easy for creators of all skill levels to upload and manage content on VIVERSE. You can learn the process for uploading [APPLICATIONS](how-to-publish.md#publishing-apps-with-viverse-studio) or [VIDEOS](how-to-publish.md#publishing-videos-with-viverse-studio) below.
-
-{% hint style="info" %}
-Learn more about [specifications for applications and 3D experiences](standalone-app-publishing/intro-to-standalone-app-publishing.md), including supported file types, requirements, and integrations with our SDKs.
-{% endhint %}
+The VIVERSE Studio offers a user-friendly interface that makes it easy for creators of all skill levels to upload and manage content on VIVERSE. You can learn the process for uploading [APPLICATIONS](how-to-publish.md#creating-applications) or [VIDEOS](how-to-publish.md#create-a-video) below.
 
 ### Prerequisites
 
 * VIVERSE account
-* Signed in at https://worlds.viverse.com/
+* Signed in at [https://worlds.viverse.com/](https://www.viverse.com/)
 
 ***
 
-## Open VIVERSE Studio
+## Using Templates To Create Experiences or Creating An Open Brush Project
 
 {% columns %}
 {% column %}
-{% stepper %}
-{% step %}
-#### Access VIVERSE Studio
-
-* Sign in to VIVERSE.
-* Select your profile avatar in the upper-right corner.
-* Select **VIVERSE Studio**.
-
-
-{% endstep %}
-{% endstepper %}
+Create an experience using a template or create an Open Brush project using the following menus. Select **Create** from the VIVERSE Studio navigation bar > **New Experience.** To use a template, Select Option B. **Web Builder.** For Open Brush projects, select **View Docs** and follow the Open Brush publishing instructions. Documentation for Creating From Templates can be found here: [https://docs.viverse.com/publishing-from-templates/creating-from-templates](https://docs.viverse.com/publishing-from-templates/creating-from-templates)
 {% endcolumn %}
 
 {% column %}
-<figure><img src=".gitbook/assets/image (801).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (795).png" alt="" width="194"><figcaption></figcaption></figure>
+
+
+
+<figure><img src=".gitbook/assets/image (788).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
+
+
 ***
 
-## Create A Game
+## Create An Experience
 
 {% columns %}
-{% column width="50%" %}
-{% stepper %}
-{% step %}
+{% column %}
 #### Games can be created using the following menus:
 
 A. Select **Create** from the VIVERSE Studio navigation bar > **New Game**&#x20;
@@ -67,39 +57,29 @@ A. Select **Create** from the VIVERSE Studio navigation bar > **New Game**&#x20;
 or
 
 B. Select **Create** from the VIVERSE Studio navigation bar > **New Experience** > **Game Engine**.
-
-
-
-
-{% endstep %}
-{% endstepper %}
 {% endcolumn %}
 
-{% column width="50%" %}
-<figure><img src=".gitbook/assets/image (775).png" alt=""><figcaption></figcaption></figure>
+{% column %}
+<figure><img src=".gitbook/assets/image (775).png" alt="" width="194"><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (776).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (776).png" alt="" width="375"><figcaption></figcaption></figure>
+
+
 {% endcolumn %}
 {% endcolumns %}
 
 
 
-***
-
-### Option 1: Create Game - Uploading the game zip file
+### Option 1: Create An Experience - Uploading the zip file
 
 {% columns %}
 {% column %}
 {% stepper %}
 {% step %}
-Upload Your Game Build
+Upload Your Experience Build
 
 * In the **Upload game file** dialog, use **Option A**.
 * Drag and drop a ZIP file into the upload area, or select **Select file** and choose a ZIP file.
-
-
-
-
 
 
 
@@ -114,6 +94,8 @@ On **Content settings → General**, configure **Basic info**:
 * **A:** Verify your uploaded game file, or use **Re-upload** if needed.
 * Enter a **Name**.
 * **B:** Enter a **Description** (optional).
+
+
 
 
 
@@ -204,9 +186,9 @@ On **Content settings → Display settings**:
 * **O:** Configure the **Fullscreen feature**.
 * **P:** Add **Share your code** (optional).
 
-.
 
-.
+
+
 
 
 {% endstep %}
@@ -230,7 +212,7 @@ On **Content settings → Access & Security**:
 
 * Select **Submit for Review**.
 * Confirm the content permissions.
-* Select **Submit**. Moderation usually takes 2-14 day to review your submission. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
+* Select **Submit**. Moderation usually takes less than 48 hours. If you need support with moderation, please reach out to us through [this form](https://support.viverse.com/hc/en-us/requests/new).
 
 
 {% endstep %}
@@ -238,17 +220,15 @@ On **Content settings → Access & Security**:
 {% endcolumn %}
 
 {% column %}
-<figure><img src=".gitbook/assets/image (778).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (779).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (780).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (781).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (778).png" alt="" width="219"><figcaption></figcaption></figure>
 
 
 
+<figure><img src=".gitbook/assets/image (779).png" alt="" width="349"><figcaption></figcaption></figure>
 
+<figure><img src=".gitbook/assets/image (780).png" alt="" width="348"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (781).png" alt="" width="368"><figcaption></figcaption></figure>
 
 
 
@@ -298,23 +278,27 @@ On **Content settings → Access & Security**:
 
 
 
-<figure><img src=".gitbook/assets/image (782).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (783).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/image (784).png" alt=""><figcaption></figcaption></figure>
 
 
 
-<figure><img src=".gitbook/assets/image (785).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (786).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (782).png" alt="" width="348"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (783).png" alt="" width="348"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (784).png" alt="" width="368"><figcaption></figcaption></figure>
+
+
+
+<figure><img src=".gitbook/assets/image (785).png" alt="" width="353"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (786).png" alt="" width="173"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
 ***
 
-### Option 2: Create Game - Create an App ID
+### Option 2: Create An Experience - Create an App ID
 
 {% columns %}
 {% column %}
@@ -323,12 +307,6 @@ On **Content settings → Access & Security**:
 #### Select Viverse SDK Integration
 
 * Select Option B. **Create App ID**. The **App ID** is an important piece of information for anyone [integrating VIVERSE SDKs](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/) into their project.
-
-
-
-
-
-
 {% endstep %}
 
 {% step %}
@@ -337,10 +315,6 @@ On **Content settings → Access & Security**:
 * Enter an Experience Name.
 * Accept the Platform Agreement.
 * Select **Create Content**.
-
-
-
-
 
 
 
@@ -359,11 +333,11 @@ On **Content settings → Access & Security**:
 {% endcolumn %}
 
 {% column %}
-<figure><img src=".gitbook/assets/image (797).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (797).png" alt="" width="219"><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (798).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (798).png" alt="" width="207"><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (799).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (799).png" alt="" width="208"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
@@ -388,7 +362,7 @@ On **Content settings → Access & Security**:
 {% endcolumn %}
 
 {% column %}
-<figure><img src=".gitbook/assets/image (800).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (800).png" alt="" width="219"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
@@ -419,12 +393,6 @@ Select **Create** from the VIVERSE Studio navigation bar > **New Video**
 Upload a video file.
 
 
-
-
-
-
-
-
 {% endstep %}
 
 {% step %}
@@ -437,8 +405,6 @@ B. Enter a Name and Description.
 C. Upload a Thumbnail.
 
 D. Configure Category, Genres, and Tags.
-
-
 
 
 
@@ -474,96 +440,17 @@ I. Add Collaborators
 {% endcolumn %}
 
 {% column %}
-<figure><img src=".gitbook/assets/image (802).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (802).png" alt="" width="194"><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (803).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (804).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (805).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (803).png" alt="" width="217"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (804).png" alt="" width="280"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (805).png" alt="" width="280"><figcaption></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
-
-***
-
-## Create An Open Brush Experience
-
-{% columns %}
-{% column %}
-{% stepper %}
-{% step %}
-#### Open Brush experiences can be created using the following menu:
-
-Select **Create** from the VIVERSE Studio navigation bar > **New Experience**&#x20;
-{% endstep %}
-
-{% step %}
-#### View Open Brush Documentation
-
-* Select **View Docs**.
-* Follow the Open Brush publishing instructions.
-
-
-{% endstep %}
-{% endstepper %}
-{% endcolumn %}
-
-{% column %}
-<figure><img src=".gitbook/assets/image (795).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src=".gitbook/assets/image (796).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
-
-
-
-***
-
-## Create An Experience Using A Template
-
-{% columns %}
-{% column %}
-{% stepper %}
-{% step %}
-#### Experiences can be created using the following menu:
-
-Select **Create** from the VIVERSE Studio navigation bar > **New Experience**&#x20;
-
-
-{% endstep %}
-
-{% step %}
-#### Choose Web Builder
-
-* Select Option B. **Web Builder**.
-
-
-
-
-{% endstep %}
-
-{% step %}
-#### Follow Creating From Templates documentation
-
-Documentation for Creating From Templates can be found here: [https://docs.viverse.com/publishing-from-templates/creating-from-templates](https://docs.viverse.com/publishing-from-templates/creating-from-templates)
-{% endstep %}
-{% endstepper %}
-{% endcolumn %}
-
-{% column %}
-<figure><img src=".gitbook/assets/image (787).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src=".gitbook/assets/image (788).png" alt=""><figcaption></figcaption></figure>
-
-
-{% endcolumn %}
-{% endcolumns %}
-
-
 
 ***
 

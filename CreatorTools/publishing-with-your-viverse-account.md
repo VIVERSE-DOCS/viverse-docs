@@ -20,32 +20,6 @@ The [VIVERSE studio](https://studio.viverse.com/) is the one-stop-shop for manag
 
 ***
 
-## Open VIVERSE Studio
-
-{% columns %}
-{% column %}
-{% stepper %}
-{% step %}
-#### Access VIVERSE Studio
-
-* Sign in to VIVERSE.
-* Select your profile avatar in the upper-right corner.
-* Select **VIVERSE Studio**.
-
-
-{% endstep %}
-{% endstepper %}
-{% endcolumn %}
-
-{% column %}
-<figure><img src=".gitbook/assets/image (806).png" alt=""><figcaption></figcaption></figure>
-{% endcolumn %}
-{% endcolumns %}
-
-
-
-***
-
 ## Dashboard
 
 {% columns %}
@@ -71,38 +45,6 @@ The **Dashboard** provides a summary of channel activity for the selected world 
 | G     | Date range dropdown          | Filters dashboard data by date range. Use this to compare recent performance, campaign windows, or activity over a specific time period.                    |
 | H     | Visitors chart section       | Trend chart showing visitor activity over time for the selected world filter and date range.                                                                |
 | I     | Views chart section          | Trend chart showing view activity over time for the selected world filter and date range.                                                                   |
-
-{% stepper %}
-{% step %}
-#### Open the Dashboard
-
-* Select **Dashboard** from the left navigation.
-{% endstep %}
-
-{% step %}
-#### Set the world filter
-
-* Use the **World filter** dropdown to choose **All Worlds** or one specific world.
-{% endstep %}
-
-{% step %}
-#### Set the date range
-
-* Use the **Date range** dropdown to select the reporting window.
-{% endstep %}
-
-{% step %}
-#### Review metric totals
-
-* Review the **New Visitors**, **Unique Visitors**, **Views**, and **Likes** metric boxes for quick totals.
-{% endstep %}
-
-{% step %}
-#### Review trend charts
-
-* Review the **Visitors** and **Views** charts to understand activity trends over time.
-{% endstep %}
-{% endstepper %}
 
 ***
 
@@ -163,42 +105,6 @@ The **Content** page is where you manage uploaded videos, games, and experiences
 | N     | View button         | Opens the published content item for viewing.                                                                                |
 | O     | Edit draft button   | Opens draft content so you can continue editing.                                                                             |
 | P     | Preview button      | Opens a preview of draft or submitted content.                                                                               |
-
-{% stepper %}
-{% step %}
-#### Browse all content
-
-* Select **Content** from the left navigation.
-* Use the **All** tab to review every content item in one list.
-{% endstep %}
-
-{% step %}
-#### Filter by content type
-
-* Select **Experiences**, **Games**, or **Videos** to focus on one content type.
-{% endstep %}
-
-{% step %}
-#### Search and filter
-
-* Use the **Search** button to quickly find a specific title.
-* Use the **Filter** button to narrow the list.
-{% endstep %}
-
-{% step %}
-#### Manage published content
-
-* Select **Edit** to update published content.
-* Select **View** to open published content.
-{% endstep %}
-
-{% step %}
-#### Manage drafts and submitted content
-
-* Select **Edit draft** to continue working on an unpublished draft.
-* Select **Preview** to review a draft or submitted item before it is published.
-{% endstep %}
-{% endstepper %}
 
 ***
 
