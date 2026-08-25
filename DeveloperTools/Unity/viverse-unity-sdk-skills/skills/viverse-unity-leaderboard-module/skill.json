@@ -1,0 +1,35 @@
+{
+  "id": "viverse-unity-leaderboard-module",
+  "name": "viverse-unity-leaderboard-module",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "Unity Play SDK Leaderboard Module — broadcasts real-time in-room scores to all peers via WebRTC data channel during an active multiplayer session (ephemeral, not persisted to backend).",
+  "tags": [
+    "unity",
+    "multiplayer",
+    "play-sdk",
+    "module",
+    "webgl",
+    "editor",
+    "leaderboard",
+    "in-room",
+    "realtime",
+    "score"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "MultiplayerClient initialized via viverse-unity-multiplayer skill"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/leaderboard-module-pattern.md"
+  ],
+  "dependencies": [
+    "viverse-unity-matchmaking",
+    "viverse-unity-multiplayer"
+  ]
+}

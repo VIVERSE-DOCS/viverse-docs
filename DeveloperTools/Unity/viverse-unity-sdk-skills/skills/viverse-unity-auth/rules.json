@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "id": "thin-csharp",
+      "description": "C# must be a thin interface only. Zero business logic in C#.",
+      "severity": "error"
+    },
+    {
+      "id": "dual-path",
+      "description": "WebGL uses viverse-sdk UMD via jslib. Editor uses AuthHttpServer on localhost:40078.",
+      "severity": "error"
+    },
+    {
+      "id": "oauth-client-id",
+      "description": "loginWithRedirect requires UUID OAuth client ID (42ab6113-acc9-419e-93ca-e0734baf9d3d). loginWithWorlds uses App ID. Never mix them.",
+      "severity": "error"
+    },
+    {
+      "id": "constructor-capital-c",
+      "description": "Always use window.viverse.Client (capital C). Lowercase is deprecated.",
+      "severity": "error"
+    },
+    {
+      "id": "token-storage",
+      "description": "Store tokens in PlayerPrefs with keys: viverse_access_token, viverse_account_id, viverse_expires_in.",
+      "severity": "warning"
+    }
+  ]
+}

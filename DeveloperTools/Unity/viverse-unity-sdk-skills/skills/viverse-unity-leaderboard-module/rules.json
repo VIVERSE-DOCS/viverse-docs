@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "lbmod-multiplayer-bootstrap-first",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MultiplayerClient|mp\\.Initialize|viverse-unity-multiplayer",
+      "message": "Must complete viverse-unity-multiplayer bootstrap (Initialize + Init) before using mp.Leaderboard.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-module-enabled",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "leaderboard\\s*=|ModuleOption.*enabled",
+      "message": "Leaderboard module must be enabled via MultiplayerInitOptions.modules.leaderboard = new ModuleOption { enabled = true }.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-subscribe-before-send",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnLeaderboardUpdate\\s*\\+=",
+      "message": "Must subscribe to OnLeaderboardUpdate before calling LeaderboardUpdate() to avoid missing early score events.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-int-score",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "LeaderboardUpdate\\s*\\(\\s*[0-9_a-zA-Z]+\\s*\\)",
+      "message": "LeaderboardUpdate() requires an int score argument. Ensure score is a valid integer, not a float or string.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-ephemeral-distinction",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "Leaderboard\\.SubmitScore|LeaderboardClient.*LeaderboardUpdate|LeaderboardUpdate.*SubmitScore",
+      "message": "Do not confuse LeaderboardModule (in-room, WebRTC, ephemeral) with LeaderboardClient (REST, persisted). Use both independently.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-no-state-machine",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "new WebSocket|RTCDataChannel|MediasoupTransport",
+      "message": "Do not add transport logic in C#. LeaderboardModule is a thin passthrough over MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "lbmod-message-format",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"type\"\\s*:\\s*\"leaderboard\"|\"event\"\\s*:\\s*\"update_record\"",
+      "message": "Leaderboard module messages must use {source:'client', type:'leaderboard', event:'update_record'}.",
+      "severity": "medium"
+    },
+    {
+      "id": "lbmod-parse-score-on-receive",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnLeaderboardUpdate|\"score\"|\"user_id\"",
+      "message": "Parse user_id and score from the OnLeaderboardUpdate JSON payload to update the local scoreboard.",
+      "severity": "medium"
+    },
+    {
+      "id": "lbmod-throttle-updates",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "LeaderboardUpdate.*Update\\(\\)|void Update.*LeaderboardUpdate",
+      "message": "Do not call LeaderboardUpdate() every frame. Throttle to score-change events or a timed interval to avoid flooding peers.",
+      "severity": "medium"
+    },
+    {
+      "id": "lbmod-no-persistence-assumption",
+      "profiles": ["leaderboard-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "Leaderboard\\.GetLeaderboard|Leaderboard\\.GetGuestLeaderboard",
+      "message": "LeaderboardModule scores are ephemeral and not accessible via GetLeaderboard/GetGuestLeaderboard. Use LeaderboardClient for persistent rankings.",
+      "severity": "low"
+    }
+  ]
+}

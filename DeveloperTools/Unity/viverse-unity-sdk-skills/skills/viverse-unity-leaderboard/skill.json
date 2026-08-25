@@ -1,0 +1,34 @@
+{
+  "id": "viverse-unity-leaderboard",
+  "name": "viverse-unity-leaderboard",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "VIVERSE Unity SDK Leaderboard — Score submission (RSA/AES encrypted) and ranking retrieval via REST, dual-path (WebGL viverse-sdk GameDashboard + Editor UnityWebRequest with Ironhide encryption).",
+  "tags": [
+    "unity",
+    "leaderboard",
+    "scores",
+    "ranking",
+    "viverse-sdk",
+    "webgl",
+    "editor",
+    "rest",
+    "encryption"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "Auth token (login first)",
+    "Leaderboard created in VIVERSE Studio with metaName"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-leaderboard.md"
+  ],
+  "dependencies": [
+    "viverse-unity-auth"
+  ]
+}

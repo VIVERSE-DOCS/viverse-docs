@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "nsync-multiplayer-bootstrap-first",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MultiplayerClient|mp\\.Initialize|viverse-unity-multiplayer",
+      "message": "Must complete viverse-unity-multiplayer bootstrap (Initialize + Init) before using mp.NetworkSync.",
+      "severity": "high"
+    },
+    {
+      "id": "nsync-module-enabled",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "networkSync\\s*=|ModuleOption.*enabled",
+      "message": "NetworkSync module must be enabled via MultiplayerInitOptions.modules.networkSync = new ModuleOption { enabled = true }.",
+      "severity": "high"
+    },
+    {
+      "id": "nsync-subscribe-before-send",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnNotifyPositionUpdate\\s*\\+=",
+      "message": "Must subscribe to OnNotifyPositionUpdate before calling UpdateMyPosition to avoid missing early frames.",
+      "severity": "high"
+    },
+    {
+      "id": "nsync-filter-self",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "PeerId|user_id.*!=|!=.*PeerId",
+      "message": "Must filter self-originated messages: NetworkSyncModule already does this internally, but downstream logic must also guard by user_id.",
+      "severity": "medium"
+    },
+    {
+      "id": "nsync-throttle-rate",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "syncInterval|_syncTimer|Time\\.deltaTime|fixedDeltaTime",
+      "message": "Do not call UpdateMyPosition every Unity frame unconditionally. Throttle to 10-30 Hz using a timer or FixedUpdate.",
+      "severity": "medium"
+    },
+    {
+      "id": "nsync-no-websocket-in-csharp",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "new WebSocket|RTCDataChannel|MediasoupTransport",
+      "message": "Do not add transport logic in C#. NetworkSyncModule is a thin passthrough over MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "nsync-message-format",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"source\"\\s*:\\s*\"client\"|\"type\"\\s*:\\s*\"network_sync\"",
+      "message": "NetworkSync messages must use {source:'client', messageType:'bot', type:'network_sync', event:'notify_position'}.",
+      "severity": "high"
+    },
+    {
+      "id": "nsync-entity-id-for-objects",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "UpdateEntityPosition|entity_id",
+      "message": "Use UpdateEntityPosition(entityId, json) for non-player objects; reserve UpdateMyPosition for the local player.",
+      "severity": "medium"
+    },
+    {
+      "id": "nsync-interpolate-remote",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "Lerp|SmoothDamp|interpolat|_targetPos|targetPosition",
+      "message": "Should interpolate remote positions (Vector3.Lerp or SmoothDamp) to avoid jittery movement between network updates.",
+      "severity": "low"
+    },
+    {
+      "id": "nsync-handle-notify-remove",
+      "profiles": ["network-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnNotifyRemove\\s*\\+=",
+      "message": "Should handle OnNotifyRemove to despawn entities when they are removed by another client.",
+      "severity": "low"
+    }
+  ]
+}

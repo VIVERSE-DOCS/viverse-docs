@@ -1,0 +1,54 @@
+{
+  "rules": [
+    {
+      "id": "thin-csharp",
+      "description": "C# must be a thin interface only. Zero business logic in C#. WebGL uses jslib fetch + Avatar SDK, Editor uses UnityWebRequest.",
+      "severity": "error"
+    },
+    {
+      "id": "dual-path",
+      "description": "WebGL uses jslib (fetch + Avatar SDK decryption). Editor uses UnityWebRequest. Both paths in AvatarClient.cs selected via #if UNITY_WEBGL && !UNITY_EDITOR.",
+      "severity": "error"
+    },
+    {
+      "id": "auth-required-user-apis",
+      "description": "GetProfile, GetAvatarList, GetActiveAvatar require a valid access token. Public APIs (GetPublicAvatarList, GetPublicAvatarByID) do NOT require auth.",
+      "severity": "error"
+    },
+    {
+      "id": "token-header-format",
+      "description": "Use AccessToken header for JWT tokens. No Authorization: Bearer. Editor uses UnityWebRequest.SetRequestHeader('AccessToken', token).",
+      "severity": "error"
+    },
+    {
+      "id": "vrm-separate-controller",
+      "description": "VRM loading MUST live in a separate MonoBehaviour (VrmAvatarController). AvatarClient.cs has ZERO UniVRM dependency. This separation prevents build errors when UniVRM is not installed.",
+      "severity": "error"
+    },
+    {
+      "id": "webgl-no-thread-caller",
+      "description": "WebGL VRM loading MUST use RuntimeOnlyNoThreadAwaitCaller. The default caller deadlocks in single-threaded WebGL. Editor uses RuntimeOnlyAwaitCaller.",
+      "severity": "error"
+    },
+    {
+      "id": "binary-transfer-gchandle",
+      "description": "WebGL VRM download stores bytes in JS-side buffer (downloadedBuffers[bridgeId]). C# copies via GCHandle.Alloc(Pinned) + HEAPU8.set(). Always Free() the handle after copy.",
+      "severity": "error"
+    },
+    {
+      "id": "gltf-header-validation",
+      "description": "Before loading VRM, validate first 4 bytes are glTF magic (0x67 0x6C 0x54 0x46). If not, the file may still be encrypted (Avatar SDK decryption failed or unavailable).",
+      "severity": "warning"
+    },
+    {
+      "id": "avatar-sdk-decrypt",
+      "description": "WebGL jslib loads Avatar SDK (v1.1.1) for downloadAndDecrypt(). This handles encrypted VRM files. Falls back to plain fetch if Avatar SDK unavailable.",
+      "severity": "warning"
+    },
+    {
+      "id": "mtoon-shader-strip",
+      "description": "WebGL builds strip unused shaders. For proper VRM materials, add VRM/MToon10 shaders to Project Settings > Graphics > Always Included Shaders.",
+      "severity": "warning"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "viverse-unity-auth",
+  "name": "viverse-unity-auth",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "VIVERSE Unity SDK Authentication — OAuth2 login via dual-path architecture (WebGL viverse-sdk UMD + Editor localhost HttpServer redirect).",
+  "tags": [
+    "unity",
+    "auth",
+    "oauth",
+    "viverse-sdk",
+    "webgl",
+    "editor",
+    "login"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "WebGL template loading viverse-sdk UMD from CDN"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-auth.md"
+  ],
+  "dependencies": []
+}

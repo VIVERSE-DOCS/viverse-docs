@@ -1,0 +1,32 @@
+{
+  "id": "viverse-unity-lambda",
+  "name": "viverse-unity-lambda",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "VIVERSE Unity SDK Lambda — Invoke server-side functions via REST, dual-path (WebGL fetch + Editor UnityWebRequest).",
+  "tags": [
+    "unity",
+    "lambda",
+    "serverless",
+    "viverse-sdk",
+    "webgl",
+    "editor",
+    "rest"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "Auth token (login first)",
+    "Registered Lambda event on server"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-lambda.md"
+  ],
+  "dependencies": [
+    "viverse-unity-auth"
+  ]
+}

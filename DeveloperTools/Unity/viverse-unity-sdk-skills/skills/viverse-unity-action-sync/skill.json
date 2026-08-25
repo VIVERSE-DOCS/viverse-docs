@@ -1,0 +1,34 @@
+{
+  "id": "viverse-unity-action-sync",
+  "name": "viverse-unity-action-sync",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "Unity Play SDK ActionSync Module — broadcasts discrete competitive game actions (attacks, abilities, emotes) to all peers with caller-supplied action IDs for de-duplication.",
+  "tags": [
+    "unity",
+    "multiplayer",
+    "play-sdk",
+    "module",
+    "webgl",
+    "editor",
+    "action-sync",
+    "competitive",
+    "dedup"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "MultiplayerClient initialized via viverse-unity-multiplayer skill"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/action-sync-pattern.md"
+  ],
+  "dependencies": [
+    "viverse-unity-matchmaking",
+    "viverse-unity-multiplayer"
+  ]
+}

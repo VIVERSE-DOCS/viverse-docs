@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "async-multiplayer-bootstrap-first",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MultiplayerClient|mp\\.Initialize|viverse-unity-multiplayer",
+      "message": "Must complete viverse-unity-multiplayer bootstrap (Initialize + Init) before using mp.ActionSync.",
+      "severity": "high"
+    },
+    {
+      "id": "async-module-enabled",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "actionSync\\s*=|ModuleOption.*enabled",
+      "message": "ActionSync module must be enabled via MultiplayerInitOptions.modules.actionSync = new ModuleOption { enabled = true }.",
+      "severity": "high"
+    },
+    {
+      "id": "async-subscribe-before-send",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnCompetition\\s*\\+=",
+      "message": "Must subscribe to OnCompetition before calling Competition() to avoid missing early action events.",
+      "severity": "high"
+    },
+    {
+      "id": "async-use-action-id",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "action_id|actionId|Guid\\.NewGuid|_actionId",
+      "message": "Must supply a unique action_id per Competition() call. Use Guid.NewGuid().ToString().Substring(0, 8) or similar.",
+      "severity": "high"
+    },
+    {
+      "id": "async-dedup-processed-actions",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "processedActions|_seenActions|HashSet|Contains.*actionId",
+      "message": "Must de-duplicate received actions by action_id. Multiple peers may echo the same action if the broadcast loops.",
+      "severity": "high"
+    },
+    {
+      "id": "async-filter-self",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "PeerId|user_id.*!=|!=.*PeerId",
+      "message": "ActionSyncModule already filters self-messages. Downstream de-dup by action_id is still required for idempotency.",
+      "severity": "medium"
+    },
+    {
+      "id": "async-no-state-in-action-msg",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "\"hp\"\\s*:\\s*\\d+.*\"action_msg\"|\"position\".*\"action_msg\"",
+      "message": "Do not encode authoritative game state (HP, positions) inside action_msg. Use NetworkSync for state; ActionSync for events.",
+      "severity": "medium"
+    },
+    {
+      "id": "async-message-format",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"source\"\\s*:\\s*\"client\"|\"type\"\\s*:\\s*\"action_sync\"",
+      "message": "ActionSync messages must use {source:'client', messageType:'bot', type:'action_sync', event:'competition'}.",
+      "severity": "high"
+    },
+    {
+      "id": "async-no-websocket-in-csharp",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "new WebSocket|RTCDataChannel|MediasoupTransport",
+      "message": "Do not add transport logic in C#. ActionSyncModule is a thin passthrough over MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "async-action-msg-json-safe",
+      "profiles": ["action-sync"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "actionMsg|action_msg",
+      "message": "action_msg must be JSON-safe. Avoid raw double-quotes inside the string; encode as JSON string or escape properly.",
+      "severity": "medium"
+    }
+  ]
+}

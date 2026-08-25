@@ -1,0 +1,33 @@
+{
+  "id": "viverse-unity-game-module",
+  "name": "viverse-unity-game-module",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "Unity Play SDK Game Module — manages multiplayer game lifecycle (ready, countdown, start, end, restart) through the GameModule property on MultiplayerClient.",
+  "tags": [
+    "unity",
+    "multiplayer",
+    "play-sdk",
+    "module",
+    "webgl",
+    "editor",
+    "game-lifecycle",
+    "countdown"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "MultiplayerClient initialized via viverse-unity-multiplayer skill"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/game-module-pattern.md"
+  ],
+  "dependencies": [
+    "viverse-unity-matchmaking",
+    "viverse-unity-multiplayer"
+  ]
+}

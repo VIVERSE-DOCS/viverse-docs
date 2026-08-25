@@ -1,0 +1,34 @@
+{
+  "id": "viverse-unity-avatar",
+  "name": "viverse-unity-avatar",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "VIVERSE Unity SDK Avatar — User profiles, avatar lists, VRM model download & loading. Dual-path (WebGL Avatar SDK + Editor UnityWebRequest). Includes VRM 3D rendering with UniVRM10.",
+  "tags": [
+    "unity",
+    "avatar",
+    "vrm",
+    "viverse-sdk",
+    "webgl",
+    "editor",
+    "rest",
+    "3d-model",
+    "profile"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "Auth token (for user-specific APIs)",
+    "UniVRM v0.130.1+ (for VRM loading only)"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-avatar.md",
+    "patterns/vrm-loading.md"
+  ],
+  "dependencies": [
+    "viverse-unity-auth"
+  ]
+}

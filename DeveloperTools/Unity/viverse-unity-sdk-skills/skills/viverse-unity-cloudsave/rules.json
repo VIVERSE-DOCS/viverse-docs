@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "id": "thin-csharp",
+      "description": "C# must be a thin interface only. Zero business logic in C#. WebGL uses jslib fetch, Editor uses UnityWebRequest.",
+      "severity": "error"
+    },
+    {
+      "id": "dual-path",
+      "description": "WebGL uses jslib fetch(). Editor uses UnityWebRequest. Both paths in CloudSaveClient.cs selected via #if UNITY_WEBGL && !UNITY_EDITOR.",
+      "severity": "error"
+    },
+    {
+      "id": "auth-required",
+      "description": "All Cloud Save operations require a valid access token. Always check AuthManager.IsLoggedIn before calling.",
+      "severity": "error"
+    },
+    {
+      "id": "token-header",
+      "description": "Use AccessToken header for JWT tokens, AuthKey header for non-JWT. Detect via split('.').length == 3.",
+      "severity": "error"
+    },
+    {
+      "id": "json-body-required",
+      "description": "setPlayerData body MUST be a valid JSON object or array. Bare primitives (numbers, strings) cause 400 errors. Wrap primitives as {\"value\": x}.",
+      "severity": "error"
+    },
+    {
+      "id": "version-as-string-webgl",
+      "description": "Delete version parameter must be passed as string to jslib (not long/int64). C# long causes pointer corruption in Emscripten.",
+      "severity": "error"
+    },
+    {
+      "id": "response-structure",
+      "description": "GetPlayerData response is {data: {key: value}}. NOT nested under player_data. Extract via response.data[key].",
+      "severity": "error"
+    },
+    {
+      "id": "no-multiplayer-dependency",
+      "description": "CloudSaveClient is standalone REST. Never require MultiplayerClient or data channel connection.",
+      "severity": "warning"
+    }
+  ]
+}

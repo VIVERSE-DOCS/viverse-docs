@@ -1,0 +1,139 @@
+{
+  "rules": [
+    {
+      "id": "pm-initialize-before-use",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "Initialize\\s*\\(",
+      "message": "MatchmakingClient.Initialize() must be called before any SDK operations.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-setactor-after-connect",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "SendRequest\\s*\\(\\s*\"SetActor\"",
+      "message": "SetActor must be called after connection to register player identity.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-subscribe-before-initialize",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnConnect\\s*\\+=",
+      "message": "Event subscriptions must be set up before Initialize() to avoid missing early events.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-pascalcase-request-types",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "SendRequest\\s*\\(\\s*\"(createRoom|joinRoom|leaveRoom|setActor|getAvailableRooms|closeRoom|startGame|startMatch|cancelMatch)\"",
+      "message": "Request types must be PascalCase (e.g., 'CreateRoom' not 'createRoom').",
+      "severity": "high"
+    },
+    {
+      "id": "pm-session-id-auto-injected",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "\"session_id\"\\s*:",
+      "message": "Do NOT include session_id in SendRequest payloads — it is auto-injected by SendRequest() internally. The client generates a UUID on Initialize().",
+      "severity": "medium"
+    },
+    {
+      "id": "pm-discover-before-join",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "GetAvailableRooms",
+      "message": "Must discover rooms via GetAvailableRooms before joining.",
+      "severity": "medium"
+    },
+    {
+      "id": "pm-no-business-logic-in-csharp",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "class\\s+MatchmakingClient[^}]*\\b(StateMachine|RequestRouter|PollLoop)\\b",
+      "message": "C# must be a thin interface only — no state machines, request routing, or polling logic.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-jslib-deps-declared",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "__deps.*ViversePlay_State",
+      "message": "Every jslib function using ViversePlay_State must declare __deps: ['$ViversePlay_State'].",
+      "severity": "high"
+    },
+    {
+      "id": "pm-webgl-viverse-sdk-loaded",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "viverse-sdk.*index\\.umd\\.cjs",
+      "message": "WebGL template must load viverse-sdk UMD (index.umd.cjs) before Unity loader. The SDK internally loads play-sdk at runtime — do NOT bundle play-sdk.umd.js separately.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-no-bundled-play-sdk",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "play-sdk\\.umd\\.js",
+      "message": "Do NOT bundle or reference play-sdk.umd.js directly. The viverse-sdk UMD loads it internally at runtime via CDN.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-heartbeat-editor",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "0x00|HeartbeatLoop|HEARTBEAT_INTERVAL",
+      "message": "Editor path must send heartbeat (0x00 byte) every 30s to prevent server disconnect.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-disconnect-cleanup",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnDisconnect|_pendingRequests\\.Clear",
+      "message": "Must handle disconnect and clean up pending requests.",
+      "severity": "medium"
+    },
+    {
+      "id": "pm-setactor-properties-wrapper",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"properties\"\\s*:\\s*\\{",
+      "message": "SetActor payload must wrap name inside {\"properties\":{\"name\":\"...\"}} — the server expects this structure.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-createroom-room-name-field",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "SendRequest\\s*\\(\\s*\"CreateRoom\"[^)]*\"name\"\\s*:",
+      "message": "CreateRoom payload must use 'room_name' not 'name'. The server rejects payloads with 'name'.",
+      "severity": "high"
+    },
+    {
+      "id": "pm-namespace-viversesdk",
+      "profiles": ["matchmaking"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "using ViverseSDK",
+      "message": "MatchmakingClient is in the ViverseSDK namespace. Use 'using ViverseSDK;' not 'using PlaySDK;'.",
+      "severity": "high"
+    }
+  ]
+}

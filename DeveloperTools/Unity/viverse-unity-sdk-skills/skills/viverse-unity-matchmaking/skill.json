@@ -1,0 +1,30 @@
+{
+  "id": "viverse-unity-matchmaking",
+  "name": "viverse-unity-matchmaking",
+  "version": "2.0.0",
+  "status": "active",
+  "description": "Unity Matchmaking — room create/join/leave, actor management, and real-time room events via dual-path architecture (WebGL viverse-sdk UMD + Editor NativeWebSocket). Session ID auto-generated.",
+  "tags": [
+    "unity",
+    "matchmaking",
+    "viverse-sdk",
+    "rooms",
+    "webgl",
+    "multiplayer"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "NativeWebSocket plugin (included)",
+    "App ID from VIVERSE Studio",
+    "WebGL template with viverse-sdk CDN loaded (single script, no play-sdk needed)"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-architecture.md",
+    "patterns/matchmaking-flow.md"
+  ],
+  "dependencies": []
+}

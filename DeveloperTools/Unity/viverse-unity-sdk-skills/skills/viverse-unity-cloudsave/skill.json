@@ -1,0 +1,32 @@
+{
+  "id": "viverse-unity-cloudsave",
+  "name": "viverse-unity-cloudsave",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "VIVERSE Unity SDK Cloud Save — Persistent player data storage via REST, dual-path (WebGL fetch + Editor UnityWebRequest). Two patterns: versioned saves + key-value.",
+  "tags": [
+    "unity",
+    "cloud-save",
+    "persistence",
+    "viverse-sdk",
+    "webgl",
+    "editor",
+    "rest",
+    "storage"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "App ID from VIVERSE Studio",
+    "Auth token (login first)"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/dual-path-cloudsave.md"
+  ],
+  "dependencies": [
+    "viverse-unity-auth"
+  ]
+}

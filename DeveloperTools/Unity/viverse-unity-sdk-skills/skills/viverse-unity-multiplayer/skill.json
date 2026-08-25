@@ -1,0 +1,35 @@
+{
+  "id": "viverse-unity-multiplayer",
+  "name": "viverse-unity-multiplayer",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "Unity Play SDK Multiplayer — real-time data channels, 6 game modules (Game, NetworkSync, ActionSync, Leaderboard, Lambda, General), and master/client architecture via dual-path (WebGL Mediasoup + Editor WebRTC proxy).",
+  "tags": [
+    "unity",
+    "multiplayer",
+    "play-sdk",
+    "webrtc",
+    "mediasoup",
+    "modules",
+    "realtime",
+    "webgl"
+  ],
+  "prerequisites": [
+    "Unity 2021.2+",
+    "NativeWebSocket plugin (included)",
+    "App ID from VIVERSE Studio",
+    "WebGL template with play-sdk.umd.js loaded",
+    "Active room from MatchmakingClient (roomId required)"
+  ],
+  "entrypoint": "SKILL.md",
+  "rules": "rules.json",
+  "patterns_dir": "patterns",
+  "read_order": [
+    "SKILL.md",
+    "patterns/multiplayer-lifecycle.md",
+    "patterns/module-messaging.md"
+  ],
+  "dependencies": [
+    "viverse-unity-matchmaking"
+  ]
+}

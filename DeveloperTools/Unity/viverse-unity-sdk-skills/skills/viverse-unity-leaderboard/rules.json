@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "id": "thin-csharp",
+      "description": "C# must be a thin interface only. WebGL delegates encryption to viverse-sdk GameDashboard. Editor implements RSA/AES via .NET crypto.",
+      "severity": "error"
+    },
+    {
+      "id": "dual-path",
+      "description": "WebGL uses jslib + viverse-sdk GameDashboard for SubmitScore (handles encryption internally). Editor uses UnityWebRequest + RSACryptoServiceProvider + AES. Both paths in LeaderboardClient.cs selected via #if UNITY_WEBGL && !UNITY_EDITOR.",
+      "severity": "error"
+    },
+    {
+      "id": "auth-required-for-submit-and-ranking",
+      "description": "SubmitScore and GetLeaderboard require a valid access token. GetGuestLeaderboard does NOT require auth.",
+      "severity": "error"
+    },
+    {
+      "id": "token-header",
+      "description": "Use AccessToken header for JWT tokens, AuthKey header for non-JWT. Detect via split('.').length == 3.",
+      "severity": "error"
+    },
+    {
+      "id": "metaname-required",
+      "description": "metaName must match exactly what is configured in VIVERSE Studio. Case-sensitive. Leaderboard must exist server-side before use.",
+      "severity": "error"
+    },
+    {
+      "id": "cors-proxy-webgl",
+      "description": "viveport.com does NOT allow CORS for localhost. WebGL jslib uses relative URLs (baseUrl: '/') and requires serve_webgl.sh proxy for local testing. Production on viverse.com works directly.",
+      "severity": "error"
+    },
+    {
+      "id": "webgl-uses-gamedashboard",
+      "description": "WebGL SubmitScore MUST use viverse-sdk GameDashboard.uploadLeaderboardScore() which bundles jsencrypt. Do NOT implement Web Crypto RSA in jslib — browsers don't support PKCS1v1.5 decrypt.",
+      "severity": "error"
+    },
+    {
+      "id": "encryption-editor-only",
+      "description": "RSA/AES Ironhide encryption flow is Editor-only. Steps: generate RSA 2048 → export X509 DER public key → GET Ironhide token → decrypt symmetric key with RSA PKCS1 → encrypt scores with AES-CBC → POST.",
+      "severity": "warning"
+    },
+    {
+      "id": "no-multiplayer-dependency",
+      "description": "LeaderboardClient is standalone REST. Never require MultiplayerClient or data channel connection.",
+      "severity": "warning"
+    }
+  ]
+}

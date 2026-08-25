@@ -1,0 +1,34 @@
+{
+  "rules": [
+    {
+      "id": "thin-csharp",
+      "description": "C# must be a thin interface only. Zero business logic, polling loops, or state machines in C#.",
+      "severity": "error"
+    },
+    {
+      "id": "dual-path",
+      "description": "WebGL uses jslib fetch(). Editor uses UnityWebRequest. Both paths in LambdaClient.cs selected via #if UNITY_WEBGL.",
+      "severity": "error"
+    },
+    {
+      "id": "auth-required",
+      "description": "Lambda requires a valid access token. Always check AuthManager.IsLoggedIn before invoking.",
+      "severity": "error"
+    },
+    {
+      "id": "token-header",
+      "description": "Use AccessToken header for JWT tokens, AuthKey header for non-JWT. Detect via split('.').length == 3.",
+      "severity": "error"
+    },
+    {
+      "id": "nested-response",
+      "description": "Server responses nest data under 'job' key. Always check response.job.status, response.job.result, response.job.job_id.",
+      "severity": "error"
+    },
+    {
+      "id": "no-multiplayer-dependency",
+      "description": "LambdaClient is standalone REST. Never require MultiplayerClient or data channel connection.",
+      "severity": "warning"
+    }
+  ]
+}

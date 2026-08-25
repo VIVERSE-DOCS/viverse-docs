@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "gen-multiplayer-bootstrap-first",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MultiplayerClient|mp\\.Initialize|viverse-unity-multiplayer",
+      "message": "Must complete viverse-unity-multiplayer bootstrap (Initialize + Init) before using mp.General.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-no-enable-flag",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "general\\s*=\\s*new ModuleOption|ModulesConfig.*general",
+      "message": "GeneralModule does not require an enable flag in ModulesConfig. It is always active once MultiplayerClient.Init() completes.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-data-must-be-json",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "SendMessage\\s*\\(|\"data\"\\s*:",
+      "message": "The data argument to SendMessage() is embedded directly into the JSON payload. It must itself be valid JSON (an object, array, or quoted string). A bare string literal will break the envelope.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-source-is-bot",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "\"source\"\\s*:\\s*\"client\".*\"type\"\\s*:\\s*\"general\"|\"type\"\\s*:\\s*\"general\".*\"source\"\\s*:\\s*\"client\"",
+      "message": "GeneralModule uses source:'bot' (not 'client') in the outbound envelope. This is unique among all multiplayer modules.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-subscribe-before-send",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnMessage\\s*\\+=|OnClientConnected\\s*\\+=|OnClientDisconnected\\s*\\+=",
+      "message": "Subscribe to OnMessage, OnClientConnected, and OnClientDisconnected before calling SendMessage() to avoid missing early events.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-on-message-receives-data-field",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnMessage|\"data\"",
+      "message": "OnMessage fires with the serialized value of the 'data' field from the inbound envelope — not the full envelope. Parse accordingly.",
+      "severity": "medium"
+    },
+    {
+      "id": "gen-connected-disconnected-receives-userid",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnClientConnected|OnClientDisconnected|userId",
+      "message": "OnClientConnected and OnClientDisconnected fire with the peer's user_id string, not a JSON envelope. No parsing needed.",
+      "severity": "medium"
+    },
+    {
+      "id": "gen-no-state-machine",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "new WebSocket|RTCDataChannel|MediasoupTransport",
+      "message": "Do not add transport logic in C#. GeneralModule is a thin passthrough over MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "gen-quoted-string-data",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "SendMessage.*\\\\\"|\\.SendMessage\\s*\\(\\s*\"\\\\\"",
+      "message": "To send a plain string value, wrap it in escaped quotes: mp.General.SendMessage(\"\\\"hello\\\"\"). Unquoted bare strings produce invalid JSON.",
+      "severity": "medium"
+    },
+    {
+      "id": "gen-self-filter",
+      "profiles": ["general-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnMessage|PeerId|user_id",
+      "message": "GeneralModule already filters self-originated messages before firing OnMessage. No manual self-check is needed in the handler.",
+      "severity": "low"
+    }
+  ]
+}

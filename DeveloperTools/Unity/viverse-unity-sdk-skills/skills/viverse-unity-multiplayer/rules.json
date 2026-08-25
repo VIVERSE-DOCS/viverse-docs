@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "mp-matchmaking-before-multiplayer",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MatchmakingClient|roomId|RoomId",
+      "message": "Must obtain a roomId from MatchmakingClient before initializing MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "mp-initialize-before-init",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\\.Initialize\\s*\\(",
+      "message": "MultiplayerClient.Initialize(roomId, appId, userSessionId) must be called before Init().",
+      "severity": "high"
+    },
+    {
+      "id": "mp-wait-connected-before-init",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnConnected\\s*\\+=",
+      "message": "Must subscribe to OnConnected and wait for connection before calling Init().",
+      "severity": "high"
+    },
+    {
+      "id": "mp-init-after-connected",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\\.Init\\s*\\(",
+      "message": "Must call Init() to create game room and activate modules after connection.",
+      "severity": "high"
+    },
+    {
+      "id": "mp-no-business-logic-in-csharp",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "class\\s+MultiplayerClient[^}]*\\b(StateMachine|RequestRouter|PollLoop|MediasoupTransport)\\b",
+      "message": "C# must be a thin interface only — no state machines, routing, polling, or WebRTC logic.",
+      "severity": "high"
+    },
+    {
+      "id": "mp-module-message-format",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"source\"\\s*:\\s*\"client\"|\"messageType\"\\s*:\\s*\"bot\"",
+      "message": "Module messages must use format: {source:'client', messageType:'bot', type:'<module>', event:'<event>'}.",
+      "severity": "high"
+    },
+    {
+      "id": "mp-filter-self-messages",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "PeerId|user_id.*!=|!==.*peerId",
+      "message": "Modules must filter out self-originated messages (compare user_id to PeerId).",
+      "severity": "medium"
+    },
+    {
+      "id": "mp-jslib-deps-declared",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "__deps.*PlaySDK_State",
+      "message": "Every jslib function using PlaySDK_State must declare __deps: ['$PlaySDK_State'].",
+      "severity": "high"
+    },
+    {
+      "id": "mp-disconnect-cleanup",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "Disconnect|OnDisconnected",
+      "message": "Must handle disconnect and clean up resources.",
+      "severity": "medium"
+    },
+    {
+      "id": "mp-singleton-ondestroy",
+      "profiles": ["multiplayer"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "Instance\\s*=\\s*null",
+      "message": "Singleton OnDestroy must set Instance = null for reconnection support.",
+      "severity": "medium"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "rules": [
+    {
+      "id": "game-multiplayer-bootstrap-first",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "MultiplayerClient|mp\\.Initialize|viverse-unity-multiplayer",
+      "message": "Must complete viverse-unity-multiplayer bootstrap (Initialize + Init) before accessing mp.Game.",
+      "severity": "high"
+    },
+    {
+      "id": "game-subscribe-before-ready",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnMasterNotify\\s*\\+=|OnCountdownToStart\\s*\\+=|OnPlayerAllReady\\s*\\+=",
+      "message": "Must subscribe to GameModule events before calling Ready() so no notifications are missed.",
+      "severity": "high"
+    },
+    {
+      "id": "game-module-enabled-in-options",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\\.game\\s*=|modules\\.game|ModuleOption.*enabled",
+      "message": "Game module must be enabled via MultiplayerInitOptions.modules.game = new ModuleOption { enabled = true }.",
+      "severity": "high"
+    },
+    {
+      "id": "game-call-ready",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\\.Game\\.Ready\\s*\\(",
+      "message": "Must call mp.Game.Ready() to signal player readiness after connecting.",
+      "severity": "high"
+    },
+    {
+      "id": "game-master-only-triggers",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "IsMasterUser\\s*\\(|_isMaster|isMaster",
+      "message": "TriggerGameStart, TriggerGameEnd, and TriggerGameRestart should be guarded by IsMasterUser() — only the master client sends these.",
+      "severity": "medium"
+    },
+    {
+      "id": "game-no-state-machine-in-csharp",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "enum\\s+GameState|StateMachine|UpdateGameState|GameStateManager",
+      "message": "Do not add a C# state machine for game lifecycle. State transitions are driven by server events via the GameModule.",
+      "severity": "high"
+    },
+    {
+      "id": "game-handle-game-end",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnGameEnd\\s*\\+=|OnGameTimeUp\\s*\\+=",
+      "message": "Must handle OnGameEnd or OnGameTimeUp to transition out of the active game state.",
+      "severity": "medium"
+    },
+    {
+      "id": "game-message-format",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "\"source\"\\s*:\\s*\"client\"|\"messageType\"\\s*:\\s*\"bot\"",
+      "message": "Game module messages must use {source:'client', messageType:'bot', type:'game', event:'<event>'}.",
+      "severity": "high"
+    },
+    {
+      "id": "game-no-websocket-in-csharp",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "forbidden_any",
+      "pattern": "new WebSocket|RTCDataChannel|MediasoupTransport",
+      "message": "Do not add WebSocket or WebRTC logic in C#. GameModule is a thin passthrough over MultiplayerClient.",
+      "severity": "high"
+    },
+    {
+      "id": "game-handle-error-notify",
+      "profiles": ["game-module"],
+      "phases": ["gameplay", "fix"],
+      "type": "required_any",
+      "pattern": "OnErrorNotify\\s*\\+=",
+      "message": "Should handle OnErrorNotify to surface server-side errors to the user.",
+      "severity": "low"
+    }
+  ]
+}

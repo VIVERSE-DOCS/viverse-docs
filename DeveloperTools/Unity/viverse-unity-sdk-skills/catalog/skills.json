@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-07-09T07:10:50.857Z",
+  "skills": [
+    {
+      "id": "viverse-unity-action-sync",
+      "path": "skills/viverse-unity-action-sync/skill.json"
+    },
+    {
+      "id": "viverse-unity-auth",
+      "path": "skills/viverse-unity-auth/skill.json"
+    },
+    {
+      "id": "viverse-unity-avatar",
+      "path": "skills/viverse-unity-avatar/skill.json"
+    },
+    {
+      "id": "viverse-unity-cloudsave",
+      "path": "skills/viverse-unity-cloudsave/skill.json"
+    },
+    {
+      "id": "viverse-unity-game-module",
+      "path": "skills/viverse-unity-game-module/skill.json"
+    },
+    {
+      "id": "viverse-unity-general-module",
+      "path": "skills/viverse-unity-general-module/skill.json"
+    },
+    {
+      "id": "viverse-unity-lambda",
+      "path": "skills/viverse-unity-lambda/skill.json"
+    },
+    {
+      "id": "viverse-unity-leaderboard",
+      "path": "skills/viverse-unity-leaderboard/skill.json"
+    },
+    {
+      "id": "viverse-unity-leaderboard-module",
+      "path": "skills/viverse-unity-leaderboard-module/skill.json"
+    },
+    {
+      "id": "viverse-unity-matchmaking",
+      "path": "skills/viverse-unity-matchmaking/skill.json"
+    },
+    {
+      "id": "viverse-unity-multiplayer",
+      "path": "skills/viverse-unity-multiplayer/skill.json"
+    },
+    {
+      "id": "viverse-unity-network-sync",
+      "path": "skills/viverse-unity-network-sync/skill.json"
+    }
+  ]
+}
