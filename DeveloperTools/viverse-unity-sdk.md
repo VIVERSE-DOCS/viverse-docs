@@ -1,8 +1,7 @@
 ---
 description: >-
   Explains the three GitHub artifacts — the `.unitypackage`, the README, and the
-  AI skills pack — who each one is for, and where to go next. This is not the
-  API reference.
+  AI skills pack — who each one is for, and where to go next.
 ---
 
 # VIVERSE Unity SDK
