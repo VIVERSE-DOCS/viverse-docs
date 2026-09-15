@@ -11,10 +11,6 @@ description: >-
 
 > **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
-{% hint style="info" %}
-**Unity C#:** This page is the JavaScript SDK. For Unity cloud save, use the [VIVERSE Unity SDK](viverse-unity-sdk.md) overview and [Save player progress to the cloud](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md#save-player-progress-to-the-cloud) in the Unity SDK README.
-{% endhint %}
-
 ## Initialize the \`storageClient\` instance
 
 Before using any Storage SDK features, you must initialize the client instance. This global reference ensures that the Storage SDK is available throughout your application.

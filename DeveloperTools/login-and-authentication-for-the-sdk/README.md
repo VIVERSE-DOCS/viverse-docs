@@ -10,10 +10,6 @@ description: >-
 
 This guide is designed to help creators integrate VIVERSE SDKs when uploading WebGL content from engines like Unity, three.js or Wonderland Engine to VIVERSE Studio.
 
-{% hint style="info" %}
-**Unity C#:** This page is the JavaScript SDK. For Unity login, use the [VIVERSE Unity SDK](../viverse-unity-sdk.md) overview and [Authenticate a player](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md#authenticate-a-player) in the Unity SDK README.
-{% endhint %}
-
 > BEFORE GETTING STARTED:
 >
 > 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](https://docs.viverse.com/publishing-with-your-viverse-account#select-create-new-world) for this information.

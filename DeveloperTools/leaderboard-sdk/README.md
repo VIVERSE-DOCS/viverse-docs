@@ -8,10 +8,6 @@ description: Track high scores and other ranked data with the VIVERSE Leaderboar
 
 > **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](../login-and-authentication-for-the-sdk/) before requesting leaderboard services.
 
-{% hint style="info" %}
-**Unity C#:** This page is the JavaScript SDK. For Unity leaderboards, use the [VIVERSE Unity SDK](../viverse-unity-sdk.md) overview and [Submit scores and read rankings](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md#submit-scores-and-read-rankings) in the Unity SDK README.
-{% endhint %}
-
 ### Leaderboard Setup in VIVERSE Studio
 
 Before integrating the Leaderboard SDK, you must first configure the leaderboard metadata settings for your content in VIVERSE Studio.
