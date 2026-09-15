@@ -28,7 +28,7 @@ The [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/R
 
 ## The three artifacts at a glance
 
-The `.unitypackage` and README live in [`VIVERSE-DOCS/viverse-unity`](https://github.com/VIVERSE-DOCS/viverse-unity). The AI skills pack currently lives in this documentation repository under `DeveloperTools/Unity/viverse-unity-sdk-skills`. They are not three versions of the same documentation.
+Two are files (the `.unitypackage` and the README). The third is the `viverse-unity-sdk-skills` folder.
 
 | Artifact                 | What it is                                      | You use it when                                  |
 | ------------------------ | ----------------------------------------------- | ------------------------------------------------ |
