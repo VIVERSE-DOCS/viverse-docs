@@ -115,9 +115,6 @@ By default, worlds uploaded will only be accessible via preview urls. For placem
 {% step %}
 ### Iterate, Learn, Explore!
 
-In addition to the sample scenes, the rough flow of api usage can be reviewed at [https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity\_Viverse\_SDK\_Developer\_Guide.md](https://github.com/ViveDeveloperRelations/ViverseUnitySDK/blob/master/Unity_Viverse_SDK_Developer_Guide.md)\
-\
-And overview of the current version of the sdk with additional hints and tips at\
-[https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl](https://github.com/ViveDeveloperRelations/ViverseUnitySDK?tab=readme-ov-file#viverse-unity-sdk-for-webgl)
+To add VIVERSE login, matchmaking, multiplayer, leaderboards, cloud save, or avatars, use the [VIVERSE Unity SDK](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/viverse-unity-sdk).
 {% endstep %}
 {% endstepper %}

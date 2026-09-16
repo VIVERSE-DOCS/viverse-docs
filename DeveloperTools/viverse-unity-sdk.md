@@ -245,5 +245,6 @@ If you use Cursor, copy the skill folders from [viverse-unity-sdk-skills](Unity/
 ## Where to go next
 
 * Get an App ID and publish from [VIVERSE Studio](https://studio.viverse.com/).
+* Build and upload a WebGL project with the [Unity WebGL](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/standalone-app-publishing/unitywebgl-examples) publishing guide.
 * Explore the sample scenes under `Assets/viverse-unity-sdk/Sample/` after you import the package. `ViverseTestRunner` wires every feature for interactive testing.
 * Use the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) as the day-to-day API reference.

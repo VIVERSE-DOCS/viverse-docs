@@ -17,6 +17,8 @@ Anyone can publish their WebGL-compatible Unity project to VIVERSE in a few simp
 
 While VIVERSE is a great place for multiplayer games with networked avatars — and we have a number of services that can help you implement these features — it is not required to implement networked avatars to publish to VIVERSE.
 
+To add VIVERSE login, matchmaking, multiplayer, leaderboards, or cloud save, see the [VIVERSE Unity SDK](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/viverse-unity-sdk).
+
 ### Prerequisites
 
 * Unity Hub and Unity installed on your device.
