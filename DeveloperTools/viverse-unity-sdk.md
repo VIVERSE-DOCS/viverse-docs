@@ -16,7 +16,7 @@ This page is the entry point for the artifacts published on GitHub. It answers t
 * Who should use each one?
 * Where do I go next?
 
-The [README](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md) remains the human-facing implementation and API guide. This overview does not duplicate those C# samples.
+The [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) remains the human-facing implementation and API guide. This overview does not duplicate those C# samples.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The [README](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperToo
 
 ## The three artifacts at a glance
 
-These three artifacts live together under `DeveloperTools/Unity` on GitHub. Two are files (the `.unitypackage` and the README). The third is the `viverse-unity-sdk-skills` folder. They are not three versions of the same documentation.
+Two are files (the `.unitypackage` and the README). The third is the `viverse-unity-sdk-skills` folder.
 
 | Artifact                 | What it is                                      | You use it when                                  |
 | ------------------------ | ----------------------------------------------- | ------------------------------------------------ |
@@ -38,8 +38,8 @@ These three artifacts live together under `DeveloperTools/Unity` on GitHub. Two 
 
 | Artifact         | GitHub                                                                                                                                                   |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SDK v1.2 package | [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/Viverse-Unity-SDK-1.2.0.unitypackage) |
-| README           | [README.md](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md)                                                       |
+| SDK v1.2 package | [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage) |
+| README           | [README.md](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md)                                                       |
 | AI skills folder | [viverse-unity-sdk-skills](Unity/viverse-unity-sdk-skills)                                                                                               |
 
 {% hint style="info" %}
@@ -50,7 +50,7 @@ These three artifacts live together under `DeveloperTools/Unity` on GitHub. Two 
 
 The `.unitypackage` is the actual Unity plugin. Download it, import it, and it places C# clients, WebGL bridges, and assemblies under `Assets/viverse-unity-sdk/`. Without this file, nothing runs.
 
-Download: [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/Viverse-Unity-SDK-1.2.0.unitypackage)
+Download: [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage)
 
 ### What you get
 
@@ -74,7 +74,7 @@ After import, the SDK lands under `Assets/viverse-unity-sdk/` and adds three ass
 * `Viverse.NativeWebSocket` — a vendored WebSocket transport, renamed so it can coexist with the community `NativeWebSocket` package
 
 {% hint style="info" %}
-If your project already uses the community NativeWebSocket package, see **Coexisting with an existing NativeWebSocket** in the [README](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md).
+If your project already uses the community NativeWebSocket package, see **Coexisting with an existing NativeWebSocket** in the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md).
 {% endhint %}
 
 ### Import the package
@@ -83,7 +83,7 @@ If your project already uses the community NativeWebSocket package, see **Coexis
 {% step %}
 ### Download the package
 
-Download [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/Viverse-Unity-SDK-1.2.0.unitypackage) from GitHub.
+Download [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage) from GitHub.
 {% endstep %}
 
 {% step %}
@@ -105,7 +105,7 @@ For C# samples, WebGL build notes, local testing, and the full API reference, us
 
 The README is the human-facing implementation and API guide. A person reads it in GitHub or in GitBook after you upload it. It is not imported into Unity.
 
-Open it: [Getting started with the VIVERSE Unity SDK](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md)
+Open it: [Getting started with the VIVERSE Unity SDK](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md)
 
 Use the README when you need to:
 
@@ -226,13 +226,13 @@ Use `viverse-unity-multiplayer` first to connect and call `Init()`. Then use a m
 {% step %}
 ### Import the SDK
 
-Download and import [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/Viverse-Unity-SDK-1.2.0.unitypackage) so the C# API exists in your project.
+Download and import [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage) so the C# API exists in your project.
 {% endstep %}
 
 {% step %}
 ### Read the README for the feature you need
 
-Open the [README](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md) for install details, C# samples, and the API reference. Most features need an access token from `AuthManager` first. The public avatar catalog is the documented exception.
+Open the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) for install details, C# samples, and the API reference. Most features need an access token from `AuthManager` first. The public avatar catalog is the documented exception.
 {% endstep %}
 
 {% step %}
@@ -246,4 +246,4 @@ If you use Cursor, copy the skill folders from [viverse-unity-sdk-skills](Unity/
 
 * Get an App ID and publish from [VIVERSE Studio](https://studio.viverse.com/).
 * Explore the sample scenes under `Assets/viverse-unity-sdk/Sample/` after you import the package. `ViverseTestRunner` wires every feature for interactive testing.
-* Use the [README](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/DeveloperTools/Unity/README.md) as the day-to-day API reference.
+* Use the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) as the day-to-day API reference.
