@@ -16,15 +16,35 @@ Our goal is to make it simple to publish rich experiences to VIVERSE. These tool
 
 While we do not require developers use these tools — and while we also make it possible for developers to include their own servers/databases/external APIs in VIVERSE projects — we highly recommend that all creators familiarize themselves with these offerings and consider integrating the VIVERSE account & avatar system into their projects. It makes the experience better for our users and many of these services are available for free!
 
-## Overview of Our Tools
+## Choose your platform
 
-<table><thead><tr><th width="158.1304931640625">Name</th><th width="332.62384033203125">Description</th><th width="171.2432861328125">Cost to Developer</th></tr></thead><tbody><tr><td><a href="login-and-authentication-for-the-sdk/">Login &#x26; Authentication</a> [Beta]</td><td>Get a user's account information when they join your experience on VIVERSE. This will allow you to access their display name, avatar information, and account information, making it easier for end-users to travel between VIVERSE experiences while staying connected to their identity and friends.</td><td>Free!</td></tr><tr><td><a href="avatar-sdk.md">Avatar SDK</a> [Beta]</td><td>Download and use a user's avatar file in your VIVERSE experience. Digital identity is an important consideration in 3D and including end-users' avatars makes them feel more at home in your VIVERSE World.</td><td>Free!</td></tr><tr><td><a href="leaderboard-sdk/">Leaderboard SDK</a> [Beta]</td><td>Access and save information about players interacting with your world. Keep track of high scores to boost engagement with your player base.</td><td>Free!</td></tr><tr><td><a href="matchmaking-and-networking-sdk.md">Matchmaking &#x26; Networking</a> [Beta]</td><td>Save and network game-state between clients in your VIVERSE world. Use this SDK to build richer multiplayer experiences.</td><td>Free!</td></tr></tbody></table>
+Pick Unity or JavaScript first. Feature pages and engine examples stay under the platform you choose.
 
-## SDK Versioning
+### Unity
 
-Latest: [v1.3.3](https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs) (2025-11-20)
+| Name | Description |
+| --- | --- |
+| [VIVERSE Unity SDK](viverse-unity-sdk.md) | C# SDK for Unity. Import the v1.2 package for authentication, Lambda, matchmaking, multiplayer, cloud save, leaderboards, achievements, and avatars. |
 
-[Change log](CHANGELOG.md)
+### JavaScript / Web
+
+One JavaScript SDK for JavaScript/Web projects, including PlayCanvas and three.js. PlayCanvas and three.js tutorials are under each feature in the sidebar.
+
+| Name | Description |
+| --- | --- |
+| [Login & Authentication](login-and-authentication-for-the-sdk/) [Beta] | Get a user's account information when they join your experience on VIVERSE. This will allow you to access their display name, avatar information, and account information, making it easier for end-users to travel between VIVERSE experiences while staying connected to their identity and friends. |
+| [Avatar SDK](avatar-sdk.md) [Beta] | Download and use a user's avatar file in your VIVERSE experience. Digital identity is an important consideration in 3D and including end-users' avatars makes them feel more at home in your VIVERSE World. |
+| [Leaderboard SDK](leaderboard-sdk/) [Beta] | Access and save information about players interacting with your world. Keep track of high scores to boost engagement with your player base. |
+| [Matchmaking & Networking](matchmaking-and-networking-sdk.md) [Beta] | Save and network game-state between clients in your VIVERSE world. Use this SDK to build richer multiplayer experiences. |
+| [Storage SDK](storage-sdk.md) | Persist player data with cloud save. |
+
+## SDK versioning
+
+The JavaScript SDK and the Unity SDK are versioned separately.
+
+Latest JavaScript SDK: [v1.3.3](https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs) (2025-11-20). [Change log](CHANGELOG.md)
+
+The Unity SDK current package is v1.2. See the [VIVERSE Unity SDK](viverse-unity-sdk.md) page.
 
 ## Provisioning Your Own Game Servers & Services
 
