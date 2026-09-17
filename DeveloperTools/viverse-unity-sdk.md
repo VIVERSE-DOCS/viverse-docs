@@ -28,7 +28,7 @@ The [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/R
 
 ## The three artifacts at a glance
 
-Two are files (the `.unitypackage` and the README). The third is the `viverse-unity-sdk-skills` folder.
+Two are files (the `.unitypackage` and the README). The third is the `viverse-sdk-skills` folder.
 
 | Artifact                 | What it is                                      | You use it when                                  |
 | ------------------------ | ----------------------------------------------- | ------------------------------------------------ |
@@ -40,7 +40,7 @@ Two are files (the `.unitypackage` and the README). The third is the `viverse-un
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SDK v1.2 package | [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage) |
 | README           | [README.md](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md)                                                       |
-| AI skills folder | [viverse-unity-sdk-skills](Unity/viverse-unity-sdk-skills)                                                                                               |
+| AI skills folder | [viverse-sdk-skills](https://github.com/VIVERSE-DOCS/viverse-unity/tree/main/unity-sdk/viverse-sdk-skills)                                                |
 
 {% hint style="info" %}
 **Start with the package.** The README and AI skills describe how to use the SDK. Neither one adds the SDK to Unity by itself.
@@ -148,7 +148,7 @@ They are not:
 * A substitute for the README
 * Something you import through **Assets > Import Package**
 
-Open the pack: [viverse-unity-sdk-skills](Unity/viverse-unity-sdk-skills)
+Open the pack: [viverse-sdk-skills](https://github.com/VIVERSE-DOCS/viverse-unity/tree/main/unity-sdk/viverse-sdk-skills)
 
 ### When to use them
 
@@ -158,7 +158,7 @@ If you are writing the integration yourself, the README is enough. The skills ar
 
 ### How to add them in Cursor
 
-Each folder under `viverse-unity-sdk-skills/skills/` is one skill (`SKILL.md`, `skill.json`, `rules.json`, and optional `patterns/`). Copy those folders into Cursor's skills location:
+Each folder under `unity-sdk/viverse-sdk-skills/skills/` is one skill (`SKILL.md`, `skill.json`, `rules.json`, and optional `patterns/`). Copy those folders into Cursor's skills location:
 
 | Type     | Path                                                           | Scope                              |
 | -------- | -------------------------------------------------------------- | ---------------------------------- |
@@ -169,13 +169,13 @@ Each folder under `viverse-unity-sdk-skills/skills/` is one skill (`SKILL.md`, `
 {% step %}
 ### Get the skill folders
 
-Clone or download [viverse-unity-sdk-skills](Unity/viverse-unity-sdk-skills) from GitHub.
+Clone or download [viverse-sdk-skills](https://github.com/VIVERSE-DOCS/viverse-unity/tree/main/unity-sdk/viverse-sdk-skills) from GitHub.
 {% endstep %}
 
 {% step %}
 ### Copy each skill into Cursor
 
-Copy every folder inside `skills/` (for example `viverse-unity-auth`) into `.cursor/skills/` or your personal skills directory. Keep the folder names. Do not copy the parent `viverse-unity-sdk-skills` wrapper as a single skill.
+Copy every folder inside `skills/` (for example `viverse-unity-auth`) into `.cursor/skills/` or your personal skills directory. Keep the folder names. Do not copy the parent `viverse-sdk-skills` wrapper as a single skill.
 {% endstep %}
 
 {% step %}
@@ -238,7 +238,7 @@ Open the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-
 {% step %}
 ### Optionally add AI skills
 
-If you use Cursor, copy the skill folders from [viverse-unity-sdk-skills](Unity/viverse-unity-sdk-skills) into `.cursor/skills/`. This helps the agent follow the official APIs. It does not replace importing the package.
+If you use Cursor, copy the skill folders from [viverse-sdk-skills](https://github.com/VIVERSE-DOCS/viverse-unity/tree/main/unity-sdk/viverse-sdk-skills) into `.cursor/skills/`. This helps the agent follow the official APIs. It does not replace importing the package.
 {% endstep %}
 {% endstepper %}
 
