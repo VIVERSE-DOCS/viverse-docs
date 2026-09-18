@@ -6,6 +6,10 @@ description: Track high scores and other ranked data with the VIVERSE Leaderboar
 
 ***
 
+{% hint style="info" %}
+Using Unity? See the [VIVERSE Unity SDK](../viverse-unity-sdk.md) for the C# implementation.
+{% endhint %}
+
 > **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](../login-and-authentication-for-the-sdk/) before requesting leaderboard services.
 
 ### Leaderboard Setup in VIVERSE Studio

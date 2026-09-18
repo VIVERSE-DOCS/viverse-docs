@@ -8,7 +8,11 @@ description: >-
 
 ***
 
-This guide is designed to help creators integrate VIVERSE SDKs when uploading WebGL content from engines like Unity, three.js or Wonderland Engine to VIVERSE Studio.
+{% hint style="info" %}
+Using Unity? See the [VIVERSE Unity SDK](../viverse-unity-sdk.md) for the C# implementation.
+{% endhint %}
+
+This guide is for JavaScript/WebGL projects, including PlayCanvas, three.js, and Wonderland Engine.
 
 > BEFORE GETTING STARTED:
 >
