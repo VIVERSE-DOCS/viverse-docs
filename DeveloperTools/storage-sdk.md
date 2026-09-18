@@ -9,6 +9,10 @@ description: >-
 
 ***
 
+{% hint style="info" %}
+Using Unity? See the [VIVERSE Unity SDK](viverse-unity-sdk.md) for the C# implementation.
+{% endhint %}
+
 > **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`storageClient\` instance

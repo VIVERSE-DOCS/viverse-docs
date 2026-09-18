@@ -6,6 +6,10 @@ description: How to access .vrm avatar assets for authenticated users.
 
 ***
 
+{% hint style="info" %}
+Using Unity? See the [VIVERSE Unity SDK](viverse-unity-sdk.md) for the C# implementation.
+{% endhint %}
+
 VIVERSE provides an identity and avatar system to help users express themselves in 3D worlds, as well as several default public avatars.
 
 > BEFORE GETTING STARTED: you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/) before requesting user-specific avatars. Non-authenticated users can still make requests to the public avatar list.
