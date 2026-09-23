@@ -1,8 +1,8 @@
 ---
 description: >-
   Code examples, compatibility guides, and technical documentation for Unity
-  WebGL builds targeting VIVERSE. Includes render pipelines, WebGL templates,
-  loading screens, and deployment examples.
+  WebGL builds targeting VIVERSE. This page is packaging and upload. It does
+  not integrate gameplay APIs. Those are the VIVERSE Unity SDK.
 ---
 
 # Unity WebGL
@@ -17,7 +17,7 @@ Anyone can publish their WebGL-compatible Unity project to VIVERSE in a few simp
 
 While VIVERSE is a great place for multiplayer games with networked avatars — and we have a number of services that can help you implement these features — it is not required to implement networked avatars to publish to VIVERSE.
 
-To add VIVERSE login, matchmaking, multiplayer, leaderboards, or cloud save, see the [VIVERSE Unity SDK](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/viverse-unity-sdk).
+This page is packaging and upload. It does not integrate gameplay APIs. For a Unity game, authentication, cloud save, multiplayer, leaderboards, and avatars are the [VIVERSE Unity SDK](https://docs.viverse.com/developer-tools/unity/viverse-unity-sdk).
 
 ### Prerequisites
 

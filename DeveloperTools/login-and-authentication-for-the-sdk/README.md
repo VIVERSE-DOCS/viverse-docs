@@ -1,23 +1,23 @@
 ---
 description: >-
-  Learn how to check for and login to VIVERSE services to access user
-  information including their preferred avatars
+  JavaScript login for PlayCanvas, three.js, and other browser JavaScript.
+  For a Unity game, use the current VIVERSE Unity SDK for C#. Do not use this
+  JavaScript SDK or a .jslib for normal Unity authentication, cloud save,
+  multiplayer, leaderboard, or avatar integration.
 ---
 
 # Login & Authentication SDK
 
 ***
 
-{% hint style="info" %}
-Using Unity? See the [VIVERSE Unity SDK](../viverse-unity-sdk.md) for the C# implementation.
-{% endhint %}
+For a Unity game, use the current [VIVERSE Unity SDK](../viverse-unity-sdk.md) for C#. Do not use this JavaScript SDK or a `.jslib` for normal Unity authentication, cloud save, multiplayer, leaderboard, or avatar integration.
 
-This guide is for JavaScript/WebGL projects, including PlayCanvas, three.js, and Wonderland Engine.
+This guide is for PlayCanvas, three.js, Wonderland Engine, and other browser JavaScript.
 
 > BEFORE GETTING STARTED:
 >
 > 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](https://docs.viverse.com/publishing-with-your-viverse-account#select-create-new-world) for this information.
-> 2. The VIVERSE SDK is hosted at this URL and must be integrated into your JavaScript/WebGL project and target engine. Either target a specific version like [`https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs) or always target the latest version at [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs)
+> 2. Load the JavaScript SDK in a browser JavaScript project. Either target a specific version like [`https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs) or always target the latest version at [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs)
 
 ## Authentication & Authorization
 
