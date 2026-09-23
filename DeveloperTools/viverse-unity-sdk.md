@@ -21,7 +21,7 @@ Requires Unity 2021.2 or newer.
 | Add multiplayer | `MultiplayerClient` |
 | Add leaderboards | `LeaderboardClient` |
 | Get the player's profile or avatar | `AvatarClient` |
-| Publish a Unity WebGL build | [Unity WebGL publishing guide](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/standalone-app-publishing/unitywebgl-examples) |
+| Publish a Unity WebGL build | [Unity WebGL publishing guide](https://docs.viverse.com/standalone-app-publishing/unitywebgl-examples) |
 
 Authentication and cloud save samples are on this page. Multiplayer, leaderboard, and avatar samples are in the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md). Publishing a WebGL build does not call these gameplay APIs.
 
@@ -327,6 +327,6 @@ If you use Cursor, copy the skill folders from [viverse-sdk-skills](https://gith
 ## Where to go next
 
 * Get an App ID and publish from [VIVERSE Studio](https://studio.viverse.com/).
-* Build and upload a WebGL project with the [Unity WebGL](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/standalone-app-publishing/unitywebgl-examples) publishing guide.
+* Build and upload a WebGL project with the [Unity WebGL](https://docs.viverse.com/standalone-app-publishing/unitywebgl-examples) publishing guide.
 * Explore the sample scenes under `Assets/viverse-unity-sdk/Sample/` after you import the package. `ViverseTestRunner` wires every feature for interactive testing.
 * Use the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) as the day-to-day API reference.
