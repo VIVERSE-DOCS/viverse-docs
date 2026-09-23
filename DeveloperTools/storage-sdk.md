@@ -1,17 +1,16 @@
 ---
 description: >-
-  This guide introduces the Storage SDK and explains how to integrate  cloudSave
-  features into VIVERSE Studio content. It covers setup and usage for features
-  such as player data saving,
+  JavaScript cloud save for PlayCanvas, three.js, and other browser JavaScript.
+  For a Unity game, use the current VIVERSE Unity SDK for C#. Do not use this
+  JavaScript SDK or a .jslib for normal Unity authentication, cloud save,
+  multiplayer, leaderboard, or avatar integration.
 ---
 
 # Storage SDK
 
 ***
 
-{% hint style="info" %}
-Using Unity? See the [VIVERSE Unity SDK](viverse-unity-sdk.md) for the C# implementation.
-{% endhint %}
+For a Unity game, use the current [VIVERSE Unity SDK](viverse-unity-sdk.md) for C#. Do not use this JavaScript SDK or a `.jslib` for normal Unity authentication, cloud save, multiplayer, leaderboard, or avatar integration.
 
 > **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 

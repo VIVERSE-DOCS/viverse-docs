@@ -1,14 +1,16 @@
 ---
-description: How to access .vrm avatar assets for authenticated users.
+description: >-
+  JavaScript avatars for PlayCanvas, three.js, and other browser JavaScript.
+  For a Unity game, use the current VIVERSE Unity SDK for C#. Do not use this
+  JavaScript SDK or a .jslib for normal Unity authentication, cloud save,
+  multiplayer, leaderboard, or avatar integration.
 ---
 
 # Avatar SDK
 
 ***
 
-{% hint style="info" %}
-Using Unity? See the [VIVERSE Unity SDK](viverse-unity-sdk.md) for the C# implementation.
-{% endhint %}
+For a Unity game, use the current [VIVERSE Unity SDK](viverse-unity-sdk.md) for C#. Do not use this JavaScript SDK or a `.jslib` for normal Unity authentication, cloud save, multiplayer, leaderboard, or avatar integration.
 
 VIVERSE provides an identity and avatar system to help users express themselves in 3D worlds, as well as several default public avatars.
 
