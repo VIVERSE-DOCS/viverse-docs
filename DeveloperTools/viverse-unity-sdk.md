@@ -1,10 +1,92 @@
 ---
 description: >-
-  Explains the three GitHub artifacts — the `.unitypackage`, the README, and the
-  AI skills pack — who each one is for, and where to go next.
+  Current VIVERSE C# SDK for Unity games. Use this SDK for authentication,
+  cloud save, multiplayer, leaderboards, profiles, and avatars in Unity.
 ---
 
 # VIVERSE Unity SDK
+
+**Current SDK: VIVERSE Unity SDK 1.2.** For a Unity game, use this C# SDK. Do not use the JavaScript SDK or a `.jslib` for authentication, cloud save, multiplayer, leaderboards, or avatars. The JavaScript SDK is for three.js, PlayCanvas, and other browser JavaScript.
+
+Requires Unity 2021.2 or newer.
+
+***
+
+## What to call
+
+| I want to | Unity API |
+| --- | --- |
+| Authenticate a player | `AuthManager` |
+| Save player data | `CloudSaveClient` |
+| Add multiplayer | `MultiplayerClient` |
+| Add leaderboards | `LeaderboardClient` |
+| Get the player's profile or avatar | `AvatarClient` |
+| Publish a Unity WebGL build | [Unity WebGL publishing guide](https://docs.viverse.com/standalone-app-publishing/unitywebgl-examples) |
+
+Authentication and cloud save samples are on this page. Multiplayer, leaderboard, and avatar samples are in the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md). Publishing a WebGL build does not call these gameplay APIs.
+
+## How to authenticate a player in a Unity game
+
+**VIVERSE Unity SDK 1.2 · C# · `ViverseSDK`**
+
+Use `AuthManager` to sign a player in. Every feature except the public avatar catalog needs the access token from that sign-in.
+
+```csharp
+// VIVERSE Unity SDK 1.2 — Unity C#
+using UnityEngine;
+using ViverseSDK;
+
+public class Bootstrap : MonoBehaviour
+{
+    void Start()
+    {
+        var auth = AuthManager.Instance;
+        auth.OnLoginSuccess += result => Debug.Log($"Signed in as {result.account_id}");
+        auth.OnError        += err    => Debug.LogError($"Auth error: {err}");
+
+        auth.Initialize("YOUR_APP_ID");
+    }
+
+    public void OnLoginButtonClicked()  => AuthManager.Instance.Login();
+    public void OnLogoutButtonClicked() => AuthManager.Instance.Logout();
+}
+```
+
+Create an empty GameObject in your first scene, name it `[AuthManager]`, and add the `AuthManager` component. In WebGL, `Login()` redirects the parent page through the VIVERSE OAuth server. In the Editor, `AuthHttpServer` starts a temporary local server on port `40078` to receive the redirect. Both paths raise `OnLoginSuccess` with the same `AuthResult` payload.
+
+## How to save player data in a Unity game
+
+**VIVERSE Unity SDK 1.2 · C# · `ViverseSDK`**
+
+Use `CloudSaveClient` for cloud save in Unity. It supports versioned save files (a full history of blobs) and key-value entries for small named values. Call it only after `AuthManager` has an access token.
+
+```csharp
+// VIVERSE Unity SDK 1.2 — Unity C#
+using ViverseSDK;
+
+var cloud = new CloudSaveClient("YOUR_APP_ID");
+string token = AuthManager.Instance.AccessToken;
+
+// Versioned saves
+await cloud.Save("{\"level\":5,\"score\":1200}", token);
+var latest = await cloud.GetLatest(token);
+if (latest.success) Debug.Log($"Latest save: {latest.data}");
+
+// Key-value entries
+await cloud.SetPlayerData("coins", "150", token);
+var coins = await cloud.GetPlayerData("coins", token);
+if (coins.success) Debug.Log($"Coins: {coins.data}");
+```
+
+Every method returns a `CloudSaveResult` with `success`, `data`, and `error` fields. Write operations return `null` in `data`.
+
+## Legacy Unity APIs
+
+These names are from VIVERSE Unity SDK v0.96. Do not use them for a new Unity project.
+
+* `CloudSaveService` is a legacy API. Use `CloudSaveClient`.
+* `LoginManager` is a legacy API. Use `AuthManager`.
+* `SDK_v0.96.unitypackage` is a legacy package. Import `Viverse-Unity-SDK-1.2.0.unitypackage`.
 
 ## Introduction
 
@@ -16,7 +98,7 @@ This page is the entry point for the artifacts published on GitHub. It answers t
 * Who should use each one?
 * Where do I go next?
 
-The [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) remains the human-facing implementation and API guide. This overview does not duplicate those C# samples.
+The [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) remains the full API guide. This page includes the authentication and cloud save samples.
 
 ## Prerequisites
 
@@ -245,6 +327,6 @@ If you use Cursor, copy the skill folders from [viverse-sdk-skills](https://gith
 ## Where to go next
 
 * Get an App ID and publish from [VIVERSE Studio](https://studio.viverse.com/).
-* Build and upload a WebGL project with the [Unity WebGL](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/standalone-app-publishing/unitywebgl-examples) publishing guide.
+* Build and upload a WebGL project with the [Unity WebGL](https://docs.viverse.com/standalone-app-publishing/unitywebgl-examples) publishing guide.
 * Explore the sample scenes under `Assets/viverse-unity-sdk/Sample/` after you import the package. `ViverseTestRunner` wires every feature for interactive testing.
 * Use the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md) as the day-to-day API reference.
