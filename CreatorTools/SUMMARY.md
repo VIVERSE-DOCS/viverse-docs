@@ -1,6 +1,9 @@
 # Table of contents
 
-* [Introduction to Creator Tools](README.md)
+* [Publishing to VIVERSE](README.md)
+
+## Publishing basics
+
 * [How to Publish](how-to-publish.md)
 * [VIVERSE Studio](publishing-with-your-viverse-account.md)
 * [Sharing Content](sharing-content.md)

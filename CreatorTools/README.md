@@ -1,12 +1,20 @@
 ---
 description: >-
-  This page is the starting point for creators interested in learning about
-  building on VIVERSE.
+  Publish experiences, apps, and videos to VIVERSE from a standalone WebGL
+  build, PlayCanvas Toolkit, or a world template.
 ---
 
-# Introduction to Creator Tools
+# Publishing to VIVERSE
 
 ***
+
+## Choose how you want to publish
+
+Choose the path that matches what you are publishing. Use [How to Publish](how-to-publish.md) for a Studio zip upload, or open a platform guide in the table.
+
+<table><thead><tr><th>Platform</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Standalone App Publishing</td><td>Developers may publish to VIVERSE using any platform that can build for WebGL/HTML5. Publish from UnityWebGL, Godot, ThreeJS, Babylon, AFRAME, and more!</td><td><a href="standalone-app-publishing/intro-to-standalone-app-publishing.md">Standalone App Publishing</a></td></tr><tr><td>PlayCanvas Toolkit</td><td>PlayCanvas is an open source game engine with a web-based editor. We have created a toolkit for the PlayCanvas editor that allows creators to publish to VIVERSE with automatic support for multiplayer VIVERSE avatars.</td><td><a href="playcanvas-toolkit/toolkit-setup-legacy-v3.md">PlayCanvas Toolkit</a></td></tr><tr><td>Create from Templates</td><td>Create from our library of world templates and add 3D elements and media directly in VIVERSE. World decoration is great for meetup hosts and beginners looking to customize their first world from a wide range of template environments.</td><td><a href="publishing-from-templates/creating-from-templates.md">Create from Templates</a></td></tr></tbody></table>
+
+Creators can host web-compatible content of all kinds on VIVERSE using [Studio](publishing-with-your-viverse-account.md), the one-stop-shop for managing content on VIVERSE. Through Studio, creators can upload new experiences, apps, and videos, and monitor the performance of content already on VIVERSE. In addition to Studio, we also offer a [Command Line Interface](standalone-app-publishing/publishing-to-viverse-with-the-cli.md) for creators uploading 3D experiences and applications to publish from the terminal (and even [integrate publishing to VIVERSE directly into their tools](https://news.viverse.com/post/wonderland-engine-viverse-integration)).
 
 ## The Best on the Web
 
@@ -20,17 +28,7 @@ VIVERSE is home to the **best content on the internet** that can be shared with 
 {% endcolumn %}
 {% endcolumns %}
 
-## Publishing to VIVERSE
-
-Creators can host web-compatible content of all kinds on VIVERSE using [Studio](publishing-with-your-viverse-account.md), the one-stop-shop for managing content on VIVERSE. Through Studio, creators can upload new experiences, apps, and videos, and monitor the performance of content already on VIVERSE. In addition to Studio, we also offer a [Command Line Interface](standalone-app-publishing/publishing-to-viverse-with-the-cli.md) for creators uploading 3D experiences and applications to publish from the terminal (and even [integrate publishing to VIVERSE directly into their tools](https://news.viverse.com/post/wonderland-engine-viverse-integration)).
-
-{% hint style="info" %}
-Learn [how to publish your project](how-to-publish.md) on VIVERSE!
-{% endhint %}
-
 **Engaging 3D experiences are the bread and butter of VIVERSE.** As part of [HTC](https://www.htc.com/us/), the VIVERSE team has a rich legacy of empowering creators building in 3D and XR. As such, we have implemented several tools to help creators building 3D experiences.
-
-<table><thead><tr><th>Platform</th><th width="386">Description</th><th>Documentation</th></tr></thead><tbody><tr><td>Standalone App Publishing</td><td>Developers may publish to VIVERSE using any platform that can build for WebGL/HTML5. Publish from UnityWebGL, Godot, ThreeJS, Babylon, AFRAME, and more!</td><td><a href="standalone-app-publishing/intro-to-standalone-app-publishing.md">Standalone App Publishing</a></td></tr><tr><td>PlayCanvas Toolkit</td><td>PlayCanvas is an open source game engine with a web-based editor. We have created a toolkit for the PlayCanvas editor that allows creators to publish to VIVERSE with automatic support for multiplayer VIVERSE avatars.</td><td><a href="playcanvas-toolkit/toolkit-setup-legacy-v3.md">PlayCanvas Toolkit</a></td></tr><tr><td>Create from Templates</td><td>Create from our library of world templates and add 3D elements and media directly in VIVERSE. World decoration is great for meetup hosts and beginners looking to customize their first world from a wide range of template environments.</td><td><a href="publishing-from-templates/creating-from-templates.md">Create from Templates</a></td></tr></tbody></table>
 
 ## Sharing Content
 
