@@ -1,0 +1,4 @@
+redirects:
+  storage-sdk/unity-cloud-minimal-example: legacy-unity-sdk/unity-cloud-minimal-example.md
+  login-and-authentication-for-the-sdk/unity-login-and-authentication-minimal-example: legacy-unity-sdk/unity-login-and-authentication-minimal-example.md
+  leaderboard-sdk/unity-leaderboard-minimal-example: legacy-unity-sdk/unity-leaderboard-minimal-example.md

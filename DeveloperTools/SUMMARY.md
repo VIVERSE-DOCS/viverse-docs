@@ -5,6 +5,10 @@
 ## Unity
 
 * [VIVERSE Unity SDK](viverse-unity-sdk.md)
+* [Legacy Unity SDK (v0.96)](legacy-unity-sdk/README.md)
+  * [Unity Cloud Save example — legacy](legacy-unity-sdk/unity-cloud-minimal-example.md "Cloud Save (v0.96)")
+  * [Unity Login example — legacy](legacy-unity-sdk/unity-login-and-authentication-minimal-example.md "Authentication (v0.96)")
+  * [Unity Leaderboard example — legacy](legacy-unity-sdk/unity-leaderboard-minimal-example.md "Leaderboards (v0.96)")
 
 ## JavaScript
 
