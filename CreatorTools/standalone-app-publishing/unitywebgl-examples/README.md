@@ -1,8 +1,8 @@
 ---
 description: >-
-  Code examples, compatibility guides, and technical documentation for Unity
-  WebGL builds targeting VIVERSE. This page is packaging and upload. It does
-  not integrate gameplay APIs. Those are the VIVERSE Unity SDK.
+  Code examples and compatibility guides for Unity WebGL builds on VIVERSE.
+  This page covers packaging and upload. Gameplay APIs are in the VIVERSE
+  Unity SDK.
 ---
 
 # Unity WebGL
