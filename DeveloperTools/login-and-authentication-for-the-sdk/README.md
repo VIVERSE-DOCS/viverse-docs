@@ -24,7 +24,7 @@ User login is required to check for user information like name, profile picture 
 
 #### Step 1: **Initialize the Client**
 
-Before any authentication, initialize the SDK client in your application:
+Before any authentication, initialize the SDK client in your application. A Unity game uses `AuthManager` in the [VIVERSE Unity SDK](../viverse-unity-sdk.md). Do not add a `.jslib` for this sample.
 
 ```
 // Initialize a new client

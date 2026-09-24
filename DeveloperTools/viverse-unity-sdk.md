@@ -23,7 +23,7 @@ Requires Unity 2021.2 or newer.
 | Get the player's profile or avatar | `AvatarClient` |
 | Publish a Unity WebGL build | [Unity WebGL publishing guide](https://docs.viverse.com/standalone-app-publishing/unitywebgl-examples) |
 
-Authentication and cloud save samples are on this page. Multiplayer, leaderboard, and avatar samples are in the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md). Publishing a WebGL build does not call these gameplay APIs.
+Authentication, cloud save, and leaderboard samples are on this page. Multiplayer and avatar samples are in the [README](https://github.com/VIVERSE-DOCS/viverse-unity/blob/main/unity-sdk/README.md). Publishing a WebGL build does not call these gameplay APIs.
 
 ## How to authenticate a player in a Unity game
 
@@ -79,6 +79,24 @@ if (coins.success) Debug.Log($"Coins: {coins.data}");
 ```
 
 Every method returns a `CloudSaveResult` with `success`, `data`, and `error` fields. Write operations return `null` in `data`.
+
+## How to add a leaderboard to a Unity game
+
+**VIVERSE Unity SDK 1.2 · C# · `ViverseSDK`**
+
+Use `LeaderboardClient`. Create the leaderboard in VIVERSE Studio first. The `metaName` argument must match the name configured there. The in-room multiplayer `Leaderboard` module does not persist scores across sessions.
+
+```csharp
+// VIVERSE Unity SDK 1.2 — Unity C#
+using ViverseSDK;
+
+var leaderboard = new LeaderboardClient("YOUR_APP_ID");
+string token = AuthManager.Instance.AccessToken;
+
+await leaderboard.SubmitScore("time_attack", "100", token);
+var mine = await leaderboard.GetLeaderboard("time_attack", token);
+if (mine.success) Debug.Log($"My ranking: {mine.data}");
+```
 
 ## Legacy Unity APIs
 
@@ -136,7 +154,7 @@ Download: [Viverse-Unity-SDK-1.2.0.unitypackage](https://github.com/VIVERSE-DOCS
 
 ### What you get
 
-The SDK ships a thin C# surface on top of the viverse-sdk JavaScript library. In WebGL builds, C# calls jslib bridges that delegate to the CDN-hosted viverse-sdk. In the Editor, the same C# API talks directly to VIVERSE REST endpoints and WebSocket gateways, so you can develop and test without a browser.
+Unity applications call `AuthManager`, `CloudSaveClient`, and `LeaderboardClient`. In WebGL builds, the SDK internally talks to the VIVERSE JavaScript runtime. Do not create a `.jslib`, and do not call `checkAuth` or `loginWithWorlds` from game code. In the Editor, the same C# API talks directly to VIVERSE REST endpoints and WebSocket gateways, so you can develop and test without a browser.
 
 | Feature        | What it does                                                                                              |
 | -------------- | --------------------------------------------------------------------------------------------------------- |

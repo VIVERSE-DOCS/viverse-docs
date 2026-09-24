@@ -6,7 +6,7 @@ Ship VIVERSE-connected Unity games to WebGL and iterate them in the Editor with 
 
 ## What you get
 
-The SDK ships a thin C# surface on top of the viverse-sdk JavaScript library. In WebGL builds, C# calls jslib bridges that delegate to the CDN-hosted viverse-sdk. In the Editor, the same C# API talks directly to VIVERSE REST endpoints and WebSocket gateways, so you can develop and test without a browser.
+Unity applications call `AuthManager`, `CloudSaveClient`, and `LeaderboardClient`. In WebGL builds, the SDK internally talks to the VIVERSE JavaScript runtime. Do not create a `.jslib`, and do not call `checkAuth` or `loginWithWorlds` from game code. In the Editor, the same C# API talks directly to VIVERSE REST endpoints and WebSocket gateways, so you can develop and test without a browser. The package and the public guide are the [VIVERSE Unity SDK](https://docs.viverse.com/developer-tools/unity/viverse-unity-sdk) page and [viverse-unity](https://github.com/VIVERSE-DOCS/viverse-unity) `unity-sdk/Viverse-Unity-SDK-1.2.0.unitypackage`.
 
 | Feature | What it does |
 |---|---|
@@ -245,7 +245,7 @@ Score behavior (accumulate versus keep best) and sort order are set server-side 
 
 ### WebGL leaderboard notes
 
-Deployed WebGL builds run inside an iframe at `*.world.viverse.app`, which cannot proxy API traffic. The jslib detects the environment and switches URLs automatically:
+Deployed WebGL builds run inside an iframe at `*.world.viverse.app`, which cannot proxy API traffic. The Unity SDK handles the difference between the Editor and WebGL internally. Application code does not detect the environment or touch the SDK's `.jslib`.
 
 - **Localhost**: relative URLs (`/`). The included `serve_webgl.sh` script proxies `/api/vrleaderboard/*`, `/api/ironhide/*`, and `/api/optimusprime/*` to `viveport.com`.
 - **Deployed**: absolute URLs to `https://www.viveport.com/`. Rankings use viverse-sdk's `GameDashboard.getLeaderboard()` so that community display names stay current — the raw REST endpoint returns stale names captured at submission time.
@@ -368,7 +368,7 @@ chmod +x Assets/viverse-unity-sdk/serve_webgl.sh
 
 **Requirements:** `bash`, `python3` version 3.7 or newer, and `lsof`.
 
-**Why port 40078?** The shared development OAuth client only accepts `http://localhost:40078` as a redirect URI. To use a different port, register your own OAuth client in VIVERSE Studio and configure the SDK to use it. See `Runtime/AuthHttpServer.cs` and `Plugins/JSLib/ViverseAuth.jslib` for the integration points.
+**Why port 40078?** The shared development OAuth client only accepts `http://localhost:40078` as a redirect URI. To use a different port, register your own OAuth client in VIVERSE Studio and configure the SDK to use it. `Runtime/AuthHttpServer.cs` and `Plugins/JSLib/ViverseAuth.jslib` are internal to the SDK. Game code uses `AuthManager`.
 
 Deployed builds on VIVERSE hosting do not need the proxy. They run in an iframe under `*.world.viverse.app` and hit the absolute API URLs directly.
 
