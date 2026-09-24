@@ -2,6 +2,7 @@
 description: >-
   Unity login uses AuthManager in the VIVERSE Unity SDK. Do not call checkAuth
   or loginWithWorlds from Unity game code, and do not create a .jslib.
+hidden: true
 ---
 
 # VIVERSE login

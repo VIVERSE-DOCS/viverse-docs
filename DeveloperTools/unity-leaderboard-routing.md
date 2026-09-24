@@ -2,6 +2,7 @@
 description: >-
   Unity leaderboards use LeaderboardClient in the VIVERSE Unity SDK. Do not
   call uploadLeaderboardScore from Unity game code, and do not create a .jslib.
+hidden: true
 ---
 
 # VIVERSE leaderboards
