@@ -15,7 +15,7 @@ For a Unity game, use the current [VIVERSE Unity SDK](viverse-unity-sdk.md) for 
 
 ## Initialize the \`storageClient\` instance
 
-Before using any Storage SDK features, you must initialize the client instance. This global reference ensures that the Storage SDK is available throughout your application.
+Before using any Storage SDK features, you must initialize the client instance. This global reference ensures that the Storage SDK is available throughout your application. A Unity game uses `CloudSaveClient` in the [VIVERSE Unity SDK](viverse-unity-sdk.md). Do not add a `.jslib` for this sample.
 
 ```
 globalThis.storageClient = new globalThis.viverse.storage();

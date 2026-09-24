@@ -9,6 +9,10 @@ description: >-
 
 ***
 
+## This page does not add login or cloud save
+
+This page is packaging and upload. It does not integrate gameplay APIs. For a Unity game, authentication is `AuthManager` and cloud save is `CloudSaveClient` in the [VIVERSE Unity SDK](https://docs.viverse.com/developer-tools/unity/viverse-unity-sdk).
+
 ## Publishing Tutorial
 
 Anyone can publish their WebGL-compatible Unity project to VIVERSE in a few simple steps. In this guide, we'll walk through the process of creating an new Unity project, making sure it is compatible with WebGL, and publishing to VIVERSE using the [VIVERSE CLI](https://www.npmjs.com/package/@viverse/cli).
