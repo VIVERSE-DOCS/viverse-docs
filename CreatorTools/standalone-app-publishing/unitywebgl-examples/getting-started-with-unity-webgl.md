@@ -115,6 +115,6 @@ By default, worlds uploaded will only be accessible via preview urls. For placem
 {% step %}
 ### Iterate, Learn, Explore!
 
-To add VIVERSE login, matchmaking, multiplayer, leaderboards, cloud save, or avatars, use the [VIVERSE Unity SDK](https://app.gitbook.com/s/StEZJb1cl50eSxquMjc5/viverse-unity-sdk).
+To add VIVERSE login, matchmaking, multiplayer, leaderboards, cloud save, or avatars, use the [VIVERSE Unity SDK](https://docs.viverse.com/developer-tools/unity/viverse-unity-sdk). Authentication is `AuthManager`, cloud save is `CloudSaveClient`, and leaderboards are `LeaderboardClient`. This page is packaging and upload. Do not create a `.jslib` for those features.
 {% endstep %}
 {% endstepper %}
