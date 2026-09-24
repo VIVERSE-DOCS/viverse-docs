@@ -11,6 +11,7 @@
 * [Intro to Standalone App Publishing](standalone-app-publishing/intro-to-standalone-app-publishing.md)
 * [Publishing to VIVERSE with the CLI](standalone-app-publishing/publishing-to-viverse-with-the-cli.md)
 * [Unity WebGL](standalone-app-publishing/unitywebgl-examples/README.md)
+* [Unity WebGL routing](unity-webgl-routing.md)
   * [Getting Started with Unity WebGL](standalone-app-publishing/unitywebgl-examples/getting-started-with-unity-webgl.md)
   * [Unity Compatibility with VIVERSE Guide](standalone-app-publishing/unitywebgl-examples/unity-compatibility-with-viverse-guide.md)
   * [NIRVANA GROVE by Thorium Labs](standalone-app-publishing/unitywebgl-examples/nirvana-grove-by-thorium-labs.md)
