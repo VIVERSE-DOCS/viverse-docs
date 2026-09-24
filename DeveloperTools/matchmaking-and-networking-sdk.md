@@ -11,7 +11,7 @@ description: >-
 
 For a Unity game, use the current [VIVERSE Unity SDK](viverse-unity-sdk.md) for C#. Do not use this JavaScript SDK or a `.jslib` for normal Unity authentication, cloud save, multiplayer, leaderboard, or avatar integration.
 
-> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
+> **BEFORE GETTING STARTED:** you must [authenticate with VIVERSE](javascript-login/), including App ID creation in VIVERSE Studio, before requesting Play SDK services.
 
 ## Initialize the \`playClient\` instance
 

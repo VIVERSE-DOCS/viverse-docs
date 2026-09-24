@@ -109,7 +109,7 @@ export class Main extends Script
 
 There are a few 'gotchas' to keep an eye for:
 
-* Matchmaking is part of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) which doesn't require users to be logged in with [Auth SDK](../login-and-authentication-for-the-sdk/)
+* Matchmaking is part of [VIVERSE Play SDK](../matchmaking-and-networking-sdk.md) which doesn't require users to be logged in with [Auth SDK](../javascript-login/)
 * Trying to create an Actor immediately after Matchmaking Client instantiation will result in web socket error. That's why we need to subscribe to `onConnect` [event](../matchmaking-and-networking-sdk.md#onconnect-event) - only then our Client is considered ready
 * You don't have to create an Actor right after the Client is connected. But as you can see later, it still has to be done before creating or joining the Room
 

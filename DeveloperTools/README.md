@@ -32,11 +32,11 @@ One JavaScript SDK for JavaScript/Web projects, including PlayCanvas and three.j
 
 | Name | Description |
 | --- | --- |
-| [Login & Authentication](login-and-authentication-for-the-sdk/) [Beta] | Get a user's account information when they join your experience on VIVERSE. This will allow you to access their display name, avatar information, and account information, making it easier for end-users to travel between VIVERSE experiences while staying connected to their identity and friends. |
+| [Login & Authentication](javascript-login/) [Beta] | Get a user's account information when they join your experience on VIVERSE. This will allow you to access their display name, avatar information, and account information, making it easier for end-users to travel between VIVERSE experiences while staying connected to their identity and friends. |
 | [Avatar SDK](avatar-sdk.md) [Beta] | Download and use a user's avatar file in your VIVERSE experience. Digital identity is an important consideration in 3D and including end-users' avatars makes them feel more at home in your VIVERSE World. |
-| [Leaderboard SDK](leaderboard-sdk/) [Beta] | Access and save information about players interacting with your world. Keep track of high scores to boost engagement with your player base. |
+| [Leaderboard SDK](javascript-leaderboard/) [Beta] | Access and save information about players interacting with your world. Keep track of high scores to boost engagement with your player base. |
 | [Matchmaking & Networking](matchmaking-and-networking-sdk.md) [Beta] | Save and network game-state between clients in your VIVERSE world. Use this SDK to build richer multiplayer experiences. |
-| [Storage SDK](storage-sdk.md) | Persist player data with cloud save. |
+| [Storage SDK](javascript-storage.md) | Persist player data with cloud save. |
 
 ## SDK versioning
 

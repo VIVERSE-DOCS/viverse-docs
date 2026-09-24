@@ -40,7 +40,7 @@ Initially, we'll also increase the width of the UI column to allow for displayin
 
 The player must be logged into VIVERSE to either request leaderboard data or to submit it. So this example first checks if the user is logged in, and if not, forces login through VIVERSE's "single sign-on" (SSO) redirect loop.
 
-We'll add a new script called `leaderboard.mjs` to manage the VIVERSE SDK services and handle authentication. These code comments also explain the significance of each line, but this process is described in detail in our documentation, [**Login & Authentication for the SDK**](../login-and-authentication-for-the-sdk/), as well.
+We'll add a new script called `leaderboard.mjs` to manage the VIVERSE SDK services and handle authentication. These code comments also explain the significance of each line, but this process is described in detail in our documentation, [**Login & Authentication for the SDK**](../javascript-login/), as well.
 
 ```javascript
 import { Script, Entity } from "playcanvas";

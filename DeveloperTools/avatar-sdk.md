@@ -13,7 +13,7 @@ For a Unity game, use the current [VIVERSE Unity SDK](viverse-unity-sdk.md) for 
 
 VIVERSE provides an identity and avatar system to help users express themselves in 3D worlds, as well as several default public avatars.
 
-> BEFORE GETTING STARTED: you must [authenticate with VIVERSE](login-and-authentication-for-the-sdk/) before requesting user-specific avatars. Non-authenticated users can still make requests to the public avatar list.
+> BEFORE GETTING STARTED: you must [authenticate with VIVERSE](javascript-login/) before requesting user-specific avatars. Non-authenticated users can still make requests to the public avatar list.
 
 ## Getting Started
 
