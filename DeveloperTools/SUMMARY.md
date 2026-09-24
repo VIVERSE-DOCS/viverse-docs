@@ -5,6 +5,9 @@
 ## Unity
 
 * [VIVERSE Unity SDK](viverse-unity-sdk.md)
+* [Unity login](unity-login-routing.md)
+* [Unity cloud save](unity-storage-routing.md)
+* [Unity leaderboards](unity-leaderboard-routing.md)
 * [Legacy Unity SDK (v0.96)](legacy-unity-sdk/README.md)
   * [Unity Cloud Save example — legacy](legacy-unity-sdk/unity-cloud-minimal-example.md "Cloud Save (v0.96)")
   * [Unity Login example — legacy](legacy-unity-sdk/unity-login-and-authentication-minimal-example.md "Authentication (v0.96)")
