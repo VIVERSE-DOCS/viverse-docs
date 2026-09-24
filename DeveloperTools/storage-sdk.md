@@ -2,8 +2,7 @@
 description: >-
   JavaScript cloud save for PlayCanvas, three.js, and other browser JavaScript.
   For a Unity game, use the current VIVERSE Unity SDK for C#. Do not use this
-  JavaScript SDK or a .jslib for normal Unity authentication, cloud save,
-  multiplayer, leaderboard, or avatar integration.
+  JavaScript SDK or a .jslib.
 ---
 
 # Storage SDK
