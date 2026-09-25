@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Introduction to Creator Tools](README.md)
-* [Unity WebGL on VIVERSE](unitywebgl-examples/getting-started-with-unity-webgl.md)
+* [Unity WebGL examples](unitywebgl-examples/README.md)
+  * [Unity WebGL on VIVERSE](unitywebgl-examples/getting-started-with-unity-webgl.md)
 * [How to Publish](how-to-publish.md)
 * [VIVERSE Studio](publishing-with-your-viverse-account.md)
 * [Sharing Content](sharing-content.md)
