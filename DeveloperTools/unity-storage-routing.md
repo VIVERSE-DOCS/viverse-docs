@@ -9,4 +9,4 @@ hidden: true
 
 Using Unity? Use `CloudSaveClient` in the [VIVERSE Unity SDK](https://docs.viverse.com/developer-tools/unity/viverse-unity-sdk). Do not call `setPlayerData`, `getPlayerData`, or `newCloudSaveClient` from Unity game code, and do not create a `.jslib`.
 
-Using JavaScript, three.js, or PlayCanvas? Use the [JavaScript Storage SDK](https://docs.viverse.com/developer-tools/javascript/storage-sdk).
+Using JavaScript, three.js, or PlayCanvas? Use the [JavaScript Storage SDK](https://docs.viverse.com/developer-tools/javascript/javascript-storage).

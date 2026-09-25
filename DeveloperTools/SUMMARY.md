@@ -1,6 +1,9 @@
 # Table of contents
 
 * [Introduction to Developer Tools](README.md)
+* [VIVERSE login](login-and-authentication-for-the-sdk.md)
+* [VIVERSE cloud save](storage-sdk.md)
+* [VIVERSE leaderboards](leaderboard-sdk.md)
 
 ## Unity
 
@@ -15,19 +18,19 @@
 
 ## JavaScript
 
-* [Login & Authentication SDK](login-and-authentication-for-the-sdk/README.md)
-  * [PlayCanvas Login & Auth minimal example](login-and-authentication-for-the-sdk/playcanvas-login-and-auth-minimal-example.md)
-  * [three.js Login & Auth minimal example](login-and-authentication-for-the-sdk/three.js-login-and-auth-minimal-example.md)
+* [Login & Authentication SDK](javascript-login/README.md)
+  * [PlayCanvas Login & Auth minimal example](javascript-login/playcanvas-login-and-auth-minimal-example.md)
+  * [three.js Login & Auth minimal example](javascript-login/three.js-login-and-auth-minimal-example.md)
 * [Avatar SDK](avatar-sdk.md)
-* [Leaderboard SDK](leaderboard-sdk/README.md)
-  * [PlayCanvas Leaderboard minimal example](leaderboard-sdk/playcanvas-leaderboard-minimal-example.md)
+* [Leaderboard SDK](javascript-leaderboard/README.md)
+  * [PlayCanvas Leaderboard minimal example](javascript-leaderboard/playcanvas-leaderboard-minimal-example.md)
 * [Matchmaking & Networking SDK](matchmaking-and-networking-sdk.md)
   * [PlayCanvas Matchmaking example: Part 01 - Basics](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-01-basics.md)
   * [PlayCanvas Matchmaking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-02-advanced.md)
   * [PlayCanvas Networking example: Part 01 - Basics](matchmaking-and-networking-sdk/playcanvas-networking-example-part-01-basics.md)
   * [PlayCanvas Networking example: Part 02 - Advanced](matchmaking-and-networking-sdk/playcanvas-networking-example-part-02-advanced.md)
   * [Artefact Hunt: Building multiplayer game with Viverse Play SDK](matchmaking-and-networking-sdk/artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md)
-* [Storage SDK](storage-sdk.md)
+* [Storage SDK](javascript-storage.md)
   * [PlayCanvas Storage minimal example](storage-sdk/playcanvas-storage-minimal-example.md)
   * [three.js Storage minimal example](storage-sdk/three.js-storage-minimal-example.md)
 * [Change Log](CHANGELOG.md)
