@@ -55,6 +55,18 @@ If the user is logged in, you'll get their authentication information in an obje
 
 If the user is not logged in, the result will come back `undefined`.
 
+{% hint style="info" %}
+**Authentication best practice**
+
+Calling the VIVERSE login method immediately starts the sign-in flow. Before requesting login, check whether the player already has an authenticated session or access token.
+
+If the player is not signed in, provide feedback in your game UI and allow them to continue as a guest when authentication is not required for gameplay.
+
+Start the login flow when the player chooses to sign in or when they access a feature that requires authentication, such as cloud save, player profiles, or submitting a leaderboard score.
+
+Call `checkAuth()` to read the session. It returns credentials, or `undefined` when the player is not signed in. Call `loginWithWorlds()` only when you are ready to start login. That call redirects the page and refreshes it.
+{% endhint %}
+
 #### Step 3: **Trigger Login via VIVERSE Worlds**
 
 If login is required for your experience, an automated login and single sign-on (SSO) workflow is available. To request it, this method can be called, which will forward the user through this login flow within the iframe:
@@ -63,11 +75,11 @@ If login is required for your experience, an automated login and single sign-on 
 globalThis.viverseClient.loginWithWorlds()
 ```
 
-**Step 4: Handle Post-Login State on Page Load**
+**Step 4: Handle the session on page load**
 
-You can wrap your logic in an arrow function callback on the window's `load` event to handle the automatic login flow.
+`loginWithWorlds()` refreshes the page. On load, initialize the client again and call `checkAuth()`. Update your UI from the result. Call `loginWithWorlds()` from a control the player activates, such as a sign-in button.
 
-```
+```javascript
 // this callback will run when the iframe is refreshed
 window.addEventListener('load', async () => {
     // reinitialize
@@ -78,13 +90,19 @@ window.addEventListener('load', async () => {
     });
     // check login status again
     const result = await globalThis.viverseClient.checkAuth();
-    
+
     if (result === undefined) {
-        // This will cause a refresh
-        globalThis.viverseClient.loginWithWorlds();
+        // The player is not signed in. Update your UI.
     }
     else {
-        // `result` contains credentials to make authorized requests 
+        // `result` contains credentials to make authorized requests
+    }
+
+    const signInButton = document.getElementById('sign-in');
+    if (signInButton) {
+        signInButton.addEventListener('click', () => {
+            globalThis.viverseClient.loginWithWorlds();
+        });
     }
 });
 ```
