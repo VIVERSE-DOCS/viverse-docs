@@ -31,6 +31,18 @@ Authentication, cloud save, and leaderboard samples are on this page. Multiplaye
 
 Use `AuthManager` to sign a player in. Every feature except the public avatar catalog needs the access token from that sign-in.
 
+{% hint style="info" %}
+**Authentication best practice**
+
+Calling the VIVERSE login method immediately starts the sign-in flow. Before requesting login, check whether the player already has an authenticated session or access token.
+
+If the player is not signed in, provide feedback in your game UI and allow them to continue as a guest when authentication is not required for gameplay.
+
+Start the login flow when the player chooses to sign in or when they access a feature that requires authentication, such as cloud save, player profiles, or submitting a leaderboard score.
+
+After `Initialize`, read `IsLoggedIn` or `AccessToken`. Call `Login()` only when you are ready to start sign-in. In a WebGL build, `Login()` redirects the parent page.
+{% endhint %}
+
 ```csharp
 // VIVERSE Unity SDK 1.2 — Unity C#
 using UnityEngine;

@@ -51,6 +51,18 @@ The SDK lands under `Assets/viverse-unity-sdk/` and adds three assemblies to you
 
 Every feature except the public avatar catalog requires an access token. `AuthManager` is a singleton MonoBehaviour that runs the OAuth flow for you.
 
+{% hint style="info" %}
+**Authentication best practice**
+
+Calling the VIVERSE login method immediately starts the sign-in flow. Before requesting login, check whether the player already has an authenticated session or access token.
+
+If the player is not signed in, provide feedback in your game UI and allow them to continue as a guest when authentication is not required for gameplay.
+
+Start the login flow when the player chooses to sign in or when they access a feature that requires authentication, such as cloud save, player profiles, or submitting a leaderboard score.
+
+After `Initialize`, read `IsLoggedIn` or `AccessToken`. Call `Login()` only when you are ready to start sign-in. In a WebGL build, `Login()` redirects the parent page.
+{% endhint %}
+
 1. Create an empty GameObject in your first scene and name it `[AuthManager]`.
 2. Add the `AuthManager` component to it.
 3. In your bootstrap script, initialize the manager with your App ID and subscribe to the login callbacks.
