@@ -22,7 +22,7 @@
 * [Login & Authentication SDK](javascript-login/README.md)
   * [PlayCanvas Login & Auth minimal example](javascript-login/playcanvas-login-and-auth-minimal-example.md)
   * [three.js Login & Auth minimal example](javascript-login/three.js-login-and-auth-minimal-example.md)
-* [Javascript ADS](javascrip-ads.md)
+* [Javascript ADS](javascript-ads.md)
 * [Avatar SDK](avatar-sdk.md)
 * [Leaderboard SDK](javascript-leaderboard/README.md)
   * [PlayCanvas Leaderboard minimal example](javascript-leaderboard/playcanvas-leaderboard-minimal-example.md)
