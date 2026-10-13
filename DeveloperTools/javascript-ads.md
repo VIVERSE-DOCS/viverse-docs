@@ -1,13 +1,12 @@
 ---
 description: >-
   Add mid-roll and rewarded ads to a JavaScript web game on VIVERSE with the
-  VIVERSE Ad SDK. Covers setup, cooldowns, pausing gameplay, and granting rewards.
+  VIVERSE Ad SDK. Covers setup, cooldowns, pausing gameplay, and granting
+  rewards.
 hidden: true
 ---
 
-# Quickstart: Add mid-roll and rewarded ads to a web game
-
-Use the VIVERSE Ad SDK to show mid-roll ads between levels and rewarded ads that players choose to watch. This page covers three.js, PlayCanvas, and other browser JavaScript games.
+# Javascript ADS
 
 ***
 
@@ -21,19 +20,19 @@ The VIVERSE Ad SDK runs only on the VIVERSE platform. Ads don't display when you
 
 You need:
 
-* A VIVERSE App ID for your game.
+* A [VIVERSE App ID](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/how-to-publish#option-2-create-an-experience-create-an-app-id) for your game.
 * A game you can publish to VIVERSE for testing.
 
 ## Ad formats on this page
 
 The SDK uses its own names for each format. Mid-roll ads are the Overlay and Video formats, and rewarded ads are the Reward Overlay and Reward Video formats.
 
-| Format | Type | Who starts it | Method |
-| --- | --- | --- | --- |
-| Overlay | Mid-roll, full-screen interstitial | Your game, between levels | `showOverlay()` |
-| Video | Mid-roll, video interstitial | Your game, between levels | `showVideo()` |
+| Format         | Type                                 | Who starts it             | Method                |
+| -------------- | ------------------------------------ | ------------------------- | --------------------- |
+| Overlay        | Mid-roll, full-screen interstitial   | Your game, between levels | `showOverlay()`       |
+| Video          | Mid-roll, video interstitial         | Your game, between levels | `showVideo()`         |
 | Reward Overlay | Rewarded, full-screen (mostly video) | The player, from a button | `showRewardOverlay()` |
-| Reward Video | Rewarded, video | The player, from a button | `showRewardVideo()` |
+| Reward Video   | Rewarded, video                      | The player, from a button | `showRewardVideo()`   |
 
 The SDK also supports banner ads, which this page doesn't cover.
 
@@ -100,11 +99,11 @@ try {
 
 Every format on this page covers the screen, so your game must stop while the ad plays. The SDK tells you when to pause and when to resume through callbacks.
 
-| Callback | What your game does |
-| --- | --- |
+| Callback       | What your game does                                                     |
+| -------------- | ----------------------------------------------------------------------- |
 | `onBreakStart` | Pause gameplay, animations, input, background music, and sound effects. |
-| `onBreakEnd` | Resume everything you paused. |
-| `onAdError` | Resume everything you paused, and let the game continue. |
+| `onBreakEnd`   | Resume everything you paused.                                           |
+| `onAdError`    | Resume everything you paused, and let the game continue.                |
 
 Resume in both `onBreakEnd` and `onAdError`. When no ad is available, the SDK calls `onAdError` instead of showing an ad, and `onAdError` can fire before `onBreakStart`. Make your pause and resume functions safe to call more than once.
 
@@ -254,12 +253,12 @@ Ads appear only when your game runs on VIVERSE. Publish a build to VIVERSE, then
 
 These are the fullscreen methods and callbacks this page uses. Call every method on `window.ViverseAdSDK` after `init()` resolves. Only one ad can show at a time.
 
-| Method | Callbacks | Returns |
-| --- | --- | --- |
-| `init({ appId })` | None. Returns a promise. | `Promise` |
-| `showOverlay(options)` | `onAdReady`, `onBreakStart`, `onBreakEnd`, `onAdError(error)` | `OverlayAd` |
-| `showVideo(options)` | `onBreakStart`, `onBreakEnd(skipped)`, `onAdError(error)` | `VideoAd` |
+| Method                       | Callbacks                                                                        | Returns           |
+| ---------------------------- | -------------------------------------------------------------------------------- | ----------------- |
+| `init({ appId })`            | None. Returns a promise.                                                         | `Promise`         |
+| `showOverlay(options)`       | `onAdReady`, `onBreakStart`, `onBreakEnd`, `onAdError(error)`                    | `OverlayAd`       |
+| `showVideo(options)`         | `onBreakStart`, `onBreakEnd(skipped)`, `onAdError(error)`                        | `VideoAd`         |
 | `showRewardOverlay(options)` | `onAdReady`, `onBreakStart`, `onRewardGranted`, `onBreakEnd`, `onAdError(error)` | `RewardOverlayAd` |
-| `showRewardVideo(options)` | `onBreakStart`, `onRewardGranted`, `onBreakEnd(skipped)`, `onAdError(error)` | `RewardVideoAd` |
+| `showRewardVideo(options)`   | `onBreakStart`, `onRewardGranted`, `onBreakEnd(skipped)`, `onAdError(error)`     | `RewardVideoAd`   |
 
 All callbacks are optional. `onAdReady` fires when the ad has loaded, just before it displays.

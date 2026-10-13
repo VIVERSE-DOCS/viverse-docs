@@ -5,9 +5,7 @@ description: >-
 hidden: true
 ---
 
-# Quickstart: Add mid-roll and rewarded ads to a Unity game
-
-Use the VIVERSE Ad SDK Unity package to show mid-roll ads between levels and rewarded ads that players choose to watch in a Unity WebGL game.
+# C# ADS
 
 ***
 
@@ -24,19 +22,19 @@ The VIVERSE Ad SDK runs only on the VIVERSE platform. In the Unity Editor, the p
 You need:
 
 * A Unity project with the **WebGL** build target.
-* A VIVERSE App ID for your game.
+* A [VIVERSE App ID ](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/how-to-publish#option-2-create-an-experience-create-an-app-id)for your game.
 * The VIVERSE Ad SDK Unity package, `VADK_v0.0.6.unitypackage`.
 
 ## Ad formats on this page
 
 The SDK uses its own names for each format. Mid-roll ads are the Overlay and Video formats, and rewarded ads are the Reward Overlay and Reward Video formats.
 
-| Format | Type | Who starts it | Method |
-| --- | --- | --- | --- |
-| Overlay | Mid-roll, full-screen interstitial | Your game, between levels | `ShowOverlayAsync()` |
-| Video | Mid-roll, video interstitial | Your game, between levels | `ShowVideoAsync()` |
+| Format         | Type                                 | Who starts it             | Method                     |
+| -------------- | ------------------------------------ | ------------------------- | -------------------------- |
+| Overlay        | Mid-roll, full-screen interstitial   | Your game, between levels | `ShowOverlayAsync()`       |
+| Video          | Mid-roll, video interstitial         | Your game, between levels | `ShowVideoAsync()`         |
 | Reward Overlay | Rewarded, full-screen (mostly video) | The player, from a button | `ShowRewardOverlayAsync()` |
-| Reward Video | Rewarded, video | The player, from a button | `ShowRewardVideoAsync()` |
+| Reward Video   | Rewarded, video                      | The player, from a button | `ShowRewardVideoAsync()`   |
 
 The package also includes `ViverseAdsBannerClient` for banner ads, which this page doesn't cover.
 
@@ -95,11 +93,11 @@ Check `ViverseAdsClient.Instance.IsInitialized` before each ad request, or subsc
 
 Every format on this page covers the screen, so your game must stop while the ad plays. `ViverseAdsFullscreenClient` raises events that tell you when to pause and when to resume.
 
-| Event | What your game does |
-| --- | --- |
+| Event          | What your game does                                                     |
+| -------------- | ----------------------------------------------------------------------- |
 | `OnBreakStart` | Pause gameplay, animations, input, background music, and sound effects. |
-| `OnBreakEnd` | Resume everything you paused. |
-| `OnError` | Resume everything you paused, and let the game continue. |
+| `OnBreakEnd`   | Resume everything you paused.                                           |
+| `OnError`      | Resume everything you paused, and let the game continue.                |
 
 Resume in both `OnBreakEnd` and `OnError`. When no ad is available, `OnError` fires instead of `OnBreakStart`. The task returned by each `Show...Async` method completes when the ad is ready or starts, not when it ends, so use the events to resume your game.
 
@@ -293,27 +291,27 @@ These are the members this page uses. All of them are in the `ViverseAdSDK` name
 
 ### ViverseAdsClient
 
-| Member | Description |
-| --- | --- |
-| `Instance` | The singleton component in your scene. |
+| Member                    | Description                                                   |
+| ------------------------- | ------------------------------------------------------------- |
+| `Instance`                | The singleton component in your scene.                        |
 | `InitAsync(string appId)` | Initializes the SDK. Returns `Task<bool>`: `true` on success. |
-| `IsInitialized` | `true` after `InitAsync` succeeds. |
-| `OnInitialized` | Raised when initialization succeeds. |
-| `OnInitializeFailed` | Raised with an error message when initialization fails. |
+| `IsInitialized`           | `true` after `InitAsync` succeeds.                            |
+| `OnInitialized`           | Raised when initialization succeeds.                          |
+| `OnInitializeFailed`      | Raised with an error message when initialization fails.       |
 
 ### ViverseAdsFullscreenClient
 
-| Member | Description |
-| --- | --- |
-| `Instance` | The singleton component in your scene. |
-| `ShowOverlayAsync()` | Requests an Overlay ad. Returns `Task<FullscreenAdHandle>`. |
-| `ShowVideoAsync()` | Requests a Video ad. Returns `Task<FullscreenAdHandle>`. |
-| `ShowRewardOverlayAsync()` | Requests a Reward Overlay ad. Returns `Task<FullscreenAdHandle>`. |
-| `ShowRewardVideoAsync()` | Requests a Reward Video ad. Returns `Task<FullscreenAdHandle>`. |
-| `OnReady(FullscreenAdHandle)` | Raised when the ad has loaded. |
-| `OnBreakStart(FullscreenAdHandle)` | Raised when the ad starts. Pause your game. |
-| `OnBreakEnd(FullscreenAdHandle, bool skipped)` | Raised when the ad ends. Resume your game. |
-| `OnRewardGranted(FullscreenAdHandle, float amount, string type)` | Raised when the player earns the reward. Grant it here. |
-| `OnError(FullscreenAdHandle, string message)` | Raised when the ad fails or isn't available. Resume your game. |
+| Member                                                           | Description                                                       |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Instance`                                                       | The singleton component in your scene.                            |
+| `ShowOverlayAsync()`                                             | Requests an Overlay ad. Returns `Task<FullscreenAdHandle>`.       |
+| `ShowVideoAsync()`                                               | Requests a Video ad. Returns `Task<FullscreenAdHandle>`.          |
+| `ShowRewardOverlayAsync()`                                       | Requests a Reward Overlay ad. Returns `Task<FullscreenAdHandle>`. |
+| `ShowRewardVideoAsync()`                                         | Requests a Reward Video ad. Returns `Task<FullscreenAdHandle>`.   |
+| `OnReady(FullscreenAdHandle)`                                    | Raised when the ad has loaded.                                    |
+| `OnBreakStart(FullscreenAdHandle)`                               | Raised when the ad starts. Pause your game.                       |
+| `OnBreakEnd(FullscreenAdHandle, bool skipped)`                   | Raised when the ad ends. Resume your game.                        |
+| `OnRewardGranted(FullscreenAdHandle, float amount, string type)` | Raised when the player earns the reward. Grant it here.           |
+| `OnError(FullscreenAdHandle, string message)`                    | Raised when the ad fails or isn't available. Resume your game.    |
 
 Each `Show...Async` task completes when the ad is ready or starts, and faults with an exception when the request fails. `FullscreenAdHandle` has a `RequestId` and a `Format` (`Overlay`, `Video`, `RewardOverlay`, or `RewardVideo`). Events fire for every request, so check `handle.Format` or `handle.RequestId` when you need to tell ads apart.
