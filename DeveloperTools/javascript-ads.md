@@ -3,6 +3,7 @@ description: >-
   Add mid-roll and rewarded ads to a JavaScript web game on VIVERSE with the
   VIVERSE Ad SDK. Covers setup, cooldowns, pausing gameplay, and granting
   rewards.
+hidden: true
 ---
 
 # Javascript ADS
