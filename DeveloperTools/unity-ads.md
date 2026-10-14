@@ -2,7 +2,6 @@
 description: >-
   Add mid-roll and rewarded ads to a Unity WebGL game on VIVERSE with the
   VIVERSE Ad SDK Unity package. Covers setup, cooldowns, pausing, and rewards.
-hidden: true
 ---
 
 # C# ADS
@@ -23,7 +22,7 @@ You need:
 
 * A Unity project with the **WebGL** build target.
 * A [VIVERSE App ID ](https://app.gitbook.com/s/4pMiThqqrBzfvP8uy5am/how-to-publish#option-2-create-an-experience-create-an-app-id)for your game.
-* The VIVERSE Ad SDK Unity package, `VADK_v0.0.6.unitypackage`.
+* The [VIVERSE Ad SDK Unity package](https://github.com/VIVERSE-DOCS/viverse-docs/blob/main/samples/VADK_stage_v0.0.6.unitypackage), `VADK_v0.0.6.unitypackage`.
 
 ## Ad formats on this page
 
