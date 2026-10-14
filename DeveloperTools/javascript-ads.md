@@ -27,12 +27,12 @@ You need:
 
 The SDK uses its own names for each format. Mid-roll ads are the Overlay and Video formats, and rewarded ads are the Reward Overlay and Reward Video formats.
 
-| Format         | Type                                 | Who starts it             | Method                |
-| -------------- | ------------------------------------ | ------------------------- | --------------------- |
-| Overlay        | Mid-roll, full-screen interstitial   | Your game, between levels | `showOverlay()`       |
-| Video          | Mid-roll, video interstitial         | Your game, between levels | `showVideo()`         |
-| Reward Overlay | Rewarded, full-screen (mostly video) | The player, from a button | `showRewardOverlay()` |
-| Reward Video   | Rewarded, video                      | The player, from a button | `showRewardVideo()`   |
+| Format         | Type                                              | Who starts it             | Method                |
+| -------------- | ------------------------------------------------- | ------------------------- | --------------------- |
+| Overlay        | Mid-roll, full-screen interstitial                | Your game, between levels | `showOverlay()`       |
+| Video          | Mid-roll, video interstitial                      | Your game, between levels | `showVideo()`         |
+| Reward Overlay | Rewarded, full-screen, 15s video, image, or image | The player, from a button | `showRewardOverlay()` |
+| Reward Video   | Rewarded, 60s video                               | The player, from a button | `showRewardVideo()`   |
 
 The SDK also supports banner ads, which this page doesn't cover.
 

@@ -29,12 +29,12 @@ You need:
 
 The SDK uses its own names for each format. Mid-roll ads are the Overlay and Video formats, and rewarded ads are the Reward Overlay and Reward Video formats.
 
-| Format         | Type                                 | Who starts it             | Method                     |
-| -------------- | ------------------------------------ | ------------------------- | -------------------------- |
-| Overlay        | Mid-roll, full-screen interstitial   | Your game, between levels | `ShowOverlayAsync()`       |
-| Video          | Mid-roll, video interstitial         | Your game, between levels | `ShowVideoAsync()`         |
-| Reward Overlay | Rewarded, full-screen (mostly video) | The player, from a button | `ShowRewardOverlayAsync()` |
-| Reward Video   | Rewarded, video                      | The player, from a button | `ShowRewardVideoAsync()`   |
+| Format         | Type                                             | Who starts it             | Method                     |
+| -------------- | ------------------------------------------------ | ------------------------- | -------------------------- |
+| Overlay        | Mid-roll, full-screen interstitial               | Your game, between levels | `ShowOverlayAsync()`       |
+| Video          | Mid-roll, video interstitial                     | Your game, between levels | `ShowVideoAsync()`         |
+| Reward Overlay | Rewarded, full-screen, 15s video, image, or text | The player, from a button | `ShowRewardOverlayAsync()` |
+| Reward Video   | Rewarded, 60s video                              | The player, from a button | `ShowRewardVideoAsync()`   |
 
 The package also includes `ViverseAdsBannerClient` for banner ads, which this page doesn't cover.
 
