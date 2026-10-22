@@ -1,0 +1,147 @@
+---
+description: >-
+  JavaScript login for PlayCanvas, three.js, and other browser JavaScript. For a
+  Unity game, use the current VIVERSE Unity SDK for C#. Do not use this
+  JavaScript SDK or a .jslib.
+---
+
+# Login & Authentication SDK
+
+***
+
+For a Unity game, use the current [VIVERSE Unity SDK](../../unity/viverse-unity-sdk.md) for C#. Do not use this JavaScript SDK or a `.jslib` for normal Unity authentication, cloud save, multiplayer, leaderboard, or avatar integration.
+
+This guide is for PlayCanvas, three.js, Wonderland Engine, and other browser JavaScript.
+
+> BEFORE GETTING STARTED:
+>
+> 1. An App ID needs to be created, either through the CLI or the VIVERSE Studio workflow. [See our docs](https://docs.viverse.com/publishing-with-your-viverse-account#select-create-new-world) for this information.
+> 2. Load the JavaScript SDK in a browser JavaScript project. Either target a specific version like [`https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/1.3.3/index.umd.cjs) or always target the latest version at [`https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs`](https://www.viverse.com/static-assets/viverse-sdk/index.umd.cjs)
+
+## Authentication & Authorization
+
+User login is required to check for user information like name, profile picture URL, and .vrm avatar URL.
+
+#### Step 1: **Initialize the Client**
+
+Before any authentication, initialize the SDK client in your application. A Unity game uses `AuthManager` in the [VIVERSE Unity SDK](../../unity/viverse-unity-sdk.md). Do not add a `.jslib` for this sample.
+
+```
+// Initialize a new client
+globalThis.viverseClient = new globalThis.viverse.client({
+    clientId: '{yourAppID}',
+    domain: 'account.htcvive.com', // HTC Account domain
+    cookieDomain: '{yourCookieDomain}', // Optional
+});
+```
+
+#### Step 2: Check for Existing Authentication
+
+Once the client is initialized, await its `checkAuth()` function to check for valid user credentials:
+
+<pre><code><strong>const result = await globalThis.viverseClient.checkAuth();
+</strong></code></pre>
+
+If the user is logged in, you'll get their authentication information in an object structured like so:
+
+```
+{
+    access_token: string; // The access token to be used in API requests
+    account_id: string; // The unique user account ID
+    expires_in: number; // Remaining token lifetime in seconds
+    state: string; // Optional custom state value from the original login
+}
+```
+
+If the user is not logged in, the result will come back `undefined`.
+
+{% hint style="info" %}
+**Authentication best practice**
+
+Calling the VIVERSE login method immediately starts the sign-in flow. Before requesting login, check whether the player already has an authenticated session or access token.
+
+If the player is not signed in, provide feedback in your game UI and allow them to continue as a guest when authentication is not required for gameplay.
+
+Start the login flow when the player chooses to sign in or when they access a feature that requires authentication, such as cloud save, player profiles, or submitting a leaderboard score.
+
+Call `checkAuth()` to read the session. It returns credentials, or `undefined` when the player is not signed in. Call `loginWithWorlds()` only when you are ready to start login. That call redirects the page and refreshes it.
+{% endhint %}
+
+#### Step 3: **Trigger Login via VIVERSE Worlds**
+
+If login is required for your experience, an automated login and single sign-on (SSO) workflow is available. To request it, this method can be called, which will forward the user through this login flow within the iframe:
+
+```
+globalThis.viverseClient.loginWithWorlds()
+```
+
+**Step 4: Handle the session on page load**
+
+`loginWithWorlds()` refreshes the page. On load, initialize the client again and call `checkAuth()`. Update your UI from the result. Call `loginWithWorlds()` from a control the player activates, such as a sign-in button.
+
+```javascript
+// this callback will run when the iframe is refreshed
+window.addEventListener('load', async () => {
+    // reinitialize
+    globalThis.viverseClient = new globalThis.viverse.client({
+        clientId: '{yourAppID}',
+        domain: 'account.htcvive.com', // HTC Account domain
+        cookieDomain: '{yourCookieDomain}', // Optional
+    });
+    // check login status again
+    const result = await globalThis.viverseClient.checkAuth();
+
+    if (result === undefined) {
+        // The player is not signed in. Update your UI.
+    }
+    else {
+        // `result` contains credentials to make authorized requests
+    }
+
+    const signInButton = document.getElementById('sign-in');
+    if (signInButton) {
+        signInButton.addEventListener('click', () => {
+            globalThis.viverseClient.loginWithWorlds();
+        });
+    }
+});
+```
+
+If `result` has valid authorization credentials, you can then utilize features like the [Avatar SDK](../avatar-sdk.md), Leaderboard SDK and Matchmaking SDK.
+
+## API Reference
+
+### `new viverse.client(options)`
+
+Initializes a new VIVERSE client instance.
+
+| Parameter        | Type     | Description                                                      | Required |
+| ---------------- | -------- | ---------------------------------------------------------------- | -------- |
+| `options`        | `object` | An object containing configuration for the client.               | Yes      |
+| ↳ `clientId`     | `string` | Your App ID obtained from VIVERSE Studio.                        | Yes      |
+| ↳ `domain`       | `string` | The authentication domain. This should be `account.htcvive.com`. | Yes      |
+| ↳ `cookieDomain` | `string` | The domain on which the cookie will be set for authentication.   | No       |
+
+### `checkAuth()`
+
+Checks if the user is currently authenticated. Returns a `Promise` that resolves with the authentication object if successful, or `undefined` if not.
+
+**Returns:** `Promise<object | undefined>`
+
+The resolved object will have the following properties:
+
+| Property       | Type     | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| `access_token` | `string` | The access token to be used in API requests.         |
+| `account_id`   | `string` | The unique user account ID.                          |
+| `expires_in`   | `number` | Remaining token lifetime in seconds.                 |
+| `state`        | `string` | Optional custom state value from the original login. |
+
+### `loginWithWorlds(options)`
+
+Redirects the user to the VIVERSE Worlds login page to authenticate. This is used for Single Sign-On (SSO). After login, the page will be refreshed.
+
+| Parameter | Type     | Description                                                                                                                         | Required |
+| --------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `options` | `object` | An object containing configuration for the client.                                                                                  | No       |
+| ↳ `state` | `string` | A customize value. If this parameter is set in the request, then it is returned to the application as part of the redirection\_url. | No       |
