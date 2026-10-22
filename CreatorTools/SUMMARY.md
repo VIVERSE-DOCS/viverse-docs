@@ -28,6 +28,7 @@
 ## PlayCanvas Toolkit
 
 * [Toolkit Setup](playcanvas-toolkit/toolkit-setup.md)
+* [Publish from the PlayCanvas Editor](playcanvas-toolkit/publish-from-playcanvas-editor.md)
 * [Building with PlayCanvas Toolkit](playcanvas-toolkit/building-with-playcanvas-toolkit/README.md)
   * [Sample Project](playcanvas-toolkit/building-with-playcanvas-toolkit/sample-project.md)
   * [Triggers](playcanvas-toolkit/building-with-playcanvas-toolkit/triggers.md)
