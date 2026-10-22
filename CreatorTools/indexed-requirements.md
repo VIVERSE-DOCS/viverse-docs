@@ -12,7 +12,7 @@ To move from staging to indexed, your content must pass a review of four areas: 
 ***
 
 {% hint style="info" %}
-Indexed review usually takes 24 to 72 hours. Every update to indexed or curated content goes through this same review before it goes live. For an overview of all three content states, see [How content review works on VIVERSE](README.md).
+Indexed review usually takes 24 to 72 hours. Every update to indexed or curated content goes through this same review before it goes live. For an overview of all three content states, see [How content review works on VIVERSE](content-review.md).
 {% endhint %}
 
 ## Requirements at a glance
@@ -21,14 +21,14 @@ Your content must meet all four requirements on every device type you declare in
 
 | Area | Requirement |
 | --- | --- |
-| Performance | Average frame rate of at least 24 FPS on the minimum-spec reference device for each device type you declare |
+| Performance | Average frame rate of at least 24 FPS (60 FPS for XR) on the minimum-spec reference device for each device type you declare, and interactive within 30 seconds |
 | Bugs | No unresolved P0 or P1 issues |
 | Security | No malware or prohibited technical behavior |
 | Content policy | No prohibited content, and an accurate age rating |
 
 ## Performance
 
-VIVERSE plays representative parts of your content on the reference devices below and measures the average frame rate over a continuous session. The indexed floor is an average of **24 FPS** on the minimum-spec device for each device type you declare.
+VIVERSE plays representative parts of your content on the reference devices below and measures the average frame rate over a continuous session. The indexed floor is an average of **24 FPS** on the minimum-spec device for each desktop and mobile device type you declare, and **60 FPS** in XR on the Meta Quest 3. For how these metrics are measured, see [Optimization Recommendations and Requirements](https://docs.viverse.com/optimization/optimization-recommendations-and-requirements#optimization-requirements-for-viverse).
 
 | Device type | Reference device | OS and browsers | Input |
 | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ VIVERSE plays representative parts of your content on the reference devices belo
 
 Meeting the average isn't enough on its own. Sustained drops, severe stutter, input lag, or overheating that break the experience can still fail review.
 
-Your content must also load. A persistent blank screen or a loading state that never finishes is a P0 issue. Show a loading indicator when loading takes longer than three seconds.
+Your content must also load quickly. It must become interactive within **30 seconds** on a 50 Mbps connection with a cold cache, and show a loading indicator within three seconds. A persistent blank screen or a loading state that never finishes is a P0 issue.
 
 ### When some devices fail
 
@@ -114,10 +114,11 @@ Some requirements can't be fully tested during review, but you're responsible fo
 
 Check each item below before you select **Submit for Review**. Testing in staging on your declared devices catches most issues before VIVERSE does.
 
-* Your content averages at least 24 FPS on the minimum-spec device for each device type you declare.
+* Your content averages at least 24 FPS (60 FPS in XR) on the minimum-spec device for each device type you declare.
+* Your content becomes interactive within 30 seconds on a 50 Mbps connection.
 * There are no crashes, endless loading screens, or blocked core interactions on any declared device.
 * Your content, title, description, and thumbnails follow the content policy.
 * Your age rating is accurate.
 * All assets are yours or properly licensed.
-* You selected the [iframe permissions](README.md#iframe-permissions) your content needs, such as camera or pointer lock.
+* You selected the [iframe permissions](content-review.md#iframe-permissions) your content needs, such as camera or pointer lock.
 * If your content requires sign-in, you provided test credentials and instructions.
