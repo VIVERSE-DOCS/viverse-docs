@@ -112,7 +112,14 @@ Before proceeding any further, we assume you're familiar with the basics of Play
 {% endstep %}
 
 {% step %}
-### Export and Upload
+### Upload to Studio
+
+* When you are ready to upload, create a new new build in **Publish and Download**
+* Select **Publish to VIVERSE** and upload your build file. You will receive a url for testing and may complete publishing in studio.viverse.com
+{% endstep %}
+
+{% step %}
+### \[Alternative] Export and Upload
 
 * When you are ready to upload, you must first create a new build in PlayCanvas. This can be completed in **Publish and Download** in the left-hand toolbar.
 * Once you have generated a build, **download its .zip file**.

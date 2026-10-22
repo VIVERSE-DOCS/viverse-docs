@@ -5,17 +5,11 @@ description: >-
 hidden: true
 ---
 
-# Publish to VIVERSE from the PlayCanvas Editor
+# Publish from the PlayCanvas Editor
 
 The VIVERSE PlayCanvas Toolkit can publish your project to VIVERSE from inside the PlayCanvas Editor. This page shows how to initialize a project, test it locally, and publish it without downloading and re-uploading a build.
 
 ***
-
-{% hint style="danger" %}
-**Draft: not yet verified against Toolkit v4.2.1.** The steps in [Publish from the Editor](#publish-from-the-editor) are reconstructed from an earlier version of this guide. Confirm each button name and screen before you remove this notice and unhide the page.
-{% endhint %}
-
-## Before you start
 
 You need:
 
