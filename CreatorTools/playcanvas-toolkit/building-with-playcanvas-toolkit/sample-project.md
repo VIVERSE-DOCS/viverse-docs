@@ -1,7 +1,0 @@
----
-hidden: true
----
-
-# Sample Project
-
-***
