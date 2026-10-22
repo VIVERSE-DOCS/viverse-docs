@@ -7,6 +7,9 @@
 * [VIVERSE Studio](publishing-with-your-viverse-account.md)
 * [Sharing Content](sharing-content.md)
 * [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md)
+* [Content Review and Curation](content-review.md)
+  * [Requirements For Indexed Content](indexed-requirements.md)
+  * [How To Have Your Content Curated](curation.md)
 
 ## STANDALONE APP PUBLISHING
 
