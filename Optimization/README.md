@@ -60,7 +60,7 @@ An overview of why developers should build for the web, how optimizing experienc
 
 <h3 align="center"><span data-gb-custom-inline data-tag="emoji" data-code="1f91d">🤝</span> The same standards for everyone <span data-gb-custom-inline data-tag="emoji" data-code="1f91d">🤝</span></h3>
 
-<p align="center">APIs and technologies like <a href="https://registry.khronos.org/webgl/specs/latest/2.0/">WebGL</a>, <a href="https://www.w3.org/TR/webgpu/">WebGPU</a>, <a href="https://www.w3.org/TR/webxr/">WebXR</a>, <a href="https://www.w3.org/groups/wg/wasm/">WebAssembly</a> (WASM), <a href="https://www.w3.org/Style/CSS/">CSS</a>, and JavaScript are stewarded by mature standards bodies and implemented across major web browsers. There is no store gatekeeping compared to native platforms.</p>
+<p align="center">APIs and technologies like <a href="https://registry.khronos.org/webgl/specs/latest/2.0/">WebGL</a>, <a href="https://www.w3.org/TR/webgpu/">WebGPU</a>, <a href="https://www.w3.org/TR/webxr/">WebXR</a>, <a href="https://www.w3.org/groups/wg/wasm/">WebAssembly</a> (WASM), <a href="https://www.w3.org/Style/CSS/">CSS</a>, and JavaScript are stewarded by mature standards bodies and implemented across major web browsers. Players don't need to install anything from an app store, and VIVERSE's review for public listing usually takes 24 to 72 hours.</p>
 
 <h3 align="center"><span data-gb-custom-inline data-tag="emoji" data-code="1fab6">🪶</span> No download required <span data-gb-custom-inline data-tag="emoji" data-code="1fab6">🪶</span></h3>
 
@@ -165,5 +165,7 @@ There are numerous feature-packed 3D rendering engines for the web, like [PlayCa
 ***
 
 ## Selected Optimized VIVERSE Experiences
+
+These experiences show what strong optimization looks like on VIVERSE. To learn what VIVERSE looks for when curating content, see [How to get your content curated](https://docs.viverse.com/curation).
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="image">Cover image</th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Horizon Chaser</td><td>Impressive graphics and smooth performance</td><td><a href=".gitbook/assets/horizon-chaser.png">horizon-chaser.png</a></td><td><a href="https://worlds.viverse.com/TAJTZdc">https://worlds.viverse.com/TAJTZdc</a></td></tr><tr><td>Pet Rescue</td><td>A highly detailed world with intuitive controls on multiple devices.</td><td><a href=".gitbook/assets/pet-rescue.png">pet-rescue.png</a></td><td><a href="https://worlds.viverse.com/MMuLWbE">https://worlds.viverse.com/MMuLWbE</a></td></tr><tr><td>To the Limbs</td><td>An interactive music video that loads a large and immersive world.</td><td><a href=".gitbook/assets/to-the-limbs.png">to-the-limbs.png</a></td><td><a href="https://worlds.viverse.com/jtrJ9az">https://worlds.viverse.com/jtrJ9az</a></td></tr><tr><td>Alfi's Adventures</td><td>Fine-tuned performance across mobile and desktop platforms.</td><td><a href=".gitbook/assets/alfis-adventures.png">alfis-adventures.png</a></td><td><a href="https://worlds.viverse.com/EcxNxwe">https://worlds.viverse.com/EcxNxwe</a></td></tr></tbody></table>

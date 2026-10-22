@@ -154,7 +154,7 @@ In addition to the large ArrayBuffer allocation, we also see a large number of V
 
 <figure><img src=".gitbook/assets/Screenshot 2025-08-25 at 1.01.44 PM.png" alt=""><figcaption></figcaption></figure>
 
-Most of these Vector3 objects are in use by the engine, but some of them correspond to temporary variables created in a loop in our experience logic. These temporary variables should ideally be reused, as described in [Broken link](/broken/pages/NpscNyh56zBBMYfQktEy#reusing-objects-to-reduce-memory-usage "mention").
+Most of these Vector3 objects are in use by the engine, but some of them correspond to temporary variables created in a loop in our experience logic. These temporary variables should ideally be reused, as described in [Reusing Objects to Reduce Memory Usage](challenges-and-optimization-strategies.md#reusing-objects-to-reduce-memory-usage).
 {% endtab %}
 
 {% tab title="Loading Time" %}

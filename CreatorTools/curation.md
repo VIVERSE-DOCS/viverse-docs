@@ -35,7 +35,7 @@ Reviewers play your content on the reference devices and evaluate the areas belo
 
 | Area | What reviewers look for |
 | --- | --- |
-| Optimization | An average of at least 45 FPS on the reference devices for each device type you declare, and fast loading |
+| Optimization | At least 45 FPS (72 FPS in XR) on the reference devices for each device type you declare, and interactive within 15 seconds |
 | Tags | Your content matches the tags you set in VIVERSE Studio |
 | Bugs and UX | Largely bug free, with clear controls, instructions, and error messages |
 | Accessibility | Readable text, good contrast, and no unwarned flashing effects |
@@ -43,7 +43,13 @@ Reviewers play your content on the reference devices and evaluate the areas belo
 
 ### Optimization
 
-The curation bar is an average of **45 FPS**, compared with 24 FPS for indexing. Reviewers measure it on the same [reference devices](indexed-requirements.md#performance) used for indexed review. Reviewers also look for fast loading. Optimize compression, bundle size, texture resolution, and asset streaming so players reach gameplay quickly.
+Reviewers measure optimization on every [reference device](indexed-requirements.md#performance) for each device type you declare. To be considered for curation, your content needs:
+
+* An average of **45 FPS** on desktop and mobile, or **72 FPS** in XR.
+* A 5th percentile frame rate of at least **30 FPS** on desktop and mobile, or **45 FPS** in XR, so play feels stable without stutter.
+* Time to interactive of **15 seconds** or less on a 50 Mbps connection.
+
+Optimize compression, bundle size, texture resolution, and asset streaming so players reach gameplay quickly. For definitions and profiling help, see [Optimization Recommendations and Requirements](https://docs.viverse.com/optimization/optimization-recommendations-and-requirements#optimization-requirements-for-viverse).
 
 ### Tags
 
@@ -74,7 +80,7 @@ Reviewers consider it a plus when your content uses the VIVERSE login and storag
 
 You don't need to request a curation review. The VIVERSE team reviews indexed content for curation, and a review usually takes 1 to 3 weeks.
 
-Before then, play your indexed content on your declared devices and compare it with the criteria on this page, especially the 45 FPS optimization bar.
+Before then, play your indexed content on your declared devices and compare it with the criteria on this page, especially the optimization bar.
 
 If you haven't heard from us and want to ask about your content, [open a support ticket](https://support.viverse.com/hc/en-us/requests/new?ticket_form_id=7051418762381). Include the name of your content and a link to it on VIVERSE.
 

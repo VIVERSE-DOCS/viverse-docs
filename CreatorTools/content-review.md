@@ -36,8 +36,8 @@ Staging is where you test your content on VIVERSE before anyone else can find it
 In staging, your content is available to:
 
 * The VIVERSE account that uploaded it.
-* VIVERSE accounts you add as collaborators. Collaborators can open the content and contribute to it. To add them, see the co-owners setting in [Configure SDK and Access](../how-to-publish.md#configure-sdk-and-access).
-* Anyone you send a share link. Use **Guest Preview** in VIVERSE Studio to create a link that lasts 15 minutes, and create a new one each time you send a build to a tester. See **View and Test using a Preview** in [iFraming Your Project on VIVERSE](../iframing-your-project-on-viverse.md).
+* VIVERSE accounts you add as collaborators. Collaborators can open the content and contribute to it. To add them, see the co-owners setting in [Configure SDK and Access](how-to-publish.md#configure-sdk-and-access).
+* Anyone you send a share link. Use **Guest Preview** in VIVERSE Studio to create a link that lasts 15 minutes, and create a new one each time you send a build to a tester. See **View and Test using a Preview** in [iFraming Your Project on VIVERSE](iframing-your-project-on-viverse.md).
 
 Staging content doesn't appear in VIVERSE discovery. Staging doesn't involve review by a member of the VIVERSE content or QA team. Our automated system runs a basic malware scan on every upload, which usually takes a few minutes.
 
@@ -47,7 +47,7 @@ Indexed content is public on VIVERSE and appears in basic discovery, such as the
 
 The indexed review checks four things: performance on minimum-spec devices, experience-breaking bugs, malware, and compliance with VIVERSE content policies, including an accurate age rating. It usually takes 24 to 72 hours. For the full list and test conditions, see [Requirements for indexed content](indexed-requirements.md).
 
-Indexed content is public. You can set it to private or unlisted in VIVERSE Studio at any time, which removes it from basic discovery. See [Content Management](../publishing-with-your-viverse-account.md) in the VIVERSE Studio guide.
+Indexed content is public. You can set it to private or unlisted in VIVERSE Studio at any time, which removes it from basic discovery. See [Content Management](publishing-with-your-viverse-account.md) in the VIVERSE Studio guide.
 
 ## Curated
 
@@ -74,7 +74,7 @@ These are two separate things. iframe permissions are about features your conten
 
 ### iframe permissions
 
-VIVERSE shows your content inside an iframe on its own pages. Some browser features, such as `xr-spatial-tracking`, `camera`, and pointer lock, need permission to work inside that iframe. You select these permissions in **Content headers & permissions** when you publish, and confirm them when you **Submit for Review**. For the full list, see [Set Language, Audience, and Permissions](../how-to-publish.md#set-language-audience-and-permissions). To test them in staging, use the **iframe Support for Preview** menu in VIVERSE Studio. See [VIVERSE Studio](../publishing-with-your-viverse-account.md) for details.
+VIVERSE shows your content inside an iframe on its own pages. Some browser features, such as `xr-spatial-tracking`, `camera`, and pointer lock, need permission to work inside that iframe. You select these permissions in **Content headers & permissions** when you publish, and confirm them when you **Submit for Review**. For the full list, see [Set Language, Audience, and Permissions](how-to-publish.md#set-language-audience-and-permissions). To test them in staging, use the **iframe Support for Preview** menu in VIVERSE Studio. See [VIVERSE Studio](publishing-with-your-viverse-account.md) for details.
 
 ### Embedding on external domains
 
