@@ -1,0 +1,48 @@
+# Table of contents
+
+* [Introduction to Developer Tools](README.md)
+* [VIVERSE login](login-and-authentication-for-the-sdk.md)
+* [VIVERSE cloud save](storage-sdk.md)
+* [VIVERSE leaderboards](leaderboard-sdk.md)
+
+## Unity
+
+* [VIVERSE Unity SDK](unity/viverse-unity-sdk.md)
+* [Unity login](unity/unity-login-routing.md)
+* [Unity cloud save](unity/unity-storage-routing.md)
+* [Unity leaderboards](unity/unity-leaderboard-routing.md)
+* [C# ADS](unity/unity-ads.md)
+* [Legacy Unity SDK (v0.96)](unity/legacy-unity-sdk/README.md)
+  * [Unity Cloud Save example — legacy](unity/legacy-unity-sdk/unity-cloud-minimal-example.md "Cloud Save (v0.96)")
+  * [Unity Login example — legacy](unity/legacy-unity-sdk/unity-login-and-authentication-minimal-example.md "Authentication (v0.96)")
+  * [Unity Leaderboard example — legacy](unity/legacy-unity-sdk/unity-leaderboard-minimal-example.md "Leaderboards (v0.96)")
+
+## JavaScript
+
+* [Login & Authentication SDK](javascript/javascript-login/README.md)
+  * [PlayCanvas Login & Auth minimal example](javascript/javascript-login/playcanvas-login-and-auth-minimal-example.md)
+  * [three.js Login & Auth minimal example](javascript/javascript-login/three.js-login-and-auth-minimal-example.md)
+* [Javascript ADS](javascript/javascript-ads.md)
+* [Avatar SDK](javascript/avatar-sdk.md)
+* [Leaderboard SDK](javascript/javascript-leaderboard/README.md)
+  * [PlayCanvas Leaderboard minimal example](javascript/javascript-leaderboard/playcanvas-leaderboard-minimal-example.md)
+* [Matchmaking & Networking SDK](javascript/matchmaking-and-networking-sdk/README.md)
+  * [PlayCanvas Matchmaking example: Part 01 - Basics](javascript/matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-01-basics.md)
+  * [PlayCanvas Matchmaking example: Part 02 - Advanced](javascript/matchmaking-and-networking-sdk/playcanvas-matchmaking-example-part-02-advanced.md)
+  * [PlayCanvas Networking example: Part 01 - Basics](javascript/matchmaking-and-networking-sdk/playcanvas-networking-example-part-01-basics.md)
+  * [PlayCanvas Networking example: Part 02 - Advanced](javascript/matchmaking-and-networking-sdk/playcanvas-networking-example-part-02-advanced.md)
+  * [Artefact Hunt: Building multiplayer game with Viverse Play SDK](javascript/matchmaking-and-networking-sdk/artefact-hunt-building-multiplayer-game-with-viverse-play-sdk.md)
+* [Storage SDK](javascript/javascript-storage/README.md)
+  * [PlayCanvas Storage minimal example](javascript/javascript-storage/playcanvas-storage-minimal-example.md)
+  * [three.js Storage minimal example](javascript/javascript-storage/three.js-storage-minimal-example.md)
+* [Change Log](javascript/changelog/README.md)
+  * [November 2025](javascript/changelog/2025-11/README.md)
+    * [v1.3.3 - November 20](javascript/changelog/2025-11/v1.3.3.md)
+  * [September 2025](javascript/changelog/2025-09/README.md)
+    * [v1.3.2 - September 3](javascript/changelog/2025-09/v1.3.2.md)
+  * [August 2025](javascript/changelog/2025-08/README.md)
+    * [v1.3.1 - August 18](javascript/changelog/2025-08/v1.3.1.md)
+    * [v1.3.0 - August 4](javascript/changelog/2025-08/v1.3.0.md)
+  * [May 2025](javascript/changelog/2025-05/README.md)
+    * [v1.2.9](javascript/changelog/2025-05/v1.2.9.md)
+    * [v1.2.8](javascript/changelog/2025-05/v1.2.8.md)
