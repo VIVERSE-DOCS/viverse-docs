@@ -317,7 +317,7 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 #### Create Fullscreen Template Folder
 
 1. Right-click on `WebGLTemplates` → Create → Folder
-2. Name it `Fullscreen` (this will be the template name visible in Build Settings)
+2. Name it `FullScreen` (this will be the template name visible in Build Settings)
 3. Unity will automatically detect this folder as a WebGL template
 {% endstep %}
 {% endstepper %}
@@ -328,7 +328,7 @@ In Unity, open your project and navigate to the `Assets` folder in the Project w
 {% step %}
 #### Create index.html File
 
-1. Right-click on the `Fullscreen` folder → Show in Explorer (Windows) or Reveal in Finder (Mac)
+1. Right-click on the `FullScreen` folder → Show in Explorer (Windows) or Reveal in Finder (Mac)
 2. Create a new text file named `index.html` (not `index.html.txt`)
 3. This file will serve as the main HTML template for your WebGL build
 {% endstep %}
@@ -551,7 +551,7 @@ Open `index.html` and add the following fullscreen template code:
 #### Refresh Unity Project
 
 1. Return to Unity Editor
-2. The `index.html` file should appear in the Project window under `Assets/WebGLTemplates/Fullscreen/`
+2. The `index.html` file should appear in the Project window under `Assets/WebGLTemplates/FullScreen/`
 3. If not visible, right-click in Project window → Refresh, or press `Ctrl+R` (Windows) / `Cmd+R` (Mac)
 {% endstep %}
 {% endstepper %}
@@ -575,7 +575,7 @@ All elements are centered on screen using CSS transforms.
 {% step %}
 #### Replace Default Loading Images
 
-1. In the `Fullscreen` folder, replace the default Unity loading images with your custom assets:
+1. In the `FullScreen` folder, replace the default Unity loading images with your custom assets:
    * `unity-logo-dark.png` (154×130px recommended) - Your logo/branding
    * `progress-bar-empty-dark.png` (141×18px) - Progress bar background
    * `progress-bar-full-dark.png` (141×18px) - Progress bar fill image
@@ -658,7 +658,7 @@ Enhance the loading screen with CSS animations. Add to the `<style>` section:
 
 1. Click `Player Settings...` (or go to `Edit → Project Settings → Player`)
 2. In the Player Settings window, expand the `Publishing Settings` section
-3. Under `WebGL Template`, select `Fullscreen` from the dropdown
+3. Under `WebGL Template`, select `FullScreen` from the dropdown
 4. The template you created should now be available in this list
 {% endstep %}
 
